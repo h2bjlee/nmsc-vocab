@@ -1,0 +1,34 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q12. GK-5가 GK-2A 대비 잃는 변수 / 얻는 변수
+#    차세대 기획 검토용. 실행 결과는 각각 FAPAR 1건, Radiation Dose Rate 1건이다.
+SELECT ?변수 ?상태
+WHERE {
+  {
+    ?c nmsc:capabilityOf ?i ; nmsc:observesVariable ?v . ?i nmsc:carriedBy sat:gk-2a .
+    FILTER NOT EXISTS { ?c2 nmsc:capabilityOf ?i2 ; nmsc:observesVariable ?v .
+                        ?i2 nmsc:carriedBy sat:gk-5 }
+    BIND("GK-5에서 빠짐" AS ?상태)
+  } UNION {
+    ?c nmsc:capabilityOf ?i ; nmsc:observesVariable ?v . ?i nmsc:carriedBy sat:gk-5 .
+    FILTER NOT EXISTS { ?c2 nmsc:capabilityOf ?i2 ; nmsc:observesVariable ?v .
+                        ?i2 nmsc:carriedBy sat:gk-2a }
+    BIND("GK-5에서 추가" AS ?상태)
+  }
+  ?v skos:prefLabel ?변수 . FILTER(lang(?변수) = "ko")
+}

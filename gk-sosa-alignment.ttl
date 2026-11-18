@@ -22,7 +22,7 @@
     dct:source <http://www.w3.org/ns/sosa/> , <http://www.w3.org/ns/ssn/> , <http://www.w3.org/ns/ssn/systems/> ;
     dct:license <https://www.kogl.or.kr/info/licenseType1.do> ;
     owl:imports <https://w3id.org/nmsc/> , <http://www.w3.org/ns/ssn/> ;
-    rdfs:comment "SOSA·SSN 용어는 2026-11-11 w3.org/ns 에서 받은 원본과 대조했다(src/sosa_terms_2017.txt). 관련도·관측 한계·운용 기간·개발 분담은 SOSA/SSN 에 같은 뜻의 용어가 없어 본 어휘의 것을 그대로 쓴다."@ko .
+    rdfs:comment "SOSA·SSN 용어는 2026-11-11 w3.org/ns 에서 받은 원본과 대조했다(src/sosa_terms_2017.txt). 관련도·관측 한계·운용 기간·개발 분담은 SOSA/SSN 에 같은 뜻의 용어가 없어 본 어휘의 것을 그대로 쓴다."@ko , "The SOSA and SSN terms were checked against the originals retrieved from w3.org/ns on 2026-11-11 (src/sosa_terms_2017.txt). Relevance, observing limitations, operation periods and development responsibilities have no terms with the same meaning in SOSA/SSN, so this vocabulary's own terms are used as they are."@en .
 
 # nmsc:Deployment subClassOf ssn:Deployment — ssn:Deployment "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform." 우리 운용 노드는 위성 1기에 탑재체 1기를 실은 경우라 그 특수한 경우다. 기간·상태는 SSN 에 대응 속성이 없어 우리 속성으로 남긴다
 nmsc:Deployment rdfs:subClassOf ssn:Deployment .

@@ -1,0 +1,26 @@
+PREFIX nmsc: <https://w3id.org/nmsc/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+# ── Q42. 산출물 분류 v2 의 세 축 — 값마다 사용 중 산출물·표출물 수 (K1, status 128 — 원천 src/product_category_assign.tsv)
+#    축 = 물리 대상 그룹(nmsc:productCategory, 산출물마다 하나)·관련 현상(nmsc:relatedPhenomenon)·활용 분야(nmsc:applicationArea).
+#    값 개념은 스킴에서 모두 나열한다 — 아무도 쓰지 않는 값도 0 으로 나온다. 폐기된 산출물은 세지 않는다(SHACL 이 축을 막는다).
+SELECT ?축 ?값 ?라벨 (COUNT(DISTINCT ?p) AS ?산출물) (COUNT(DISTINCT ?d) AS ?표출물)
+WHERE {
+  VALUES (?축 ?scheme ?prop) {
+    ("1 물리 대상 그룹" <https://w3id.org/nmsc/scheme/product-category>    nmsc:productCategory)
+    ("2 관련 현상"      <https://w3id.org/nmsc/scheme/product-phenomenon>  nmsc:relatedPhenomenon)
+    ("3 활용 분야"      <https://w3id.org/nmsc/scheme/product-application> nmsc:applicationArea)
+  }
+  ?v skos:inScheme ?scheme ;
+     skos:prefLabel ?l .
+  FILTER(LANG(?l) = "ko")
+  FILTER NOT EXISTS { ?v owl:deprecated true }
+  OPTIONAL { ?p ?prop ?v ; skos:inScheme <https://w3id.org/nmsc/scheme/product> .
+             FILTER NOT EXISTS { ?p owl:deprecated true } }
+  OPTIONAL { ?d ?prop ?v ; skos:inScheme <https://w3id.org/nmsc/scheme/display-product> . }
+  BIND(REPLACE(STR(?v), "^.*/", "") AS ?값)
+  BIND(STR(?l) AS ?라벨)
+}
+GROUP BY ?축 ?값 ?라벨
+ORDER BY ?축 ?값

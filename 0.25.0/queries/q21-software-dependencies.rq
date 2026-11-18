@@ -1,0 +1,24 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q21. 소프트웨어 의존성 (SPDX core:Relationship 을 그대로 읽는다)
+SELECT ?상위 ?의존 ?관계
+WHERE {
+  ?r a spdxc:Relationship ;
+     spdxc:from ?f ; spdxc:to ?t ; spdxc:relationshipType ?관계 .
+  ?f rdfs:label ?상위 . ?t rdfs:label ?의존 .
+}

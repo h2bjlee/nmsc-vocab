@@ -1,0 +1,30 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q14. 1차 임무 목표인데 관련도가 낮은 조합 (데이터 품질 점검)
+#    OSCAR 템플릿의 모순을 찾아낸다. KSEM/PD 처럼 1차 목표가
+#    '5 - marginal' 로 되어 있는 사례가 걸린다.
+SELECT ?탑재체 ?변수 ?등급
+WHERE {
+  ?c nmsc:isPrimaryObjective true ;
+     nmsc:capabilityOf ?i ; nmsc:observesVariable ?v ; nmsc:hasRelevancy ?r .
+  ?r nmsc:relevancyRank ?순위 ; skos:prefLabel ?등급 . FILTER(lang(?등급) = "ko")
+  FILTER(?순위 >= 4)
+  ?i skos:prefLabel ?탑재체 . FILTER(lang(?탑재체) = "en")
+  ?v skos:prefLabel ?변수 . FILTER(lang(?변수) = "en")
+}
+ORDER BY DESC(?순위)

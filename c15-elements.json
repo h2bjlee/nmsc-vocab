@@ -1,6 +1,6 @@
 {
  "format": "satsem-c15-elements",
- "version": "0.24.0",
+ "version": "0.25.0",
  "date": "2026-11-15",
  "base_iri": "https://w3id.org/nmsc/",
  "design": "docs/c15-stage2-design.md §6·§7",
