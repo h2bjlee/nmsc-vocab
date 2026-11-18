@@ -1,0 +1,30 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q16. AMI 자료를 처리하는 계통에 무엇이 깔려 있나  ★ 두 축의 접합
+#    위성 축(탑재체)과 지상국 축(자산·소프트웨어)이 한 질의에서 만난다.
+#    v0.3까지는 이 질문 자체가 성립하지 않았다.
+SELECT ?자산 ?소프트웨어 ?purl ?설치일
+WHERE {
+  ?a nmsc:processesDataFrom ins:ami ; rdfs:label ?자산 .
+  ?i nmsc:installedOn ?a ;
+     nmsc:installedPackage ?p ;
+     nmsc:installStart ?설치일 ;
+     nmsc:lifecycleStatus "active"@en .
+  ?p rdfs:label ?소프트웨어 ; spdxs:packageUrl ?purl .
+}
+ORDER BY ?설치일

@@ -1,0 +1,21 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+
+# ── Q30. GK 위성·탑재체의 외부 식별자 표 (v0.14, docs/gk-identifiers.md)
+#    MyGiver 등이 캐시한 OSCAR 숫자 id·WMO CCT C-5/C-8 코드·NORAD 번호·COSPAR 지정자와 맞춰 볼 때 쓴다.
+#    위성·탑재체 스킴의 개념을 모두 보이고 값이 없으면 빈칸이다(값이 없는 개념은 비운다는 결정).
+#    OSCAR slug 는 skos:exactMatch 의 OSCAR IRI 에서 읽는다(탑재체 묶음 ins:ksem 은 OSCAR 기록이 없어 빈칸).
+SELECT ?개념 ?약어 ?oscarSlug ?oscarId ?wmoCct ?norad ?cospar
+WHERE {
+  VALUES ?scheme { <https://w3id.org/nmsc/scheme/satellite> <https://w3id.org/nmsc/scheme/instrument> }
+  ?개념 skos:inScheme ?scheme ;
+       skos:notation ?약어 .
+  OPTIONAL { ?개념 skos:exactMatch ?o .
+             FILTER(STRSTARTS(STR(?o), "https://space.oscar.wmo.int/"))
+             BIND(REPLACE(STR(?o), "^.*/view/", "") AS ?oscarSlug) }
+  OPTIONAL { ?개념 nmsc:oscarNumericIdentifier ?oscarId }
+  OPTIONAL { { ?개념 nmsc:wmoSatelliteCode ?wmoCct } UNION { ?개념 nmsc:wmoInstrumentCode ?wmoCct } }
+  OPTIONAL { ?개념 nmsc:noradCatalogNumber ?norad }
+  OPTIONAL { ?개념 nmsc:cosparIdentifier ?cospar }
+}
+ORDER BY DESC(?scheme) ?개념

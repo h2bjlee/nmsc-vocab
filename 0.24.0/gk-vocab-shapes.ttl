@@ -1,0 +1,1095 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nmsc:  <https://w3id.org/nmsc/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+
+# ============================================================================
+# NMSC GK 어휘 SHACL 프로파일 v0.2
+#
+# 사용:  pyshacl -s shapes.ttl -df turtle -f human gk-vocab.ttl
+#        또는  riot --validate gk-vocab.ttl   (문법만 확인)
+#
+# v0.1 → v0.2
+#   · dct:source 요구를 ConceptShape 에서 떼어내 위성·탑재체 셰이프로 옮겼다.
+#     기관·분담구분 개념의 출처는 NMSC 확인이라 IRI 가 아니기 때문이다.
+#   · 객체 속성의 치역을 (속성 skos:inScheme) 경로로 검사하도록 바꿨다.
+#   · Deployment · DevelopmentResponsibility · QuantityValue 셰이프를 추가했다.
+#   · 쌍 속성이 탑재체 개념에 남아 있으면 위반으로 잡는다.
+#
+# v0.2 → v0.3 (2026-11-11)
+#   · 치역 검사를 (속성 skos:inScheme) 경로 + sh:hasValue 에서 값별 검사로 바꿨다:
+#       sh:path 속성 ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <스킴> ] ]
+#     경로형은 "값 중 하나만 그 스킴이면 통과"라 다중 값에 틀린 값이 섞여도 못 잡았고,
+#     값이 없으면 위반이 되어 선택 속성에 쓸 수 없었다. 존재 요건이 필요한 곳은 sh:minCount 1 을 따로 둔다.
+#   · 실행: shacl validate --shapes gk-vocab-shapes.ttl --data gk-vocab.ttl   (Apache Jena)
+# ============================================================================
+
+# ---------------------------------------------------------------- 공통 개념
+nmsc:ConceptShape a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:property [
+        sh:path skos:inScheme ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "모든 개념은 하나 이상의 skos:inScheme 을 가져야 한다" ] ;
+    sh:property [
+        sh:path skos:prefLabel ; sh:minCount 1 ; sh:nodeKind sh:Literal ;
+        sh:uniqueLang true ;
+        sh:message "개념마다 언어별 prefLabel 은 최대 1개여야 한다 (SKOS S14)" ] ;
+    sh:property [
+        sh:path skos:notation ; sh:maxCount 1 ;
+        sh:message "notation 은 개념당 1개로 제한한다" ] ;
+    sh:property [
+        sh:path skos:exactMatch ; sh:nodeKind sh:IRI ;
+        sh:message "exactMatch 대상은 IRI 여야 한다" ] ;
+    sh:or (
+        [ sh:property [ sh:path dct:source      ; sh:minCount 1 ] ]
+        [ sh:property [ sh:path skos:scopeNote  ; sh:minCount 1 ] ]
+    ) ;
+    sh:message "개념은 dct:source 또는 skos:scopeNote 로 출처·범위를 밝혀야 한다" .
+
+# SKOS 계층 위생: topConceptOf 와 broader 를 동시에 쓰지 않는다
+nmsc:HierarchyShape a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:not [
+        sh:and (
+            [ sh:property [ sh:path skos:topConceptOf ; sh:minCount 1 ] ]
+            [ sh:property [ sh:path skos:broader      ; sh:minCount 1 ] ]
+        ) ] ;
+    sh:message "최상위 개념과 하위 개념을 동시에 선언할 수 없다" .
+
+# ---------------------------------------------------------------- 위성
+nmsc:SatelliteShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:carries ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "위성 개념은 출처 레지스트리를 dct:source IRI 로 명시해야 한다" ] ;
+    sh:property [
+        sh:path nmsc:operatingLongitude ; sh:datatype xsd:decimal ;
+        sh:minInclusive -180.0 ; sh:maxInclusive 180.0 ; sh:maxCount 1 ;
+        sh:message "정지궤도 경도는 -180~180 사이 xsd:decimal 이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:wigosStationIdentifier ; sh:maxCount 1 ;
+        sh:pattern "^[0-9]+-[0-9]+-[0-9]*-[0-9A-Za-z_]+$" ;
+        sh:message "WIGOS Station Identifier 형식 위반 (OSCAR 의 미완성 값을 그대로 싣지 말 것)" ] ;
+    sh:property [
+        sh:path nmsc:carries ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "위성은 최소 1개의 탑재체를 가져야 한다" ] ;
+    sh:property [
+        sh:path nmsc:hasResponsibility ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "위성은 최소 1개의 개발 분담을 가져야 한다" ] ;
+    sh:property [
+        sh:path nmsc:nominalAltitude ; sh:maxCount 1 ; sh:class qudt:QuantityValue ;
+        sh:message "고도는 단위 없는 리터럴이 아니라 qudt:QuantityValue 로 준다" ] ;
+    sh:property [
+        sh:path nmsc:orbitType ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/orbit> ] ] ;
+        sh:message "nmsc:orbitType 대상은 궤도 유형 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:orbitType ; sh:minCount 1 ;
+        sh:message "nmsc:orbitType 가 있어야 한다 (예전 경로형 제약이 암묵적으로 강제하던 것을 명시)" ] ;
+    sh:property [
+        sh:path nmsc:spaceAgency ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/agency> ] ] ;
+        sh:message "nmsc:spaceAgency 대상은 기관 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:spaceAgency ; sh:minCount 1 ;
+        sh:message "nmsc:spaceAgency 가 있어야 한다 (예전 경로형 제약이 암묵적으로 강제하던 것을 명시)" ] .
+
+# ---------------------------------------------------------------- 탑재체
+nmsc:InstrumentShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:carriedBy ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "탑재체 개념은 출처 레지스트리를 dct:source IRI 로 명시해야 한다" ] ;
+    sh:property [
+        sh:path nmsc:carriedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "탑재체는 정확히 하나의 위성에 속한다" ] ;
+    sh:property [
+        sh:path skos:broader ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "탑재체는 탑재체유형(skos:broader)에 연결되어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:providingAgency ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/agency> ] ] ;
+        sh:message "nmsc:providingAgency 대상은 기관 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:providingAgency ; sh:minCount 1 ;
+        sh:message "nmsc:providingAgency 가 있어야 한다 (예전 경로형 제약이 암묵적으로 강제하던 것을 명시)" ] ;
+    sh:property [
+        sh:path nmsc:developmentRole ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/development-role> ] ] ;
+        sh:message "nmsc:developmentRole 대상은 개발 분담 구분 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:developmentRole ; sh:minCount 1 ;
+        sh:message "nmsc:developmentRole 가 있어야 한다 (예전 경로형 제약이 암묵적으로 강제하던 것을 명시)" ] ;
+    # 항목 4 회귀 방지 — 쌍 속성은 Deployment 에만 있어야 한다
+    sh:property [
+        sh:path nmsc:lifecycleStatus ; sh:maxCount 0 ;
+        sh:message "운영 상태는 위성×탑재체 쌍의 속성이다. nmsc:Deployment 로 옮길 것" ] ;
+    sh:property [
+        sh:path nmsc:deploymentStart ; sh:maxCount 0 ;
+        sh:message "운용 시작은 쌍의 속성이다. nmsc:Deployment 로 옮길 것" ] ;
+    sh:property [
+        sh:path nmsc:deploymentEnd ; sh:maxCount 0 ;
+        sh:message "운용 종료는 쌍의 속성이다. nmsc:Deployment 로 옮길 것" ] ;
+    sh:property [
+        sh:path nmsc:wigosSubcomponent ; sh:maxCount 0 ;
+        sh:message "WIGOS 하위구성요소는 쌍의 속성이다. nmsc:Deployment 로 옮길 것" ] .
+
+# ---------------------------------------------------------------- 운용(쌍)
+nmsc:DeploymentShape a sh:NodeShape ;
+    sh:targetClass nmsc:Deployment ;
+    sh:property [
+        sh:path rdfs:label ; sh:minCount 1 ;
+        sh:message "운용 노드에는 사람이 읽을 라벨이 필요하다" ] ;
+    sh:property [
+        sh:path nmsc:deploymentPlatform ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "운용은 정확히 하나의 위성을 가리킨다" ] ;
+    sh:property [
+        sh:path nmsc:deploymentPlatform ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/satellite> ] ] ;
+        sh:message "운용 플랫폼은 위성 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:deployedSystem ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "운용은 정확히 하나의 탑재체를 가리킨다" ] ;
+    sh:property [
+        sh:path nmsc:deployedSystem ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ] ] ;
+        sh:message "운용 대상은 탑재체 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:lifecycleStatus ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "active"@en "inactive"@en "planned"@en ) ;
+        sh:message "운영 상태는 active / inactive / planned 중 하나여야 한다 (OSCAR 의 'N/A' 를 그대로 싣지 말 것)" ] ;
+    sh:property [
+        sh:path nmsc:deploymentStart ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:gYearMonth ] ) ;
+        sh:message "운용 시작은 xsd:date 또는 xsd:gYearMonth 여야 한다" ] ;
+    sh:property [
+        sh:path nmsc:deploymentEnd ; sh:maxCount 1 ;
+        sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:gYearMonth ] ) ;
+        sh:message "운용 종료는 xsd:date 또는 xsd:gYearMonth 여야 한다. '≥2029' 같은 개방 구간은 skos:note 로 보낸다" ] ;
+    # 값이 있을 때만 각 값의 스킴을 본다. OSCAR 가 빈 배열을 주는 쌍(KSEM/CM, KSEM2 SCRMS)은
+    # 값 없이 nmsc:coverageNote 로 사유를 남기므로, 경로 전체에 sh:hasValue 를 걸면 존재까지 강제해 위반이 된다.
+    sh:property [
+        sh:path nmsc:wigosSubcomponent ;
+        sh:node [ sh:property [ sh:path skos:inScheme ;
+                                sh:hasValue <https://w3id.org/nmsc/scheme/wigos-subcomponent> ] ] ;
+        sh:message "WIGOS 하위구성요소 대상은 해당 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:dataLatency ; sh:class qudt:QuantityValue ;
+        sh:message "자료 지연은 단위 없는 숫자가 아니라 qudt:QuantityValue 로 준다" ] ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ;
+        sh:message "운용 정보의 출처를 밝혀야 한다" ] .
+
+# ---------------------------------------------------------------- 개발 분담
+nmsc:ResponsibilityShape a sh:NodeShape ;
+    sh:targetClass nmsc:DevelopmentResponsibility ;
+    sh:property [
+        sh:path nmsc:responsibilityOf ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "분담은 정확히 하나의 위성에 속한다" ] ;
+    sh:property [
+        sh:path nmsc:responsibleAgency ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/agency> ] ] ;
+        sh:message "담당 기관은 기관 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:responsibleAgency ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "분담 1건에는 담당 기관 1곳만 붙는다. 복수 기관은 분담을 나눠 표현한다" ] ;
+    sh:property [
+        sh:path nmsc:developmentRole ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/development-role> ] ] ;
+        sh:message "분담 구분은 개발 분담 구분 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:developmentRole ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "분담 1건에는 분담 구분 1개만 붙는다" ] ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ;
+        sh:message "분담 정보의 출처(NMSC 확인 일자 등)를 밝혀야 한다" ] .
+
+# ---------------------------------------------------------------- 수량값
+nmsc:QuantityValueShape a sh:NodeShape ;
+    sh:targetClass qudt:QuantityValue ;
+    sh:property [
+        sh:path qudt:value ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ;
+        sh:message "수량값에는 xsd:decimal 숫자가 정확히 하나 필요하다" ] ;
+    sh:property [
+        sh:path qudt:hasUnit ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "수량값에는 QUDT 단위 IRI 가 정확히 하나 필요하다" ] ;
+    sh:property [
+        sh:path qudt:hasQuantityKind ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "수량값에는 QUDT 물리량 종류가 필요하다" ] .
+
+# ---------------------------------------------------------------- 날짜 위생
+nmsc:DateShape a sh:NodeShape ;
+    sh:targetSubjectsOf dct:date ;
+    sh:property [
+        sh:path dct:date ; sh:datatype xsd:date ;
+        sh:message "dct:date 는 xsd:date 여야 한다. 정밀도가 낮은 값은 skos:note 로 보낸다" ] .
+
+# ============================================================================
+# v0.3 추가 — 관측 변수 · 관련도 · 관측 한계 · 관측 능력
+# ============================================================================
+
+nmsc:ObservingCapabilityShape a sh:NodeShape ;
+    sh:targetClass nmsc:ObservingCapability ;
+    sh:property [
+        sh:path rdfs:label ; sh:minCount 1 ;
+        sh:message "관측 능력 노드에는 사람이 읽을 라벨이 필요하다" ] ;
+    sh:property [
+        sh:path nmsc:capabilityOf ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "관측 능력은 정확히 하나의 탑재체에 속한다" ] ;
+    sh:property [
+        sh:path nmsc:capabilityOf ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ] ] ;
+        sh:message "관측 능력의 주체는 탑재체 스킴의 개념이어야 한다 (위성이 아니다)" ] ;
+    sh:property [
+        sh:path nmsc:observesVariable ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "관측 능력 1건은 변수 1개를 가리킨다. 복수 변수는 능력을 나눠 표현한다" ] ;
+    sh:property [
+        sh:path nmsc:observesVariable ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/variable> ] ] ;
+        sh:message "관측 대상은 변수 스킴의 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:hasRelevancy ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "관련도는 정확히 하나여야 한다" ] ;
+    sh:property [
+        sh:path nmsc:hasRelevancy ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/relevancy> ] ] ;
+        sh:message "관련도는 관련도 스킴의 개념이어야 한다 (문자열이 아니다)" ] ;
+    sh:property [
+        sh:path nmsc:hasLimitation ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "관측 한계를 최소 1개 명시해야 한다. 제약이 없으면 lim:none 을 쓴다" ] ;
+    sh:property [
+        sh:path nmsc:hasLimitation ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/observing-limitation> ] ] ;
+        sh:message "관측 한계는 한계 스킴의 개념이어야 한다 (자유 문장이 아니다)" ] ;
+    sh:property [
+        sh:path nmsc:isPrimaryObjective ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ;
+        sh:message "1차 임무 목표 여부를 불리언으로 명시해야 한다" ] ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "관측 능력의 출처(OSCAR 기기 페이지)를 밝혀야 한다" ] .
+
+# 변수: 도메인 상위 개념 아래에 있어야 하고, 외부 연계 상태를 밝혀야 한다
+nmsc:VariableShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:isECV ;
+    sh:property [
+        sh:path nmsc:isECV ; sh:maxCount 1 ; sh:datatype xsd:boolean ;
+        sh:message "ECV 여부는 불리언 1개여야 한다" ] ;
+    sh:property [
+        sh:path skos:broader ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "변수는 정확히 하나의 도메인 상위 개념에 속한다" ] ;
+    sh:property [
+        sh:path skos:broader ;
+        sh:node [ sh:property [ sh:path skos:topConceptOf ; sh:hasValue <https://w3id.org/nmsc/scheme/variable> ] ] ;
+        sh:message "변수의 상위는 변수 스킴의 최상위 도메인 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:oscarRawValue ; sh:minCount 1 ;
+        sh:message "OSCAR 원문 변수명을 보존해야 한다 (역방향 조회용)" ] .
+
+# 관련도 척도: 순위가 1~5 정수여야 한다
+nmsc:RelevancyShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:relevancyRank ;
+    sh:property [
+        sh:path nmsc:relevancyRank ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:integer ; sh:minInclusive 1 ; sh:maxInclusive 5 ;
+        sh:message "관련도 순위는 1~5 사이 정수여야 한다" ] .
+
+# ============================================================================
+# v0.4 추가 — 지상국 IT 자산 · 소프트웨어 설치
+# ============================================================================
+
+@prefix spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/> .
+
+nmsc:ITAssetShape a sh:NodeShape ;
+    sh:targetClass nmsc:ITAsset ;
+    sh:property [
+        sh:path rdfs:label ; sh:minCount 1 ;
+        sh:message "자산에는 사람이 읽을 라벨이 필요하다" ] ;
+    sh:property [
+        sh:path nmsc:itAssetType ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "자산 유형은 정확히 하나여야 한다" ] ;
+    sh:property [
+        sh:path nmsc:itAssetType ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/it-asset-type> ] ] ;
+        sh:message "자산 유형은 IT 자산 유형 스킴의 개념이어야 한다 (문자열이 아니다)" ] ;
+    sh:property [
+        sh:path nmsc:partOfAsset ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "상위 자산은 최대 하나다. 다중 소속은 구성 관계를 다시 보라" ] ;
+    # 선택 속성이다(랙·디스크·BMC 는 탑재체 자료를 처리하지 않는다). 값이 있을 때만 각 값을 본다.
+    sh:property [
+        sh:path nmsc:processesDataFrom ;
+        sh:node [ sh:property [ sh:path skos:inScheme ;
+                                sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ] ] ;
+        sh:message "nmsc:processesDataFrom 대상은 탑재체 스킴의 개념이어야 한다" ] .
+
+# 자산 유형 개념: Redfish 근거를 반드시 밝힌다
+nmsc:AssetTypeShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:redfishResourceType ;
+    sh:property [
+        sh:path nmsc:redfishResourceType ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:pattern "^[A-Z][A-Za-z0-9]+$" ;
+        sh:message "Redfish 자원 유형 이름을 그대로 적는다 (예: ComputerSystem)" ] ;
+    sh:property [
+        sh:path nmsc:redfishSchemaVersion ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:pattern "^v[0-9]+\\.[0-9]+\\.[0-9]+$" ;
+        sh:message "확인한 Redfish 스키마 버전을 vX.Y.Z 형식으로 적는다" ] ;
+    sh:property [
+        sh:path rdfs:seeAlso ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "Redfish 스키마 파일을 rdfs:seeAlso 로 가리켜야 한다 (exactMatch 아님)" ] ;
+    sh:property [
+        sh:path skos:exactMatch ; sh:maxCount 0 ;
+        sh:message "Redfish 스키마 파일은 개념 IRI 가 아니므로 skos:exactMatch 대상이 될 수 없다" ] .
+
+nmsc:SoftwareInstallationShape a sh:NodeShape ;
+    sh:targetClass nmsc:SoftwareInstallation ;
+    sh:property [
+        sh:path nmsc:installedOn ; sh:minCount 1 ; sh:maxCount 1 ; sh:class nmsc:ITAsset ;
+        sh:message "설치는 정확히 하나의 자산을 가리킨다" ] ;
+    sh:property [
+        sh:path nmsc:installedPackage ; sh:minCount 1 ; sh:maxCount 1 ; sh:class spdxs:Package ;
+        sh:message "설치된 패키지는 SPDX software:Package 여야 한다. 자체 소프트웨어 클래스를 만들지 말 것" ] ;
+    sh:property [
+        sh:path nmsc:installStart ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:gYearMonth ] ) ;
+        sh:message "설치 시작은 xsd:date 또는 xsd:gYearMonth 여야 한다" ] ;
+    sh:property [
+        sh:path nmsc:installEnd ; sh:maxCount 1 ;
+        sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:gYearMonth ] ) ;
+        sh:message "설치 종료는 xsd:date 또는 xsd:gYearMonth 여야 한다" ] ;
+    sh:property [
+        sh:path nmsc:lifecycleStatus ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "active"@en "inactive"@en "planned"@en ) ;
+        sh:message "설치 상태는 active / inactive / planned 중 하나여야 한다" ] .
+
+# SPDX 패키지: purl 로 식별한다
+nmsc:PackageShape a sh:NodeShape ;
+    sh:targetClass spdxs:Package ;
+    sh:property [
+        sh:path spdxs:packageUrl ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:pattern "^pkg:[a-zA-Z][a-zA-Z0-9.+-]*/" ;
+        sh:message "패키지는 purl 로 식별한다 (pkg:<type>/… — ECMA-427). 자체 식별자를 발명하지 말 것" ] ;
+    sh:property [
+        sh:path spdxs:primaryPurpose ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "용도는 SPDX SoftwarePurpose 개별값 IRI 여야 한다 (문자열이 아니다)" ] .
+
+# 예시 데이터 표시 위생
+nmsc:ExampleFlagShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:exampleData ;
+    sh:property [
+        sh:path nmsc:exampleData ; sh:maxCount 1 ; sh:datatype xsd:boolean ;
+        sh:message "예시 표시는 불리언 하나여야 한다" ] .
+
+# CCSDS 기능 자원 식별자는 지어내지 않는다
+nmsc:FunctionalResourceShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:supportsFunctionalResource ;
+    sh:property [
+        sh:path nmsc:supportsFunctionalResource ;
+        sh:pattern "^(urn:ccsds:|1\\.3\\.112\\.4\\.)" ;
+        sh:message "CCSDS 기능 자원은 urn:ccsds: 또는 OID 1.3.112.4 하위여야 한다. SANA 에서 확인한 값만 넣을 것" ] .
+
+# ---------------------------------------------------------------- 산출물 → 처리 수준·탑재체 (v0.11)
+# 값별 검사(v0.3 방식). 산출물마다 있어야 하는 속성은 아니므로 sh:minCount 는 두지 않는다.
+nmsc:ProductLevelShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:processingLevel ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "nmsc:processingLevel 의 주어는 산출물(scheme/product) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:processingLevel ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/processing-level> ] ] ;
+        sh:message "처리 수준은 scheme/processing-level 의 개념이어야 한다 (문자열이나 다른 스킴 개념이 아니다)" ] ;
+    sh:property [
+        sh:path nmsc:processingLevelEvidence ; sh:minCount 1 ; sh:nodeKind sh:Literal ;
+        sh:message "처리 수준에는 근거(nmsc:processingLevelEvidence)가 있어야 한다" ] .
+
+nmsc:ProductInstrumentShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:derivedFromInstrument ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "nmsc:derivedFromInstrument 의 주어는 산출물(scheme/product) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:derivedFromInstrument ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ] ] ;
+        sh:message "유도 원천은 탑재체(scheme/instrument) 개념이어야 한다. 위성은 탑재체의 nmsc:carriedBy 로 따라간다" ] ;
+    sh:property [
+        sh:path nmsc:instrumentEvidence ; sh:minCount 1 ; sh:nodeKind sh:Literal ;
+        sh:message "유도 원천 탑재체에는 근거(nmsc:instrumentEvidence)가 있어야 한다" ] .
+
+# ---------------------------------------------------------------- 알고리즘 × 산출물 노드·시간 동작·운영 입력 (status 97, 결정 S2-4)
+# 다섯 번째 n항 노드(CLAUDE.md 4절). 생성 방법만 두고 시간 관계 고정값은 두지 않는다(시간 관계 세 층 — sh:maxCount 0 으로 재발 방지).
+# 노드와 단축 경로(nmsc:producedByAlgorithm)·산출물 생성 방법의 일치와 '방식이 섞인 산출물' 경고는 src/check.py 가 본다.
+nmsc:AlgorithmOutputShape a sh:NodeShape ;
+    sh:targetClass nmsc:AlgorithmOutput ;
+    sh:property [
+        sh:path rdfs:label ; sh:minCount 1 ;
+        sh:message "알고리즘 출력 노드에는 사람이 읽을 라벨이 필요하다" ] ;
+    sh:property [
+        sh:path nmsc:outputOfAlgorithm ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/algorithm> ] ] ;
+        sh:message "알고리즘 출력 노드는 운영 알고리즘(scheme/algorithm) 개념 정확히 하나를 가리킨다" ] ;
+    sh:property [
+        sh:path nmsc:outputProduct ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ] ] ;
+        sh:message "알고리즘 출력 노드는 산출물(scheme/product) 개념 정확히 하나를 가리킨다" ] ;
+    sh:property [
+        sh:path nmsc:generationMethod ; sh:maxCount 1 ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/generation-method> ] ] ;
+        sh:message "노드의 생성 방법은 scheme/generation-method 개념 최대 하나(섞이면 비우고 skos:note 로 사유)" ] ;
+    sh:property [
+        sh:path nmsc:temporalRelation ; sh:maxCount 0 ;
+        sh:message "알고리즘 출력 노드에 시간 관계 고정값을 두지 않는다 — 알고리즘 시간 동작(nmsc:imposesTemporalRelation)·입력에서 정해지고 실제 값은 실행 기록(시간 관계 세 층)" ] ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ;
+        sh:message "알고리즘 출력 노드에는 출처(dct:source)가 있어야 한다" ] .
+
+nmsc:AlgorithmTemporalBehaviourShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:imposesTemporalRelation ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/algorithm> ;
+        sh:message "nmsc:imposesTemporalRelation 의 주어는 운영 알고리즘(scheme/algorithm) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:imposesTemporalRelation ; sh:maxCount 1 ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/temporal-relation> ] ] ;
+        sh:message "알고리즘 시간 동작은 scheme/temporal-relation 개념 최대 하나(기본 '입력을 따름'은 적지 않는다)" ] .
+
+# 개념(산출물·알고리즘)에 생성기가 계산해 붙인 생성 방법·시간 관계는 하나뿐이고 지정 스킴 안이다.
+nmsc:ConceptMethodShape a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:property [
+        sh:path nmsc:generationMethod ; sh:maxCount 1 ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/generation-method> ] ] ;
+        sh:message "개념의 생성 방법(계산값)은 scheme/generation-method 개념 최대 하나 — 노드 값이 섞이면 붙이지 않는다" ] ;
+    sh:property [
+        sh:path nmsc:temporalRelation ; sh:maxCount 1 ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/temporal-relation> ] ] ;
+        sh:message "개념의 시간 관계(계산값)는 scheme/temporal-relation 개념 최대 하나" ] .
+
+nmsc:ProductOperationalInputShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:operationalInput , nmsc:operationalL1BInput ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "운영 입력의 주어는 산출물(scheme/product) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:operationalInput ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ] ] ;
+        sh:message "운영 입력 산출물은 scheme/product 개념이어야 한다(L1B 관측은 nmsc:operationalL1BInput → 탑재체)" ] ;
+    sh:property [
+        sh:path nmsc:operationalL1BInput ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ] ] ;
+        sh:message "운영 입력 L1B 는 탑재체(scheme/instrument) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:operationalInputEvidence ; sh:minCount 1 ; sh:nodeKind sh:Literal ;
+        sh:message "운영 입력에는 근거(nmsc:operationalInputEvidence)가 있어야 한다" ] .
+
+# ---------------------------------------------------------------- 알고리즘 입력 노드·외부 입력·위성 관측 입력 여부 (status 98)
+# 여섯 번째 n항 노드(CLAUDE.md 4절): 출력 노드 × 입력원 × 입력 역할 × dct:source. 입력원은 산출물·탑재체(L1B)·외부 입력 개념 중 하나.
+# 역할 짝(L1B → primary, 자기 산출물 → ancillary 만, 외부 입력 → intermediate 아님), IRI 꼴, 출력 노드마다 입력 노드 있음,
+# 산출물 단축 경로·위성 관측 입력 여부이 노드에서 계산한 값과 같은지는 src/check.py 가 본다.
+nmsc:AlgorithmInputShape a sh:NodeShape ;
+    sh:targetClass nmsc:AlgorithmInput ;
+    sh:property [
+        sh:path rdfs:label ; sh:minCount 1 ;
+        sh:message "알고리즘 입력 노드에는 사람이 읽을 라벨이 필요하다" ] ;
+    sh:property [
+        sh:path nmsc:inputOf ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class nmsc:AlgorithmOutput ;
+        sh:message "알고리즘 입력 노드는 알고리즘 출력 노드(nmsc:AlgorithmOutput) 정확히 하나에 속한다" ] ;
+    sh:property [
+        sh:path nmsc:inputSource ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ]
+            [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ]
+            [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/external-input> ]
+        ) ;
+        sh:message "입력원은 산출물(scheme/product)·탑재체(scheme/instrument — L1B)·외부 입력(scheme/external-input) 개념 정확히 하나다" ] ;
+    sh:property [
+        sh:path nmsc:inputRole ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/input-role> ] ] ;
+        sh:message "알고리즘 입력 노드의 역할은 scheme/input-role 개념 정확히 하나다" ] ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ;
+        sh:message "알고리즘 입력 노드에는 출처(dct:source)가 있어야 한다" ] .
+
+nmsc:SatelliteObservationBasedShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:satelliteObservationBased ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "nmsc:satelliteObservationBased 의 주어는 산출물(scheme/product) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:satelliteObservationBased ; sh:maxCount 1 ; sh:datatype xsd:boolean ;
+        sh:message "위성 관측 입력 여부은 xsd:boolean 하나다(판정할 수 없으면 붙이지 않는다)" ] .
+
+# ---------------------------------------------------------------- 외부 입력 → 원천 기기·위성 (status 100)
+# 자료와 기기·위성은 같은 대상이 아니라 SKOS 일치가 아닌 전용 속성으로 적는다(사용자 결정 2026-11-15 '권고 진행').
+# 값은 IRI 만. OSCAR(instruments/view·satellites/view)·GCMD 개념 IRI 꼴과 이전 판 기기 금지는 src/check.py 가 본다.
+nmsc:ExternalInputSourceShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:sourceInstrument , nmsc:sourcePlatform ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/external-input> ;
+        sh:message "nmsc:sourceInstrument·nmsc:sourcePlatform 의 주어는 외부 입력(scheme/external-input) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:sourceInstrument ; sh:nodeKind sh:IRI ;
+        sh:message "원천 기기(nmsc:sourceInstrument)는 기기 IRI(OSCAR·GCMD·ins:)여야 한다 — 문자열이 아니다" ] ;
+    sh:property [
+        sh:path nmsc:sourcePlatform ; sh:nodeKind sh:IRI ;
+        sh:message "원천 위성(nmsc:sourcePlatform)은 위성 IRI(OSCAR·GCMD·sat:)여야 한다 — 문자열이 아니다" ] .
+
+# ---------------------------------------------------------------- 산출물 → 배포 방식 (v0.12)
+# 값별 검사. 산출물마다 있어야 하는 속성은 아니므로 sh:minCount 는 두지 않는다.
+# 묶음 개념(xRIT)에 잇지 않는 것과 배포 방식 개념에 외부 연결이 없는 것은 src/check.py 가 본다.
+nmsc:ProductDisseminationShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:disseminatedVia ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "nmsc:disseminatedVia 의 주어는 산출물(scheme/product) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:disseminatedVia ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/dissemination-method> ] ] ;
+        sh:message "배포 방식은 scheme/dissemination-method 의 개념이어야 한다 (실제 서비스 개체나 문자열이 아니다)" ] ;
+    sh:property [
+        sh:path nmsc:disseminationEvidence ; sh:minCount 1 ; sh:nodeKind sh:Literal ;
+        sh:message "배포 방식에는 근거(nmsc:disseminationEvidence)가 있어야 한다" ] .
+
+# ---------------------------------------------------------------- 위성·탑재체 외부 식별자 (v0.14)
+# 종류별 전용 DatatypeProperty, 값은 문자열 리터럴, 개념당 1개. 주어 종류(위성/탑재체)도 본다.
+# 같은 값이 두 개념에 붙는 것과 이름이 비슷한 함정 코드(C-5 825, C-8 140–142)는 src/check.py 가 본다.
+nmsc:SatelliteIdentifierShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:wmoSatelliteCode , nmsc:noradCatalogNumber , nmsc:cosparIdentifier ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/satellite> ;
+        sh:message "WMO CCT C-5·NORAD·COSPAR 식별자는 위성(scheme/satellite) 개념에만 쓴다" ] .
+
+nmsc:InstrumentIdentifierShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:wmoInstrumentCode ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ;
+        sh:message "WMO CCT C-8 기기 코드는 탑재체(scheme/instrument) 개념에만 쓴다" ] .
+
+nmsc:ExternalIdentifierShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:oscarNumericIdentifier , nmsc:wmoSatelliteCode , nmsc:wmoInstrumentCode ,
+                        nmsc:noradCatalogNumber , nmsc:cosparIdentifier ;
+    sh:property [
+        sh:path nmsc:oscarNumericIdentifier ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[1-9][0-9]*$" ;
+        sh:message "OSCAR/Space 숫자 id 는 개념당 1개, 숫자만 담은 문자열 리터럴이다" ] ;
+    sh:property [
+        sh:path nmsc:wmoSatelliteCode ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[0-9]{1,4}$" ;
+        sh:message "WMO CCT C-5 위성 코드는 개념당 1개, 숫자 코드 문자열 리터럴이다" ] ;
+    sh:property [
+        sh:path nmsc:wmoInstrumentCode ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[0-9]{1,4}$" ;
+        sh:message "WMO CCT C-8 기기 코드는 개념당 1개, 숫자 코드 문자열 리터럴이다" ] ;
+    sh:property [
+        sh:path nmsc:noradCatalogNumber ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[1-9][0-9]*$" ;
+        sh:message "NORAD 카탈로그 번호는 개념당 1개, 숫자만 담은 문자열 리터럴이다" ] ;
+    sh:property [
+        sh:path nmsc:cosparIdentifier ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[0-9]{4}-[0-9]{3}[A-Z]{1,3}$" ;
+        sh:message "COSPAR 국제 지정자는 개념당 1개, YYYY-NNNA 형식 문자열 리터럴이다" ] .
+
+# ---------------------------------------------------------------- 용어집 항목 (v0.18, 로드맵 C9 — docs/glossary-scheme.md 7.3절)
+# 외부 권위 + 해석되는 외부 IRI 없음인 뜻의 정의 기록(vocab/glossary/glossary*.ttl). skos:Concept 가 아니다.
+# 항목 IRI 형식·대장과의 일치·매핑 속성 금지·공개 파일에 임시가 없는 것·사용 노트 주어 규칙은 src/check.py 가 본다.
+nmsc:GlossaryEntryShape a sh:NodeShape ;
+    sh:targetClass nmsc:GlossaryEntry ;
+    sh:not [ sh:class skos:Concept ] ;
+    sh:message "용어집 항목은 skos:Concept 가 아니다 (정의 기록 — C9-1). SKOS 매핑·의미 관계 속성도 개념으로 추론되므로 쓰지 않는다" ;
+    sh:property [
+        sh:path skos:prefLabel ; sh:minCount 1 ; sh:nodeKind sh:Literal ; sh:uniqueLang true ;
+        sh:message "용어집 항목은 언어별 prefLabel 을 하나씩 가진다 (최소 1개, SKOS S14)" ] ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ;
+        sh:message "용어집 항목은 출처 문서(dct:source)를 밝혀야 한다 (CLAUDE.md 9절)" ] ;
+    sh:property [
+        sh:path nmsc:glossaryAuthority ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( <https://w3id.org/nmsc/glossary-authority/nmsc> <https://w3id.org/nmsc/glossary-authority/external> ) ;
+        sh:message "용어집 권위 출처는 scheme/glossary-authority 의 개념 정확히 하나다" ] ;
+    sh:property [
+        sh:path nmsc:glossaryStatus ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( <https://w3id.org/nmsc/glossary-status/official> <https://w3id.org/nmsc/glossary-status/provisional> ) ;
+        sh:message "용어집 상태는 scheme/glossary-status 의 개념 정확히 하나다" ] ;
+    sh:property [
+        sh:path nmsc:abbreviation ; sh:datatype xsd:string ;
+        sh:message "약어는 언어 태그 없는 문자열이다" ] .
+
+# ---------------------------------------------------------------- 산출물의 출처별 이름 — SKOS-XL 라벨 노드 (status 116)
+# 원천 src/product_former_names.tsv. 노드 하나 = 출처 하나: 글자 꼴 하나(SKOS-XL S52), 출처 종류 하나, 출처(dct:source) 하나 이상, 가리키는 개념 하나.
+# 개념의 skos:altLabel 에도 같은 글자가 있는지(S56)·다른 개념 대표 라벨과 겹치는지(경고)는 src/check.py 가 본다.
+nmsc:ProductFormerNameShape a sh:NodeShape ;
+    sh:targetClass skosxl:Label ;
+    sh:property [
+        sh:path skosxl:literalForm ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype rdf:langString ;
+        sh:message "라벨 노드는 언어 태그가 있는 글자 꼴(skosxl:literalForm) 정확히 하나를 가진다 (SKOS-XL S52)" ] ;
+    sh:property [
+        sh:path nmsc:labelSourceKind ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "nmsc-list" "atbd" "algorithm-code" "file-attribute" "glossary-2019" "service-page" "internal-doc" "satsem-draft" "satsem-pref-label" ) ;
+        sh:message "라벨 노드의 출처 종류(nmsc:labelSourceKind)는 정해진 값 하나다 (src/former_names.py KINDS)" ] ;
+    sh:property [
+        sh:path dct:source ; sh:minCount 1 ;
+        sh:message "라벨 노드에는 출처(dct:source — 문서·위치·확인일)가 있어야 한다 (CLAUDE.md 9절)" ] ;
+    sh:property [
+        sh:path [ sh:inversePath skosxl:altLabel ] ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ] ] ;
+        sh:message "라벨 노드는 산출물(scheme/product) 개념 정확히 하나가 skosxl:altLabel 로 가리킨다" ] ;
+    sh:property [
+        sh:path nmsc:formerPrefLabel ; sh:maxCount 1 ; sh:datatype xsd:boolean ; sh:in ( true ) ;
+        sh:message "이전 대표 이름 표지(nmsc:formerPrefLabel)는 불리언 true 하나만 쓴다 — 표지가 아니면 문장을 두지 않는다 (status 125)" ] ;
+    sh:property [
+        sh:path nmsc:replacedInVersion ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[0-9]+\\.[0-9]+\\.[0-9]+$" ;
+        sh:message "대표 이름이 바뀐 판(nmsc:replacedInVersion)은 어휘 판 X.Y.Z 문자열 하나다 (status 125)" ] .
+
+# ---------------------------------------------------------------- 이전 대표 이름 표지 (status 125)
+# 원천 src/product_renames.tsv 에서 생성기가 계산한다. 표지와 판은 함께 다닌다 — 한쪽만 있으면 화면이 '(이전: …)'을 잘못 보이거나 못 보인다.
+# 글자 꼴이 개념의 skos:changeNote 의 이전 이름과 같은지는 생성기가 보장한다(라벨 노드는 그 이름에서 골랐다).
+nmsc:FormerPrefLabelMarkerShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:formerPrefLabel ;
+    sh:class skosxl:Label ;
+    sh:property [
+        sh:path nmsc:replacedInVersion ; sh:minCount 1 ;
+        sh:message "이전 대표 이름 표지(nmsc:formerPrefLabel)가 있는 라벨 노드는 바뀐 판(nmsc:replacedInVersion)을 가진다 (status 125)" ] .
+nmsc:ReplacedInVersionMarkerShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:replacedInVersion ;
+    sh:property [
+        sh:path nmsc:formerPrefLabel ; sh:minCount 1 ;
+        sh:message "바뀐 판(nmsc:replacedInVersion)은 이전 대표 이름 표지(nmsc:formerPrefLabel true)가 있는 라벨 노드에만 쓴다 (status 125)" ] .
+
+# ============================================================================
+# status 137 — check.py 에만 있던 값 제약을 SHACL 로 (층 점검 IM-2·X-3)
+# 반입 묶음을 받는 쪽은 이 셰이프로만 검증한다. 같은 규칙은 src/check.py 에도 그대로 남는다(둘 다 본다).
+# 값 스킴은 v0.3 방식(값별 sh:node … skos:inScheme sh:hasValue). 폐기 개념(owl:deprecated true)은 아래 nmsc:NotDeprecatedShape 로 본다.
+# ============================================================================
+
+# 폐기되지 않은 개념 — 대상 없는 도움 셰이프(sh:node 로만 쓴다)
+nmsc:NotDeprecatedShape a sh:NodeShape ;
+    sh:not [ sh:property [ sh:path owl:deprecated ; sh:hasValue true ] ] ;
+    sh:message "폐기된 개념(owl:deprecated true)을 가리키지 않는다" .
+
+# ---------------------------------------------------------------- 산출물 분류 v2 — 물리 대상 그룹·현상·활용 (K1, status 128)
+# 물리 대상 그룹은 산출물에만, 하나(배타 — K7). 현상·활용은 산출물과 표출물에, 여러 개 가능.
+nmsc:ProductCategoryShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:productCategory ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "nmsc:productCategory 의 주어는 산출물(scheme/product) 개념이어야 한다 — 표출물·변수는 물리 대상 그룹을 갖지 않는다" ] ;
+    sh:property [
+        sh:path nmsc:productCategory ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product-category> ] ] ;
+        sh:message "산출물은 물리 대상 그룹(scheme/product-category) 하나에만 든다 (배타, K7)" ] .
+
+nmsc:ProductAxisShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:relatedPhenomenon , nmsc:applicationArea ;
+    sh:or (
+        [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ] ]
+        [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/display-product> ] ]
+    ) ;
+    sh:message "nmsc:relatedPhenomenon·nmsc:applicationArea 의 주어는 산출물(scheme/product) 또는 표출물(scheme/display-product) 개념이어야 한다" ;
+    sh:property [
+        sh:path nmsc:relatedPhenomenon ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product-phenomenon> ] ] ;
+        sh:message "관련 현상(nmsc:relatedPhenomenon)은 scheme/product-phenomenon 개념이어야 한다 — 현상은 물리 대상 그룹이 아니다" ] ;
+    sh:property [
+        sh:path nmsc:applicationArea ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product-application> ] ] ;
+        sh:message "활용 분야(nmsc:applicationArea)는 scheme/product-application 개념이어야 한다" ] .
+
+# 폐기된 산출물(K6 보완 중간자료·표출물)에는 새 분류 축을 달지 않는다 — 표출물의 값은 대체 개념(dct:isReplacedBy disp:…)에 있다.
+nmsc:DeprecatedWithoutAxisShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:productCategory , nmsc:relatedPhenomenon , nmsc:applicationArea ;
+    sh:not [ sh:property [ sh:path owl:deprecated ; sh:hasValue true ] ] ;
+    sh:message "폐기된 개념(owl:deprecated true)에는 nmsc:productCategory·nmsc:relatedPhenomenon·nmsc:applicationArea 를 달지 않는다 (status 128)" .
+
+# 사용 중 산출물은 물리 대상 그룹이 있어야 한다. 예외는 P-4 로 해체한 묶음 하나(구성 산출물 개념이 생기면 폐기되고 이 목록에서 빠진다 —
+#   nmsc:productCategory 의 rdfs:comment '해체한 묶음에는 달지 않는다', src/v05_data.py P4_DISSOLVED). check.py 에는 없던 규칙이다.
+nmsc:ProductCategoryRequiredShape a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:or (
+        [ sh:not [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ] ] ]
+        [ sh:property [ sh:path owl:deprecated ; sh:hasValue true ] ]
+        [ sh:in ( <https://w3id.org/nmsc/product/forecast-analysis-imagery> ) ]
+        [ sh:property [ sh:path nmsc:productCategory ; sh:minCount 1 ] ]
+    ) ;
+    sh:message "사용 중 산출물(scheme/product, 폐기 아님)은 물리 대상 그룹(nmsc:productCategory)이 있어야 한다 — 예외는 P-4 해체 묶음뿐 (K1·K7, status 128)" .
+
+# ---------------------------------------------------------------- 표출물 → 표출 대상 (J13, status 128)
+nmsc:DisplayTargetShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:displayTarget ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/display-product> ;
+        sh:message "nmsc:displayTarget 의 주어는 표출물(scheme/display-product) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:displayTarget ; sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ]
+            [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/channel> ]
+        ) ;
+        sh:message "표출 대상(nmsc:displayTarget)은 산출물(scheme/product) 또는 L1B 채널(scheme/channel) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:displayTarget ;
+        sh:node nmsc:NotDeprecatedShape ;
+        sh:message "표출 대상(nmsc:displayTarget)은 폐기된 산출물이 아니어야 한다" ] .
+
+# ---------------------------------------------------------------- 산출물 → 변수 (v0.6)
+nmsc:EstimatesVariableShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:estimatesVariable ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "nmsc:estimatesVariable 의 주어는 산출물(scheme/product) 개념이어야 한다 (자료 변수는 nmsc:representsVariable)" ] ;
+    sh:property [
+        sh:path nmsc:estimatesVariable ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/variable> ] ;
+                  sh:not [ sh:property [ sh:path skos:topConceptOf ; sh:minCount 1 ] ] ] ;
+        sh:message "산출물이 내는 변수(nmsc:estimatesVariable)는 변수 스킴(scheme/variable)의 변수여야 한다 — 도메인 최상위 개념이 아니다" ] ;
+    sh:property [
+        sh:path nmsc:variableEvidence ; sh:minCount 1 ; sh:nodeKind sh:Literal ;
+        sh:message "산출물 → 변수에는 근거(nmsc:variableEvidence)가 있어야 한다" ] .
+
+# ---------------------------------------------------------------- 산출물 → 운영 알고리즘 식별자 문자열·옛 소그룹 (v0.6, status 128)
+nmsc:ProductStringAndGroupShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:operationalAlgorithm , nmsc:productGroup ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "nmsc:operationalAlgorithm·nmsc:productGroup 의 주어는 산출물(scheme/product) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:operationalAlgorithm ; sh:datatype xsd:string ; sh:pattern "^[A-Z][A-Za-z0-9_-]*$" ;
+        sh:message "운영 알고리즘 식별자(nmsc:operationalAlgorithm)는 algorepo 이름 그대로의 문자열이다 (예: GK2A_CTPS) — 개념은 nmsc:producedByAlgorithm" ] ;
+    sh:property [
+        sh:path nmsc:productGroup ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product-group> ] ] ;
+        sh:message "옛 소그룹(nmsc:productGroup — 폐기 속성, NMSC 원문 분류 기록)은 scheme/product-group 개념 하나다" ] .
+
+# ---------------------------------------------------------------- 채널 (v0.9·v0.10·v0.17)
+nmsc:ChannelShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:channelOf , nmsc:channelNumber , nmsc:centralWavelength , nmsc:bandwidth ,
+                        nmsc:spatialResolution , nmsc:similarChannel ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/channel> ;
+        sh:message "채널 속성(nmsc:channelOf·channelNumber·centralWavelength·bandwidth·spatialResolution·similarChannel)의 주어는 채널(scheme/channel) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:channelOf ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ] ] ;
+        sh:message "채널은 탑재체(scheme/instrument) 개념 정확히 하나에 속한다(nmsc:channelOf)" ] ;
+    sh:property [
+        sh:path nmsc:channelNumber ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ;
+        sh:message "채널 번호(nmsc:channelNumber)는 1 이상 정수 하나다" ] ;
+    sh:property [
+        sh:path nmsc:centralWavelength ; sh:maxCount 1 ; sh:class qudt:QuantityValue ;
+        sh:message "중심파장(nmsc:centralWavelength)은 qudt:QuantityValue 하나다 — 단위 없는 숫자가 아니다" ] ;
+    sh:property [
+        sh:path nmsc:bandwidth ; sh:maxCount 1 ; sh:class qudt:QuantityValue ;
+        sh:message "대역폭(nmsc:bandwidth)은 qudt:QuantityValue 하나다 — 단위 없는 숫자가 아니다" ] ;
+    sh:property [
+        sh:path nmsc:spatialResolution ; sh:maxCount 1 ; sh:class qudt:QuantityValue ;
+        sh:message "공간해상도(nmsc:spatialResolution)는 qudt:QuantityValue 하나다 — 단위 없는 숫자가 아니다" ] ;
+    sh:property [
+        sh:path nmsc:similarChannel ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/channel> ] ] ;
+        sh:message "대응 채널(nmsc:similarChannel)은 채널(scheme/channel) 개념이어야 한다" ] .
+
+# ---------------------------------------------------------------- 위성 → 프로그램, 분담 → 탑재체 (v0.2)
+nmsc:SatelliteProgrammeShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:partOfProgramme ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/satellite> ;
+        sh:message "nmsc:partOfProgramme 의 주어는 위성(scheme/satellite) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:partOfProgramme ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/programme> ] ] ;
+        sh:message "위성 프로그램(nmsc:partOfProgramme)은 scheme/programme 개념이어야 한다" ] .
+
+nmsc:ResponsibilityInstrumentShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:coversInstrument ;
+    sh:class nmsc:DevelopmentResponsibility ;
+    sh:message "nmsc:coversInstrument 의 주어는 개발 분담 노드(nmsc:DevelopmentResponsibility)여야 한다" ;
+    sh:property [
+        sh:path nmsc:coversInstrument ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument> ] ] ;
+        sh:message "분담 범위의 탑재체(nmsc:coversInstrument)는 탑재체(scheme/instrument) 개념이어야 한다" ] .
+
+# ---------------------------------------------------------------- 변수가 어휘에 들어온 근거 (v0.3·v0.6)
+nmsc:InclusionBasisShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:inclusionBasis ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/variable> ;
+        sh:message "nmsc:inclusionBasis 의 주어는 변수(scheme/variable) 개념이어야 한다" ] ;
+    sh:property [
+        sh:path nmsc:inclusionBasis ; sh:maxCount 1 ;
+        sh:in ( "oscar-instrument-evaluation" "gk2a-product" ) ;
+        sh:message "변수가 들어온 근거(nmsc:inclusionBasis)는 oscar-instrument-evaluation·gk2a-product 중 하나다" ] .
+
+# ---------------------------------------------------------------- IT 자산 유형 → DMTF CIM (v0.7)
+# 클래스 이름이 CIM 2.54.1 목록(src/cim_classes_2.54.1.txt) 안의 비폐기 클래스인지는 src/check.py 가 본다 — 여기서는 꼴만.
+nmsc:CimClassShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:cimClass , nmsc:cimDedicated ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/it-asset-type> ;
+        sh:message "nmsc:cimClass·nmsc:cimDedicated 는 IT 자산 유형(scheme/it-asset-type) 개념에만 쓴다" ] ;
+    sh:property [
+        sh:path nmsc:cimClass ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^CIM_[A-Za-z0-9_]+$" ;
+        sh:message "CIM 클래스(nmsc:cimClass)는 CIM_ 로 시작하는 클래스 이름 문자열 하나다" ] ;
+    sh:property [
+        sh:path nmsc:cimDedicated ; sh:maxCount 1 ; sh:datatype xsd:string ;
+        sh:message "CIM Dedicated 값(nmsc:cimDedicated)은 문자열 하나다" ] .
+
+nmsc:CimDedicatedShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:cimDedicated ;
+    sh:property [
+        sh:path nmsc:cimClass ; sh:hasValue "CIM_ComputerSystem" ;
+        sh:message "nmsc:cimDedicated 는 CIM_ComputerSystem 에만 쓴다 — 서버·스위치·BMC 를 이 값으로 구분한다" ] .
+
+# ============================================================================
+# status 138 C16 — 산출물 공간 해상도·산출 주기 (src/product_resolution.tsv → src/resolution_data.py)
+#   DCAT 3 의 dcat:spatialResolutionInMeters(치역 xsd:decimal)·dcat:temporalResolution(치역 xsd:duration) — 둘 다 rdfs:domain 없음(원문).
+#   여기서는 주어(산출물 개념)·값 꼴·개수만 본다. 이름의 숫자('(2분 간격)' 등)와의 대조는 src/check.py 가 한다(명명 규칙 2-9 (다)5).
+#   전체 IRI 로 적는다 — 이 파일 머리의 접두사 선언을 건드리지 않아 다른 절과 합치기 쉽다.
+# ============================================================================
+nmsc:ProductResolutionShape a sh:NodeShape ;
+    sh:targetSubjectsOf <http://www.w3.org/ns/dcat#spatialResolutionInMeters> , <http://www.w3.org/ns/dcat#temporalResolution> ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue <https://w3id.org/nmsc/scheme/product> ;
+        sh:message "dcat:spatialResolutionInMeters·dcat:temporalResolution 은 산출물(scheme/product) 개념에만 쓴다 (status 138)" ] ;
+    sh:property [
+        sh:path <http://www.w3.org/ns/dcat#spatialResolutionInMeters> ; sh:maxCount 1 ; sh:datatype xsd:decimal ;
+        sh:minExclusive 0 ;
+        sh:message "공간 해상도(dcat:spatialResolutionInMeters)는 0 보다 큰 xsd:decimal 하나다 — 영역·채널마다 다르면 대표값을 고르지 않고 비운다" ] ;
+    sh:property [
+        sh:path <http://www.w3.org/ns/dcat#temporalResolution> ; sh:maxCount 1 ; sh:datatype xsd:duration ;
+        sh:pattern "^P" ;
+        sh:message "산출 주기(dcat:temporalResolution)는 ISO 8601 기간(xsd:duration, PT10M·PT1H·P1D 꼴) 하나다 — 합성 기간은 여기 적지 않는다" ] .
+
+# ============================================================================
+# status 141 — 이관 클래스 9, MyGiver 합의 2026-11-18
+#   대상: nmsc:GroundStation·Event·InformationSystem·Artifact(하위 DataObject 포함)·Payload 와
+#         하위 ObservingPayload·RelayPayload·CommunicationPayload·PositioningPayload (C10 에서 MyGiver 가 이관).
+#   근거·질문 Q1~Q15 와 회신: docs/class-shapes-draft.md (MyGiver 메일 2026-11-18 02:55, 스레드 78e58269).
+#   심각도: 필수·금지 = sh:Violation(기본), 권고 = sh:Warning. 값 제약은 값이 있을 때만 본다.
+#   검증 대상(MyGiver 쪽): KG RDF 내보내기 — 이행 단계 3(개체 IRI 하나)·5(용어 IRI w3id) 전에는 대상이 0 이다.
+#   SatSem 은 이 클래스의 인스턴스를 만들지 않는다(예외: 실행 기록의 nmsc:DataObject — 기록 셰이프가 따로 본다).
+#   sh:targetClass 는 데이터 그래프의 rdfs:subClassOf* 를 따르므로 gk-vocab.ttl 을 데이터로 함께 읽는다.
+#   주의: **추론 없이 돌린다.** MyGiver 온톨로지(nmsc-ontology.ttl)를 함께 읽고 OWL/RDFS 추론을 켜면
+#         그 파일의 owl:equivalentProperty(has_site 와 org:hasSite)와 org:hasSite 의 rdfs:domain org:Organization 때문에
+#         has_site 를 가진 지상국이 org:Organization 이 되어 GroundStationShape 의 sh:not 에 걸린다.
+#   보류(사용자 결정 대기, docs/pending-decisions.md): 사건 날짜·기간 속성(Q7 — 날짜 제약 없음),
+#         산출 기록물 → 산출물 개념 속성(Q10).
+#   퍼닝 금지(Q11)는 사용자 확정 2026-11-18 — 탑재체·위성 개별자는 SatSem 개념 IRI(ins:·sat:)를 쓰지 않는다.
+# ============================================================================
+
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix sosa:  <http://www.w3.org/ns/sosa/> .
+@prefix ssn:   <http://www.w3.org/ns/ssn/> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+
+# ---- 공통 1: 이름 (필수, Q15). 언어 제약(sh:uniqueLang)은 걸지 않는다 — MyGiver 이름에는 언어 칸이 없다(Q3) ----
+nmsc:KgEntityLabelShape a sh:NodeShape ;
+    sh:targetClass nmsc:GroundStation , nmsc:Event , nmsc:InformationSystem , nmsc:Payload ;
+    sh:property [
+        sh:path rdfs:label ; sh:minCount 1 ;
+        sh:or ( [ sh:datatype rdf:langString ] [ sh:datatype xsd:string ] ) ;
+        sh:message "개체에는 사람이 읽을 이름(rdfs:label, 문자열)이 하나 이상 있어야 한다 (status 141)" ] .
+
+# ---- 공통 2: 설명 (권고, Q4) ----
+nmsc:KgEntityDefinitionShape a sh:NodeShape ;
+    sh:targetClass nmsc:GroundStation , nmsc:Event , nmsc:InformationSystem , nmsc:Payload ;
+    sh:property [
+        sh:path skos:definition ; sh:minCount 1 ; sh:severity sh:Warning ;
+        sh:message "개체 설명(skos:definition)이 없다 — 이름만으로는 같은 이름의 다른 대상과 가를 수 없다 (status 141, 권고)" ] .
+
+# ---- 공통 3: 출처 (필수, Q15 — 다섯 클래스와 하위, Artifact 하위 DataObject 포함) ----
+nmsc:KgEntityProvenanceShape a sh:NodeShape ;
+    sh:targetClass nmsc:GroundStation , nmsc:Event , nmsc:InformationSystem , nmsc:Payload , nmsc:Artifact ;
+    sh:or (
+        [ sh:path dct:source ; sh:minCount 1 ]
+        [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ] ) ;
+    sh:message "개체에는 출처(dct:source 또는 prov:wasDerivedFrom 으로 근거 문서)가 있어야 한다 (CLAUDE.md 9절, status 141)" .
+
+# ---- GroundStation ----
+nmsc:GroundStationShape a sh:NodeShape ;
+    sh:targetClass nmsc:GroundStation ;
+    sh:not [ sh:or ( [ sh:class org:Organization ] [ sh:class org:OrganizationalUnit ] ) ] ;
+    sh:message "지상국(시설)은 그것을 운영하는 조직·조직 단위와 같은 개체가 아니다 (status 141)" ;
+    sh:property [
+        sh:path nmsc:receivesFrom ; sh:nodeKind sh:IRI ;
+        sh:or ( [ sh:class sosa:Platform ] [ sh:class nmsc:Payload ] [ sh:class nmsc:GroundStation ]
+                [ sh:class ssn:System ] [ sh:class dcat:DataService ] [ sh:class nmsc:InformationSystem ] ) ;
+        sh:message "지상국이 받는 곳(nmsc:receivesFrom)은 위성(sosa:Platform)·탑재체·다른 지상국·시스템·서비스여야 한다 (status 141)" ] .
+
+# Q5 합의: 지상국·시스템이 서 있는 장소는 prov:atLocation, org:hasSite 는 조직 → 장소만. MyGiver 가 고칠 때까지 권고.
+nmsc:GroundStationSiteShape a sh:NodeShape ;
+    sh:targetClass nmsc:GroundStation , nmsc:InformationSystem ;
+    sh:property [
+        sh:path org:hasSite ; sh:maxCount 0 ; sh:severity sh:Warning ;
+        sh:message "org:hasSite 의 정의역은 org:Organization 이다 — 지상국·시스템이 서 있는 장소는 prov:atLocation 으로 적는다 (status 141, Q5 — MyGiver 가 고칠 때까지 권고)" ] .
+
+# Q6 합의: 운영·소관 기관은 필수가 아니라 권고.
+nmsc:GroundStationOperatorShape a sh:NodeShape ;
+    sh:targetClass nmsc:GroundStation ;
+    sh:property [
+        sh:path [ sh:inversePath nmsc:isResponsibleFor ] ; sh:minCount 1 ; sh:severity sh:Warning ;
+        sh:message "지상국을 운영·소관하는 조직((조직) nmsc:isResponsibleFor (지상국))이 없다 (status 141, Q6 — 권고)" ] .
+
+# ---- Event (날짜 칸은 Q7 결정 전까지 제약하지 않는다) ----
+nmsc:EventShape a sh:NodeShape ;
+    sh:targetClass nmsc:Event ;
+    sh:property [
+        sh:path nmsc:affects ; sh:nodeKind sh:IRI ;
+        sh:or ( [ sh:class nmsc:Artifact ] [ sh:class nmsc:GroundStation ] [ sh:class nmsc:Payload ]
+                [ sh:class ssn:System ] [ sh:class sosa:Platform ] [ sh:class prov:Activity ]
+                [ sh:class dcat:DataService ] [ sh:class nmsc:InformationSystem ]
+                [ sh:class org:Organization ] [ sh:class org:OrganizationalUnit ] ) ;
+        sh:message "사건이 영향을 주는 대상(nmsc:affects)은 산출 기록물·지상국·탑재체·시스템·위성·과정·서비스·조직이어야 한다 (status 141)" ] ;
+    sh:property [
+        sh:path prov:atLocation ; sh:nodeKind sh:IRI ;
+        sh:message "사건이 일어난 곳(prov:atLocation)은 개체 IRI 여야 한다 — 문자열 아님 (status 141)" ] ;
+    sh:property [
+        sh:path dct:temporal ; sh:node nmsc:EventPeriodShape ;
+        sh:message "사건의 기간(dct:temporal)은 dct:PeriodOfTime 노드 — dcat:startDate 하나, dcat:endDate 최대 하나, 원본 정밀도대로 xsd:date·gYearMonth·gYear·dateTime (status 141, Q7)" ] .
+
+# Q7 사용자 결정 2026-11-18: 사건 날짜는 새 속성 없이 dct:temporal [ a dct:PeriodOfTime ; dcat:startDate … ; dcat:endDate … ].
+#   dcat:startDate·dcat:endDate 의 rdfs:domain 은 dct:PeriodOfTime, rdfs:range 는 rdfs:Literal(정밀도를 일부러 열어 둠 — DCAT 3 원문, src/dcat_terms_3.txt 와 같은 sha256 고정본).
+#   prov:startedAtTime·endedAtTime 은 정의역이 prov:Activity 라 쓰지 않는다. 하루 사건은 startDate 만, 또는 start = end.
+#   시작 ≤ 끝 대조는 두지 않는다 — 정밀도가 다른 값(gYear 와 date)은 SHACL 에서 비교할 수 없다.
+nmsc:EventPeriodShape a sh:NodeShape ;
+    sh:class dct:PeriodOfTime ;
+    sh:property [
+        sh:path <http://www.w3.org/ns/dcat#startDate> ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:gYearMonth ] [ sh:datatype xsd:gYear ] [ sh:datatype xsd:dateTime ] ) ;
+        sh:message "사건 기간의 시작(dcat:startDate)은 정확히 하나, xsd:date·gYearMonth·gYear·dateTime 중 하나다 — 원본에 없는 정밀도를 만들지 않는다 (CLAUDE.md 5절, status 141)" ] ;
+    sh:property [
+        sh:path <http://www.w3.org/ns/dcat#endDate> ; sh:maxCount 1 ;
+        sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:gYearMonth ] [ sh:datatype xsd:gYear ] [ sh:datatype xsd:dateTime ] ) ;
+        sh:message "사건 기간의 끝(dcat:endDate)은 최대 하나, xsd:date·gYearMonth·gYear·dateTime 중 하나다 (CLAUDE.md 5절, status 141)" ] .
+
+# 기간은 사건마다 최대 하나 — 날짜가 없는 사건은 허용(권고 수준).
+nmsc:EventPeriodCountShape a sh:NodeShape ;
+    sh:targetClass nmsc:Event ;
+    sh:property [
+        sh:path dct:temporal ; sh:maxCount 1 ; sh:severity sh:Warning ;
+        sh:message "사건의 기간(dct:temporal)이 둘 이상이다 — 여러 날 행사는 시작·끝을 가진 기간 노드 하나로 적는다 (status 141, Q7 — 권고)" ] .
+
+# ---- InformationSystem ----
+nmsc:InformationSystemShape a sh:NodeShape ;
+    sh:targetClass nmsc:InformationSystem ;
+    sh:not [ sh:or ( [ sh:class spdxs:Package ] [ sh:class sosa:Platform ] [ sh:class nmsc:Payload ]
+                     [ sh:class dcat:DataService ] [ sh:class nmsc:GroundStation ] ) ] ;
+    sh:message "정보시스템은 소프트웨어 패키지(SPDX)·위성·탑재체·배포 서비스·지상국과 같은 개체가 아니다 — 각자의 클래스를 쓴다 (status 141)" .
+
+# Q9: 장비의 ITAsset·SPDX 이전이 정해지기 전까지 권고.
+nmsc:InformationSystemAssetShape a sh:NodeShape ;
+    sh:targetClass nmsc:InformationSystem ;
+    sh:severity sh:Warning ;
+    sh:not [ sh:class nmsc:ITAsset ] ;
+    sh:message "장비 실물은 nmsc:ITAsset(IT 자산 유형)으로 적는다 — 정보시스템과 한 개체에 겹쳐 두지 않는다 (status 141, Q9 — 권고)" .
+
+# ---- Artifact (이름 또는 식별자 — 실행 기록 nmsc:DataObject 는 dct:identifier 만 가진다) ----
+nmsc:ArtifactShape a sh:NodeShape ;
+    sh:targetClass nmsc:Artifact ;
+    sh:or (
+        [ sh:path rdfs:label ; sh:minCount 1 ]
+        [ sh:path dct:identifier ; sh:minCount 1 ] ) ;
+    sh:message "산출 기록물은 이름(rdfs:label) 또는 식별자(dct:identifier)가 있어야 한다 (status 141)" ;
+    sh:property [
+        sh:path nmsc:isAbout ; sh:nodeKind sh:IRI ;
+        sh:or ( [ sh:class sosa:ObservableProperty ]
+                [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/variable> ] ] ) ;
+        sh:message "nmsc:isAbout 대상은 관측 변수 — sosa:ObservableProperty 개체 또는 SatSem 변수 스킴 개념이어야 한다 (status 141)" ] .
+
+nmsc:ArtifactNotConceptShape a sh:NodeShape ;
+    sh:targetClass nmsc:Artifact ;
+    sh:not [ sh:class skos:Concept ] ;
+    sh:message "산출 기록물은 SatSem 개념(skos:Concept, 산출물 prod:… 등)과 같은 IRI 를 쓰지 않는다 (status 141)" .
+
+# Q10 사용자 결정 2026-11-18: 개별자 → 산출물 개념 대응 — 같으면 dct:type <prod:…>, 가까우면 nmsc:approximatesProduct.
+#   정의역이 없는 속성이라 주어 클래스를 묻지 않고 쓰인 곳 모두를 본다.
+nmsc:ApproximatesProductShape a sh:NodeShape ;
+    sh:targetSubjectsOf nmsc:approximatesProduct ;
+    sh:property [
+        sh:path nmsc:approximatesProduct ; sh:nodeKind sh:IRI ;
+        sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ] ] ;
+        sh:message "nmsc:approximatesProduct 값은 산출물(scheme/product) 스킴의 개념이어야 한다 (status 141, Q10)" ] ;
+    sh:property [
+        sh:path nmsc:approximatesProduct ; sh:node nmsc:NotDeprecatedShape ;
+        sh:message "nmsc:approximatesProduct 값은 폐기되지 않은 산출물 개념이어야 한다 — 폐기 개념의 dct:isReplacedBy 를 따라간다 (status 141, Q10)" ] ;
+    sh:property [
+        sh:path nmsc:approximatesProduct ; sh:disjoint dct:type ;
+        sh:message "같은 산출물을 dct:type(같음)과 nmsc:approximatesProduct(가까움)로 함께 가리키지 않는다 — 하나만 고른다 (status 141, Q10)" ] .
+
+# ---- Payload ----
+# 퍼닝 금지(sh:not skos:Concept): nmsc:Payload 정의, 사용자 확정 2026-11-18(Q11). 탑재체 개별자는 자기 IRI 를 쓰고
+# SatSem 개념에는 연결 속성으로 잇는다(지금은 dct:type — 스킴별 개수 제약으로 유형 스킴 값과 충돌하지 않게).
+nmsc:PayloadShape a sh:NodeShape ;
+    sh:targetClass nmsc:Payload ;
+    sh:not [ sh:class skos:Concept ] ;
+    sh:message "탑재체 개체는 SatSem 탑재체 개념(ins:…, skos:Concept)과 같은 IRI 를 쓰지 않는다 — 퍼닝 금지, nmsc:Payload 정의 (status 141, Q11 사용자 확정 2026-11-18)" ;
+    sh:property [
+        sh:path dct:type ;
+        sh:qualifiedValueShape [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument-type> ] ] ;
+        sh:qualifiedMaxCount 1 ;
+        sh:message "탑재체의 세부 유형(dct:type → 탑재체 유형 스킴 개념)은 하나다 — 다른 스킴의 dct:type 값은 따로 허용 (status 141, Q12)" ] ;
+    sh:property [
+        sh:path nmsc:deploymentStart ; sh:maxCount 0 ;
+        sh:message "운용 시작은 위성×탑재체 쌍의 속성이다 — nmsc:Deployment 노드에 둔다 (CLAUDE.md 4절, status 141)" ] ;
+    sh:property [
+        sh:path nmsc:deploymentEnd ; sh:maxCount 0 ;
+        sh:message "운용 종료는 위성×탑재체 쌍의 속성이다 — nmsc:Deployment 노드에 둔다 (CLAUDE.md 4절, status 141)" ] ;
+    sh:property [
+        sh:path nmsc:lifecycleStatus ; sh:maxCount 0 ;
+        sh:message "운용 상태는 위성×탑재체 쌍의 속성이다 — nmsc:Deployment 노드에 둔다 (CLAUDE.md 4절, status 141)" ] .
+
+nmsc:PayloadRecommendedShape a sh:NodeShape ;
+    sh:targetClass nmsc:Payload ;
+    sh:severity sh:Warning ;
+    sh:or (
+        [ sh:path [ sh:inversePath sosa:hosts ] ; sh:minCount 1 ]
+        [ sh:path sosa:isHostedBy ; sh:minCount 1 ] ) ;
+    sh:message "탑재체를 싣는 위성(sosa:hosts 의 주어 또는 sosa:isHostedBy)이 없다 (status 141, 권고)" ;
+    sh:property [
+        sh:path dct:type ; sh:severity sh:Warning ;
+        sh:qualifiedValueShape [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument-type> ] ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "탑재체 세부 유형(dct:type → 탑재체 유형 스킴 개념)이 없다 — 묶음(KSEM 등)은 유형을 주지 않으므로 권고 (status 141, Q12·Q13)" ] .
+
+nmsc:PayloadKindShape a sh:NodeShape ;
+    sh:targetClass nmsc:Payload ;
+    sh:severity sh:Warning ;
+    sh:or ( [ sh:class nmsc:ObservingPayload ] [ sh:class nmsc:RelayPayload ] [ sh:class nmsc:PositioningPayload ] ) ;
+    sh:message "탑재체가 하는 일(관측·중계·통신·위치결정) 하위 클래스 중 하나가 없다 (status 141, 권고)" .
+
+# ---- 하위 4 (CommunicationPayload 는 RelayPayload 의 셰이프를 그대로 받는다 — Q14) ----
+nmsc:ObservingPayloadShape a sh:NodeShape ;
+    sh:targetClass nmsc:ObservingPayload ;
+    sh:property [
+        sh:path sosa:observes ; sh:nodeKind sh:IRI ;
+        sh:or ( [ sh:class sosa:ObservableProperty ]
+                [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/variable> ] ] ) ;
+        sh:message "관측 대상(sosa:observes)은 관측 변수 — sosa:ObservableProperty 개체 또는 SatSem 변수 스킴 개념이어야 한다 (status 141)" ] .
+
+nmsc:ObservingPayloadKindShape a sh:NodeShape ;
+    sh:targetClass nmsc:ObservingPayload ;
+    sh:severity sh:Warning ;
+    sh:not [ sh:or ( [ sh:class nmsc:RelayPayload ] [ sh:class nmsc:PositioningPayload ] ) ] ;
+    sh:message "관측 탑재체가 중계·위치결정 탑재체이기도 하다 — 한 기기에 두 일이 있으면 구성(ssn:hasSubSystem)으로 나눴는지 보라 (status 141, Q13 — 권고)" .
+
+nmsc:NonObservingPayloadShape a sh:NodeShape ;
+    sh:targetClass nmsc:RelayPayload , nmsc:PositioningPayload ;
+    sh:property [
+        sh:path sosa:observes ; sh:maxCount 0 ;
+        sh:message "중계·통신·위치결정 탑재체는 관측하지 않는다 — sosa:observes 의 주어는 sosa:Sensor(관측 탑재체)다 (status 141)" ] .

@@ -1,0 +1,2656 @@
+{
+ "format": "satsem-c15-elements",
+ "version": "0.24.0",
+ "date": "2026-11-15",
+ "base_iri": "https://w3id.org/nmsc/",
+ "design": "docs/c15-stage2-design.md §6·§7",
+ "sources": {
+  "src/c15_elements.tsv": "77ea10cb9df25d079ccf7acee4bbc84f77c7d302d67d2c7b14bf437ecaaca38e",
+  "src/c15_rules.tsv": "85e74bc2dd8986835591be985e3f41e192ebc9faba28d3ba38ca06fb088454ff"
+ },
+ "levels": {
+  "M": "필수 — 없으면 거부",
+  "C": "조건부 필수 — when 이 참이면 M, 거짓이면 then_level",
+  "R": "권장 — 없으면 경고",
+  "O": "선택"
+ },
+ "expression": "조건식(값은 satwright 철자): {\"element\", \"eq\"|\"in\"|\"exists\"|\"ge\"|\"matches\"}, {\"not\"}, {\"and\": [...]}, {\"or\": [...]}, {\"some\": target, \"where\": 식} — focus 에서 이어진 그 대상 노드 중 하나라도. 다른 대상의 요소는 links 경로로 따라간다.",
+ "targets": {
+  "data-object": "https://w3id.org/nmsc/DataObject",
+  "variable": "https://w3id.org/nmsc/DataVariable",
+  "run": "https://w3id.org/nmsc/ProcessingRun",
+  "usage": "http://www.w3.org/ns/prov#Usage",
+  "component": "https://w3id.org/nmsc/UncertaintyComponent",
+  "validation": "https://w3id.org/nmsc/ValidationRecord"
+ },
+ "links": [
+  {
+   "from": "component",
+   "to": "data-object",
+   "path": "nmsc:componentOf/^nmsc:hasDataVariable"
+  },
+  {
+   "from": "component",
+   "to": "variable",
+   "path": "nmsc:componentOf"
+  },
+  {
+   "from": "data-object",
+   "to": "variable",
+   "path": "nmsc:hasDataVariable"
+  },
+  {
+   "from": "run",
+   "to": "usage",
+   "path": "prov:qualifiedUsage"
+  },
+  {
+   "from": "variable",
+   "to": "component",
+   "path": "^nmsc:componentOf"
+  },
+  {
+   "from": "variable",
+   "to": "data-object",
+   "path": "^nmsc:hasDataVariable"
+  }
+ ],
+ "elements": [
+  {
+   "element": "do.identifier",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "M",
+   "path": "dct:identifier",
+   "value_type": "string",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "asset id",
+   "label_ko": "식별자",
+   "label_en": "Identifier",
+   "definition_ko": "자료 객체의 식별자.",
+   "source": "설계 §7.3 첫 행; ADR 0063 §1 요소 표",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.product",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "C",
+   "condition": "do.example-data eq false and do.use-condition eq public",
+   "when": {
+    "and": [
+     {
+      "element": "do.example-data",
+      "eq": false
+     },
+     {
+      "element": "do.use-condition",
+      "eq": "public"
+     }
+    ]
+   },
+   "then_level": "O",
+   "path": "nmsc:ofProduct",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/product",
+   "values": [],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "(등록부 SatSem IRI)",
+   "label_ko": "산출물 유형",
+   "label_en": "Product",
+   "definition_ko": "자료 객체가 어느 산출물(유형)의 자료인가. 공개(이용 조건 public)·비예시 자료 객체이면 필수, 그 밖에는 선택.",
+   "source": "설계 §7.3 첫 행; §10 S2-12 (가)",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.processing-level",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:ofProduct/nmsc:processingLevel",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/processing-level",
+   "values": [
+    "l1b",
+    "l2",
+    "l3",
+    "l4"
+   ],
+   "min": null,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "처리 수준",
+   "label_en": "Processing level",
+   "definition_ko": "산출물 유형의 처리 수준 — 산출물 개념에서 따라가며 기록에 따로 적지 않는다. 조건식(var.calibration-stage, SR11)이 쓴다.",
+   "source": "설계 §3.4 ofProduct 비고, §7.2 조건 예 do.processing-level in [l1b]",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.example-data",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:exampleData",
+   "value_type": "boolean",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "example_data",
+   "label_ko": "예시 자료 여부",
+   "label_en": "Example data",
+   "definition_ko": "합성·시험용 예시 자료인가(CLAUDE.md 6절 — 예시는 true).",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.use-condition",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:useCondition",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/use-condition",
+   "values": [
+    "public",
+    "restricted",
+    "internal"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "배포 범위",
+   "label_ko": "이용 조건 범주",
+   "label_en": "Use condition",
+   "definition_ko": "자료를 누가 쓸 수 있는가의 범주(V4).",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.license",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "R",
+   "path": "dct:license",
+   "value_type": "any",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "라이선스",
+   "label_en": "License",
+   "definition_ko": "자료의 라이선스.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.format",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "M",
+   "path": "dct:format",
+   "value_type": "any",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "형식",
+   "label_en": "Format",
+   "definition_ko": "자료 형식.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.generated-by",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "O",
+   "path": "prov:wasGeneratedBy",
+   "value_type": "node",
+   "min": null,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "생성 실행",
+   "label_en": "Generated by",
+   "definition_ko": "자료를 만든 실행 — 실행 산출물이면 satwright 가 채운다(반입 자료·정적 자료는 없음).",
+   "source": "설계 §7.3 첫 행; 설계 §3.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.derived-from",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "O",
+   "path": "prov:wasDerivedFrom",
+   "value_type": "node",
+   "min": null,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "원천 자료",
+   "label_en": "Derived from",
+   "definition_ko": "자료가 유도된 다른 자료 객체(선택).",
+   "source": "설계 §3.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.valid-time",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:validTime",
+   "value_type": "dateTime",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "obs_time 등(확장 표기 → ISO 8601)",
+   "label_ko": "유효 시각",
+   "label_en": "Valid time",
+   "definition_ko": "자료 값이 가리키는 시각.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.reference-time",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "C",
+   "condition": "do.temporal-relation eq forecast",
+   "when": {
+    "element": "do.temporal-relation",
+    "eq": "forecast"
+   },
+   "then_level": "O",
+   "path": "nmsc:referenceTime",
+   "value_type": "dateTime",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "cycle",
+   "label_ko": "발표 시각",
+   "label_en": "Reference time",
+   "definition_ko": "예측의 발표(초기) 시각. 시간 관계가 forecast 이면 필수.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.lead-time",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "C",
+   "condition": "do.temporal-relation eq forecast",
+   "when": {
+    "element": "do.temporal-relation",
+    "eq": "forecast"
+   },
+   "then_level": "O",
+   "path": "nmsc:leadTime",
+   "value_type": "duration",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "lead_h",
+   "label_ko": "선행 시간",
+   "label_en": "Lead time",
+   "definition_ko": "발표 시각에서 유효 시각까지. 시간 관계가 forecast 이면 필수(V2, SR15).",
+   "source": "설계 §7.3 첫 행; 결정 V2",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.generation-method",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:generationMethod",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/generation-method",
+   "values": [
+    "measured",
+    "retrieved",
+    "modelled",
+    "ml_inferred",
+    "simulated",
+    "statistical",
+    "extrapolated"
+   ],
+   "min": null,
+   "max": 1,
+   "satwright_field": "generation_method",
+   "label_ko": "생성 방법(기본값)",
+   "label_en": "Generation method (default)",
+   "definition_ko": "변수에 값이 없을 때 쓰는 기본값(V1). 변수 값이 있으면 변수 값이 이긴다.",
+   "source": "설계 §7.3 첫 행; 설계 §3.3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.temporal-relation",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:temporalRelation",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/temporal-relation",
+   "values": [
+    "observation",
+    "analysis",
+    "forecast",
+    "reanalysis",
+    "climatological"
+   ],
+   "min": null,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "시간 관계(기본값)",
+   "label_en": "Temporal relation (default)",
+   "definition_ko": "변수에 값이 없을 때 쓰는 기본값(V2).",
+   "source": "설계 §7.3 첫 행; 설계 §3.3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "do.variable",
+   "target": "data-object",
+   "target_class": "https://w3id.org/nmsc/DataObject",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:hasDataVariable",
+   "value_type": "node",
+   "class": "nmsc:DataVariable",
+   "min": null,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "자료 변수",
+   "label_en": "Data variable",
+   "definition_ko": "자료 객체 안의 변수.",
+   "source": "설계 §3.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.name",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:variableName",
+   "value_type": "string",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "name",
+   "label_ko": "변수 이름",
+   "label_en": "Variable name",
+   "definition_ko": "파일 안 변수 이름(패턴 * 허용 — ADR 0065).",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.unit",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:unitSymbol",
+   "value_type": "string",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "unit",
+   "label_ko": "단위",
+   "label_en": "Unit",
+   "definition_ko": "UDUNITS-2 문법의 단위 문자열. 불확도 성분 값의 단위도 이것이다.",
+   "source": "설계 §7.3 첫 행; ADR 0063 §3",
+   "decision": [
+    "S2-6",
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.quantity",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:quantityName",
+   "value_type": "string",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "quantity",
+   "label_ko": "물리량",
+   "label_en": "Quantity",
+   "definition_ko": "변수가 나타내는 물리량 이름.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.kind",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:variableKind",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/variable-kind",
+   "values": [
+    "continuous",
+    "categorical",
+    "bitmask"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "kind",
+   "label_ko": "변수 종류",
+   "label_en": "Variable kind",
+   "definition_ko": "연속형·범주형·비트마스크. 범주형·비트마스크에는 표준 불확도를 달지 않는다(SR4).",
+   "source": "설계 §7.3 첫 행; satwright ADR 0065 §9",
+   "decision": [
+    "S2-5",
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.classes",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "satwright",
+   "level": "O",
+   "path": null,
+   "value_type": "structure",
+   "min": null,
+   "max": null,
+   "satwright_field": "classes",
+   "label_ko": "범주 뜻",
+   "label_en": "Classes",
+   "definition_ko": "범주형(categorical) 변수의 값별 뜻 — [{value(정수), meaning, source?}]. categorical 에만 둔다. RDF 표현은 정하지 않았다(satwright 계약 칸).",
+   "source": "satwright 회신 2026-11-15 X-1; ADR 0065 §9",
+   "decision": [
+    "S2-5"
+   ]
+  },
+  {
+   "element": "var.bits",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "satwright",
+   "level": "O",
+   "path": null,
+   "value_type": "structure",
+   "min": null,
+   "max": null,
+   "satwright_field": "bits",
+   "label_ko": "비트 뜻",
+   "label_en": "Bits",
+   "definition_ko": "비트마스크(bitmask) 변수의 비트별 뜻 — [{bit: 0..63 | mask: 정수≥1 (둘 중 하나), meaning(필수), values: [{value, meaning}](mask 일 때 선택), source(선택)}]. bitmask 에만 둔다. RDF 표현은 정하지 않았다(satwright 계약 칸).",
+   "source": "satwright 회신 2026-11-15 X-1 후속; ADR 0065 §9 (platform 8cb074a)",
+   "decision": [
+    "S2-5"
+   ]
+  },
+  {
+   "element": "var.calibration-stage",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "C",
+   "condition": "do.processing-level in [l1b]",
+   "when": {
+    "element": "do.processing-level",
+    "in": [
+     "l1b"
+    ]
+   },
+   "then_level": "R",
+   "path": "nmsc:calibrationStage",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/calibration-stage",
+   "values": [
+    "raw",
+    "calibrated",
+    "derived"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "calibration_state",
+   "label_ko": "보정 단계",
+   "label_en": "Calibration stage",
+   "definition_ko": "V3 보정 단계. L1B 자료이면 필수, 그 밖에는 권장.",
+   "source": "설계 §7.3 첫 행; §10 S2-12 (가)",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.encoding-status",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:encodingStatus",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/encoding-status",
+   "values": [
+    "encoded",
+    "decoded"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "encoding_status",
+   "label_ko": "형식 상태",
+   "label_en": "Encoding status",
+   "definition_ko": "V3 형식 상태.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.generation-method",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:generationMethod|^nmsc:hasDataVariable/nmsc:generationMethod",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/generation-method",
+   "values": [
+    "measured",
+    "retrieved",
+    "modelled",
+    "ml_inferred",
+    "simulated",
+    "statistical",
+    "extrapolated"
+   ],
+   "min": 1,
+   "max": null,
+   "satwright_field": "generation_method",
+   "label_ko": "생성 방법",
+   "label_en": "Generation method",
+   "definition_ko": "V1. 변수 값이 정본, 없으면 자료 객체 값 — 둘 중 하나는 있어야 한다.",
+   "source": "설계 §7.3 첫 행; 설계 §3.3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.temporal-relation",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:temporalRelation|^nmsc:hasDataVariable/nmsc:temporalRelation",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/temporal-relation",
+   "values": [
+    "observation",
+    "analysis",
+    "forecast",
+    "reanalysis",
+    "climatological"
+   ],
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "시간 관계",
+   "label_en": "Temporal relation",
+   "definition_ko": "V2. 변수 값이 정본, 없으면 자료 객체 값 — 둘 중 하나는 있어야 한다.",
+   "source": "설계 §7.3 첫 행; 설계 §3.3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.represents",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:representsVariable",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/variable",
+   "values": [],
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "관측 변수",
+   "label_en": "Represents variable",
+   "definition_ko": "자료 변수가 나타내는 SatSem 관측 변수(OSCAR).",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.traceability",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:traceabilityLevel",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/traceability-level",
+   "values": [
+    "si",
+    "reference_sensor",
+    "independent_comparison",
+    "none",
+    "unknown"
+   ],
+   "min": null,
+   "max": 1,
+   "satwright_field": "traceability",
+   "label_ko": "SI 소급 등급",
+   "label_en": "Traceability level",
+   "definition_ko": "출력 변수의 SI 소급 등급(V7). 없으면 unknown 으로 읽는다(ADR 0064 §3).",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-7",
+    "S2-12"
+   ]
+  },
+  {
+   "element": "var.combined-uncertainty",
+   "target": "variable",
+   "target_class": "https://w3id.org/nmsc/DataVariable",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:combinedStandardUncertainty",
+   "value_type": "decimal",
+   "min": null,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "합성 표준 불확도",
+   "label_en": "Combined standard uncertainty",
+   "definition_ko": "모든 성분이 알려졌을 때만 둔다(SR2·SR3·SR4). 음이 아닌 수(SR16).",
+   "source": "설계 §3.4",
+   "decision": [
+    "S2-8",
+    "S2-12"
+   ]
+  },
+  {
+   "element": "run.plan.algorithm",
+   "target": "run",
+   "target_class": "https://w3id.org/nmsc/ProcessingRun",
+   "layer": "core",
+   "level": "M",
+   "path": "prov:qualifiedAssociation/prov:hadPlan/dct:type",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/algorithm",
+   "values": [
+    "GK2A_AAP",
+    "GK2A_ADPS",
+    "GK2A_AI_CA_AIR",
+    "GK2A_AI_DSR",
+    "GK2A_AI_RDR",
+    "GK2A_AI_RDR_SUMMER",
+    "GK2A_AI_RDR_WINTER",
+    "GK2A_AI_UVI",
+    "GK2A_AMV",
+    "GK2A_AMV-RS",
+    "GK2A_ANN",
+    "GK2A_APPS",
+    "GK2A_ASTD",
+    "GK2A_ASWIND",
+    "GK2A_ATCOR",
+    "GK2A_BRDF",
+    "GK2A_BSR",
+    "GK2A_CI",
+    "GK2A_CI_DEEP",
+    "GK2A_CI_PROB",
+    "GK2A_CLA",
+    "GK2A_CLD",
+    "GK2A_CLD2",
+    "GK2A_CLD_PKNU",
+    "GK2A_CRIDX",
+    "GK2A_CRIDX_IR105",
+    "GK2A_CTPS",
+    "GK2A_DCOEW",
+    "GK2A_DF",
+    "GK2A_DPH",
+    "GK2A_DSTR",
+    "GK2A_Drought",
+    "GK2A_ET",
+    "GK2A_FF",
+    "GK2A_FFE",
+    "GK2A_FOG",
+    "GK2A_FR",
+    "GK2A_FRP",
+    "GK2A_ICING",
+    "GK2A_KRDT",
+    "GK2A_LSE",
+    "GK2A_LST",
+    "GK2A_LWRAD",
+    "GK2A_MERGE_AOD_GEO",
+    "GK2A_MERGE_RR",
+    "GK2A_MSST_DAILY",
+    "GK2A_NCOT",
+    "GK2A_OCN_EDDY",
+    "GK2A_OCN_OF",
+    "GK2A_OCN_VICING",
+    "GK2A_OT",
+    "GK2A_PM_PET",
+    "GK2A_QPN",
+    "GK2A_TCHP",
+    "GK2A_TYP_TDI",
+    "GK2A_WIND_IR",
+    "GK2A_WIND_MT",
+    "GK2A_WIND_MW",
+    "GK2A_pre_CTPS",
+    "GK2A_RAD",
+    "GK2A_RR",
+    "GK2A_SAL",
+    "GK2A_SCSI",
+    "GK2A_SCSI_DAILY",
+    "GK2A_SD",
+    "GK2A_SFC_DC",
+    "GK2A_SM",
+    "GK2A_SO2D",
+    "GK2A_SSC",
+    "GK2A_SST",
+    "GK2A_SST_10DAY",
+    "GK2A_SST_5DAY",
+    "GK2A_SST_DAILY",
+    "GK2A_SSTA",
+    "GK2A_SWRAD",
+    "GK2A_TFTD",
+    "GK2A_TYP_DI",
+    "GK2A_VAP",
+    "GK2A_VGT",
+    "GK2A_VIS",
+    "GK2A_WIND_FD",
+    "MULTI_AAP"
+   ],
+   "min": 1,
+   "max": null,
+   "satwright_field": "모듈 ref",
+   "label_ko": "알고리즘",
+   "label_en": "Algorithm",
+   "definition_ko": "실행한 운영 알고리즘(alg: 개념) — Plan 노드의 dct:type.",
+   "source": "설계 §7.3 첫 행; 설계 §3.2",
+   "decision": [
+    "S2-1",
+    "S2-12"
+   ]
+  },
+  {
+   "element": "run.plan.version",
+   "target": "run",
+   "target_class": "https://w3id.org/nmsc/ProcessingRun",
+   "layer": "core",
+   "level": "M",
+   "path": "prov:qualifiedAssociation/prov:hadPlan/dcat:version",
+   "value_type": "string",
+   "min": 1,
+   "max": null,
+   "satwright_field": "판",
+   "label_ko": "알고리즘 판",
+   "label_en": "Algorithm version",
+   "definition_ko": "실행한 알고리즘 판 — Plan 노드의 dcat:version.",
+   "source": "설계 §7.3 첫 행; 설계 §3.2",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "run.compute",
+   "target": "run",
+   "target_class": "https://w3id.org/nmsc/ProcessingRun",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:computeStatus",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/compute-status",
+   "values": [
+    "succeeded",
+    "failed",
+    "cancelled"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "compute_status",
+   "label_ko": "계산 상태",
+   "label_en": "Compute status",
+   "definition_ko": "V5.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "run.quality",
+   "target": "run",
+   "target_class": "https://w3id.org/nmsc/ProcessingRun",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:qualityStatus",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/quality-status",
+   "values": [
+    "not_assessed",
+    "passed",
+    "warned",
+    "failed"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "quality_status",
+   "label_ko": "품질 상태",
+   "label_en": "Quality status",
+   "definition_ko": "V5.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "run.publication",
+   "target": "run",
+   "target_class": "https://w3id.org/nmsc/ProcessingRun",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:publicationStatus",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/publication-status",
+   "values": [
+    "unpublished",
+    "quarantined",
+    "published"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "publication_status",
+   "label_ko": "공개 상태",
+   "label_en": "Publication status",
+   "definition_ko": "V5.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "run.started",
+   "target": "run",
+   "target_class": "https://w3id.org/nmsc/ProcessingRun",
+   "layer": "core",
+   "level": "M",
+   "path": "prov:startedAtTime",
+   "value_type": "dateTime",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "시작 시각",
+   "label_en": "Started at",
+   "definition_ko": "실행 시작 시각.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "run.ended",
+   "target": "run",
+   "target_class": "https://w3id.org/nmsc/ProcessingRun",
+   "layer": "core",
+   "level": "C",
+   "condition": "run.compute in [succeeded failed cancelled]",
+   "when": {
+    "element": "run.compute",
+    "in": [
+     "succeeded",
+     "failed",
+     "cancelled"
+    ]
+   },
+   "then_level": "O",
+   "path": "prov:endedAtTime",
+   "value_type": "dateTime",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "종료 시각",
+   "label_en": "Ended at",
+   "definition_ko": "실행 종료 시각. 계산 상태가 끝난 값이면 필수.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "run.usage",
+   "target": "run",
+   "target_class": "https://w3id.org/nmsc/ProcessingRun",
+   "layer": "core",
+   "level": "O",
+   "path": "prov:qualifiedUsage",
+   "value_type": "node",
+   "class": "prov:Usage",
+   "min": null,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "입력 사용",
+   "label_en": "Usage",
+   "definition_ko": "역할 붙은 입력 사용(PROV qualified usage).",
+   "source": "설계 §3.1·§3.2",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "usage.entity",
+   "target": "usage",
+   "target_class": "http://www.w3.org/ns/prov#Usage",
+   "layer": "core",
+   "level": "M",
+   "path": "prov:entity",
+   "value_type": "node",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "입력",
+   "label_ko": "입력 자료",
+   "label_en": "Used entity",
+   "definition_ko": "사용한 입력 자료.",
+   "source": "설계 §7.3 첫 행",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "usage.role",
+   "target": "usage",
+   "target_class": "http://www.w3.org/ns/prov#Usage",
+   "layer": "core",
+   "level": "R",
+   "path": "prov:hadRole",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/input-role",
+   "values": [
+    "primary",
+    "intermediate",
+    "ancillary",
+    "calibration",
+    "static"
+   ],
+   "min": 1,
+   "max": null,
+   "satwright_field": "role",
+   "label_ko": "입력 역할",
+   "label_en": "Input role",
+   "definition_ko": "V12 — 역할 없는 입력은 경고(SR17).",
+   "source": "설계 §7.3 첫 행; ADR 0064 §6",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "usage.entity.version",
+   "target": "usage",
+   "target_class": "http://www.w3.org/ns/prov#Usage",
+   "layer": "core",
+   "level": "C",
+   "condition": "usage.role in [calibration static]",
+   "when": {
+    "element": "usage.role",
+    "in": [
+     "calibration",
+     "static"
+    ]
+   },
+   "then_level": "O",
+   "path": "prov:entity/dcat:version",
+   "value_type": "string",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "입력 자료 판",
+   "label_en": "Used entity version",
+   "definition_ko": "입력 자료의 판 식별자 — 입력 역할이 calibration·static 이면 필수(SR20). 실행마다 바뀌지 않지만 판이 바뀌는 자원(센서 보정 계수·매치업 회귀 계수·학습 가중치·LUT·기후값)은 어느 판을 썼는지 남겨야 다시 만들 수 있다.",
+   "source": "사용자 결정 2026-11-15 '판이 바뀌는 입력은 판을 식별한다'(status 98)",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "usage.entity.valid-period",
+   "target": "usage",
+   "target_class": "http://www.w3.org/ns/prov#Usage",
+   "layer": "core",
+   "level": "O",
+   "path": "prov:entity/dct:valid",
+   "value_type": "any",
+   "min": null,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "입력 자료 유효 기간",
+   "label_en": "Used entity validity period",
+   "definition_ko": "입력 자료 판의 유효 기간(satwright 유효 기간 칸 = 이 판을 쓰려고 만든 기간) — dct:valid(DCMI 'Date Valid'). 입력 역할이 calibration·static 이면 권장(SR21 경고). status 101에서 dct:temporal 에서 바꿈(사용자 결정, mailbox 33ac8d2f).",
+   "source": "사용자 결정 2026-11-15 '판이 바뀌는 입력은 판을 식별한다'(status 98)",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.of",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:componentOf",
+   "value_type": "node",
+   "class": "nmsc:DataVariable",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "출력 변수",
+   "label_en": "Output variable",
+   "definition_ko": "성분이 속한 출력 변수.",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.effect-id",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:effectId",
+   "value_type": "string",
+   "min": 1,
+   "max": 1,
+   "satwright_field": "effect_id",
+   "label_ko": "효과 id",
+   "label_en": "Effect id",
+   "definition_ko": "효과 식별자 — 패턴 [a-z0-9_.:-]+(SR9). 하위 단계에서도 그대로.",
+   "source": "설계 §4.1; ADR 0064 §3",
+   "decision": [
+    "S2-12",
+    "S2-15"
+   ]
+  },
+  {
+   "element": "comp.origin-run",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:effectOriginRun",
+   "value_type": "node",
+   "class": "nmsc:ProcessingRun",
+   "min": null,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "출처 실행",
+   "label_en": "Effect origin run",
+   "definition_ko": "효과가 처음 생긴 실행. 설계 §4.1 은 \"출처 실행을 볼 수 있으면\" C 이나 볼 수 있는지(ADR 0064 §7 hidden)는 실행 맥락이라 조건식으로 적지 않는다 — 이어받은 성분은 SR8 이 출처 실행 또는 출처 알고리즘을 요구한다.",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.origin-algorithm",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:effectOriginAlgorithm",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/algorithm",
+   "values": [
+    "GK2A_AAP",
+    "GK2A_ADPS",
+    "GK2A_AI_CA_AIR",
+    "GK2A_AI_DSR",
+    "GK2A_AI_RDR",
+    "GK2A_AI_RDR_SUMMER",
+    "GK2A_AI_RDR_WINTER",
+    "GK2A_AI_UVI",
+    "GK2A_AMV",
+    "GK2A_AMV-RS",
+    "GK2A_ANN",
+    "GK2A_APPS",
+    "GK2A_ASTD",
+    "GK2A_ASWIND",
+    "GK2A_ATCOR",
+    "GK2A_BRDF",
+    "GK2A_BSR",
+    "GK2A_CI",
+    "GK2A_CI_DEEP",
+    "GK2A_CI_PROB",
+    "GK2A_CLA",
+    "GK2A_CLD",
+    "GK2A_CLD2",
+    "GK2A_CLD_PKNU",
+    "GK2A_CRIDX",
+    "GK2A_CRIDX_IR105",
+    "GK2A_CTPS",
+    "GK2A_DCOEW",
+    "GK2A_DF",
+    "GK2A_DPH",
+    "GK2A_DSTR",
+    "GK2A_Drought",
+    "GK2A_ET",
+    "GK2A_FF",
+    "GK2A_FFE",
+    "GK2A_FOG",
+    "GK2A_FR",
+    "GK2A_FRP",
+    "GK2A_ICING",
+    "GK2A_KRDT",
+    "GK2A_LSE",
+    "GK2A_LST",
+    "GK2A_LWRAD",
+    "GK2A_MERGE_AOD_GEO",
+    "GK2A_MERGE_RR",
+    "GK2A_MSST_DAILY",
+    "GK2A_NCOT",
+    "GK2A_OCN_EDDY",
+    "GK2A_OCN_OF",
+    "GK2A_OCN_VICING",
+    "GK2A_OT",
+    "GK2A_PM_PET",
+    "GK2A_QPN",
+    "GK2A_TCHP",
+    "GK2A_TYP_TDI",
+    "GK2A_WIND_IR",
+    "GK2A_WIND_MT",
+    "GK2A_WIND_MW",
+    "GK2A_pre_CTPS",
+    "GK2A_RAD",
+    "GK2A_RR",
+    "GK2A_SAL",
+    "GK2A_SCSI",
+    "GK2A_SCSI_DAILY",
+    "GK2A_SD",
+    "GK2A_SFC_DC",
+    "GK2A_SM",
+    "GK2A_SO2D",
+    "GK2A_SSC",
+    "GK2A_SST",
+    "GK2A_SST_10DAY",
+    "GK2A_SST_5DAY",
+    "GK2A_SST_DAILY",
+    "GK2A_SSTA",
+    "GK2A_SWRAD",
+    "GK2A_TFTD",
+    "GK2A_TYP_DI",
+    "GK2A_VAP",
+    "GK2A_VGT",
+    "GK2A_VIS",
+    "GK2A_WIND_FD",
+    "MULTI_AAP"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "출처 알고리즘",
+   "label_en": "Effect origin algorithm",
+   "definition_ko": "효과가 처음 생긴 단계의 알고리즘 유형 — 실행이 감춰져도 남게.",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.source",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:uncertaintySource",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/uncertainty-source",
+   "values": [
+    "input",
+    "algorithm",
+    "sampling",
+    "random_subsampling",
+    "sampling_bias",
+    "unexplained"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "source",
+   "label_ko": "성분 분류",
+   "label_en": "Uncertainty source",
+   "definition_ko": "V8 분류(dct:source 가 아니다).",
+   "source": "설계 §4.1; ADR 0064 §3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.status",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:uncertaintyStatus",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/uncertainty-status",
+   "values": [
+    "propagated",
+    "evaluated",
+    "declared",
+    "unknown"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "status",
+   "label_ko": "불확도 상태",
+   "label_en": "Uncertainty status",
+   "definition_ko": "V6.",
+   "source": "설계 §4.1; ADR 0064 §3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.algorithm-category",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:algorithmErrorCategory",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/algorithm-error-category",
+   "values": [
+    "parameter",
+    "structural",
+    "numerical",
+    "representation"
+   ],
+   "min": null,
+   "max": 1,
+   "satwright_field": "category",
+   "label_ko": "알고리즘 오차 세부 분류",
+   "label_en": "Algorithm error category",
+   "definition_ko": "V9 — 분류가 algorithm 일 때만(SR7).",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.correlation",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:errorCorrelation",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/error-correlation",
+   "values": [
+    "independent",
+    "structured",
+    "common"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "상관 형태",
+   "label_en": "Error correlation",
+   "definition_ko": "V10 — 결합 계산에 필요(ADR 0064 §5).",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-12",
+    "S2-14"
+   ]
+  },
+  {
+   "element": "comp.distribution",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:uncertaintyDistribution",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/uncertainty-distribution",
+   "values": [
+    "normal",
+    "rectangular",
+    "triangular",
+    "arcsine",
+    "unknown"
+   ],
+   "min": null,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "분포",
+   "label_en": "Distribution",
+   "definition_ko": "V14 (SR12 의 근거).",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.method",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "C",
+   "condition": "not comp.status eq unknown",
+   "when": {
+    "not": {
+     "element": "comp.status",
+     "eq": "unknown"
+    }
+   },
+   "then_level": "O",
+   "path": "nmsc:uncertaintyMethod",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/uncertainty-method",
+   "values": [
+    "gum",
+    "monte_carlo",
+    "validation",
+    "validation_residual",
+    "ensemble",
+    "document"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "method",
+   "label_ko": "평가 방법",
+   "label_en": "Uncertainty method",
+   "definition_ko": "V11 — 상태가 unknown 이 아니면 필수(SR5).",
+   "source": "설계 §4.1; ADR 0064 §3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.standard-uncertainty",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:standardUncertainty",
+   "value_type": "decimal",
+   "min": null,
+   "max": 1,
+   "satwright_field": "standard_uncertainty.value",
+   "label_ko": "표준 불확도",
+   "label_en": "Standard uncertainty",
+   "definition_ko": "음이 아닌 수(SR16), 단위는 출력 변수의 var.unit. 상태 unknown·범주형/비트마스크 변수면 없음(SR4·SR6).",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-6",
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.applicability",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:applicability",
+   "value_type": "string",
+   "min": null,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "적용 조건",
+   "label_en": "Applicability",
+   "definition_ko": "성분이 맞는 조건(예 \"야간, 청천\").",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.carried",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:carriedFromUpstream",
+   "value_type": "boolean",
+   "min": null,
+   "max": 1,
+   "satwright_field": "carried",
+   "label_ko": "이어받음",
+   "label_en": "Carried from upstream",
+   "definition_ko": "상위 단계 성분을 이어받았나.",
+   "source": "설계 §4.1; ADR 0064 §4",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.upstream-status",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "C",
+   "condition": "comp.carried eq true",
+   "when": {
+    "element": "comp.carried",
+    "eq": true
+   },
+   "then_level": "O",
+   "path": "nmsc:upstreamStatus",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/uncertainty-status",
+   "values": [
+    "propagated",
+    "evaluated",
+    "declared",
+    "unknown"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": "upstream_status",
+   "label_ko": "원래 상태",
+   "label_en": "Upstream status",
+   "definition_ko": "이어받은 성분의 원래 상태 — 이어받았으면 필수(SR8).",
+   "source": "설계 §4.1; ADR 0064 §4",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.based-on-validation",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "C",
+   "condition": "comp.method in [validation validation_residual]",
+   "when": {
+    "element": "comp.method",
+    "in": [
+     "validation",
+     "validation_residual"
+    ]
+   },
+   "then_level": "O",
+   "path": "nmsc:basedOnValidation",
+   "value_type": "node",
+   "class": "nmsc:ValidationRecord",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "근거 검증 기록",
+   "label_en": "Based on validation",
+   "definition_ko": "방법이 validation·validation-residual 이면 필수(SR14).",
+   "source": "설계 §4.1",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "comp.reference",
+   "target": "component",
+   "target_class": "https://w3id.org/nmsc/UncertaintyComponent",
+   "layer": "core",
+   "level": "M",
+   "path": "dct:source",
+   "value_type": "any",
+   "min": 1,
+   "max": null,
+   "satwright_field": "reference",
+   "label_ko": "근거",
+   "label_en": "Reference",
+   "definition_ko": "근거 문서(ATBD 절·검증 기록). 상태가 unknown 이면 그렇게 적은 기록.",
+   "source": "설계 §4.1; ADR 0064 §3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.kind",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:validationKind",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/validation-kind",
+   "values": [
+    "development",
+    "monitoring"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "검증 종류",
+   "label_en": "Validation kind",
+   "definition_ko": "V13.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.status",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:validationStatus",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/validation-status",
+   "values": [
+    "current",
+    "stale"
+   ],
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "검증 상태",
+   "label_en": "Validation status",
+   "definition_ko": "V13 — 판정은 satwright.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.plan",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:validatedPlan",
+   "value_type": "node",
+   "class": "prov:Plan",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "대상 알고리즘 판",
+   "label_en": "Validated plan",
+   "definition_ko": "실행과 같은 꼴의 Plan 노드.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.plan.algorithm",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:validatedPlan/dct:type",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/algorithm",
+   "values": [
+    "GK2A_AAP",
+    "GK2A_ADPS",
+    "GK2A_AI_CA_AIR",
+    "GK2A_AI_DSR",
+    "GK2A_AI_RDR",
+    "GK2A_AI_RDR_SUMMER",
+    "GK2A_AI_RDR_WINTER",
+    "GK2A_AI_UVI",
+    "GK2A_AMV",
+    "GK2A_AMV-RS",
+    "GK2A_ANN",
+    "GK2A_APPS",
+    "GK2A_ASTD",
+    "GK2A_ASWIND",
+    "GK2A_ATCOR",
+    "GK2A_BRDF",
+    "GK2A_BSR",
+    "GK2A_CI",
+    "GK2A_CI_DEEP",
+    "GK2A_CI_PROB",
+    "GK2A_CLA",
+    "GK2A_CLD",
+    "GK2A_CLD2",
+    "GK2A_CLD_PKNU",
+    "GK2A_CRIDX",
+    "GK2A_CRIDX_IR105",
+    "GK2A_CTPS",
+    "GK2A_DCOEW",
+    "GK2A_DF",
+    "GK2A_DPH",
+    "GK2A_DSTR",
+    "GK2A_Drought",
+    "GK2A_ET",
+    "GK2A_FF",
+    "GK2A_FFE",
+    "GK2A_FOG",
+    "GK2A_FR",
+    "GK2A_FRP",
+    "GK2A_ICING",
+    "GK2A_KRDT",
+    "GK2A_LSE",
+    "GK2A_LST",
+    "GK2A_LWRAD",
+    "GK2A_MERGE_AOD_GEO",
+    "GK2A_MERGE_RR",
+    "GK2A_MSST_DAILY",
+    "GK2A_NCOT",
+    "GK2A_OCN_EDDY",
+    "GK2A_OCN_OF",
+    "GK2A_OCN_VICING",
+    "GK2A_OT",
+    "GK2A_PM_PET",
+    "GK2A_QPN",
+    "GK2A_TCHP",
+    "GK2A_TYP_TDI",
+    "GK2A_WIND_IR",
+    "GK2A_WIND_MT",
+    "GK2A_WIND_MW",
+    "GK2A_pre_CTPS",
+    "GK2A_RAD",
+    "GK2A_RR",
+    "GK2A_SAL",
+    "GK2A_SCSI",
+    "GK2A_SCSI_DAILY",
+    "GK2A_SD",
+    "GK2A_SFC_DC",
+    "GK2A_SM",
+    "GK2A_SO2D",
+    "GK2A_SSC",
+    "GK2A_SST",
+    "GK2A_SST_10DAY",
+    "GK2A_SST_5DAY",
+    "GK2A_SST_DAILY",
+    "GK2A_SSTA",
+    "GK2A_SWRAD",
+    "GK2A_TFTD",
+    "GK2A_TYP_DI",
+    "GK2A_VAP",
+    "GK2A_VGT",
+    "GK2A_VIS",
+    "GK2A_WIND_FD",
+    "MULTI_AAP"
+   ],
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "대상 알고리즘",
+   "label_en": "Validated algorithm",
+   "definition_ko": "Plan 노드의 dct:type.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.plan.version",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:validatedPlan/dcat:version",
+   "value_type": "string",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "대상 알고리즘 판",
+   "label_en": "Validated algorithm version",
+   "definition_ko": "Plan 노드의 dcat:version.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.product",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:validatedProduct",
+   "value_type": "concept",
+   "scheme": "https://w3id.org/nmsc/scheme/product",
+   "values": [],
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "대상 산출물",
+   "label_en": "Validated product",
+   "definition_ko": "검증 대상 산출물(유형).",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.test-run",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:testRun",
+   "value_type": "node",
+   "class": "nmsc:ProcessingRun",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "시험 실행",
+   "label_en": "Test run",
+   "definition_ko": "검증 대상이 된 실행(그 DBoM) — 없으면 stale 판정 불가.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.reference-data",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "M",
+   "path": "nmsc:referenceData",
+   "value_type": "any",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "참조 자료",
+   "label_en": "Reference data",
+   "definition_ko": "비교한 참조 자료(개체 또는 이름 문자열).",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.period",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "R",
+   "path": "dct:temporal",
+   "value_type": "any",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "기간",
+   "label_en": "Period",
+   "definition_ko": "검증 기간.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.sample-size",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:sampleSize",
+   "value_type": "integer",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "표본 수",
+   "label_en": "Sample size",
+   "definition_ko": "검증 표본 수.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.applicability",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "R",
+   "path": "nmsc:applicability",
+   "value_type": "string",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "조건",
+   "label_en": "Applicability",
+   "definition_ko": "검증 조건 — 조건마다 기록 하나.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12",
+    "S2-13"
+   ]
+  },
+  {
+   "element": "val.bias",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "C",
+   "condition": "not val.standard-deviation exists and not val.rmsd exists",
+   "when": {
+    "and": [
+     {
+      "not": {
+       "element": "val.standard-deviation",
+       "exists": true
+      }
+     },
+     {
+      "not": {
+       "element": "val.rmsd",
+       "exists": true
+      }
+     }
+    ]
+   },
+   "then_level": "O",
+   "path": "nmsc:bias",
+   "value_type": "decimal",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "편향",
+   "label_en": "Bias",
+   "definition_ko": "통계 셋(편향·표준편차·RMSD) 중 하나 이상 있어야 한다 — 다른 둘이 없으면 필수.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.standard-deviation",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "C",
+   "condition": "not val.bias exists and not val.rmsd exists",
+   "when": {
+    "and": [
+     {
+      "not": {
+       "element": "val.bias",
+       "exists": true
+      }
+     },
+     {
+      "not": {
+       "element": "val.rmsd",
+       "exists": true
+      }
+     }
+    ]
+   },
+   "then_level": "O",
+   "path": "nmsc:standardDeviation",
+   "value_type": "decimal",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "표준편차",
+   "label_en": "Standard deviation",
+   "definition_ko": "통계 셋 중 하나 이상 — 다른 둘이 없으면 필수.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.rmsd",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "C",
+   "condition": "not val.bias exists and not val.standard-deviation exists",
+   "when": {
+    "and": [
+     {
+      "not": {
+       "element": "val.bias",
+       "exists": true
+      }
+     },
+     {
+      "not": {
+       "element": "val.standard-deviation",
+       "exists": true
+      }
+     }
+    ]
+   },
+   "then_level": "O",
+   "path": "nmsc:rmsd",
+   "value_type": "decimal",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "RMSD",
+   "label_en": "RMSD",
+   "definition_ko": "통계 셋 중 하나 이상 — 다른 둘이 없으면 필수. \"정확도\" 칸은 두지 않는다.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.unit",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "C",
+   "condition": "val.bias exists or val.standard-deviation exists or val.rmsd exists",
+   "when": {
+    "or": [
+     {
+      "element": "val.bias",
+      "exists": true
+     },
+     {
+      "element": "val.standard-deviation",
+      "exists": true
+     },
+     {
+      "element": "val.rmsd",
+      "exists": true
+     }
+    ]
+   },
+   "then_level": "O",
+   "path": "nmsc:unitSymbol",
+   "value_type": "string",
+   "min": 1,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "통계 단위",
+   "label_en": "Statistics unit",
+   "definition_ko": "통계가 있으면 필수(UDUNITS-2).",
+   "source": "설계 §5",
+   "decision": [
+    "S2-6",
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.split-method",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:dataSplitMethod",
+   "value_type": "string",
+   "min": null,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "자료 분할 방법",
+   "label_en": "Data split method",
+   "definition_ko": "조정·시험 자료를 나눈 방법(종류 development 일 때 권장).",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.split-overlap-checked",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "O",
+   "path": "nmsc:splitOverlapChecked",
+   "value_type": "boolean",
+   "min": null,
+   "max": 1,
+   "satwright_field": null,
+   "label_ko": "분할 겹침 확인",
+   "label_en": "Split overlap checked",
+   "definition_ko": "종류 development 이면 true 여야 한다(SR13 경고).",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "element": "val.source",
+   "target": "validation",
+   "target_class": "https://w3id.org/nmsc/ValidationRecord",
+   "layer": "core",
+   "level": "M",
+   "path": "dct:source",
+   "value_type": "any",
+   "min": 1,
+   "max": null,
+   "satwright_field": null,
+   "label_ko": "출처",
+   "label_en": "Source",
+   "definition_ko": "검증 기록의 출처.",
+   "source": "설계 §5",
+   "decision": [
+    "S2-12"
+   ]
+  }
+ ],
+ "rules": [
+  {
+   "rule": "SR1",
+   "target": "variable",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": {
+    "some": "component",
+    "where": {
+     "element": "comp.status",
+     "eq": "propagated"
+    }
+   },
+   "require": {
+    "not": {
+     "some": "component",
+     "where": {
+      "and": [
+       {
+        "element": "comp.source",
+        "eq": "input"
+       },
+       {
+        "element": "comp.status",
+        "eq": "unknown"
+       }
+      ]
+     }
+    }
+   },
+   "when_text": "some component (comp.status eq propagated)",
+   "require_text": "not some component (comp.source eq input and comp.status eq unknown)",
+   "elements": [],
+   "text_ko": "성분 중 상태 propagated 가 있으면 분류 input·상태 unknown 인 성분이 없어야 한다",
+   "text_en": "If any component is propagated, no input component may have status unknown",
+   "basis": "조사 04 §5-1",
+   "satwright_rule": "ADR 0064 §6-1",
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR2",
+   "target": "variable",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": {
+    "some": "component",
+    "where": {
+     "element": "comp.status",
+     "eq": "unknown"
+    }
+   },
+   "require": {
+    "not": {
+     "element": "var.combined-uncertainty",
+     "exists": true
+    }
+   },
+   "when_text": "some component (comp.status eq unknown)",
+   "require_text": "not var.combined-uncertainty exists",
+   "elements": [],
+   "text_ko": "상태 unknown 성분이 하나라도 있으면 합성 표준 불확도가 없어야 한다",
+   "text_en": "No combined standard uncertainty while any component is unknown",
+   "basis": "조사 04 §5-2",
+   "satwright_rule": "ADR 0064 §5",
+   "decision": [
+    "S2-8"
+   ]
+  },
+  {
+   "rule": "SR3",
+   "target": "variable",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": {
+    "some": "component",
+    "where": {
+     "element": "comp.correlation",
+     "eq": "structured"
+    }
+   },
+   "require": {
+    "not": {
+     "element": "var.combined-uncertainty",
+     "exists": true
+    }
+   },
+   "when_text": "some component (comp.correlation eq structured)",
+   "require_text": "not var.combined-uncertainty exists",
+   "elements": [],
+   "text_ko": "상관 structured 성분이 있으면 합성 표준 불확도가 없어야 한다",
+   "text_en": "No combined standard uncertainty while any component is structured",
+   "basis": "ADR 0064 §5",
+   "satwright_rule": "ADR 0064 §5",
+   "decision": [
+    "S2-8"
+   ]
+  },
+  {
+   "rule": "SR4",
+   "target": "variable",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": {
+    "element": "var.kind",
+    "in": [
+     "categorical",
+     "bitmask"
+    ]
+   },
+   "require": {
+    "and": [
+     {
+      "not": {
+       "element": "var.combined-uncertainty",
+       "exists": true
+      }
+     },
+     {
+      "not": {
+       "some": "component",
+       "where": {
+        "element": "comp.standard-uncertainty",
+        "exists": true
+       }
+      }
+     }
+    ]
+   },
+   "when_text": "var.kind in [categorical bitmask]",
+   "require_text": "not var.combined-uncertainty exists and not some component (comp.standard-uncertainty exists)",
+   "elements": [],
+   "text_ko": "변수 종류가 범주형·비트마스크면 성분의 표준 불확도와 변수의 합성 표준 불확도가 없어야 한다",
+   "text_en": "Categorical and bitmask variables carry no standard uncertainty",
+   "basis": "조사 04 §5-4, ADR 0065 결정 4·§9",
+   "satwright_rule": "ADR 0064 §3",
+   "decision": [
+    "S2-5"
+   ]
+  },
+  {
+   "rule": "SR5",
+   "target": "component",
+   "level": "M",
+   "severity": "violation",
+   "kind": "element",
+   "elements": [
+    "comp.method"
+   ],
+   "text_ko": "상태가 unknown 이 아니면 평가 방법이 하나 있어야 한다",
+   "text_en": "A component whose status is not unknown needs exactly one method",
+   "basis": "ADR 0064 §3 \"값을 지어내지 않게\"",
+   "satwright_rule": "ADR 0064 §3",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "rule": "SR6",
+   "target": "component",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": {
+    "element": "comp.status",
+    "eq": "unknown"
+   },
+   "require": {
+    "not": {
+     "element": "comp.standard-uncertainty",
+     "exists": true
+    }
+   },
+   "when_text": "comp.status eq unknown",
+   "require_text": "not comp.standard-uncertainty exists",
+   "elements": [],
+   "text_ko": "상태 unknown 이면 표준 불확도가 없어야 한다",
+   "text_en": "An unknown component carries no standard uncertainty",
+   "basis": "ADR 0064 §1·§4",
+   "satwright_rule": "ADR 0064 §4",
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR7",
+   "target": "component",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": {
+    "element": "comp.algorithm-category",
+    "exists": true
+   },
+   "require": {
+    "element": "comp.source",
+    "eq": "algorithm"
+   },
+   "when_text": "comp.algorithm-category exists",
+   "require_text": "comp.source eq algorithm",
+   "elements": [],
+   "text_ko": "알고리즘 오차 세부 분류는 분류가 algorithm 일 때만",
+   "text_en": "Algorithm error category only for algorithm components",
+   "basis": "ADR 0064 §3, V9",
+   "satwright_rule": "ADR 0064 §3",
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR8",
+   "target": "component",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": {
+    "element": "comp.carried",
+    "eq": true
+   },
+   "require": {
+    "or": [
+     {
+      "element": "comp.origin-run",
+      "exists": true
+     },
+     {
+      "element": "comp.origin-algorithm",
+      "exists": true
+     }
+    ]
+   },
+   "when_text": "comp.carried eq true",
+   "require_text": "comp.origin-run exists or comp.origin-algorithm exists",
+   "elements": [
+    "comp.upstream-status"
+   ],
+   "text_ko": "이어받은 성분(carriedFromUpstream true)은 원래 상태 하나와 출처 실행 또는 출처 알고리즘이 있어야 한다(원래 상태는 요소 comp.upstream-status 의 C)",
+   "text_en": "A carried component needs its upstream status and an origin run or origin algorithm",
+   "basis": "조사 04 §5-3",
+   "satwright_rule": "ADR 0064 §4",
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR9",
+   "target": "component",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": null,
+   "require": {
+    "element": "comp.effect-id",
+    "matches": "^[a-z0-9_.:-]+$"
+   },
+   "when_text": null,
+   "require_text": "comp.effect-id matches \"^[a-z0-9_.:-]+$\"",
+   "elements": [
+    "comp.effect-id"
+   ],
+   "text_ko": "효과 id 는 하나이고 패턴 ^[a-z0-9_.:-]+$ 에 맞아야 한다(개수는 요소 comp.effect-id)",
+   "text_en": "Effect id: exactly one, matching ^[a-z0-9_.:-]+$",
+   "basis": "ADR 0064 미결 — 지금 문자열 규칙",
+   "satwright_rule": "ADR 0064 §3",
+   "decision": [
+    "S2-15"
+   ]
+  },
+  {
+   "rule": "SR10",
+   "target": "variable",
+   "level": "R",
+   "severity": "warning",
+   "kind": "shape",
+   "when": {
+    "some": "component",
+    "where": {
+     "and": [
+      {
+       "element": "comp.source",
+       "eq": "algorithm"
+      },
+      {
+       "element": "comp.method",
+       "eq": "validation"
+      }
+     ]
+    }
+   },
+   "require": {
+    "not": {
+     "some": "component",
+     "where": {
+      "element": "comp.source",
+      "eq": "input"
+     }
+    }
+   },
+   "when_text": "some component (comp.source eq algorithm and comp.method eq validation)",
+   "require_text": "not some component (comp.source eq input)",
+   "elements": [],
+   "text_ko": "검증 통계(잔차 아님)로 낸 algorithm 성분과 input 성분을 함께 두면 이중 계산일 수 있다",
+   "text_en": "An algorithm component from validation statistics together with input components may double count",
+   "basis": "조사 04 §5-8",
+   "satwright_rule": "ADR 0064 §6-8",
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR11",
+   "target": "variable",
+   "level": "R",
+   "severity": "warning",
+   "kind": "shape",
+   "when": {
+    "element": "do.processing-level",
+    "in": [
+     "l3",
+     "l4"
+    ]
+   },
+   "require": {
+    "some": "component",
+    "where": {
+     "element": "comp.source",
+     "in": [
+      "sampling",
+      "random_subsampling",
+      "sampling_bias"
+     ]
+    }
+   },
+   "when_text": "do.processing-level in [l3 l4]",
+   "require_text": "some component (comp.source in [sampling random_subsampling sampling_bias])",
+   "elements": [],
+   "text_ko": "L3·L4 산출물 변수에 표본(sampling) 성분이 없다 — 산출물에 수준이 여럿이면 과할 수 있다",
+   "text_en": "L3/L4 variable without a sampling component",
+   "basis": "조사 04 §5-10",
+   "satwright_rule": "ADR 0064 §6-10",
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR12",
+   "target": "component",
+   "level": "R",
+   "severity": "warning",
+   "kind": "shape",
+   "when": null,
+   "require": {
+    "not": {
+     "and": [
+      {
+       "element": "comp.method",
+       "eq": "gum"
+      },
+      {
+       "element": "comp.distribution",
+       "exists": true
+      },
+      {
+       "not": {
+        "element": "comp.distribution",
+        "eq": "normal"
+       }
+      }
+     ]
+    }
+   },
+   "when_text": null,
+   "require_text": "not (comp.method eq gum and comp.distribution exists and not comp.distribution eq normal)",
+   "elements": [],
+   "text_ko": "방법 gum 인데 분포가 정규가 아니다 — Monte Carlo 확인 안 됨",
+   "text_en": "GUM method with a non-normal distribution: Monte Carlo not checked",
+   "basis": "조사 04 §5-13",
+   "satwright_rule": "ADR 0064 §6-13",
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR13",
+   "target": "validation",
+   "level": "R",
+   "severity": "warning",
+   "kind": "shape",
+   "when": {
+    "element": "val.kind",
+    "eq": "development"
+   },
+   "require": {
+    "element": "val.split-overlap-checked",
+    "eq": true
+   },
+   "when_text": "val.kind eq development",
+   "require_text": "val.split-overlap-checked eq true",
+   "elements": [],
+   "text_ko": "개발 시험 검증 기록은 조정·시험 자료 겹침을 확인했어야 한다(splitOverlapChecked true)",
+   "text_en": "Development validation should record that the split overlap was checked",
+   "basis": "조사 04 §5-9",
+   "satwright_rule": null,
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR14",
+   "target": "component",
+   "level": "M",
+   "severity": "violation",
+   "kind": "element",
+   "elements": [
+    "comp.based-on-validation"
+   ],
+   "text_ko": "방법이 validation·validation-residual 이면 근거 검증 기록이 하나 이상 있어야 한다",
+   "text_en": "Methods that rely on validation need a validation record",
+   "basis": "조사 04 §5-8, 결정 V6",
+   "satwright_rule": null,
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "rule": "SR15",
+   "target": "variable",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": {
+    "element": "var.temporal-relation",
+    "eq": "forecast"
+   },
+   "require": {
+    "element": "do.lead-time",
+    "exists": true
+   },
+   "when_text": "var.temporal-relation eq forecast",
+   "require_text": "do.lead-time exists",
+   "elements": [
+    "do.lead-time"
+   ],
+   "text_ko": "시간 관계 forecast(변수 값, 없으면 객체 값)면 선행 시간이 있어야 한다(자료 객체 쪽은 요소 do.lead-time 의 C)",
+   "text_en": "Forecast data needs a lead time",
+   "basis": "결정 V2 \"forecast(선행 시간 필수)\"",
+   "satwright_rule": null,
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "rule": "SR16",
+   "target": "component",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": null,
+   "require": {
+    "element": "comp.standard-uncertainty",
+    "ge": 0
+   },
+   "when_text": null,
+   "require_text": "comp.standard-uncertainty ge 0",
+   "elements": [],
+   "text_ko": "표준 불확도는 음이 아니다",
+   "text_en": "Standard uncertainty is non-negative",
+   "basis": "VIM·GUM 불확도 정의(음이 아닌 모수)",
+   "satwright_rule": null,
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR16",
+   "target": "variable",
+   "level": "M",
+   "severity": "violation",
+   "kind": "shape",
+   "when": null,
+   "require": {
+    "element": "var.combined-uncertainty",
+    "ge": 0
+   },
+   "when_text": null,
+   "require_text": "var.combined-uncertainty ge 0",
+   "elements": [],
+   "text_ko": "합성 표준 불확도는 음이 아니다",
+   "text_en": "Combined standard uncertainty is non-negative",
+   "basis": "VIM·GUM 불확도 정의(음이 아닌 모수)",
+   "satwright_rule": null,
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR17",
+   "target": "usage",
+   "level": "R",
+   "severity": "warning",
+   "kind": "element",
+   "elements": [
+    "usage.role"
+   ],
+   "text_ko": "prov:Usage 에 prov:hadRole 이 없다",
+   "text_en": "Usage without a role",
+   "basis": "ADR 0064 §6 \"역할 없는 입력 → 경고\"",
+   "satwright_rule": "ADR 0064 §6",
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "rule": "SR18",
+   "target": "*",
+   "level": "M",
+   "severity": "violation",
+   "kind": "element",
+   "elements": [
+    "@concept"
+   ],
+   "text_ko": "객체 속성 값이 지정 스킴 안(skos:inScheme)에 있어야 한다 — 값마다 검사",
+   "text_en": "Concept values must be in the expected scheme",
+   "basis": "기존 셰이프 관례(v0.3 값별 sh:node)",
+   "satwright_rule": null,
+   "decision": [
+    "S2-11"
+   ]
+  },
+  {
+   "rule": "SR19",
+   "target": "run",
+   "level": "R",
+   "severity": "warning",
+   "kind": "external",
+   "elements": [
+    "var.temporal-relation",
+    "do.temporal-relation"
+   ],
+   "text_ko": "시간 동작이 없는(입력을 따름) 알고리즘 실행의 출력 시간 관계는 주·중간 입력(irole primary·intermediate)의 시간 관계와 같아야 한다 — 실행의 Plan 이 가리키는 알고리즘(dct:type alg:…)에 nmsc:imposesTemporalRelation 이 있으면 출력 시간 관계 = 그 값. 입력끼리 다르면 경고",
+   "text_en": "For a run of an algorithm with no temporal behaviour (follows input), the output temporal relation equals that of its primary and intermediate inputs; if the algorithm imposes a temporal relation, the output carries that value",
+   "basis": "시간 관계 세 층(사용자 확정 2026-11-15, docs/c15-stage2-design.md §10 S2-4) — (2) 실행 기록이 정본, 입력 시간 관계 + 모듈 동작으로 일관성 검사. SHACL Core 로 못 쓴다: 출력 변수 값(var.temporal-relation, 없으면 do.temporal-relation)과 prov:qualifiedUsage/prov:entity 쪽 값의 비교는 서로 다른 경로의 값 비교라 sh:equals(속성 하나)로 되지 않고, 알고리즘 시간 동작은 Plan 의 dct:type 을 따라 본 어휘까지 가야 한다(결정 S2-11 — sh:sparql 없음)",
+   "satwright_rule": "satwright 실행 기록 검사(입력 사용 prov:Usage 의 역할 primary·intermediate 와 출력 자료 객체·변수의 temporal_relation 비교) — 구현 자리는 satwright 가 정한다",
+   "decision": [
+    "S2-4"
+   ]
+  },
+  {
+   "rule": "SR20",
+   "target": "usage",
+   "level": "M",
+   "severity": "violation",
+   "kind": "element",
+   "elements": [
+    "usage.entity.version"
+   ],
+   "text_ko": "입력 역할이 calibration·static 인 사용에는 입력 자료의 판 식별자(dcat:version)가 있어야 한다",
+   "text_en": "A usage whose role is calibration or static needs the version of the used entity",
+   "basis": "사용자 결정 2026-11-15 '판이 바뀌는 입력은 판을 식별한다'(status 98)",
+   "satwright_rule": null,
+   "decision": [
+    "S2-12"
+   ]
+  },
+  {
+   "rule": "SR21",
+   "target": "usage",
+   "level": "R",
+   "severity": "warning",
+   "kind": "shape",
+   "when": {
+    "element": "usage.role",
+    "in": [
+     "calibration",
+     "static"
+    ]
+   },
+   "require": {
+    "element": "usage.entity.valid-period",
+    "exists": true
+   },
+   "when_text": "usage.role in [calibration static]",
+   "require_text": "usage.entity.valid-period exists",
+   "elements": [
+    "usage.entity.valid-period"
+   ],
+   "text_ko": "입력 역할이 calibration·static 인 사용에는 입력 자료의 유효 기간(dct:valid)을 두는 것이 좋다",
+   "text_en": "A usage whose role is calibration or static should record the validity period of the used entity",
+   "basis": "사용자 결정 2026-11-15 '판이 바뀌는 입력은 판을 식별한다'(status 98)",
+   "satwright_rule": null,
+   "decision": [
+    "S2-12"
+   ]
+  }
+ ]
+}

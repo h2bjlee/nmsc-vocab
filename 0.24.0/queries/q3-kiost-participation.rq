@@ -1,0 +1,27 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q3. KIOST가 참여한 위성과 그 역할
+#    기관을 개념으로 만들었기 때문에 가능하다.
+SELECT ?위성 ?분담
+WHERE {
+  ?r nmsc:responsibleAgency agcy:kiost ;
+     nmsc:responsibilityOf  ?s ;
+     nmsc:developmentRole   ?role .
+  ?s    skos:prefLabel ?위성 . FILTER(lang(?위성) = "ko")
+  ?role skos:prefLabel ?분담 . FILTER(lang(?분담) = "ko")
+}
