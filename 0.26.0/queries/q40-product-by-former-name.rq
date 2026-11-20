@@ -1,0 +1,21 @@
+PREFIX nmsc:   <https://w3id.org/nmsc/>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
+PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
+
+# ── Q40. 다른·이전 이름으로 산출물 찾기 (status 116 — 원천 src/product_former_names.tsv)
+#    ATBD·운영 코드·파일 속성·2019 약어 용어표·NMSC 누리집에 적힌 산출물 이름(SKOS-XL 라벨 노드)에서 지금 개념과 대표 라벨로 간다.
+#    이름을 바꾼 뒤(K15)에도 옛 이름으로 찾을 수 있게 하려는 것이다. 같은 이름이 여러 출처에 있으면 출처 종류마다 한 줄이다.
+#    이름 하나만 찾을 때는 WHERE 끝에 FILTER(STR(?n) = "강우확률") 처럼 더한다. 산출물은 기준 IRI 를 뗀 끝(product/ 뒤)으로 적는다.
+SELECT ?이름 ?언어 ?출처종류 ?산출물 ?대표라벨
+WHERE {
+  ?c skosxl:altLabel ?l ;
+     skos:prefLabel ?pl .
+  FILTER(LANG(?pl) = "ko")
+  ?l skosxl:literalForm ?n ;
+     nmsc:labelSourceKind ?출처종류 .
+  BIND(STR(?n) AS ?이름)
+  BIND(LANG(?n) AS ?언어)
+  BIND(STR(?pl) AS ?대표라벨)
+  BIND(REPLACE(STR(?c), "^.*/", "") AS ?산출물)
+}
+ORDER BY ?이름 ?언어 ?출처종류 ?산출물

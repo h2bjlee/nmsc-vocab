@@ -2,11 +2,12 @@
  "producer": "satsem-contents src/publish_pages.py",
  "decision": "0007 (stage 1)",
  "site": "https://h2bjlee.github.io/nmsc-vocab/",
- "version": "0.25.0",
- "label": "0.25.0-g1.1.0+2026-11-17",
- "tag": "v0.25.0",
- "commit": "ffd6edecba0f9ef06d2e5d1e6d88c7b34b573588",
+ "version": "0.26.0",
+ "label": "0.26.0-g1.1.0+2026-11-17",
+ "tag": "v0.26.0",
+ "commit": "023fa258ee3d662787d7515f3c53f50bd4b61ac4",
  "archives": [
+  "0.25.0",
   "0.24.0"
  ],
  "license": "KOGL-Type1",

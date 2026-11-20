@@ -134,17 +134,17 @@
    ],
    "owl:versionIRI": [
     {
-     "@id": "nmsc:0.25.0/"
+     "@id": "nmsc:0.26.0/"
     }
    ],
    "owl:priorVersion": [
     {
-     "@id": "nmsc:0.24.0/"
+     "@id": "nmsc:0.25.0/"
     }
    ],
    "owl:versionInfo": [
     {
-     "@value": "0.25.0"
+     "@value": "0.26.0"
     }
    ],
    "rdfs:comment": [
@@ -50592,7 +50592,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(ELA 1900×1200 2 km; FD 실행 없음)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(ELA 1900×1200 2 km; FD 실행 없음)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -50770,13 +50770,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km. 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km. 산출 주기 미확인(status 150) — 드라이버 보폭 6시간(시험값)(run_gk2a_ctps.sh:96,101,106)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ctps-spec-2026-10-26.md:1 'FD/ELA 2 km, L2'; 사실표 '수치 배열(FD/ELA 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ctps-spec-2026-10-26.md:1 'FD/ELA 2 km, L2'; 사실표 '수치 배열(FD/ELA 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -50966,13 +50966,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km(같은 CTPS 파일). 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km(같은 CTPS 파일). 산출 주기 미확인(status 150) — 드라이버 보폭 6시간(시험값)(run_gk2a_ctps.sh:96,101,106)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ctps-spec-2026-10-26.md:1 'GK2A_CTPS (cloud top phase/temperature/pressure/height, FD/ELA 2 km, L2)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ctps-spec-2026-10-26.md:1 'GK2A_CTPS (cloud top phase/temperature/pressure/height, FD/ELA 2 km, L2)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -51151,13 +51151,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km(같은 CTPS 파일). 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km(같은 CTPS 파일). 산출 주기 미확인(status 150) — 드라이버 보폭 6시간(시험값)(run_gk2a_ctps.sh:96,101,106)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ctps-spec-2026-10-26.md:1 'GK2A_CTPS (cloud top phase/temperature/pressure/height, FD/ELA 2 km, L2)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ctps-spec-2026-10-26.md:1 'GK2A_CTPS (cloud top phase/temperature/pressure/height, FD/ELA 2 km, L2)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -51341,13 +51341,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km(같은 CTPS 파일). 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km(같은 CTPS 파일). 산출 주기 미확인(status 150) — 드라이버 보폭 6시간(시험값)(run_gk2a_ctps.sh:96,101,106)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ctps-spec-2026-10-26.md:1 'GK2A_CTPS (cloud top phase/temperature/pressure/height, FD/ELA 2 km, L2)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ctps-spec-2026-10-26.md:1 'GK2A_CTPS (cloud top phase/temperature/pressure/height, FD/ELA 2 km, L2)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -51554,21 +51554,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-dcoew-spec-2026-10-26.md:29·:39-40 DRV run_gk2a_dcoew.sh 'FD then ELA every 10 min'; 사실표 'observation(T, 10분)'은 관측 시각 간격) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-dcoew-spec-2026-10-26.md:39 'FD (5500×5500) and ELA (1900×1200) 2 km, every 10 min', :29 드라이버 'FD then ELA every 10 min' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-dcoew-spec-2026-10-26.md:39 'FD (5500×5500) and ELA (1900×1200) 2 km, every 10 min', :29 드라이버 'FD then ELA every 10 min' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -51743,7 +51737,7 @@
      "@language": "ko"
     },
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-ncot-spec-2026-10-26.md:21·:34 DRV run_gk2a_ncot.sh '10-minute loop (:41-45)') — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -51843,15 +51837,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ncot-spec-2026-10-26.md:34 '2 km, FD and ELA every 10 minutes (DRV)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ncot-spec-2026-10-26.md:34 '2 km, FD and ELA every 10 minutes (DRV)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -52026,21 +52014,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-dcoew-spec-2026-10-26.md:29·:39-40 DRV run_gk2a_dcoew.sh 'FD then ELA every 10 min') — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-dcoew-spec-2026-10-26.md:39 'FD (5500×5500) and ELA (1900×1200) 2 km, every 10 min' — 같은 DCOEW 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-dcoew-spec-2026-10-26.md:39 'FD (5500×5500) and ELA (1900×1200) 2 km, every 10 min' — 같은 DCOEW 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -52202,21 +52184,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-dcoew-spec-2026-10-26.md:29·:39-40 DRV run_gk2a_dcoew.sh 'FD then ELA every 10 min') — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-dcoew-spec-2026-10-26.md:39 'FD (5500×5500) and ELA (1900×1200) 2 km, every 10 min' — 같은 DCOEW 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-dcoew-spec-2026-10-26.md:39 'FD (5500×5500) and ELA (1900×1200) 2 km, every 10 min' — 같은 DCOEW 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -52378,21 +52354,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km·10분. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-dcoew-spec-2026-10-26.md:29·:39-40 DRV run_gk2a_dcoew.sh 'FD then ELA every 10 min') — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-dcoew-spec-2026-10-26.md:39 'FD (5500×5500) and ELA (1900×1200) 2 km, every 10 min' — 같은 DCOEW 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-dcoew-spec-2026-10-26.md:39 'FD (5500×5500) and ELA (1900×1200) 2 km, every 10 min' — 같은 DCOEW 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -52550,13 +52520,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기는 찾지 못함(드라이버 run_gk2a_cla.sh 는 FD 뒤 ELA — 간격 표기 없음)",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 드라이버 보폭 10분(run_gk2a_cla.sh:80,83,87)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(2 km)'; 명세 gk2a-cla-spec-2026-10-26.md:1 'GK2A_CLA 2.1.2.4: cloud analysis (CT, CLL, CA, CF)', 2절 입력 격자 '{area}020ge' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(2 km)'; 명세 gk2a-cla-spec-2026-10-26.md:1 'GK2A_CLA 2.1.2.4: cloud analysis (CT, CLL, CA, CF)', 2절 입력 격자 '{area}020ge' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -52739,13 +52709,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 드라이버 보폭 10분(run_gk2a_cla.sh:80,83,87)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-cla-spec-2026-10-26.md:1 'cloud analysis (CT, CLL, CA, CF)' — 운량 CA 는 구름비율 CF 와 같은 CLA 2 km 파일(사실표 satellite-cloud-fraction '수치 배열(2 km)') — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-cla-spec-2026-10-26.md:1 'cloud analysis (CT, CLL, CA, CF)' — 운량 CA 는 구름비율 CF 와 같은 CLA 2 km 파일(사실표 satellite-cloud-fraction '수치 배열(2 km)') — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -52911,13 +52881,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 드라이버 보폭 10분(run_gk2a_cla.sh:80,83,87)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-cla-spec-2026-10-26.md:1 'cloud analysis (CT, CLL, CA, CF)' — 운형 CT 는 같은 CLA 2 km 파일(사실표 satellite-cloud-fraction '수치 배열(2 km)') — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-cla-spec-2026-10-26.md:1 'cloud analysis (CT, CLL, CA, CF)' — 운형 CT 는 같은 CLA 2 km 파일(사실표 satellite-cloud-fraction '수치 배열(2 km)') — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -53134,13 +53104,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 드라이버 보폭 10분(run_gk2a_cla.sh:80,83,87)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-cla-spec-2026-10-26.md:1 'cloud analysis (CT, CLL, CA, CF)' — 운층 CLL 은 같은 CLA 2 km 파일(사실표 satellite-cloud-fraction '수치 배열(2 km)') — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-cla-spec-2026-10-26.md:1 'cloud analysis (CT, CLL, CA, CF)' — 운층 CLL 은 같은 CLA 2 km 파일(사실표 satellite-cloud-fraction '수치 배열(2 km)') — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -53375,23 +53345,13 @@
      "@language": "ko"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 지점 7곳의 표라 격자가 아니다 — 공간 해상도 없음",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 지점 7곳의 표라 격자가 아니다 — 공간 해상도 없음. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-ai-ca-air-spec-2026-10-28.md:19 'every 10 min, CS:23-34' — CS = run/run_gk2a_ai_ca_air.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
-    {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-ca-air-spec-2026-10-28.md:19 'For one KO 2 km time step (every 10 min, CS:23-34)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
-     "@language": "ko"
-    },
     {
      "@value": "산출물 → 탑재체 판정 2026-11-13(src/product_instruments.tsv 확실 행): 확실 운영 알고리즘의 입력을 SatWright satwright-content-gk2a@49296cf6 modules/gk2a/chains/operational-graph.json(NMSC 운영 실행 스크립트에서 뽑은 입력 관계)으로 따라가 GK-2A AMI L1B·AMI L2 입력에 닿은 것 — NMSC 내부 자료이며 공개되지 않았다",
      "@language": "ko"
@@ -53626,15 +53586,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
+   "nmsc:coverageNote": [
     {
-     "@value": "PT5M",
-     "@type": "xsd:duration"
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT5M): 근거가 드라이버 보폭 5분뿐이었다(명세 gk2a-road-fog-spec-2026-10-26.md:22·:34 'The driver steps 5 minutes (DRV:71)' — DRV = run_gk2a_road-fog.sh; 사실표 'observation(T, 5분 …)'은 관측 시각 간격) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(681×681 LCC 1 km …)'; 명세 gk2a-road-fog-spec-2026-10-26.md:34 'The driver steps 5 minutes (DRV:71)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(681×681 LCC 1 km …)'; 명세 gk2a-road-fog-spec-2026-10-26.md:34 'The driver steps 5 minutes (DRV:71)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -53933,7 +53893,7 @@
      "@language": "ko"
     },
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ci-deep-spec-2026-11-02.md:1 'ConvLSTM convective-initiation probability, KO 2 km, L2'; 사실표 '수치 배열(KO 2 km LCC 900² …)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ci-deep-spec-2026-11-02.md:1 'ConvLSTM convective-initiation probability, KO 2 km, L2'; 사실표 '수치 배열(KO 2 km LCC 900² …)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -54184,13 +54144,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기: GK2A_CI_PROB 드라이버는 2분 반복(명세 gk2a-ci-prob-spec-2026-10-28.md:28 'every 2 min loop :63')이나 GK2A_CI 의 주기는 찾지 못함 — 알고리즘 둘이라 비운다",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — GK2A_CI 드라이버 보폭 2분(algorepo ALGO_PRD/trunk/GK2A_AMI/GK2A_CI/build/run/run_gk2a_ci.sh:62; onetime_omp.csh:18-20,50-51,523-555 — 2분 슬롯마다 도는 설계로 보이나 satWright 확신 중간), GK2A_CI_PROB 드라이버도 2분 반복(명세 gk2a-ci-prob-spec-2026-10-28.md:28 'every 2 min loop :63'). 둘 다 재처리·시험 드라이버 값 — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19 3; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ci-spec-2026-11-02.md:31 'ELA 2 km (ydim 1200, xdim 1900)'; 사실표 '수치 배열(NetCDF, ELA 2 km 1200×1900)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ci-spec-2026-11-02.md:31 'ELA 2 km (ydim 1200, xdim 1900)'; 사실표 '수치 배열(NetCDF, ELA 2 km 1200×1900)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -54265,21 +54225,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 EA",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 EA. 산출 주기 비움(status 150, 앞 값 PT10M): 명세 gk2a-ctclust-spec-2026-10-26.md:38 'every 10 min with the FD L2 chain'은 FD 장면(관측 슬롯) 간격을 옮긴 문구이고 실행 간격 근거(cron·일정)가 인용돼 있지 않다 — 관측 간격은 산출 주기가 아니다(산불탐지·대기운동벡터(2분 간격)와 같은 경우, satWright 답 2026-11-19 1·2). 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(EA 2 km)'; 명세 gk2a-ctclust-spec-2026-10-26.md:38 'gk2a_ami_le2_ctclust_ea020ge_{T}.nc … every 10 min with the FD L2 chain' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(EA 2 km)'; 명세 gk2a-ctclust-spec-2026-10-26.md:38 'gk2a_ami_le2_ctclust_ea020ge_{T}.nc … every 10 min with the FD L2 chain' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -54325,21 +54279,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 KO",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 KO. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-rdr-cmx-ai-spec-2026-10-28.md:22 RSH run_gk2a_rdr-cmx-ai.sh 'loop every 10 min') — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF KO 2 km LCC 900²)'; 명세 gk2a-rdr-cmx-ai-spec-2026-10-28.md:22 'loop every 10 min; runs the day and the night chain for every time' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF KO 2 km LCC 900²)'; 명세 gk2a-rdr-cmx-ai-spec-2026-10-28.md:22 'loop every 10 min; runs the day and the night chain for every time' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -55470,7 +55418,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-dsr-spec-2026-10-28.md:32 'gk2a_ami_le2_ai-dsr_ko020lc_{YYYYMMDDHHMM}.nc, one per run time t (30-minute production since 1.2023.01.1)', :57 'KO 2 km lat/lon … 900²' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-dsr-spec-2026-10-28.md:32 'gk2a_ami_le2_ai-dsr_ko020lc_{YYYYMMDDHHMM}.nc, one per run time t (30-minute production since 1.2023.01.1, DC:9-12)' — DC = 알고리즘 CHANGELOG.txt(:23 '1.2023.01.1 (30 min)'), :57 'KO 2 km lat/lon … 900²'; 사실표 시간 관계 '30분 생산' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -55645,7 +55593,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-uvi-spec-2026-10-28.md:29 'gk2a_ami_le2_ai-uvi_ko020lc_{t}.nc … (ydim 900, xdim 900)', :41 'KO 2 km lat/lon' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-uvi-spec-2026-10-28.md:29 'gk2a_ami_le2_ai-uvi_ko020lc_{t}.nc … (ydim 900, xdim 900)', :41 'KO 2 km lat/lon' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -55714,7 +55662,7 @@
      "@language": "ko"
     },
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 묶음 — 구성 셋이 한 LWRAD 파일",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 묶음 — 구성 셋이 한 LWRAD 파일. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-lwrad-spec-2026-10-26.md:28·:38-39 'every 10 min (DRV)' — DRV = run_gk2a_lwrad.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -55724,15 +55672,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lwrad-spec-2026-10-26.md:38 'gk2a_ami_le2_lwrad_fd020ge_{T}.nc …, FD 2 km only …, every 10 min'; 사실표 '수치 배열(FD 2 km만)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lwrad-spec-2026-10-26.md:38 'gk2a_ami_le2_lwrad_fd020ge_{T}.nc …, FD 2 km only …, every 10 min'; 사실표 '수치 배열(FD 2 km만)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -55798,6 +55740,10 @@
     },
     {
      "@value": "물리량은 복사조도(W m-2, irradiance)다 — NMSC ATBD 본문·기상청 교재 「위성기상학」(docs/radiation-terms-sources.md).",
+     "@language": "ko"
+    },
+    {
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-lwrad-spec-2026-10-26.md:28·:38-39 'every 10 min (DRV)' — DRV = run_gk2a_lwrad.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -55872,15 +55818,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lwrad-spec-2026-10-26.md:38 'FD 2 km only …, every 10 min' — 하향 장파 DLR 은 LWRAD 파일의 변수 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lwrad-spec-2026-10-26.md:38 'FD 2 km only …, every 10 min' — 하향 장파 DLR 은 LWRAD 파일의 변수 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -55971,6 +55911,10 @@
     {
      "@value": "물리량은 복사조도(W m-2, irradiance)다 — NMSC ATBD 본문·기상청 교재 「위성기상학」(docs/radiation-terms-sources.md).",
      "@language": "ko"
+    },
+    {
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-lwrad-spec-2026-10-26.md:28·:38-39 'every 10 min (DRV)' — DRV = run_gk2a_lwrad.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "nmsc:operationalAlgorithm": [
@@ -56050,15 +55994,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lwrad-spec-2026-10-26.md:38 'FD 2 km only …, every 10 min' — 상향 장파 ULR 은 LWRAD 파일의 변수 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lwrad-spec-2026-10-26.md:38 'FD 2 km only …, every 10 min' — 상향 장파 ULR 은 LWRAD 파일의 변수 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -56149,6 +56087,10 @@
     {
      "@value": "물리량은 복사조도(W m-2, irradiance)다 — NMSC ATBD 본문·기상청 교재 「위성기상학」(docs/radiation-terms-sources.md).",
      "@language": "ko"
+    },
+    {
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-lwrad-spec-2026-10-26.md:28·:38-39 'every 10 min (DRV)' — DRV = run_gk2a_lwrad.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "nmsc:operationalAlgorithm": [
@@ -56227,15 +56169,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lwrad-spec-2026-10-26.md:38 'FD 2 km only …, every 10 min' — 대기외 장파 OLR 은 LWRAD 파일의 변수 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lwrad-spec-2026-10-26.md:38 'FD 2 km only …, every 10 min' — 대기외 장파 OLR 은 LWRAD 파일의 변수 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -56320,7 +56256,7 @@
      "@language": "ko"
     },
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 묶음 — 구성 셋이 한 SWRAD 파일",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 묶음 — 구성 셋이 한 SWRAD 파일. 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-swrad-spec-2026-10-26.md:40-41 'The driver loop steps 10 min (DRV:57)' — DRV = run_gk2a_swrad.sh; 사실표 '10분 간격'은 파일 시각(관측) 간격) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -56330,15 +56266,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-swrad-spec-2026-10-26.md:39-41 'One file per FD time T … FD, 2 km only … The driver loop steps 10 min (DRV:57)'; 사실표 '수치 배열 1개 파일(FD 2 km)', '10분 간격' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-swrad-spec-2026-10-26.md:39-41 'One file per FD time T … FD, 2 km only … The driver loop steps 10 min (DRV:57)'; 사실표 '수치 배열 1개 파일(FD 2 km)', '10분 간격' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -56410,6 +56340,10 @@
     },
     {
      "@value": "물리량은 복사조도(W m-2, irradiance)다 — NMSC ATBD 본문·기상청 교재 「위성기상학」(docs/radiation-terms-sources.md).",
+     "@language": "ko"
+    },
+    {
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-swrad-spec-2026-10-26.md:40-41 'The driver loop steps 10 min (DRV:57)' — DRV = run_gk2a_swrad.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -56494,15 +56428,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-swrad-spec-2026-10-26.md:39-41 'FD, 2 km only … The driver loop steps 10 min' — 반사 단파 RSR 은 SWRAD 파일의 변수; 사실표 '수치 배열(FD 2 km 5500²)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-swrad-spec-2026-10-26.md:39-41 'FD, 2 km only … The driver loop steps 10 min' — 반사 단파 RSR 은 SWRAD 파일의 변수; 사실표 '수치 배열(FD 2 km 5500²)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -56598,6 +56526,10 @@
     {
      "@value": "물리량은 복사조도(W m-2, irradiance)다 — NMSC ATBD 본문·기상청 교재 「위성기상학」(docs/radiation-terms-sources.md).",
      "@language": "ko"
+    },
+    {
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-swrad-spec-2026-10-26.md:40-41 'The driver loop steps 10 min (DRV:57)' — DRV = run_gk2a_swrad.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "nmsc:operationalAlgorithm": [
@@ -56681,15 +56613,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-swrad-spec-2026-10-26.md:39-41 'FD, 2 km only … The driver loop steps 10 min' — 하향 단파 DSR 은 SWRAD 파일의 변수; 사실표 '수치 배열(FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-swrad-spec-2026-10-26.md:39-41 'FD, 2 km only … The driver loop steps 10 min' — 하향 단파 DSR 은 SWRAD 파일의 변수; 사실표 '수치 배열(FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -56780,6 +56706,10 @@
     {
      "@value": "관측 변수 대응 없음 — 지표 흡수 단파복사는 OSCAR 변수 64개(scheme/variable)에 대응이 없다(src/product_variables.tsv 의 downward-shortwave-radiation 행 비고). 물리량은 복사조도(W m-2, irradiance)다 — NMSC ATBD 본문·기상청 교재 「위성기상학」(docs/radiation-terms-sources.md).",
      "@language": "ko"
+    },
+    {
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-swrad-spec-2026-10-26.md:40-41 'The driver loop steps 10 min (DRV:57)' — DRV = run_gk2a_swrad.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "nmsc:operationalAlgorithm": [
@@ -56861,15 +56791,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-swrad-spec-2026-10-26.md:39-41 'FD, 2 km only … The driver loop steps 10 min' — 흡수 단파 ASR 은 SWRAD 파일의 변수; 사실표 '수치 배열(FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-swrad-spec-2026-10-26.md:39-41 'FD, 2 km only … The driver loop steps 10 min' — 흡수 단파 ASR 은 SWRAD 파일의 변수; 사실표 '수치 배열(FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -57072,15 +56996,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
+   "nmsc:coverageNote": [
     {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-rad-spec-2026-10-26.md:40 'every 10 min, driver run_gk2a_rad.sh'; 사실표 'observation(T, 10분)'은 관측 시각 간격) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-rad-spec-2026-10-26.md:8 '12 x 12 FD 2 km pixels onto a 24 km fixed grid', :40 'Two files per FD scene (every 10 min, driver run_gk2a_rad.sh)'; 사실표 '수치 배열(24 km 고정격자 458×458)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-rad-spec-2026-10-26.md:8 '12 x 12 FD 2 km pixels onto a 24 km fixed grid', :40 'Two files per FD scene (every 10 min, driver run_gk2a_rad.sh)'; 사실표 '수치 배열(24 km 고정격자 458×458)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -57342,7 +57266,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(EA 2 km 3200×2000)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(EA 2 km 3200×2000)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -57421,7 +57345,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ocn-ua-spec-2026-10-26.md:35 'gk2a_ami_le4_ocn-ua_kozzzll_{YYYYMMDDhhmm}.nc, one per day at 00 UTC (RUN:294, DRV:69)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ocn-ua-spec-2026-10-26.md:35 'gk2a_ami_le4_ocn-ua_kozzzll_{YYYYMMDDhhmm}.nc, one per day at 00 UTC (RUN:294, DRV:69)'; 사실표 시간 관계 '파일 시각 = 그날 00 UTC, 하루 1회' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -57583,13 +57507,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 EA",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 EA. 산출 주기 근거는 드라이버 보폭이 아니라 산출물 정의(입력이 일 분석 SST01D 라 하루 한 파일)다",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(EA 2 km 범주)'; 명세 gk2a-ocn-vicing-spec-2026-10-26.md:35 'One file per day (DRV:31-52 steps one day)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(EA 2 km 범주)', 시간 관계 'analysis(일; 입력 MSST 일 분석)'; 명세 gk2a-ocn-vicing-spec-2026-10-26.md:35 'One file per day', :7 'the daily merged SST is turned into …' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -57867,13 +57791,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 기압면 셋(700·850·900 hPa — 운영 cron)마다 파일. 그림(PNG)은 FD 6 km TQPROF 로 그린다(명세:48) — 수치 자료의 값만",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 기압면 셋(700·850·900 hPa — 운영 cron)마다 파일. 그림(PNG)은 FD 6 km TQPROF 로 그린다(명세:48) — 수치 자료의 값만. 산출 주기 근거는 수동 드라이버가 아니라 cron 스크립트(build/cron/cron.checkASTD.sh — 매시 시각을 처리)다",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-astd-spec-2026-10-25.md:47 'gk2a_ami_le2_astd-{P}hpa_ko020lc_{T}.nc | KO LCC 2 km, 900 × 900', :25 'operational cron driver: last 3 h hourly', :44 'per run = one time T (hourly, minute 00)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-astd-spec-2026-10-25.md:47 'gk2a_ami_le2_astd-{P}hpa_ko020lc_{T}.nc | KO LCC 2 km, 900 × 900', :25 'operational cron driver: last 3 h hourly', :44 'per run = one time T (hourly, minute 00)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -58036,7 +57960,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD 2 km)'; 명세 gk2a-ssc-spec-2026-10-26.md:91 'gk2a_ami_le2_ssc_fd020ge_{T}.nc' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD 2 km)'; 명세 gk2a-ssc-spec-2026-10-26.md:91 'gk2a_ami_le2_ssc_fd020ge_{T}.nc' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -58271,7 +58195,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD 2 km)', 시간 관계 'analysis(실행일 12 UTC …; 파일 이름은 실행일 00:00 …)'; 명세 gk2a-msst-daily-spec-2026-10-26.md:1 '다중위성 일 합성 SST (L4 SST01D)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD 2 km)', 시간 관계 'analysis(실행일 12 UTC …; 파일 이름은 실행일 00:00 …)'; 명세 gk2a-msst-daily-spec-2026-10-26.md:1 '다중위성 일 합성 SST (L4 SST01D)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -58433,15 +58357,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
+   "nmsc:coverageNote": [
     {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 사실표 'observation(T, 10분)'은 관측 시각 간격이고 명세 gk2a-sst-spec-2026-10-26.md 에 실행 간격이 없다 — 관측 간격은 산출 주기가 아니다(산불탐지·대기운동벡터(2분 간격)와 같은 경우, satWright 답 2026-11-19 1·2). 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sst-spec-2026-10-26.md:37 'gk2a_ami_le2_sst_fd020ge_{T}.nc, FD only: observation FD, retrieval FD, 2 km'; 사실표 시간 관계 'observation(T, 10분)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sst-spec-2026-10-26.md:37 'gk2a_ami_le2_sst_fd020ge_{T}.nc, FD only: observation FD, retrieval FD, 2 km'; 사실표 시간 관계 'observation(T, 10분)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -58608,7 +58532,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sst-daily-spec-2026-11-02.md:77 'FD 2 km only', gk2a-sst-10day-spec-2026-10-26.md:37 'gk2a_ami_le3_sst05d_fd020ge_{T}.nc | gk2a_ami_le3_sst10d_fd020ge_{T}.nc'; 사실표 '수치 배열(FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sst-daily-spec-2026-11-02.md:77 'FD 2 km only', gk2a-sst-10day-spec-2026-10-26.md:37 'gk2a_ami_le3_sst05d_fd020ge_{T}.nc | gk2a_ami_le3_sst10d_fd020ge_{T}.nc'; 사실표 '수치 배열(FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -58769,7 +58693,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD 2 km)'; 명세 gk2a-ssta-spec-2026-10-26.md:33 'gk2a_ami_le4_ssta_fd020ge_{T}.nc … FD only in production' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD 2 km)'; 명세 gk2a-ssta-spec-2026-10-26.md:33 'gk2a_ami_le4_ssta_fd020ge_{T}.nc … FD only in production' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -58923,7 +58847,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(ELA 2 km 1900×1200, 대부분 NaN)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(ELA 2 km 1900×1200, 대부분 NaN)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -59041,7 +58965,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(MP 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(MP 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -59182,15 +59106,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
+   "nmsc:coverageNote": [
     {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-lst-spec-2026-11-02.md:6 'run_gk2a_lst.sh steps 10 minutes'; 사실표 'observation(T, 10분)'은 관측 시각 간격) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lst-spec-2026-11-02.md:6 'one FD 2 km run per time (S:20-23: 1-1-3 only; run_gk2a_lst.sh steps 10 minutes)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lst-spec-2026-11-02.md:6 'one FD 2 km run per time (S:20-23: 1-1-3 only; run_gk2a_lst.sh steps 10 minutes)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -59264,7 +59188,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD 2 km)'; 명세 gk2a-toc-spec-2026-10-26.md:35 'L2 TOC, FD 2 km (RUN:22-25)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD 2 km)'; 명세 gk2a-toc-spec-2026-10-26.md:35 'L2 TOC, FD 2 km (RUN:22-25)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -59417,7 +59341,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lse-spec-2026-11-02.md:6 'one daily FD 2 km run (S:19-22: 1-1-3 only)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-lse-spec-2026-11-02.md:6 'one daily FD 2 km run (S:19-22: 1-1-3 only)'; 사실표 시간 관계 'observation 합성(일; …)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -59576,13 +59500,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 당일 BRDF(5일 TOC 적합)를 쓴다(사실표)",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 당일 BRDF(5일 TOC 적합)를 쓴다(사실표). 산출 주기 근거는 드라이버 보폭이 아니라 산출물 정의(일 합성)다",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sal-spec-2026-10-26.md:29 'gk2a_ami_le2_sal_fd020ge_{T}.nc (RUN:335-336), FD 2 km, daily (DRV:58)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sal-spec-2026-10-26.md:29 'gk2a_ami_le2_sal_fd020ge_{T}.nc (RUN:335-336), FD 2 km, daily'; 사실표 시간 관계 'observation 합성(일; 당일 BRDF = 5일 TOC 적합)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -59731,7 +59655,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-brdf-spec-2026-10-26.md:29 'Two files per run day (RUN:319, :322), FD 2 km', :22 'daily loop' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-brdf-spec-2026-10-26.md:29 'Two files per run day (RUN:319, :322), FD 2 km, gk2a_ami_le2_{brdf,fvbar}_fd020ge_YYYYMMDD0000.nc', :50 'the operational instance runs after the day (workspace LE2_SCHEDULE_20240401_20240402000000)'; 사실표 시간 관계 '그날이 끝난 뒤 실행' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -60050,21 +59974,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 단일 장면 L2 판정",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 단일 장면 L2 판정. 산출 주기 비움(status 150, 앞 값 PT10M): 명세 gk2a-scsi-spec-2026-10-26.md:22 'at one time slot (every 10 min, FD only)'·사실표 'L2 observation(한 시각, 10분, FD)'은 관측 슬롯 간격이고 실행 간격 근거가 인용돼 있지 않다 — 관측 간격은 산출 주기가 아니다(산불탐지·대기운동벡터(2분 간격)와 같은 경우, satWright 답 2026-11-19 1·2). 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-spec-2026-10-26.md:22 'Per FD 2 km pixel at one time slot (every 10 min, FD only: RUN:19 '1-1-3 only')' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-spec-2026-10-26.md:22 'Per FD 2 km pixel at one time slot (every 10 min, FD only: RUN:19 '1-1-3 only')' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -60282,7 +60200,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-daily-spec-2026-10-26.md:30 'gk2a_ami_le3_scsi_fd020ge_{YYYYMMDD}0000.nc (RUN:296-299), FD 2 km, once per day for the day runday' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-daily-spec-2026-10-26.md:30 'gk2a_ami_le3_scsi_fd020ge_{YYYYMMDD}0000.nc (RUN:296-299), FD 2 km, once per day for the day runday' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -60380,6 +60298,10 @@
     {
      "@value": "통칭 산출물이다. 하위 산출물: prod:snow-cover, prod:sea-ice. 하위마다 물리값·산출 조건이 달라 운영 알고리즘·관측 변수·처리 수준·유도 원천 탑재체는 근거가 있는 하위 산출물에 단다(src/product_hierarchy.tsv).",
      "@language": "ko"
+    },
+    {
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 명세 gk2a-scsi-spec-2026-10-26.md:22 'at one time slot (every 10 min, FD only)'은 관측 슬롯 간격이고 실행 간격 근거가 인용돼 있지 않다 — 관측 간격은 산출 주기가 아니다(산불탐지·대기운동벡터(2분 간격)와 같은 경우, satWright 답 2026-11-19 1·2). 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "skos:changeNote": [
@@ -60394,15 +60316,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-spec-2026-10-26.md:22 'Per FD 2 km pixel at one time slot (every 10 min, FD only)' — 단일 장면 범주 변수 SCSI 하나 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-spec-2026-10-26.md:22 'Per FD 2 km pixel at one time slot (every 10 min, FD only)' — 단일 장면 범주 변수 SCSI 하나 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -60587,21 +60503,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 단일 장면 L2 판정",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 단일 장면 L2 판정. 산출 주기 비움(status 150, 앞 값 PT10M): 명세 gk2a-scsi-spec-2026-10-26.md:22 'at one time slot (every 10 min, FD only)'은 관측 슬롯 간격이고 실행 간격 근거가 인용돼 있지 않다 — 관측 간격은 산출 주기가 아니다(산불탐지·대기운동벡터(2분 간격)와 같은 경우, satWright 답 2026-11-19 1·2). 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-spec-2026-10-26.md:22 'Per FD 2 km pixel at one time slot (every 10 min, FD only)' — 해빙(범주 4)은 적설과 같은 SCSI 변수 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-spec-2026-10-26.md:22 'Per FD 2 km pixel at one time slot (every 10 min, FD only)' — 해빙(범주 4)은 적설과 같은 SCSI 변수 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -60815,7 +60725,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-daily-spec-2026-10-26.md:30 'FD 2 km, once per day for the day runday' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-scsi-daily-spec-2026-10-26.md:30 'FD 2 km, once per day for the day runday' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -60985,15 +60895,15 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
+   "nmsc:coverageNote": [
     {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-sd-spec-2026-10-26.md:20·:27 'every 10 min (DRV:70)' — DRV = run_gk2a_sd.sh; 사실표 'observation(한 시각 T, 10분, FD)'은 관측 시각 간격) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
+     "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sd-spec-2026-10-26.md:27 'gk2a_ami_le2_sd_fd020ge_{T}.nc (RUN:225-226), FD 2 km, every 10 min (DRV:70)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sd-spec-2026-10-26.md:27 'gk2a_ami_le2_sd_fd020ge_{T}.nc (RUN:225-226), FD 2 km, every 10 min (DRV:70)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -61321,7 +61231,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ot-spec-2026-10-26.md:39 'gk2a_ami_le2_ot_ela020ge_{T}.nc, ELA 1900 × 1200'; 사실표 '수치 배열(NetCDF ELA 2 km 1900×1200)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ot-spec-2026-10-26.md:39 'gk2a_ami_le2_ot_ela020ge_{T}.nc, ELA 1900 × 1200'; 사실표 '수치 배열(NetCDF ELA 2 km 1900×1200)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -61497,7 +61407,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF ELA 2 km)'; 명세 gk2a-icing-spec-2026-10-26.md:40 'ELA 1900 × 1200 … only ELA' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF ELA 2 km)'; 명세 gk2a-icing-spec-2026-10-26.md:40 'ELA 1900 × 1200 … only ELA' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -61655,13 +61565,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 드라이버 보폭 10분(GK2A_AAP run_gk2a_aap.sh:67)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF FD 6 km 1833²)'; 명세 gk2a-aap-spec-2026-11-02.md:40 'FD 6 km, 1833 × 1833' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF FD 6 km 1833²)'; 명세 gk2a-aap-spec-2026-11-02.md:40 'FD 6 km, 1833 × 1833' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -61766,7 +61676,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -61851,7 +61761,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF FD/ELA 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF FD/ELA 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -61936,7 +61846,7 @@
      "@language": "ko"
     },
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 드라이버 보폭 10분(run_gk2a_vap.sh:57)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -62023,7 +61933,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF FD 2 km)'; 명세 gk2a-vap-spec-2026-10-26.md:38 'gk2a_ami_le2_vap_fd020ge_{T}.nc, FD 5500 × 5500 (RUN:19-21: FD only)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF FD 2 km)'; 명세 gk2a-vap-spec-2026-10-26.md:38 'gk2a_ami_le2_vap_fd020ge_{T}.nc, FD 5500 × 5500 (RUN:19-21: FD only)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -62120,7 +62030,7 @@
      "@language": "ko"
     },
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 드라이버 보폭 10분(run_gk2a_vap.sh:57)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -62207,7 +62117,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(같은 vap.nc)' — 화산재 고도와 같은 VAP 파일(사실표 volcanic-ash-height 'FD 2 km') — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(같은 vap.nc)' — 화산재 고도와 같은 VAP 파일(사실표 volcanic-ash-height 'FD 2 km') — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -62385,7 +62295,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-so2d-spec-2026-11-02.md:6 'FD 2 km only ('SO2D : 1-1-3 only')'; 사실표 '수치 배열(NetCDF FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-so2d-spec-2026-11-02.md:6 'FD 2 km only ('SO2D : 1-1-3 only')'; 사실표 '수치 배열(NetCDF FD 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -62753,9 +62663,15 @@
      "@type": "xsd:duration"
     }
    ],
+   "nmsc:coverageNote": [
+    {
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 근거는 드라이버 보폭 인용이 아니라 사실표의 실행 간격 문구와 알고리즘 구조(앞 회차 qpn-aux 를 다음 실행이 읽는다, 10분 단계)다 — 운영 crontab 확인은 NMSC(질문지 2-18)",
+     "@language": "ko"
+    }
+   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-qpn-spec-2026-11-02.md:6 'one run per 10 min on the FD 2 km grid only ('QPN : 1-1-3 only', RUN:20)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-qpn-spec-2026-11-02.md:6 'one run per 10 min on the FD 2 km grid only (\"QPN : 1-1-3 only\", RUN:20)', :30 qpn-aux 'input of the next run'; 사실표 시간 관계 '기준 시각 T = 최신 L2 RR 시각, 10분마다 실행' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -62913,13 +62829,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 누적 창 1·2·3시간(사실표)은 산출 주기가 아니다",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 누적 창 1·2·3시간(사실표)은 산출 주기가 아니다. 산출 주기 근거는 강우확률과 같다(같은 qpn 실행) — 운영 crontab 확인은 NMSC(질문지 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-qpn-spec-2026-11-02.md:6 'one run per 10 min on the FD 2 km grid only' — 같은 qpn 파일(PAR·PAR1h·PAR2h, :29) — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-qpn-spec-2026-11-02.md:6 'one run per 10 min on the FD 2 km grid only' — 같은 qpn 파일(PAR·PAR1h·PAR2h, :29); 사실표 probability-of-rainfall 시간 관계 '10분마다 실행', rainfall-potential '18단계×10분' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -63060,23 +62976,13 @@
      "@language": "ko"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT1H",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역마다 간격이 다르다 — FD 10 km·MP 2 km(명세:50) — 대표값을 고르지 않는다",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역마다 간격이 다르다 — FD 10 km·MP 2 km(명세:50) — 대표값을 고르지 않는다. 산출 주기 비움(status 150, 앞 값 PT1H): 근거가 드라이버 보폭 1시간뿐이었다(명세 gk2a-merge-rr-spec-2026-10-28.md:48 'hourly in run_gk2a_merge_rr.sh') — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
-    {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-merge-rr-spec-2026-10-28.md:48 'Per run time T (hourly in run_gk2a_merge_rr.sh) and area' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
-     "@language": "ko"
-    },
     {
      "@value": "산출물 → 탑재체 판정 2026-11-13(src/product_instruments.tsv 확실 행): 확실 운영 알고리즘의 입력을 SatWright satwright-content-gk2a@49296cf6 modules/gk2a/chains/operational-graph.json(NMSC 운영 실행 스크립트에서 뽑은 입력 관계)으로 따라가 GK-2A AMI L1B·AMI L2 입력에 닿은 것 — NMSC 내부 자료이며 공개되지 않았다",
      "@language": "ko"
@@ -63227,23 +63133,13 @@
      "@language": "ko"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 격자 간격이 글로 적혀 있지 않다(파일 이름 ea020lc, 3000×2600)",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 격자 간격이 글로 적혀 있지 않다(파일 이름 ea020lc, 3000×2600). 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-ai-rdr-spec-2026-10-28.md:19 'Run every 10 min (RSH:29-40)' — RSH = run/run_gk2a_ai-rdr.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
-    {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-rdr-spec-2026-10-28.md:19 'Run every 10 min (RSH:29-40)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
-     "@language": "ko"
-    },
     {
      "@value": "산출물 → 탑재체 판정 2026-11-13(src/product_instruments.tsv 확실 행): 확실 운영 알고리즘의 입력을 SatWright satwright-content-gk2a@49296cf6 modules/gk2a/chains/operational-graph.json(NMSC 운영 실행 스크립트에서 뽑은 입력 관계)으로 따라가 GK-2A AMI L1B·AMI L2 입력에 닿은 것 — NMSC 내부 자료이며 공개되지 않았다",
      "@language": "ko"
@@ -63404,13 +63300,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 격자 간격이 글로 적혀 있지 않다(파일 이름 ela020lc, 1950×1550)",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 격자 간격이 글로 적혀 있지 않다(파일 이름 ela020lc, 1950×1550). 산출 주기 근거는 드라이버 보폭만이 아니라 cron 점검 스크립트(SC)다 — 운영 crontab 확인은 NMSC(질문지 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-rdr-summer-spec-2026-10-28.md:19 'The run is triggered every 2 minutes on the ELA rapid-scan times (SH:30-39' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-rdr-summer-spec-2026-10-28.md:19-20 'The run is triggered every 2 minutes on the ELA rapid-scan times (SH:30-39, SC:33, 103), about 6 min 20 s per run operationally (SC:92)' — SC = run/cron.checkAI-RDR-SUMMER-PHP.sh(cron 점검 스크립트) — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -63577,23 +63473,13 @@
      "@language": "ko"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT10M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 격자 간격이 글로 적혀 있지 않다(파일 이름 ela020lc)",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 격자 간격이 글로 적혀 있지 않다(파일 이름 ela020lc). 산출 주기 비움(status 150, 앞 값 PT10M): 근거가 드라이버 보폭 10분뿐이었다(명세 gk2a-ai-rdr-winter-spec-2026-10-28.md:18 'Every 10 min (WS:30-39)' — WS = run/run_gk2a_ai-rdr-winter.sh) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
-    {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ai-rdr-winter-spec-2026-10-28.md:18 'Every 10 min (WS:30-39)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
-     "@language": "ko"
-    },
     {
      "@value": "산출물 → 탑재체 판정 2026-11-13(src/product_instruments.tsv 확실 행): 확실 운영 알고리즘의 입력을 SatWright satwright-content-gk2a@49296cf6 modules/gk2a/chains/operational-graph.json(NMSC 운영 실행 스크립트에서 뽑은 입력 관계)으로 따라가 GK-2A AMI L1B·AMI L2 입력에 닿은 것 — NMSC 내부 자료이며 공개되지 않았다",
      "@language": "ko"
@@ -63808,7 +63694,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 대표 이름 변경(K15 표 밖 — 사용자 결정, 유형 D — status 120): '고해상도 대기운동벡터' → '대기운동벡터(2분 간격)', 영문 대표 이름 'Atmospheric Motion Vector (2-minute interval)' 를 새로 두었다. 사유: '고해상도'는 상대적 수식어라 쓰지 않는다(명명 규칙 2-9 가). 일반 대기운동벡터(prod:atmospheric-motion-vector)와의 차이는 입력 관측 방식 — 천리안위성 2A호 확장 국지 영역(ELA) 급속 관측 영상(±2분)이다. 이름의 '2분 간격'은 숫자 조건(규칙 2-9 다)에 맞는다: 그 산출물을 정의하는 관측 모드 값(운영 중 바꾸는 매개변수가 아님), 차원 낱말 '간격'을 함께 씀, 같은 물리량의 짝(대표 대기운동벡터 — 이름 그대로)을 가르는 값. 관측 일정(ELA 급속 관측 간격)이 바뀌면 이름도 바꿔야 한다. 근거: satwright 사실표 h2bjlee/satwright-content-gk2a@280c9d7a docs/science/gk2a-product-facts-2026-11-15.tsv high-resolution-amv 행(급속 관측 ELA, 영상 t−2·t·t+2분 — 코드 run_gk2a_rs-amv, 알고리즘 GK2A_AMV-RS), src/product_classification_draft.tsv(quantity atmospheric-motion-vector). 이전 이름은 skos:altLabel 과 출처를 단 라벨 노드(skosxl:altLabel, 이전 대표 이름 표지 nmsc:formerPrefLabel)로 남는다. IRI 는 그대로다.",
+     "@value": "2026-11-16 대표 이름 변경(K15 표 밖 — 사용자 결정, 유형 D — status 120): '고해상도 대기운동벡터' → '대기운동벡터(2분 간격)', 영문 대표 이름 'Atmospheric Motion Vector (2-minute interval)' 를 새로 두었다. 사유: '고해상도'는 상대적 수식어라 쓰지 않는다(명명 규칙 2-9 가). 일반 대기운동벡터(prod:atmospheric-motion-vector)와의 차이는 입력 관측 방식 — 천리안위성 2A호 확장 국지 영역(ELA) 급속 관측 영상(±2분)이다. 이름의 '2분 간격'은 숫자 조건(규칙 2-9 다)에 맞는다: 그 산출물을 정의하는 관측 모드 값(운영 중 바꾸는 매개변수가 아님), 차원 낱말 '간격'을 함께 씀, 같은 물리량의 짝(대표 대기운동벡터 — 이름 그대로)을 가르는 값. 관측 일정(ELA 급속 관측 간격)이 바뀌면 이름도 바꿔야 한다. 근거: satwright 사실표 h2bjlee/satwright-content-gk2a@280c9d7a docs/science/gk2a-product-facts-2026-11-15.tsv high-resolution-amv 행(급속 관측 ELA, 영상 t−2·t·t+2분 — 코드 run_gk2a_rs-amv, 알고리즘 GK2A_AMV-RS), src/product_classification_draft.tsv(quantity atmospheric-motion-vector); 2026-11-19 satWright 답(status 150): 이름의 '2분'은 관측·추적 간격이다 — 영상 t−2·t·t+2분, Δt = 120 s(algorepo ALGO_PRD/trunk/GK2A_AMI/GK2A_AMV-RS/build/run/run_gk2a_rs-amv.sh:37,43-53,58, run_gk2a_rs-amv_ela_onetime_omp.csh:38,81,89; satwright-content-gk2a docs/science/gk2a-amv-rs-spec-2026-10-28.md:73-75). 산출 주기(실행 간격)는 근거가 없어 미확인이고 이름 숫자가 가리키는 양이 아니다 — dcat:temporalResolution 과 대조하지 않는다(src/check.py NAME_NUMBER_OTHER_QUANTITY, 명명 규칙 2-9 (다)5). 이전 이름은 skos:altLabel 과 출처를 단 라벨 노드(skosxl:altLabel, 이전 대표 이름 표지 nmsc:formerPrefLabel)로 남는다. IRI 는 그대로다.",
      "@language": "ko"
     }
    ],
@@ -63912,7 +63798,7 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인 — 2분은 ELA 급속 관측(영상) 간격이고 운영 실행 간격은 명세에 없다(gk2a-aswind-spec-2026-10-25.md:39 Q5). satwright 확인 대기(운영 목록 run_gk2a_rs-amv.sh 의 반복 간격). 점 목록이고 채널마다 영상 간격이 다르다(vi006 500 m·나머지 2 km) — 공간 해상도 없음",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 이름의 '2분'은 관측·추적 간격이다(영상 t−2·t·t+2분, Δt = 120 s — algorepo ALGO_PRD/trunk/GK2A_AMI/GK2A_AMV-RS/build/run/run_gk2a_rs-amv.sh:37,43-53,58, run_gk2a_rs-amv_ela_onetime_omp.csh:38,81,89; 명세 gk2a-amv-rs-spec-2026-10-28.md:73-75). 실행 간격 근거는 없다 — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19 1; docs/questionnaire-r3.md 2-18). 이름 숫자는 산출 주기가 아닌 양이라 dcat:temporalResolution 과 대조하지 않는다(src/check.py 제외 목록, 명명 규칙 2-9 (다)5). 점 목록이고 채널마다 영상 간격이 다르다(vi006 500 m·나머지 2 km) — 공간 해상도 없음",
      "@language": "ko"
     }
    ],
@@ -64093,13 +63979,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 알고리즘 둘(GK2A_AAP·MULTI_AAP) 모두 FD 6 km. 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 알고리즘 둘(GK2A_AAP·MULTI_AAP) 모두 FD 6 km. 산출 주기 미확인(status 150) — 드라이버 보폭 10분(GK2A_AAP run_gk2a_aap.sh:67)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-aap-spec-2026-11-02.md:40 'FD 6 km, 1833 × 1833', gk2a-multi-aap-spec-2026-10-28.md:46 'on the 6 km grid 1833 × 1833 (fd060ge)'; 사실표 '수치 배열(NetCDF FD 6 km 1833²×54)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-aap-spec-2026-11-02.md:40 'FD 6 km, 1833 × 1833', gk2a-multi-aap-spec-2026-10-28.md:46 'on the 6 km grid 1833 × 1833 (fd060ge)'; 사실표 '수치 배열(NetCDF FD 6 km 1833²×54)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -64301,13 +64187,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 사실표의 'ANN ELA 2 km'는 나눈 산출물 ai-atmospheric-instability 몫(status 98). 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 사실표의 'ANN ELA 2 km'는 나눈 산출물 ai-atmospheric-instability 몫(status 98). 산출 주기 미확인(status 150) — 드라이버 보폭 10분(GK2A_AAP run_gk2a_aap.sh:67)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-aap-spec-2026-11-02.md:40 'FD 6 km, 1833 × 1833', gk2a-multi-aap-spec-2026-10-28.md:46 'on the 6 km grid 1833 × 1833 (fd060ge)'; 사실표 'AAP FD 6 km' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-aap-spec-2026-11-02.md:40 'FD 6 km, 1833 × 1833', gk2a-multi-aap-spec-2026-10-28.md:46 'on the 6 km grid 1833 × 1833 (fd060ge)'; 사실표 'AAP FD 6 km' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -64418,7 +64304,7 @@
      "@language": "ko"
     },
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 ELA",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 ELA. 산출 주기 비움(status 150, 앞 값 PT2M): 근거가 드라이버 보폭 2분뿐이었다(명세 gk2a-ann-spec-2026-10-25.md:21 DRV run_gk2a_ann.sh 'loops time every 2 min (maketime … 0 0 2, :51)') — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -64524,15 +64410,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT2M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ann-spec-2026-10-25.md:39 'gk2a_ami_le2_ann_{ela020ge}_{YYYYMMDDHHMM}.nc', :63 'Nine IR channels, 2 km, ela020ge', :21 'run/run_gk2a_ann.sh — loops time every 2 min (maketime … 0 0 2, :51)'; 사실표 atmospheric-instability 'ANN ELA 2 km' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ann-spec-2026-10-25.md:39 'gk2a_ami_le2_ann_{ela020ge}_{YYYYMMDDHHMM}.nc', :63 'Nine IR channels, 2 km, ela020ge', :21 'run/run_gk2a_ann.sh — loops time every 2 min (maketime … 0 0 2, :51)'; 사실표 atmospheric-instability 'ANN ELA 2 km' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -64712,13 +64592,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 사실표의 'ELA 2 km'는 나눈 산출물 ai-total-precipitable-water 몫(status 98). 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 사실표의 'ELA 2 km'는 나눈 산출물 ai-total-precipitable-water 몫(status 98). 산출 주기 미확인(status 150) — 드라이버 보폭 10분(GK2A_AAP run_gk2a_aap.sh:67)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-aap-spec-2026-11-02.md:40 'FD 6 km, 1833 × 1833', gk2a-multi-aap-spec-2026-10-28.md:46 'on the 6 km grid 1833 × 1833 (fd060ge)'; 사실표 'FD 6 km' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-aap-spec-2026-11-02.md:40 'FD 6 km, 1833 × 1833', gk2a-multi-aap-spec-2026-10-28.md:46 'on the 6 km grid 1833 × 1833 (fd060ge)'; 사실표 'FD 6 km' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -64824,7 +64704,7 @@
      "@language": "ko"
     },
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 ELA",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 영역 ELA. 산출 주기 비움(status 150, 앞 값 PT2M): 근거가 드라이버 보폭 2분뿐이었다(명세 gk2a-ann-spec-2026-10-25.md:21 DRV run_gk2a_ann.sh 'loops time every 2 min (maketime … 0 0 2, :51)') — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
@@ -64922,15 +64802,9 @@
      "@type": "xsd:decimal"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT2M",
-     "@type": "xsd:duration"
-    }
-   ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ann-spec-2026-10-25.md:39 'gk2a_ami_le2_ann_{ela020ge}_{YYYYMMDDHHMM}.nc', :63 'Nine IR channels, 2 km, ela020ge', :21 'loops time every 2 min'; 사실표 total-precipitable-water 'ELA 2 km' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-ann-spec-2026-10-25.md:39 'gk2a_ami_le2_ann_{ela020ge}_{YYYYMMDDHHMM}.nc', :63 'Nine IR channels, 2 km, ela020ge', :21 'loops time every 2 min'; 사실표 total-precipitable-water 'ELA 2 km' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -65096,7 +64970,7 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 근거끼리 어긋난다 — 사실표는 ELA 2분, 명세는 드라이버가 FD 뒤 ELA 를 10분마다. 격자 간격도 적혀 있지 않다",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 사실표의 'ELA 2분'은 관측 간격(T−2분 FF 를 선택 입력으로 읽는다)이고 명세의 10분은 시험 드라이버 보폭이다(algorepo ALGO_PRD/trunk/GK2A_AMI/GK2A_FF/build/run/run_gk2a_ff.sh:51-52,60; run_gk2a_ff_ela_onetime_omp.csh:56,338; 명세 gk2a-ff-spec-2026-10-26.md:25,62) — 둘 다 운영 주기 근거가 아니다. 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19 2; docs/questionnaire-r3.md 2-18). 격자 간격도 적혀 있지 않다",
      "@language": "ko"
     }
    ],
@@ -65251,7 +65125,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF L4 FD 2 km)'; 명세 gk2a-frp-spec-2026-10-26.md:26 'gk2a_ami_le4_frp_fd020ge_{T}.nc … ydim = xdim = 5500' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(NetCDF L4 FD 2 km)'; 명세 gk2a-frp-spec-2026-10-26.md:26 'gk2a_ami_le4_frp_fd020ge_{T}.nc … ydim = xdim = 5500' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -65379,7 +65253,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-fr-spec-2026-10-26.md:1 'GK2A_FR (fire risk, FD 2 km, L4, daily)'; 사실표 '수치 배열 (FD 2 km fr.nc)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-fr-spec-2026-10-26.md:1 'GK2A_FR (fire risk, FD 2 km, L4, daily)'; 사실표 '수치 배열 (FD 2 km fr.nc)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -66206,7 +66080,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD·ELA 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD·ELA 2 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -66334,13 +66208,23 @@
      "@language": "ko"
     }
    ],
+   "dcat:spatialResolutionInMeters": [
+    {
+     "@value": "2000",
+     "@type": "xsd:decimal"
+    }
+   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 시간 관계 칸의 'FD·ELA 2 km'만 있고 출력 격자 칸에는 없다 — 비운다",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km(FD 5500×5500, ELA 1900×1200). 산출 주기 미확인 — 운영 주기는 NMSC 확인(docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
+    {
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-adps-1.2021.01.4.md:46-48 'Domains: only FD obs → FD retrieval, 2 km and ELA obs → ELA retrieval, 2 km (\"ADPS : 1-1-3 2-3-3 only\", RUN:19-22; any resolution other than 2km aborts in the Vmask reader RV:125-132). FD 5500 x 5500, ELA 1900 x 1200', 파일 이름 :42 'gk2a_ami_le2_adps_{fd020ge|ela020ge}_…'(2026-11-19 읽음, satwright-content-gk2a@176a1171); 운영 코드 algorepo ALGO_PRD/trunk/GK2A_AMI/GK2A_ADPS run_gk2a_adps_{fd,ela}_onetime_mpi.csh:20-22 'RESOLUTION_OPTION=3 #2km', 모듈 modules/gk2a/src/satwright_gk2a/adps.py:70,137-138 (satWright 답 2026-11-19 5 — 2 km 고정, 확신 높음) — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
+     "@language": "ko"
+    },
     {
      "@value": "산출물 → 처리 수준 판정 2026-11-13(src/product_levels.tsv 확실 행): 확실 운영 알고리즘 → NMSC 출력 서식표 항목의 level. 서식표는 SatWright satwright-content-gk2a@49296cf6 modules/gk2a/src/satwright_gk2a/data/nmsc-aux-products.json(NMSC/ETRI AUX 라이브러리 GK2A_AUX_Mod_Write_L2/L3/L4.f90 에서 뽑은 표) — NMSC 내부 코드이며 공개되지 않았다",
      "@language": "ko"
@@ -66497,13 +66381,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km. 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): FD·ELA 둘 다 2 km. 산출 주기 미확인(status 150) — 드라이버 보폭 1시간(run_gk2a_apps.sh:46-47,54)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD·ELA 2 km)'; 명세 gk2a-apps-spec-2026-10-25.md:46 'FD obs → FD retrieval and ELA obs → ELA retrieval, 2 km only' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 사실표 '수치 배열(FD·ELA 2 km)'; 명세 gk2a-apps-spec-2026-10-25.md:46 'FD obs → FD retrieval and ELA obs → ELA retrieval, 2 km only' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -66708,13 +66592,13 @@
    ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기는 찾지 못함",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 산출 주기 미확인(status 150) — 드라이버 보폭 1시간(run_gk2a_apps.sh:46-47,54)는 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-apps-spec-2026-10-25.md:46 'FD obs → FD retrieval and ELA obs → ELA retrieval, 2 km only' — 에어로졸광학두께와 같은 APPS 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-apps-spec-2026-10-25.md:46 'FD obs → FD retrieval and ELA obs → ELA retrieval, 2 km only' — 에어로졸광학두께와 같은 APPS 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -66866,23 +66750,13 @@
      "@language": "ko"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT1H",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 합성 기간 1시간(T−50분..T 의 10분 파일, 사실표) — 이름 '(1시간 합성)'의 1시간은 합성 기간이라 산출 주기와 대조하지 않는다(값은 우연히 같다). 격자 간격이 글로 적혀 있지 않다(파일 이름 ea020ge)",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 합성 기간 1시간(T−50분..T 의 10분 파일, 사실표) — 이름 '(1시간 합성)'의 1시간은 합성 기간이라 산출 주기와 대조하지 않는다. 격자 간격이 글로 적혀 있지 않다(파일 이름 ea020ge). 산출 주기 비움(status 150, 앞 값 PT1H): 근거가 드라이버 보폭 1시간뿐이었다(명세 gk2a-merge-aod-geo-spec-2026-10-26.md:21·:56 DRV run_gk2a_merge-aod.sh 'hourly loop, maketime.exe $time 0 1 0', 'The driver runs hourly (DRV)'; 사실표 '매시 실행'은 이 드라이버를 옮긴 것으로 본다) — 그 보폭은 재처리·시험 드라이버 값(algorepo run_gk2a_*.sh 는 time=etime=202404010000 꼴) — 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(satWright 답 2026-11-19; docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
-    {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-merge-aod-geo-spec-2026-10-26.md:21 'run_gk2a_merge-aod.sh (hourly loop, maketime.exe $time 0 1 0)', :56 'The driver runs hourly (DRV)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
-     "@language": "ko"
-    },
     {
      "@value": "산출물 → 탑재체 판정 2026-11-13(src/product_instruments.tsv 확실 행): 확실 운영 알고리즘의 입력을 SatWright satwright-content-gk2a@49296cf6 modules/gk2a/chains/operational-graph.json(NMSC 운영 실행 스크립트에서 뽑은 입력 관계)으로 따라가 GK-2A AMI L1B·AMI L2 입력에 닿은 것 — NMSC 내부 자료이며 공개되지 않았다",
      "@language": "ko"
@@ -67431,7 +67305,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sm-spec-2026-10-26.md:19 'FD 2 km only (:22-25)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-sm-spec-2026-10-26.md:19 'FD 2 km only (:22-25)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -67571,7 +67445,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-vgt-spec-2026-11-02.md:6 'one daily FD 2 km run (O:18-21: 1-1-3 only)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-vgt-spec-2026-11-02.md:6 'one daily FD 2 km run (O:18-21: 1-1-3 only)'; 사실표 시간 관계 'observation(일, T = YYYYMMDD0000)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -67725,7 +67599,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-vgt-spec-2026-11-02.md:6 'one daily FD 2 km run', :27 'NDVI, EVI, FVC' — 같은 VGT 파일 — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-vgt-spec-2026-11-02.md:6 'one daily FD 2 km run', :27 'NDVI, EVI, FVC' — 같은 VGT 파일; 사실표 시간 관계 'observation(일)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -67881,7 +67755,7 @@
    ],
    "dct:source": [
     {
-     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-et-spec-2026-10-26.md:1 'GK2A_ET (machine-learning daily evapotranspiration, Korea 1 km)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
+     "@value": "공간 해상도·산출 주기 근거: 명세 gk2a-et-spec-2026-10-26.md:1 'GK2A_ET (machine-learning daily evapotranspiration, Korea 1 km)'; 사실표 시간 관계 'observation 기반 일 산출(실행일 전날 UTC 하루 …)' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세). 2026-11-19 satWright 답(운영 코드 file:line)으로 고친 행은 근거에 따로 적었다(status 150) — src/product_resolution.tsv",
      "@language": "ko"
     },
     {
@@ -68577,23 +68451,13 @@
      "@language": "ko"
     }
    ],
-   "dcat:temporalResolution": [
-    {
-     "@value": "PT2M",
-     "@type": "xsd:duration"
-    }
-   ],
    "nmsc:coverageNote": [
     {
-     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 격자 간격이 적혀 있지 않다(파일 이름 ko020na)",
+     "@value": "공간 해상도·산출 주기(src/product_resolution.tsv): 격자 간격이 적혀 있지 않다(파일 이름 ko020na). 산출 주기 비움(status 150, 앞 값 PT2M): 명세 gk2a-cridx-ir105-spec-2026-10-26.md:31 'Every 2 minutes on the KO rapid scan'·사실표 'observation(KO 2분 주기 T …)'은 KO 급속 관측(슬롯) 간격이고 실행 간격 근거(드라이버·cron)가 인용돼 있지 않다 — 관측 간격은 산출 주기가 아니다(산불탐지·대기운동벡터(2분 간격)와 같은 경우, satWright 답 2026-11-19 1·2). 운영 crontab 이 algorepo 에 없음, 운영 주기는 NMSC 확인(docs/questionnaire-r3.md 2-18)",
      "@language": "ko"
     }
    ],
    "dct:source": [
-    {
-     "@value": "공간 해상도·산출 주기 근거: 사실표 시간 관계 'observation(KO 2분 주기 T …)'; 명세 gk2a-cridx-ir105-spec-2026-10-26.md:31 'Every 2 minutes on the KO rapid scan' — satwright-content-gk2a@280975ea(2026-11-18 읽음) — 사실표 = docs/science/gk2a-product-facts-2026-11-15.tsv 그 산출물 행, 명세 = docs/science/{파일}:{행}(NMSC 운영 코드를 읽은 재구현 명세) — src/product_resolution.tsv",
-     "@language": "ko"
-    },
     {
      "@value": "산출물 → 탑재체 판정 2026-11-13(src/product_instruments.tsv 확실 행): 확실 운영 알고리즘의 입력을 SatWright satwright-content-gk2a@49296cf6 modules/gk2a/chains/operational-graph.json(NMSC 운영 실행 스크립트에서 뽑은 입력 관계)으로 따라가 GK-2A AMI L1B·AMI L2 입력에 닿은 것 — NMSC 내부 자료이며 공개되지 않았다",
      "@language": "ko"

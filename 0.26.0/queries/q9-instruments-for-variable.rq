@@ -1,0 +1,30 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q9. 특정 변수를 관측할 수 있는 GK 탑재체 (관련도 순)
+#    "산불 감시가 되는 탑재체는?" 류의 질문에 바로 답한다.
+SELECT ?탑재체 ?위성 ?등급 ?제약
+WHERE {
+  ?c nmsc:observesVariable var:fire_radiative_power ;
+     nmsc:capabilityOf ?i ;
+     nmsc:hasRelevancy ?r .
+  ?r nmsc:relevancyRank ?순위 ; skos:prefLabel ?등급 . FILTER(lang(?등급) = "ko")
+  ?i skos:prefLabel ?탑재체 ; nmsc:carriedBy ?s . FILTER(lang(?탑재체) = "en")
+  ?s skos:prefLabel ?위성 . FILTER(lang(?위성) = "ko")
+  OPTIONAL { ?c nmsc:hasLimitation ?l . ?l skos:prefLabel ?제약 . FILTER(lang(?제약) = "ko") }
+}
+ORDER BY ?순위
