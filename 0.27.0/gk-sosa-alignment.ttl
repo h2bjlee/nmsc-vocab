@@ -1,0 +1,184 @@
+@prefix nmsc:  <https://w3id.org/nmsc/> .
+@prefix sat:   <https://w3id.org/nmsc/satellite/> .
+@prefix ins:   <https://w3id.org/nmsc/instrument/> .
+@prefix var:   <https://w3id.org/nmsc/variable/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================================================
+# GK 어휘 → W3C SOSA/SSN 정렬 — 생성물(src/gen_align.py). 손으로 고치지 말 것.
+# 판정표 src/sosa_alignment.tsv 의 "확실" 행만 싣는다. 후보·안함과 그 이유는 판정표에 있다.
+# 본 어휘를 바꾸지 않는다. SOSA 를 쓰지 않는 쪽은 이 파일을 올리지 않으면 된다.
+# ============================================================================
+
+<https://w3id.org/nmsc/alignment/sosa> a owl:Ontology ;
+    dct:title "GK 어휘의 SOSA/SSN 정렬"@ko , "SOSA/SSN alignment of the GK vocabulary"@en ;
+    dct:created "2026-11-11"^^xsd:date ;
+    dct:source <http://www.w3.org/ns/sosa/> , <http://www.w3.org/ns/ssn/> , <http://www.w3.org/ns/ssn/systems/> ;
+    dct:license <https://www.kogl.or.kr/info/licenseType1.do> ;
+    owl:imports <https://w3id.org/nmsc/> , <http://www.w3.org/ns/ssn/> ;
+    rdfs:comment "SOSA·SSN 용어는 2026-11-11 w3.org/ns 에서 받은 원본과 대조했다(src/sosa_terms_2017.txt). 관련도·관측 한계·운용 기간·개발 분담은 SOSA/SSN 에 같은 뜻의 용어가 없어 본 어휘의 것을 그대로 쓴다."@ko , "The SOSA and SSN terms were checked against the originals retrieved from w3.org/ns on 2026-11-11 (src/sosa_terms_2017.txt). Relevance, observing limitations, operation periods and development responsibilities have no terms with the same meaning in SOSA/SSN, so this vocabulary's own terms are used as they are."@en .
+
+# nmsc:Deployment subClassOf ssn:Deployment — ssn:Deployment "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform." 우리 운용 노드는 위성 1기에 탑재체 1기를 실은 경우라 그 특수한 경우다. 기간·상태는 SSN 에 대응 속성이 없어 우리 속성으로 남긴다
+nmsc:Deployment rdfs:subClassOf ssn:Deployment .
+
+# nmsc:deploymentPlatform subPropertyOf ssn:deployedOnPlatform — "Relation between a Deployment and the Platform on which the Systems are deployed." 정의가 같다
+nmsc:deploymentPlatform rdfs:subPropertyOf ssn:deployedOnPlatform .
+
+# nmsc:deployedSystem subPropertyOf ssn:deployedSystem — "Relation between a Deployment and a deployed System." 정의가 같다
+nmsc:deployedSystem rdfs:subPropertyOf ssn:deployedSystem .
+
+# nmsc:carries subPropertyOf sosa:hosts — "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it." 위성→탑재체. gen.py 의 온톨로지 주석이 3단계 대체 대상으로 적어 둔 것
+nmsc:carries rdfs:subPropertyOf sosa:hosts .
+
+# nmsc:carriedBy subPropertyOf sosa:isHostedBy — sosa:hosts 의 역. 탑재체→위성
+nmsc:carriedBy rdfs:subPropertyOf sosa:isHostedBy .
+
+# scheme/satellite type sosa:Platform — "A Platform is an entity that hosts other entities, particularly Sensors…" 위성 4기는 개별 위성(개체)이다
+<https://w3id.org/nmsc/satellite/coms> a sosa:Platform .
+<https://w3id.org/nmsc/satellite/gk-2a> a sosa:Platform .
+<https://w3id.org/nmsc/satellite/gk-2b> a sosa:Platform .
+<https://w3id.org/nmsc/satellite/gk-5> a sosa:Platform .
+
+# scheme/instrument type sosa:Sensor — "Device … involved in, or implementing, a Procedure." 탑재체 13기 모두 OSCAR 관측 기기(영상기·분광계·자력계·입자검출기 등)이고 통신 탑재체는 스킴에 없다(2026-11-11 확인). v0.10 에서 묶음 KSEM(GK-2A 우주기상탑재체)이 더해져 14개 — NMSC GK2A Fact Sheets 가 "a suite of space weather monitoring instruments"라 하는 관측 장치 묶음이므로 같은 유형을 준다(2026-11-13)
+<https://w3id.org/nmsc/instrument/mi> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/goci> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ami> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ksem-cm> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ksem-pd> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ksem-mg> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/goci-ii> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/gems> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/gkmi> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ksem2-scrms> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ksem2-sosmag2> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ksem2-hepms> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ksem2-heems> a sosa:Sensor .
+<https://w3id.org/nmsc/instrument/ksem> a sosa:Sensor .
+
+# scheme/variable type sosa:ObservableProperty — "An observable quality (property, characteristic) of a FeatureOfInterest." 변수 117개(도메인 최상위 개념 13개는 묶음이라 제외; NMSC 위성 어휘가 정의한 47개 포함 — status 99 의 5개, status 130 의 30개, status 131 의 12개)
+<https://w3id.org/nmsc/variable/absolute_vorticity> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/accumulated_precipitation> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aerosol_angstrom_exponent> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aerosol_optical_depth> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aerosol_column_burden> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aerosol_effective_radius> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aerosol_mass_mixing_ratio> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aerosol_type> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aerosol_volcanic_ash> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aerosol_volcanic_ash_total_column> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/air_sea_temperature_difference> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/aircraft_icing_severity> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/atmospheric_temperature> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/biomass> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/bro> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/ch3br> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/clo> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_cover> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_drop_effective_radius> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_ice_total_column> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_ice_effective_radius> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_layer> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_liquid_water_clw_total_column> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_optical_depth> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_top_height> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_top_phase> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_top_pressure> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_top_temperature> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/cloud_type> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/colour_dissolved_organic_matter_cdom> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/convective_available_potential_energy> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/convective_initiation_probability> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/depth_mean_sea_water_temperature> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/divergence_of_wind> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/downward_long_wave_irradiance_at_earth_surface> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/downward_short_wave_irradiance_at_earth_surface> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/downward_short_wave_radiant_exposure_at_earth_surface> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/dust_emission_flux> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/dust_peak_height> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/earth_surface_albedo> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/earth_surface_short_wave_bidirectional_reflectance> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/electron_integral_directional_flux> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/electrostatic_charge> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/fire_danger_index> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/fire_fractional_cover> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/fire_occurrence> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/fire_radiative_power> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/fire_temperature> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/fog_cover> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/fraction_of_absorbed_par_fapar> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/fraction_of_vegetated_land> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/geomagnetic_field> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/h2o> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/hcho> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/hcho_total_column> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/humidity_mixing_ratio> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/integrated_water_vapour_iwv> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/k_index> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/land_surface_temperature> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/layer_precipitable_water> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/leaf_area_index_lai> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/lifted_index> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/long_wave_earth_surface_emissivity> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/no> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/no2> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/no2_total_column> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/net_short_wave_irradiance_at_earth_surface> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/normalised_difference_vegetation_index_ndvi> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/o3> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/o3_total_column> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/ocean_diffuse_attenuation_coefficient_dac> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/ocean_chlorophyll_concentration> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/ocean_heat_content> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/ocean_surface_current> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/ocean_suspended_sediments_concentration> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/oil_spill_cover> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/overshooting_top_occurrence> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/pm10_mass_concentration> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/pm2_5_mass_concentration> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/psc_occurrence> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/pan_evaporation> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/photosynthetically_active_radiation_par> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/precipitation_intensity_at_surface_liquid_or_solid> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/probability_of_rainfall> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/proton_integral_directional_flux> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/radiation_dose_rate> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/radius_of_maximum_wind> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/reference_evapotranspiration> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/relative_humidity> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/so2> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/so2_total_column> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/sea_surface_temperature> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/sea_surface_temperature_anomaly> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/sea_surface_temperature_front_gradient> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/sea_ice_concentration> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/short_wave_cloud_reflectance> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/showalter_index> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/snow_cover> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/snow_depth> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/soil_moisture_at_surface> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/specific_humidity> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/sulfur_dioxide_occurrence> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/total_totals_index> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/tropical_cyclone_intensification_potential> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/tropical_cyclone_maximum_potential_intensity> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/tropical_cyclone_maximum_wind_speed> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/tropical_cyclone_wind_radius> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/tropopause_folding_turbulence_occurrence> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/upward_long_wave_irradiance_at_earth_surface> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/upward_long_wave_irradiance_at_toa> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/upward_short_wave_irradiance_at_toa> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/upward_spectral_radiance_at_toa> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/vegetation_health_index> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/vertical_wind_shear> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/visibility> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/volcanic_ash_height> a sosa:ObservableProperty .
+<https://w3id.org/nmsc/variable/wind_horizontal> a sosa:ObservableProperty .
+
+# sosa:observes chain nmsc:capabilityOf nmsc:observesVariable — sosa:observes "Relation between a Sensor and an ObservableProperty that it is capable of sensing." 관측 능력 노드(탑재체×변수×관련도)를 관련도를 버리고 평탄화하면 이것이다. OSCAR 평가표는 기기 범주의 원리적 역량이므로(handover B) "capable of" 와 맞는다
+sosa:observes owl:propertyChainAxiom ( [ owl:inverseOf nmsc:capabilityOf ] nmsc:observesVariable ) .

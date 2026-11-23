@@ -1,0 +1,35 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q5. 2020년에 운용 중이던 위성×탑재체 쌍
+#    운용 기간이 쌍에 붙어 있어야 성립하는 질의.
+#    종료일이 없는 쌍(≥2029 등)은 현재 운용 중으로 간주한다.
+SELECT ?위성 ?탑재체 ?시작 ?상태
+WHERE {
+  ?d nmsc:deploymentPlatform ?s ;
+     nmsc:deployedSystem     ?i ;
+     nmsc:deploymentStart    ?시작 ;
+     nmsc:lifecycleStatus    ?상태 .
+  OPTIONAL { ?d nmsc:deploymentEnd ?종료 }
+  # 정밀도가 섞여 있으므로(xsd:date / xsd:gYearMonth) 연도만 떼어 비교한다
+  BIND(xsd:integer(SUBSTR(STR(?시작), 1, 4)) AS ?시작연도)
+  BIND(IF(BOUND(?종료), xsd:integer(SUBSTR(STR(?종료), 1, 4)), 9999) AS ?종료연도)
+  FILTER(?시작연도 <= 2020 && ?종료연도 >= 2020)
+  ?s skos:prefLabel ?위성   . FILTER(lang(?위성) = "ko")
+  ?i skos:prefLabel ?탑재체 . FILTER(lang(?탑재체) = "ko")
+}
+ORDER BY ?시작

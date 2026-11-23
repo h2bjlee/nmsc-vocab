@@ -33,11 +33,11 @@
    ],
    "dct:description": [
     {
-     "@value": "국가기상위성센터(NMSC) 기상위성 업무 용어집의 공개분이다. 기관 승인 전 초안이다. 판은 SatSem 어휘 판과 따로 매기는 용어집 판이다 — owl:versionInfo 는 고정판의 번호(X.Y.Z — 연도 이름은 별칭)이고, 그 판 이후 변경이 있으면 + 마지막 변경일을 붙인다. 기준판 1.0.0(별칭 2026) 이후 바뀐 항목에는 dct:modified(마지막 변경일)와 변경마다 skos:changeNote 를 단다. 각 뜻의 정체(IRI)는 SatSem 어휘 개념이나 확인된 외부 레지스트리 IRI 에 두고 NMSC 사용 노트만 덧붙인다(nmsc-usage.ttl). 외부 권위인데 해석되는 외부 IRI 가 없는 뜻에만 용어집 항목 glossary/gNNNN 을 발급한다(glossary.ttl). 분야 소속은 분야 Collection glossary/field/(분야 코드) 에 둔다(glossary-fields.ttl). 검토 전(임시) 뜻은 싣지 않는다. 항목의 원본 행 출처(dct:source 의 \"NMSC 약어 용어표 d1.2 (2019-05-01)\")는 NMSC 내부 자료로 공개되지 않았다. 출처 기록으로 남길 뿐 그 자료를 함께 배포하지 않는다.",
+     "@value": "국가기상위성센터(NMSC) 기상위성 업무 용어집의 공개분이다. 기관 승인 전 초안이다. 판은 NMSC 위성 어휘 판과 따로 매기는 용어집 판이다 — owl:versionInfo 는 고정판의 번호(X.Y.Z — 연도 이름은 별칭)이고, 그 판 이후 변경이 있으면 + 마지막 변경일을 붙인다. 기준판 1.0.0(별칭 2026) 이후 바뀐 항목에는 dct:modified(마지막 변경일)와 변경마다 skos:changeNote 를 단다. 각 뜻의 정체(IRI)는 NMSC 위성 어휘 개념이나 확인된 외부 레지스트리 IRI 에 두고 NMSC 사용 노트만 덧붙인다(nmsc-usage.ttl). 외부 권위인데 해석되는 외부 IRI 가 없는 뜻에만 용어집 항목 glossary/gNNNN 을 발급한다(glossary.ttl). 분야 소속은 분야 Collection glossary/field/(분야 코드) 에 둔다(glossary-fields.ttl). 검토 전(임시) 뜻은 싣지 않는다. 항목의 원본 행 출처(dct:source 의 \"NMSC 약어 용어표 d1.2 (2019-05-01)\")는 NMSC 내부 자료로 공개되지 않았다. 출처 기록으로 남길 뿐 그 자료를 함께 배포하지 않는다.",
      "@language": "ko"
     },
     {
-     "@value": "Public part of the NMSC meteorological satellite glossary. Draft, not yet approved by the agency. The glossary has its own editions, separate from the SatSem vocabulary version: owl:versionInfo is the number of the fixed edition (X.Y.Z; year names are aliases), followed by + and the date of the last change when the glossary has changed since that edition. Entries changed since the baseline edition 1.0.0 (alias 2026) carry dct:modified (date of the last change) and one skos:changeNote per change. Each sense is identified by a SatSem vocabulary concept or a verified external registry IRI with NMSC usage notes attached (nmsc-usage.ttl); glossary entries glossary/gNNNN are minted only for externally defined senses without a resolvable external IRI (glossary.ttl); field membership is given by the collections glossary/field/(field code) (glossary-fields.ttl). Provisional (unreviewed) senses are not included. The source rows cited in dct:source (\"NMSC 약어 용어표 d1.2 (2019-05-01)\") are an internal NMSC document that has not been published; they are recorded for provenance only and are not distributed.",
+     "@value": "Public part of the NMSC meteorological satellite glossary. Draft, not yet approved by the agency. The glossary has its own editions, separate from the NMSC satellite vocabulary version: owl:versionInfo is the number of the fixed edition (X.Y.Z; year names are aliases), followed by + and the date of the last change when the glossary has changed since that edition. Entries changed since the baseline edition 1.0.0 (alias 2026) carry dct:modified (date of the last change) and one skos:changeNote per change. Each sense is identified by an NMSC satellite vocabulary concept or a verified external registry IRI with NMSC usage notes attached (nmsc-usage.ttl); glossary entries glossary/gNNNN are minted only for externally defined senses without a resolvable external IRI (glossary.ttl); field membership is given by the collections glossary/field/(field code) (glossary-fields.ttl). Provisional (unreviewed) senses are not included. The source rows cited in dct:source (\"NMSC 약어 용어표 d1.2 (2019-05-01)\") are an internal NMSC document that has not been published; they are recorded for provenance only and are not distributed.",
      "@language": "en"
     }
    ],
@@ -53,7 +53,7 @@
    ],
    "dct:rights": [
     {
-     "@value": "공공누리 제1유형(출처표시). 출처: 국가기상위성센터(NMSC), SatSem",
+     "@value": "공공누리 제1유형(출처표시). 출처: 국가기상위성센터(NMSC) 위성 어휘",
      "@language": "ko"
     }
    ],
@@ -76,7 +76,7 @@
    ],
    "rdfs:comment": [
     {
-     "@value": "이 파일은 외부 자원을 정의하지 않는다. 정본은 주어 IRI 의 원본(SatSem 어휘 개념 또는 외부 레지스트리)이며, 여기 있는 것은 국가기상위성센터가 그 대상을 부르는 이름과 사용 맥락(nmsc:nmscLabel·nmsc:nmscNote)뿐이다.",
+     "@value": "이 파일은 외부 자원을 정의하지 않는다. 정본은 주어 IRI 의 원본(NMSC 위성 어휘 개념 또는 외부 레지스트리)이며, 여기 있는 것은 국가기상위성센터가 그 대상을 부르는 이름과 사용 맥락(nmsc:nmscLabel·nmsc:nmscNote)뿐이다.",
      "@language": "ko"
     }
    ]
@@ -107,6 +107,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/aatsr",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AATSR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "ESA Envisat 위성에 탑재되어 해수면온도 등을 관측한 궤도추적 주사형 적외 복사계",
@@ -122,6 +127,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/abi",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ABI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 GOES-R 시리즈 정지궤도 기상위성에 탑재된 다채널 가시·적외 영상기",
@@ -138,6 +148,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/16db3055-847d-4f06-a3aa-9e27e02170a5",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ABL"
+    },
     {
      "@value": "대기경계층",
      "@language": "ko"
@@ -159,6 +172,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2ead8ea2-0357-4c95-9483-da8149855fd4",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ACE"
+    },
     {
      "@value": "적산저기압에너지",
      "@language": "ko"
@@ -182,6 +198,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/ace",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ACE"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "태양풍을 관측하는 미국 NASA의 위성",
@@ -197,6 +218,11 @@
   },
   {
    "@id": "https://ror.org/03777v328",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ACMAD"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "아프리카 지역의 기상·기후 정보 응용을 통해 개발을 지원하는 지역 기상센터",
@@ -213,6 +239,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/99102bce-fac6-4e92-bd08-02e162b3d5f2",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ACSYS"
+    },
     {
      "@value": "북극기후시스템연구",
      "@language": "ko"
@@ -256,6 +285,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ca8de50f-b795-42b7-9301-8baffe2de0f3",
    "nmsc:nmscLabel": [
     {
+     "@value": "ADCP"
+    },
+    {
      "@value": "음향도플러해류탐측기",
      "@language": "ko"
     }
@@ -275,6 +307,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/aeolus",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ADM"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "위성 라이다로 전 지구 바람 프로파일을 관측하는 유럽 ESA의 대기역학 임무(Aeolus 위성)",
@@ -316,6 +353,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CF12S1/",
    "nmsc:nmscLabel": [
     {
+     "@value": "AE"
+    },
+    {
      "@value": "에어로졸 입자크기 지수",
      "@language": "ko"
     }
@@ -336,6 +376,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/31f77d6b-72f7-45e6-93be-8ac5fd5dc373",
    "nmsc:nmscLabel": [
+    {
+     "@value": "AE"
+    },
     {
      "@value": "오로라 제트전류 지수",
      "@language": "ko"
@@ -359,6 +402,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b4ee0e0e-56b3-4833-842d-ac04a4d78984",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AERONET"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지상 태양광도계로 에어로졸 광학 특성을 관측하는 국제 관측망",
@@ -375,6 +423,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/1162",
    "nmsc:nmscLabel": [
+    {
+     "@value": "AES"
+    },
     {
      "@value": "암호화표준",
      "@language": "ko"
@@ -397,6 +448,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/31",
    "nmsc:nmscLabel": [
     {
+     "@value": "AGC"
+    },
+    {
      "@value": "신호진폭 자동제어",
      "@language": "ko"
     }
@@ -416,6 +470,11 @@
   },
   {
    "@id": "https://ror.org/01e8py533",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AGRHYMET"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "사헬 가뭄 대응 국가간 상설위원회(CILSS)의 전문 기관으로 1974년 니제르 니아메에 설립되어 농업기상·수문 자료를 수집·분석하고 식량안보와 자연자원 관리를 지원하는 지역 센터.",
@@ -434,6 +493,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/ahi",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AHI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "일본 기상청 히마와리 정지궤도 기상위성에 탑재된 다채널 영상기",
@@ -450,6 +514,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8d7e5d36-4d81-469d-9318-bf20ba3bae5c",
    "nmsc:nmscLabel": [
+    {
+     "@value": "AI"
+    },
     {
      "@value": "에어로졸 지수",
      "@language": "ko"
@@ -493,6 +560,9 @@
    "@id": "https://space.oscar.wmo.int/instruments/view/airs",
    "nmsc:nmscLabel": [
     {
+     "@value": "AIRS"
+    },
+    {
      "@value": "대기적외선탐측기",
      "@language": "ko"
     }
@@ -513,6 +583,12 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/38",
    "nmsc:nmscLabel": [
+    {
+     "@value": "AIT"
+    },
+    {
+     "@value": "AI&T"
+    },
     {
      "@value": "시스템 통합조립시험",
      "@language": "ko"
@@ -558,6 +634,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/alos",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ALOS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "해발고도, 지역관측, 재해모니터링과 측량을 위해 2006년 1월에 발사된 일본 JAXA의 위성",
@@ -573,6 +654,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/cbcdf37a-0921-4a20-8f4a-00cb40b43098",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ALPEX"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "알프스 산맥이 대기 흐름에 미치는 영향을 연구한 GARP 국제 관측 실험 (소속: GARP)",
@@ -589,6 +675,9 @@
   {
    "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/AMDAR",
    "nmsc:nmscLabel": [
+    {
+     "@value": "AMDAR"
+    },
     {
      "@value": "실시간 항공기 관측 기상자료",
      "@language": "ko"
@@ -626,6 +715,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/62bc69a0-d55f-4bd1-9d20-ef1442eec981",
    "nmsc:nmscLabel": [
     {
+     "@value": "AMIP"
+    },
+    {
      "@value": "대기모델 상호비교 프로젝트",
      "@language": "ko"
     }
@@ -645,6 +737,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/amsr",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AMSR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "해수면온도, 강수, 해빙 등을 관측하는 일본 개발 마이크로파 주사 복사계",
@@ -660,6 +757,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/amsr2",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AMSR2"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "GCOM-W1에 탑재된 마이크로파 센서로 지표와 대기의 마이크로파 방출을 감지",
@@ -675,6 +777,14 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/amsu_b",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AMSU-B"
+    },
+    {
+     "@value": "AMSU-B(MHS)"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "극궤도 기상위성 NOAA-15·16·17에 탑재되어 대기 수증기 연직분포를 관측한 마이크로파 습도 탐측기. 후속 기기는 MHS다",
@@ -690,6 +800,14 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/mhs",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MHS"
+    },
+    {
+     "@value": "AMSU-B(MHS)"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "AMSU-B의 후속 기기로, NOAA-18·19와 Metop 위성에 탑재되어 대기 수증기 연직분포를 관측하는 마이크로파 습도 탐측기",
@@ -727,6 +845,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a63c35d7-bf69-4f64-a6a9-e87cde0ce801",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ANN"
+    },
     {
      "@value": "인공신경망",
      "@language": "ko"
@@ -768,6 +889,11 @@
   },
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/56",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AOS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "CCSDS가 정한 우주-지상·지상-우주·우주-우주 통신 링크용 자료연결계층 프로토콜 규격.",
@@ -787,6 +913,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/1414",
    "nmsc:nmscLabel": [
+    {
+     "@value": "API"
+    },
     {
      "@value": "응용프로그램 프로그래밍 인터페이스",
      "@language": "ko"
@@ -809,6 +938,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/64",
    "nmsc:nmscLabel": [
     {
+     "@value": "APID"
+    },
+    {
      "@value": "응용 프로세스 식별자",
      "@language": "ko"
     }
@@ -828,6 +960,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/664e984c-b02d-4516-95b5-2afe0b56d7f7",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ARGO"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "전 세계 해양에 투입되어 수온·염분을 자동 관측하는 원통형 무인 뜰개(float). 길이 약 180cm, 무게 약 26kg이며, 3~5년 동안 수심 800m~2,000m 사이를 초당 약 10cm 속도로 오르내리며 측정한다. 국제 해양관측 프로그램 Argo 의 관측 장비이며, 기상청 국립기상과학원은 2001년부터 플로트를 투하하고 아르고 지역자료센터를 운영한다",
@@ -843,6 +980,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/ascat",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ASCAT"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "차세대산란계, C band(5.2 GHz)의 산란계이며, 유럽기상위성기구(EUMETSAT)의 Metop 위성 시리즈에 탑재된 센서로 해상풍의 풍속과 방향 관측이 주목적으로 극지의 빙권 및 토양수분을 관측",
@@ -859,6 +1001,9 @@
   {
    "@id": "https://ror.org/02wp9c512",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ASEAN"
+    },
     {
      "@value": "동남아시아국가연합",
      "@language": "ko"
@@ -879,6 +1024,11 @@
   },
   {
    "@id": "https://ror.org/00p0g8998",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ASECNA"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "아프리카와 마다가스카르의 항공 안전 및 항공기상 서비스를 담당하는 기구",
@@ -895,6 +1045,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/80",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ASIC"
+    },
     {
      "@value": "주문형 반도체",
      "@language": "ko"
@@ -916,6 +1069,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/83",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ASM"
+    },
     {
      "@value": "부착 동기화 마커",
      "@language": "ko"
@@ -957,6 +1113,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/aster",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ASTER"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "차세대 우주기반 열방출 및 반사복사계, 가시·근적외·단파적외·열적외 영역의 고분해능 복사계로, NASA 지구관측시스템(Earth Observing System, EOS)의 주력위성인 Terra에 탑재되어, 지표의 온도, 반사율, 고도의 상세한 지도를 만드는데 사용됨",
@@ -972,6 +1133,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e64e83bd-02b3-4a47-830d-00e1aa4b04d3",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AVHRR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NOAA 극궤도위성에 탑재된 영상 복사계. 1978년 발사된 TIROS-N에 처음 탑재되었고, 1981년 NOAA-7부터 5개 채널, 1998년 NOAA-15부터 6개 채널(AVHRR/3)을 갖추었다. AVHRR/3은 NOAA-15~19와 EUMETSAT의 Metop-A·B·C에 탑재되었다",
@@ -1005,6 +1171,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/9924922a-6884-4a9c-9024-f4ed5e638567",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "AVISO"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "프랑스 국립우주연구센터(CNES)가 1992년부터 CLS의 지원으로 위성 고도계 해양 자료를 보관·검증·배포하는 자료 서비스.",
@@ -1024,6 +1195,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2fc6cda0-bc5f-4614-95f2-0abadee5d476",
    "nmsc:nmscLabel": [
+    {
+     "@value": "AWS"
+    },
     {
      "@value": "자동기상관측장비",
      "@language": "ko"
@@ -1046,6 +1220,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/110",
    "nmsc:nmscLabel": [
     {
+     "@value": "BCH"
+    },
+    {
      "@value": "Bose-Chaudhuri-Hocquenghem 부호",
      "@language": "ko"
     }
@@ -1067,6 +1244,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/112",
    "nmsc:nmscLabel": [
     {
+     "@value": "BER"
+    },
+    {
      "@value": "비트 오류율",
      "@language": "ko"
     }
@@ -1087,6 +1267,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/44c9591c-3633-4ecf-8c11-9df8c28557bc",
    "nmsc:nmscLabel": [
+    {
+     "@value": "BIAC"
+    },
     {
      "@value": "대서양 양극 열염순환",
      "@language": "ko"
@@ -1110,6 +1293,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/bird",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "BIRD"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "산불관측을 위해 독일 항공우주센터(DLR)가 2001년에 발사한 위성",
@@ -1126,6 +1314,9 @@
   {
    "@id": "https://ror.org/04dkp1p98",
    "nmsc:nmscLabel": [
+    {
+     "@value": "BoM"
+    },
     {
      "@value": "호주 기상청",
      "@language": "ko"
@@ -1148,6 +1339,9 @@
    "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/BSRN",
    "nmsc:nmscLabel": [
     {
+     "@value": "BSRN"
+    },
+    {
      "@value": "지면복사관측망",
      "@language": "ko"
     }
@@ -1168,6 +1362,12 @@
   {
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0736/",
    "nmsc:nmscLabel": [
+    {
+     "@value": "BT"
+    },
+    {
+     "@value": "EBBT"
+    },
     {
      "@value": "밝기온도",
      "@language": "ko"
@@ -1204,6 +1404,11 @@
   },
   {
    "@id": "http://codes.wmo.int/wmdr/DataFormat/FM-94-bufr",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "BUFR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "국제적 기상자료 교환을 위한 표준 포맷",
@@ -1220,6 +1425,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/141",
    "nmsc:nmscLabel": [
+    {
+     "@value": "BW"
+    },
     {
      "@value": "대역폭",
      "@language": "ko"
@@ -1265,6 +1473,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/calipso",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CALIPSO"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "구름과 에어로졸의 연직분포를 라이다와 적외 관측으로 측정하는 미국 NASA·프랑스 CNES 공동 위성",
@@ -1281,6 +1494,9 @@
   {
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/7K2ILV7Y/",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CAPE"
+    },
     {
      "@value": "대류가용잠재에너지",
      "@language": "ko"
@@ -1301,6 +1517,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/c11402e0-af16-4e20-a8b6-a4fef05d2b2f",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CASO"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "남극과 남빙양이 과거부터 미래까지의 기후에서 하는 역할을 밝히기 위해 남빙양의 물리 환경을 일주 관측한 국제극지의 해(IPY) 남극해 순환 분야 주도 사업. (소속: IPY)",
@@ -1319,6 +1540,11 @@
   },
   {
    "@id": "https://ror.org/01dy3j343",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CCMC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "우주기상 연구 모델을 공동 활용하도록 지원하는 NASA 모델링 센터",
@@ -1335,6 +1561,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/182",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CCSDS"
+    },
     {
      "@value": "우주데이터시스템자문위원회",
      "@language": "ko"
@@ -1356,6 +1585,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4bec3ae6-a05f-4d01-9f57-418626103c40",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CEOP"
+    },
     {
      "@value": "집중관측기간",
      "@language": "ko"
@@ -1380,6 +1612,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/198",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CEOS"
+    },
     {
      "@value": "지구관측위성위원회",
      "@language": "ko"
@@ -1415,6 +1650,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/ceres",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CERES"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구 복사수지 관측을 위해 NASA 위성에 탑재된 광대역 복사계",
@@ -1446,6 +1686,9 @@
   {
    "@id": "https://ror.org/04c4bm785",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CGIAR"
+    },
     {
      "@value": "국제농업연구협의단",
      "@language": "ko"
@@ -1495,6 +1738,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/8O6N4MAH/",
    "nmsc:nmscLabel": [
     {
+     "@value": "CI"
+    },
+    {
      "@value": "태풍강도지수",
      "@language": "ko"
     }
@@ -1519,6 +1765,9 @@
    "@id": "https://ror.org/037wny167",
    "nmsc:nmscLabel": [
     {
+     "@value": "CIAT"
+    },
+    {
      "@value": "국제열대농업센터",
      "@language": "ko"
     }
@@ -1538,6 +1787,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/9dd1e61e-88c2-49d8-8056-eec3c0c47592",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CIESIN"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "1989년 설립되어 1998년 미국 컬럼비아대학교 소속이 된 센터로, 환경·사회·경제 자료를 통합 제공하고 NASA 사회경제자료응용센터(SEDAC)를 운영한다.",
@@ -1556,6 +1810,11 @@
   },
   {
    "@id": "https://ror.org/00147y550",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CIMH"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "카리브 지역 기상·수문 교육과 연구를 담당하는 기관",
@@ -1571,6 +1830,11 @@
   },
   {
    "@id": "https://ror.org/01k3ptk15",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CIMSS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "위스콘신대학교에 소재한 NOAA 협력 기상위성 연구기관",
@@ -1586,6 +1850,11 @@
   },
   {
    "@id": "https://ror.org/05dsxms80",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CIRA"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "콜로라도주립대학교에 소재한 NOAA 협력 대기연구기관",
@@ -1601,6 +1870,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a96b270e-a905-48b9-afb2-8f72475e9d3b",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CLASS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 기상위성센터 웹기반 자료 서비스 시스템",
@@ -1657,6 +1931,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b971f45d-3a45-4ef2-99df-d6b88bbc7cc3",
    "nmsc:nmscLabel": [
     {
+     "@value": "CLIVAR"
+    },
+    {
      "@value": "기후변동 및 예측성 연구",
      "@language": "ko"
     }
@@ -1677,6 +1954,9 @@
   {
    "@id": "https://space.oscar.wmo.int/variables/view/cloud_liquid_water_clw",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CLW"
+    },
     {
      "@value": "구름수액량",
      "@language": "ko"
@@ -1727,6 +2007,9 @@
    "@id": "https://ror.org/00bx3rb98",
    "nmsc:nmscLabel": [
     {
+     "@value": "CMA"
+    },
+    {
      "@value": "중국기상청",
      "@language": "ko"
     }
@@ -1746,6 +2029,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b54d8a1e-6151-4790-a29a-49336daae918",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CMDL"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "대기 중 온실기체 등 기후 관련 성분을 감시하는 NOAA 연구소 (소속: NOAA/ERL)",
@@ -1762,6 +2050,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/6d486f25-7477-4da9-96ae-0091596ed4d2",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CME"
+    },
     {
      "@value": "코로나질량방출",
      "@language": "ko"
@@ -1785,6 +2076,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/1810678e-9c36-4260-b9a2-eb69eda1ffe4",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CMORPH"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "NOAA 기후예측센터(CPC)의 전 지구 규모의 고해상도 다중위성 강수자료",
@@ -1801,6 +2097,9 @@
   {
    "@id": "https://ror.org/04h1h0y33",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CNES"
+    },
     {
      "@value": "프랑스 국립우주연구센터",
      "@language": "ko"
@@ -1821,6 +2120,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/29f04f16-3652-4210-bd9e-1578718aac70",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "COADS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "선박 등 해상 관측자료를 집대성한 전지구 해양·대기 자료집",
@@ -1836,6 +2140,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8c1b6882-7ed8-409c-9768-399a048a4eb4",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "COARE"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "열대 해양과 대기의 상호작용을 연구한 국제 관측 실험",
@@ -1851,6 +2160,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/5c70d6af-b73d-418e-a793-47481302eeb5",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "COMET"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "기상 현업자의 교육과 훈련을 지원하는 협력 프로그램",
@@ -1908,6 +2222,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/cosmic",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "COSMIC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "GPS 전파엄폐 기법으로 대기와 전리층을 관측하는 대만 NSPO·미국 UCAR 공동 위성군",
@@ -1924,6 +2243,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a2cd5a8a-fb88-47a1-8dfa-91c519403f24",
    "nmsc:nmscLabel": [
+    {
+     "@value": "COSPAR"
+    },
     {
      "@value": "국제우주공간연구위원회",
      "@language": "ko"
@@ -1944,6 +2266,11 @@
   },
   {
    "@id": "https://ror.org/01bstzn19",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "COST"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "유럽 국가 간 과학기술 연구 협력을 위한 체계",
@@ -1991,6 +2318,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/251",
    "nmsc:nmscLabel": [
     {
+     "@value": "CPU"
+    },
+    {
      "@value": "중앙처리장치",
      "@language": "ko"
     }
@@ -2010,6 +2340,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b7e5f516-af29-4917-8049-4f797c21e4bd",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CRED"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "재해의 역학과 영향을 연구하고 재해 자료를 관리하는 벨기에 연구센터",
@@ -2025,6 +2360,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/cris",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "CrIS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 Suomi NPP(Suomi National Polar-orbiting Partnership) 위성의 초분광 적외탐측기로 기온, 수분, 미량 기체를 측정함",
@@ -2041,6 +2381,9 @@
   {
    "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/CryoNet",
    "nmsc:nmscLabel": [
+    {
+     "@value": "CryoNet"
+    },
     {
      "@value": "세계빙권감시 네트워크",
      "@language": "ko"
@@ -2152,6 +2495,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/287",
    "nmsc:nmscLabel": [
     {
+     "@value": "DB"
+    },
+    {
      "@value": "데이터베이스",
      "@language": "ko"
     }
@@ -2194,6 +2540,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/293",
    "nmsc:nmscLabel": [
     {
+     "@value": "DBMS"
+    },
+    {
      "@value": "데이터베이스 관리 시스템",
      "@language": "ko"
     }
@@ -2214,6 +2563,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/395372ad-2883-4b6a-a481-6383a310ca47",
    "nmsc:nmscLabel": [
+    {
+     "@value": "DEM"
+    },
     {
      "@value": "수치표고모델",
      "@language": "ko"
@@ -2262,6 +2614,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/64dfed70-dca2-4656-83d9-63e74c1b0740",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "DMSP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미 국방부가 운영하는 극궤도 군사 기상위성 프로그램",
@@ -2278,6 +2635,9 @@
   {
    "@id": "https://ror.org/04chq2495",
    "nmsc:nmscLabel": [
+    {
+     "@value": "DOC"
+    },
     {
      "@value": "미국 상무부",
      "@language": "ko"
@@ -2299,6 +2659,12 @@
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/dpr",
    "nmsc:nmscLabel": [
+    {
+     "@value": "DPR"
+    },
+    {
+     "@value": "GPM/DPR"
+    },
     {
      "@value": "이중주파수 강수레이더",
      "@language": "ko"
@@ -2332,6 +2698,9 @@
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/dscovr",
    "nmsc:nmscLabel": [
+    {
+     "@value": "DSCOVR"
+    },
     {
      "@value": "심우주 기후 관측소",
      "@language": "ko"
@@ -2375,6 +2744,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/cdb4b514-75c4-4a1f-a4ad-1855fbd396ab",
    "nmsc:nmscLabel": [
     {
+     "@value": "Dst"
+    },
+    {
      "@value": "폭풍시 교란",
      "@language": "ko"
     }
@@ -2396,6 +2768,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/64d4ff80-59bb-4565-8759-e5223939abfd",
    "nmsc:nmscLabel": [
     {
+     "@value": "EATL"
+    },
+    {
      "@value": "동대서양 패턴",
      "@language": "ko"
     }
@@ -2416,6 +2791,9 @@
   {
    "@id": "https://ror.org/00k4n6c32",
    "nmsc:nmscLabel": [
+    {
+     "@value": "EC"
+    },
     {
      "@value": "유럽연합 집행위원회",
      "@language": "ko"
@@ -2441,6 +2819,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/413",
    "nmsc:nmscLabel": [
     {
+     "@value": "ECI"
+    },
+    {
      "@value": "지구 중심 관성 좌표계",
      "@language": "ko"
     }
@@ -2461,6 +2842,9 @@
   {
    "@id": "https://ror.org/014w0fd65",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ECMWF"
+    },
     {
      "@value": "유럽중기예보센터",
      "@language": "ko"
@@ -2483,6 +2867,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/417",
    "nmsc:nmscLabel": [
     {
+     "@value": "EDAC"
+    },
+    {
      "@value": "오류 검출 및 자동 정정 부호",
      "@language": "ko"
     }
@@ -2503,6 +2890,9 @@
   {
    "@id": "https://ror.org/02k4b9v70",
    "nmsc:nmscLabel": [
+    {
+     "@value": "EEA"
+    },
     {
      "@value": "유럽환경청",
      "@language": "ko"
@@ -2525,6 +2915,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/430",
    "nmsc:nmscLabel": [
     {
+     "@value": "EIRP"
+    },
+    {
      "@value": "실효등방성복사전력",
      "@language": "ko"
     }
@@ -2545,6 +2938,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/356",
    "nmsc:nmscLabel": [
+    {
+     "@value": "EMC"
+    },
     {
      "@value": "전자파 적합성",
      "@language": "ko"
@@ -2567,6 +2963,9 @@
    "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/EMEP",
    "nmsc:nmscLabel": [
     {
+     "@value": "EMEP"
+    },
+    {
      "@value": "유럽대기오염물질장거리수송감시및평가협력프로그램",
      "@language": "ko"
     }
@@ -2588,6 +2987,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/439",
    "nmsc:nmscLabel": [
     {
+     "@value": "EMI"
+    },
+    {
      "@value": "전자파 간섭",
      "@language": "ko"
     }
@@ -2607,6 +3009,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/envisat",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ENVISAT"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "대기·해양·지표 관측을 위한 유럽 ESA의 대형 지구관측위성 (소속: ESA)",
@@ -2623,6 +3030,12 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8749607f-8e12-4493-907c-6ca94f232ade",
    "nmsc:nmscLabel": [
+    {
+     "@value": "EOC"
+    },
+    {
+     "@value": "CEO"
+    },
     {
      "@value": "지구관측센터",
      "@language": "ko"
@@ -2652,6 +3065,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/3d1847aa-4eba-4c78-b4fc-f4223ca16539",
    "nmsc:nmscLabel": [
     {
+     "@value": "EOS"
+    },
+    {
      "@value": "지구관측시스템",
      "@language": "ko"
     }
@@ -2671,6 +3087,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4dac8541-0c69-4cd5-ae70-eb8819f39715",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "EOSDIS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "NASA 지구관측 위성자료를 처리·보관·배포하는 시스템",
@@ -2687,6 +3108,9 @@
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/eps",
    "nmsc:nmscLabel": [
+    {
+     "@value": "EPS"
+    },
     {
      "@value": "EUMETSAT 극궤도 시스템",
      "@language": "ko"
@@ -2709,6 +3133,9 @@
    "@id": "https://space.oscar.wmo.int/instruments/view/sem_eps",
    "nmsc:nmscLabel": [
     {
+     "@value": "EPS"
+    },
+    {
      "@value": "고에너지 입자 센서",
      "@language": "ko"
     }
@@ -2728,6 +3155,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/erbs",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ERBS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구 복사수지 관측을 위해 미국 NASA가 발사한 위성",
@@ -2743,6 +3175,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/ers",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ERS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "유럽 ESA가 개발한 지구 원격탐사 위성 시리즈",
@@ -2779,6 +3216,11 @@
   },
   {
    "@id": "https://ror.org/05vt9rv16",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ESRIN"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구관측 자료 처리를 담당하는 ESA 소속 시설",
@@ -2794,6 +3236,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/d33aa3d2-23eb-426d-8a50-d3f3294ccb34",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ESSP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "소규모 지구과학 위성 임무를 추진하는 미국 NASA 프로그램",
@@ -2810,6 +3257,9 @@
   {
    "@id": "https://ror.org/03h3jqn23",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ESTEC"
+    },
     {
      "@value": "유럽우주연구기술센터",
      "@language": "ko"
@@ -2846,6 +3296,9 @@
   {
    "@id": "https://ror.org/02jk0wm04",
    "nmsc:nmscLabel": [
+    {
+     "@value": "EUMETNET"
+    },
     {
      "@value": "유럽국가기상관서연합",
      "@language": "ko"
@@ -2884,6 +3337,11 @@
   },
   {
    "@id": "https://ror.org/01trb8031",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "EuroGOOS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "유럽 지역 해양 관측과 예측 서비스를 조정하는 GOOS 지역 연합",
@@ -2900,6 +3358,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/463",
    "nmsc:nmscLabel": [
+    {
+     "@value": "EVAs"
+    },
     {
      "@value": "선외활동",
      "@language": "ko"
@@ -2922,6 +3383,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/474",
    "nmsc:nmscLabel": [
     {
+     "@value": "FARM"
+    },
+    {
      "@value": "프레임 수락 및 보고 메커니즘",
      "@language": "ko"
     }
@@ -2941,6 +3405,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eb9f47f2-1e1a-4c6c-bcf0-29316a11c686",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "FASTEX"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "대서양 전선과 폭풍 경로를 연구한 국제 관측 실험",
@@ -2957,6 +3426,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/490",
    "nmsc:nmscLabel": [
+    {
+     "@value": "FDIR"
+    },
     {
      "@value": "고장 탐지 격리 및 복구",
      "@language": "ko"
@@ -2978,6 +3450,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/498",
    "nmsc:nmscLabel": [
+    {
+     "@value": "FEC"
+    },
     {
      "@value": "순방향 오류 정정",
      "@language": "ko"
@@ -3016,6 +3491,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/924de2fe-ae64-4217-b3ef-f7c774d9e7d4",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "FGGE"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "GARP의 일환으로 수행된 전지구 규모의 국제 대기 관측 실험",
@@ -3087,6 +3567,9 @@
    "@id": "https://ror.org/05hppb561",
    "nmsc:nmscLabel": [
     {
+     "@value": "FMI"
+    },
+    {
      "@value": "핀란드 기상연구소",
      "@language": "ko"
     }
@@ -3135,6 +3618,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/5D73T768/",
    "nmsc:nmscLabel": [
     {
+     "@value": "FPAR"
+    },
+    {
      "@value": "광합성 유효복사 흡수율",
      "@language": "ko"
     }
@@ -3155,6 +3641,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/542",
    "nmsc:nmscLabel": [
+    {
+     "@value": "FTP"
+    },
     {
      "@value": "파일 전송 프로토콜",
      "@language": "ko"
@@ -3190,6 +3679,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/fy_1c",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "FY-1C"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "중국기상국(CMA)의 극궤도 기상위성으로 1999년 5월 10일 발사",
@@ -3205,6 +3699,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/fy_2a",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "FY-2A"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "중국기상국(CMA)의 중국 최초 정지궤도 기상위성으로 1997년 6월 10일 발사",
@@ -3220,6 +3719,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/fy_2e",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "FY-2E"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "중국기상국(CMA)의 정지궤도 기상위성(FY-2 계열 5호기)으로 2008년 12월 23일 발사",
@@ -3235,6 +3739,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/fy_3c",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "FY-3C"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "중국기상국(CMA)의 극궤도 기상위성으로 2013년 9월 23일 발사",
@@ -3251,6 +3760,15 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/583",
    "nmsc:nmscLabel": [
+    {
+     "@value": "G/S"
+    },
+    {
+     "@value": "ES"
+    },
+    {
+     "@value": "GS"
+    },
     {
      "@value": "지상국",
      "@language": "ko"
@@ -3288,6 +3806,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/547",
    "nmsc:nmscLabel": [
+    {
+     "@value": "G/T"
+    },
     {
      "@value": "이득 대 잡음온도비",
      "@language": "ko"
@@ -3335,6 +3856,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/453a6807-abfa-481b-95b3-60bacf2cbb73",
    "nmsc:nmscLabel": [
     {
+     "@value": "GATE"
+    },
+    {
      "@value": "대서양열대실험",
      "@language": "ko"
     }
@@ -3356,6 +3880,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/52925fd4-efdd-4d36-bfc6-519a1d4bf239",
    "nmsc:nmscLabel": [
     {
+     "@value": "GAW"
+    },
+    {
      "@value": "지구대기 감시",
      "@language": "ko"
     }
@@ -3375,6 +3902,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/70ea1650-902a-4022-8103-3c7a1fb3bc44",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GCIP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "GEWEX의 일환으로 대륙 규모의 물·에너지 수지를 연구하는 국제 프로젝트",
@@ -3390,6 +3922,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/gcom_w",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GCOM-W1"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구의 물순환 관측을 위한 일본 JAXA의 위성으로 가강수량, 수증기, 해상풍속 등을 산출",
@@ -3406,6 +3943,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4c7bae8a-3697-4a18-adba-f69878321dc3",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GCOS"
+    },
     {
      "@value": "전지구기후관측시스템",
      "@language": "ko"
@@ -3426,6 +3966,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/3224853f-95f5-428a-8ff1-b1e16a2d52f3",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GCRMN"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "전 세계 산호초의 상태를 감시하고 자료를 공유하는 국제 네트워크",
@@ -3441,6 +3986,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/1055ce89-a2b3-4014-90e3-9e1c3ed0cc64",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GCTE"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "IGBP 핵심 프로젝트로 지구변화가 육상생태계에 미치는 영향을 연구하는 사업 (소속: Core project of IGBP)",
@@ -3457,6 +4007,9 @@
   {
    "@id": "https://ror.org/006xm7s91",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GEF"
+    },
     {
      "@value": "지구환경기금",
      "@language": "ko"
@@ -3485,7 +4038,7 @@
    ],
    "skos:editorialNote": [
     {
-     "@value": "용어집 노트 출처: SatSem 용어표 정정(2026-11-13 사용자 결정, src/glossary_corrections.tsv) — NMSC 약어 용어표 d1.2 (2019-05-01) 원본 행 512 의 표제어 GEMS 에 원본에 없던 뜻을 더함 — 뜻 GEMS#2",
+     "@value": "용어집 노트 출처: 용어표 정정(2026-11-13 사용자 결정, src/glossary_corrections.tsv) — NMSC 약어 용어표 d1.2 (2019-05-01) 원본 행 512 의 표제어 GEMS 에 원본에 없던 뜻을 더함 — 뜻 GEMS#2",
      "@language": "ko"
     }
    ]
@@ -3493,6 +4046,9 @@
   {
    "@id": "https://ror.org/04xfre028",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GEO"
+    },
     {
      "@value": "지구관측그룹",
      "@language": "ko"
@@ -3518,6 +4074,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7e9895b9-496e-4e49-8f46-383a9a34e82e",
    "nmsc:nmscLabel": [
     {
+     "@value": "GEOSS"
+    },
+    {
      "@value": "총괄전지구관측시스템",
      "@language": "ko"
     }
@@ -3537,6 +4096,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/gerb",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GERB"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "정지궤도에서 지구 복사수지를 관측하는 Meteosat 탑재 복사계",
@@ -3553,6 +4117,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/25cffb7e-087b-49aa-ae2a-8ce62acaefaa",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GEWEX"
+    },
     {
      "@value": "전지구 에너지 및 물수지 실험",
      "@language": "ko"
@@ -3573,6 +4140,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e44e6bb9-dcf6-4c22-a524-05b6c3437d35",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GHRSST"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "위성으로 관측한 고해상도 해수면온도 자료의 생산·교환을 조정하는 국제 그룹",
@@ -3588,6 +4160,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/d4827c6a-7578-402d-90ef-79e68b588e49",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GIIPSY"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "국제극지의 해(2007~2008) 동안 여러 우주기관의 위성으로 극지역 고해상도 스냅숏을 확보해 빙권·해양·육지 변화의 기준자료로 삼은 국제 협력 사업",
@@ -3628,6 +4205,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b1bf6d41-36da-49fb-a315-41492f050441",
    "nmsc:nmscLabel": [
     {
+     "@value": "GLDAS"
+    },
+    {
      "@value": "전지구지표자료동화체계",
      "@language": "ko"
     }
@@ -3648,6 +4228,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/00274700-26c1-4c44-88a4-10a7ec6214de",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GLONASS"
+    },
     {
      "@value": "글로나스",
      "@language": "ko"
@@ -3670,6 +4253,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/5bca44fe-beff-4d39-bb19-726ddb57ca30",
    "nmsc:nmscLabel": [
     {
+     "@value": "GLOSS"
+    },
+    {
      "@value": "전지구해수면관측시스템",
      "@language": "ko"
     }
@@ -3689,6 +4275,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/gmi_core",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GMI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "GPM 핵심위성에 탑재되어 강수를 관측하는 다채널 마이크로파 영상기",
@@ -3704,6 +4295,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/himawari_1st_generation_gms",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GMS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "일본 기상청(JMA)의 정지궤도 기상위성 계열 명칭",
@@ -3720,6 +4316,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/429",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GMT"
+    },
     {
      "@value": "그리니치 평균시",
      "@language": "ko"
@@ -3741,6 +4340,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/38fc7b53-48bf-4019-980c-87303420bb18",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GNSS"
+    },
     {
      "@value": "전지구위성항법시스템",
      "@language": "ko"
@@ -3776,6 +4378,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f87c4748-eb6d-4124-b8eb-8a16c622ae09",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GODAE"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "해양 관측자료 동화를 통해 해양 예측 능력을 시연한 국제 실험",
@@ -3791,6 +4398,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/6b9ee582-1641-4f3b-8ce2-22ad3aae93fa",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GOES"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NOAA의 정지궤도 환경위성 계열",
@@ -3806,6 +4418,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/goes_13",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GOES-13"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NOAA의 정지궤도 기상위성(2006년 5월 발사). 75°W에서 GOES-East로 쓰였고, 5개 채널의 영상기와 19개 채널의 탐측기를 실었다. 2018년 1월 60°W로 옮겨 보관 상태가 되었고, 2019년 10월 미국 국방부로 넘어가 EWS-G1으로 이름이 바뀌었다(WMO 기준 비현업)",
@@ -3821,6 +4438,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/goes_3rd_generation",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GOES-R"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NOAA와 NASA가 주관하는 정지궤도 기상위성 시리즈(GOES-R·S·T·U). 각각 GOES-16(2016년 11월), GOES-17(2018년 3월), GOES-18(2022년 3월), GOES-19(2024년 6월)로 발사되었다. 2023년 1월부터 GOES-18이 GOES-West, 2025년 4월부터 GOES-19가 GOES-East를 맡았다",
@@ -3836,6 +4458,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/gome",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GOME"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "ERS-2 위성에 탑재되어 오존 등 대기 미량기체를 관측하는 분광계",
@@ -3852,6 +4479,9 @@
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/gomos",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GOMOS"
+    },
     {
      "@value": "Global Ozone Monitoring by the Occultation of Stars",
      "@language": "en"
@@ -3875,6 +4505,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/electro_goms",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GOMS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "러시아 연방수문기상환경감시청(Roshydromet)의 정지궤도 기상위성",
@@ -3891,6 +4526,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8de2a7c3-1e66-4946-a8b3-9a2f79a3086c",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GOOS"
+    },
     {
      "@value": "전지구 해양관측 시스템",
      "@language": "ko"
@@ -3913,6 +4551,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4d8e9d2a-f39a-466a-ae36-cab50cf87c74",
    "nmsc:nmscLabel": [
     {
+     "@value": "GPCC"
+    },
+    {
      "@value": "전지구강수기후센터",
      "@language": "ko"
     }
@@ -3932,6 +4573,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/502ea6bd-45e9-45af-9092-a4cbe6ba2e7e",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GPCP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "위성과 지상 관측을 결합한 전지구 강수 자료를 생산하는 WCRP 프로젝트",
@@ -3948,6 +4594,9 @@
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/gpm",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GPM"
+    },
     {
      "@value": "전지구강수관측위성",
      "@language": "ko"
@@ -3970,6 +4619,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e66a90c4-3a5c-4e52-b039-bc93857642bf",
    "nmsc:nmscLabel": [
     {
+     "@value": "GPS"
+    },
+    {
      "@value": "위성항법장치",
      "@language": "ko"
     }
@@ -3989,6 +4641,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2e7aa2e6-9d25-4c6e-aef3-6e86d3773bac",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GRACE"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구 중력장 변화를 측정하여 질량 분포 변화를 관측하는 미국 NASA·독일 DLR 공동 쌍둥이 위성 임무",
@@ -4004,6 +4661,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/500f22d6-4d84-455d-99c7-ea56b4d64d65",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GRDC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "전 세계 하천 유출량 자료를 수집·제공하는 WMO 산하 국제 자료센터",
@@ -4020,6 +4682,9 @@
   {
    "@id": "http://codes.wmo.int/wmdr/DataFormat/FM-92-grib",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GRIB"
+    },
     {
      "@value": "격자형 이진 자료 형식",
      "@language": "ko"
@@ -4043,6 +4708,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/687d4231-8da8-4236-9cc4-26d7ff198578",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GRID"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "환경 자료를 수집·제공하는 UNEP의 지리정보 데이터베이스 네트워크",
@@ -4058,6 +4728,11 @@
   },
   {
    "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/GRUAN",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GRUAN"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "기후 감시용 고품질 기준 상층대기 관측을 수행하는 GCOS 관측망",
@@ -4074,6 +4749,9 @@
   {
    "@id": "https://ror.org/0171mag52",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GSFC"
+    },
     {
      "@value": "고다드 우주비행센터",
      "@language": "ko"
@@ -4096,6 +4774,9 @@
    "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/GSN",
    "nmsc:nmscLabel": [
     {
+     "@value": "GSN"
+    },
+    {
      "@value": "지상관측망",
      "@language": "ko"
     }
@@ -4115,6 +4796,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8787e040-fc89-4516-bc1d-f4010cb0419c",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GSWP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지면모델을 이용해 전지구 토양수분 자료를 생산하는 GEWEX 관련 프로젝트",
@@ -4130,6 +4816,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/781b41ef-7ebe-44a9-875f-835bc57da720",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GTN-P"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "영구동토의 온도와 활동층 변화를 감시하는 GCOS 육상 관측망 (소속: GCOS)",
@@ -4145,6 +4836,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f60f7c8f-4c03-48d9-a673-6c839e5f1522",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GTOS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "육상생태계 변화를 관측·평가하기 위한 국제 육상관측 체계",
@@ -4161,6 +4857,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/32872297-8eba-46c2-8edd-f733a41ef561",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GTS"
+    },
     {
      "@value": "전지구통신망",
      "@language": "ko"
@@ -4181,6 +4880,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/df9471ff-cb9a-45db-9a9b-9eac5d869e48",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GTSPP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "해양 수온·염분 관측자료의 수집·품질관리·제공을 위한 국제 협력 사업",
@@ -4197,6 +4901,9 @@
   {
    "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/GUAN",
    "nmsc:nmscLabel": [
+    {
+     "@value": "GUAN"
+    },
     {
      "@value": "고층관측망",
      "@language": "ko"
@@ -4217,6 +4924,11 @@
   },
   {
    "@id": "https://ror.org/03tm2mq64",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "GWP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "통합수자원관리 증진을 위한 국제 협력 네트워크",
@@ -4233,6 +4945,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/892c2d24-ccfd-479b-8d6e-51b9a09a52ac",
    "nmsc:nmscLabel": [
+    {
+     "@value": "HDF"
+    },
     {
      "@value": "계층적 자료 형식",
      "@language": "ko"
@@ -4255,6 +4970,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7bd3e828-b70a-44cd-a222-222285cb862c",
    "nmsc:nmscLabel": [
     {
+     "@value": "HDF-EOS"
+    },
+    {
      "@value": "지구관측시스템용 계층적 자료 형식",
      "@language": "ko"
     }
@@ -4276,6 +4994,9 @@
    "@id": "https://ror.org/002pjp005",
    "nmsc:nmscLabel": [
     {
+     "@value": "HELCOM"
+    },
+    {
      "@value": "헬싱키 위원회",
      "@language": "ko"
     }
@@ -4296,6 +5017,9 @@
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/sem_hepad",
    "nmsc:nmscLabel": [
+    {
+     "@value": "HEPAD"
+    },
     {
      "@value": "고에너지 양성자 및 알파입자 검출기",
      "@language": "ko"
@@ -4339,6 +5063,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ee79f1d4-3a73-408f-beea-945b869b3abf",
    "nmsc:nmscLabel": [
     {
+     "@value": "HIRS"
+    },
+    {
      "@value": "고분해능적외선탐측기",
      "@language": "ko"
     }
@@ -4381,6 +5108,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/653",
    "nmsc:nmscLabel": [
     {
+     "@value": "I/F"
+    },
+    {
      "@value": "인터페이스",
      "@language": "ko"
     }
@@ -4401,6 +5131,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/622",
    "nmsc:nmscLabel": [
+    {
+     "@value": "I/O"
+    },
     {
      "@value": "입출력",
      "@language": "ko"
@@ -4423,6 +5156,9 @@
    "@id": "https://ror.org/02zt1gg83",
    "nmsc:nmscLabel": [
     {
+     "@value": "IAEA"
+    },
+    {
      "@value": "국제원자력기구",
      "@language": "ko"
     }
@@ -4442,6 +5178,11 @@
   },
   {
    "@id": "https://ror.org/013ym9476",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IAGA"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지자기와 초고층 대기 연구를 다루는 IUGG 산하 국제학회",
@@ -4457,6 +5198,11 @@
   },
   {
    "@id": "https://ror.org/01a89tf43",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IAHR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "수리공학과 수리학 연구를 다루는 국제 학술단체",
@@ -4472,6 +5218,11 @@
   },
   {
    "@id": "https://ror.org/02gae5p70",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IAHS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "수문과학 연구를 다루는 IUGG 산하 국제학회",
@@ -4487,6 +5238,11 @@
   },
   {
    "@id": "https://ror.org/01vkp3w06",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IAI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미주 지역 국가들이 지구변화 연구를 공동 수행하는 정부 간 연구기관",
@@ -4503,6 +5259,9 @@
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/iasi",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IASI"
+    },
     {
      "@value": "적외선대기탐측간섭계",
      "@language": "ko"
@@ -4525,6 +5284,9 @@
    "@id": "https://ror.org/03ja7dr12",
    "nmsc:nmscLabel": [
     {
+     "@value": "IATA"
+    },
+    {
      "@value": "국제항공운송협회",
      "@language": "ko"
     }
@@ -4545,6 +5307,9 @@
   {
    "@id": "https://ror.org/04jebr251",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ICAO"
+    },
     {
      "@value": "국제 민간항공기구",
      "@language": "ko"
@@ -4567,6 +5332,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/634",
    "nmsc:nmscLabel": [
     {
+     "@value": "ICD"
+    },
+    {
      "@value": "인터페이스 정의 문서",
      "@language": "ko"
     }
@@ -4588,6 +5356,9 @@
    "@id": "https://ror.org/03hg53255",
    "nmsc:nmscLabel": [
     {
+     "@value": "ICES"
+    },
+    {
      "@value": "국제해양탐사위원회",
      "@language": "ko"
     }
@@ -4607,6 +5378,11 @@
   },
   {
    "@id": "https://ror.org/03wjvv117",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ICPAC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "동아프리카 지역의 기후 예측과 응용 서비스를 제공하는 IGAD 산하 센터",
@@ -4623,6 +5399,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/654",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IF"
+    },
     {
      "@value": "중간 주파수",
      "@language": "ko"
@@ -4645,6 +5424,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/656",
    "nmsc:nmscLabel": [
     {
+     "@value": "IFRB"
+    },
+    {
      "@value": "국제주파수등록위원회",
      "@language": "ko"
     }
@@ -4664,6 +5446,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/0ba701fc-2209-4e88-a1c2-e031c57392d9",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IGAC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "대기 화학 조성과 그 변화를 연구하는 국제 연구 프로젝트",
@@ -4679,6 +5466,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/89f6194b-58aa-4a9c-926c-e0b1d65ab3a5",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IGBP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구시스템의 물리·화학·생물학적 상호작용을 연구한 국제 연구 프로그램",
@@ -4694,6 +5486,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/9a20aea4-abaf-4a94-a667-8fee0bec1b15",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IGBP-DIS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "IGBP 연구에 필요한 자료를 관리·제공하는 자료정보시스템",
@@ -4709,6 +5506,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/043a64bb-624a-43ac-aa02-5ea590e65529",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IGOSS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "해양 관측자료의 교환과 해양 서비스 제공을 위한 IOC·WMO 공동 체계",
@@ -4725,6 +5527,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8ce2449d-52ab-46d1-8773-008cd56d28f6",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IGS"
+    },
     {
      "@value": "국제 GNSS 서비스",
      "@language": "ko"
@@ -4747,6 +5552,9 @@
    "@id": "https://ror.org/022qvpy75",
    "nmsc:nmscLabel": [
     {
+     "@value": "IGU"
+    },
+    {
      "@value": "국제지리연맹",
      "@language": "ko"
     }
@@ -4766,6 +5574,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7bd3f4c4-17e7-43a1-bd64-fb0371f741ba",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IHDP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구환경 변화의 인간·사회적 측면을 연구한 국제 연구 프로그램 (소속: ESSP/DIVERSITAS/IGBP/WCRP)",
@@ -4782,6 +5595,9 @@
   {
    "@id": "https://ror.org/01kzswj76",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IHO"
+    },
     {
      "@value": "국제수로기구",
      "@language": "ko"
@@ -4804,6 +5620,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7b7149b9-f5f9-4dfa-8c63-7c4944b16be1",
    "nmsc:nmscLabel": [
     {
+     "@value": "IHP"
+    },
+    {
      "@value": "국제수문프로그램",
      "@language": "ko"
     }
@@ -4825,6 +5644,9 @@
    "@id": "https://ror.org/02wfhk785",
    "nmsc:nmscLabel": [
     {
+     "@value": "IIASA"
+    },
+    {
      "@value": "국제응용시스템분석원",
      "@language": "ko"
     }
@@ -4844,6 +5666,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/ilas_i",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ILAS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "ADEOS 위성에 탑재되어 극지 성층권 미량기체를 관측하는 태양 엄폐 분광계",
@@ -4859,6 +5686,11 @@
   },
   {
    "@id": "https://ror.org/0056n6234",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ILEC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "호수 환경 보전과 관리를 위한 국제 비정부 기구",
@@ -4874,6 +5706,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ddbadcdd-36dd-4db8-98c6-c603bec96c76",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IMERG"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "GPM에 탑재된 수동 마이크로파 센서 관측자료와 가용한 지표 강수 자료 등을 결합하여 전지구 규모의 강수영상을 생산하는 시스템",
@@ -4890,6 +5727,9 @@
   {
    "@id": "https://space.oscar.wmo.int/variables/view/interplanetary_magnetic_field",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IMF"
+    },
     {
      "@value": "행성간 자기장",
      "@language": "ko"
@@ -4910,6 +5750,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/img",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IMG"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "ADEOS 위성에 탑재되어 온실가스를 관측하는 푸리에 변환 간섭계",
@@ -4926,6 +5771,9 @@
   {
    "@id": "https://ror.org/0016std27",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IMO"
+    },
     {
      "@value": "국제해사기구",
      "@language": "ko"
@@ -4951,6 +5799,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/16268fa7-9efd-403d-9bcb-fc622d535ff6",
    "nmsc:nmscLabel": [
     {
+     "@value": "IMU"
+    },
+    {
      "@value": "관성측정장치",
      "@language": "ko"
     }
@@ -4970,6 +5821,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f2eb5a5f-6892-4927-bc97-3a530be4ee39",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "INTERMAGNET"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지자기 관측소 자료를 실시간에 가깝게 교환하는 국제 관측망",
@@ -4986,6 +5842,9 @@
   {
    "@id": "https://ror.org/01qk7v094",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IOC"
+    },
     {
      "@value": "정부간해양위원회",
      "@language": "ko"
@@ -5008,6 +5867,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/36b98c25-719b-4893-9624-f5454d77eeb1",
    "nmsc:nmscLabel": [
     {
+     "@value": "IODE"
+    },
+    {
      "@value": "국제해양자료및정보교환",
      "@language": "ko"
     }
@@ -5027,6 +5889,11 @@
   },
   {
    "@id": "https://ror.org/048wcpa23",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IPA"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "영구동토와 관련 분야 연구를 국제적으로 증진하고 그 성과를 정책 결정자·대중에 전하는 국제 학술 단체로, 1983년 미국 페어뱅크스에서 열린 제4차 국제영구동토회의에서 설립되었다.",
@@ -5045,6 +5912,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4bc01333-646f-404c-9c17-58217ee99eaa",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "IPAB"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "남극 해역에 부이를 배치하여 기상·해빙 관측을 수행하는 국제 프로그램 (소속: DBCP)",
@@ -5061,6 +5933,9 @@
   {
    "@id": "https://ror.org/02x228738",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IPCC"
+    },
     {
      "@value": "정부간 기후변화에 관한 협의체",
      "@language": "ko"
@@ -5083,6 +5958,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/bafb713a-bf03-486f-879d-4dd11a6728ad",
    "nmsc:nmscLabel": [
     {
+     "@value": "IPRC"
+    },
+    {
      "@value": "국제태평양연구센터",
      "@language": "ko"
     }
@@ -5104,6 +5982,9 @@
    "@id": "https://sanaregistry.org/r/terms/records/1257",
    "nmsc:nmscLabel": [
     {
+     "@value": "IPS"
+    },
+    {
      "@value": "침입방지시스템",
      "@language": "ko"
     }
@@ -5124,6 +6005,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/35f2e18a-5c59-4713-861f-1fd41876f73f",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IRI"
+    },
     {
      "@value": "International Research Institute for Climate Prediction",
      "@language": "en"
@@ -5149,6 +6033,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/3442f95a-69d0-4b47-ad4f-dc8005e961a3",
    "nmsc:nmscLabel": [
     {
+     "@value": "ISCCP"
+    },
+    {
      "@value": "국제위성구름기후프로젝트",
      "@language": "ko"
     }
@@ -5170,6 +6057,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/698",
    "nmsc:nmscLabel": [
     {
+     "@value": "ISDN"
+    },
+    {
      "@value": "종합정보통신망",
      "@language": "ko"
     }
@@ -5189,6 +6079,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a1110586-42f8-45cf-b4df-eb2ca5fd6a43",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "ISLSCP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "위성 자료로 지면 기후 과정을 연구하는 국제 프로젝트",
@@ -5205,6 +6100,9 @@
   {
    "@id": "https://ror.org/004s85t07",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ISO"
+    },
     {
      "@value": "국제표준화기구",
      "@language": "ko"
@@ -5227,6 +6125,9 @@
    "@id": "https://ror.org/00cwrns71",
    "nmsc:nmscLabel": [
     {
+     "@value": "ISRO"
+    },
+    {
      "@value": "인도우주연구기구",
      "@language": "ko"
     }
@@ -5248,6 +6149,9 @@
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/iss",
    "nmsc:nmscLabel": [
     {
+     "@value": "ISS"
+    },
+    {
      "@value": "국제우주정거장",
      "@language": "ko"
     }
@@ -5268,6 +6172,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/481cc0cb-3e52-45e4-bf6e-3bb0c43e3392",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IST"
+    },
     {
      "@value": "얼음 표면온도",
      "@language": "ko"
@@ -5293,6 +6200,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/711",
    "nmsc:nmscLabel": [
     {
+     "@value": "IT"
+    },
+    {
      "@value": "정보기술",
      "@language": "ko"
     }
@@ -5314,6 +6224,9 @@
    "@id": "https://ror.org/005vs4q67",
    "nmsc:nmscLabel": [
     {
+     "@value": "ITU"
+    },
+    {
      "@value": "국제전기통신연합",
      "@language": "ko"
     }
@@ -5334,6 +6247,9 @@
   {
    "@id": "https://ror.org/01jachm79",
    "nmsc:nmscLabel": [
+    {
+     "@value": "IUGG"
+    },
     {
      "@value": "국제측지학및지구물리연맹",
      "@language": "ko"
@@ -5369,6 +6285,11 @@
   },
   {
    "@id": "https://ror.org/059qg2m13",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "JAMSTEC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "해양 과학기술 연구를 수행하는 일본의 연구 기관",
@@ -5385,6 +6306,9 @@
   {
    "@id": "https://ror.org/059yhyy33",
    "nmsc:nmscLabel": [
+    {
+     "@value": "JAXA"
+    },
     {
      "@value": "일본우주항공연구개발기구",
      "@language": "ko"
@@ -5407,6 +6331,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/3812ca76-937b-4ed2-8e2a-30e4858b710a",
    "nmsc:nmscLabel": [
     {
+     "@value": "JCOMM"
+    },
+    {
      "@value": "해양학및해양기상합동기술위원회",
      "@language": "ko"
     }
@@ -5426,6 +6353,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/jers",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "JERS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구 자원 탐사를 위해 일본 우주개발사업단(NASDA)이 개발한 지구관측 위성",
@@ -5441,6 +6373,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8f7827a1-1417-4492-9250-c977348597c2",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "JGOFS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "해양 탄소순환과 관련 물질 플럭스를 연구하는 국제 공동 연구",
@@ -5456,6 +6393,11 @@
   },
   {
    "@id": "https://ror.org/036v7n159",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "JIMAR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NOAA 환경연구소(ERL)와 하와이대학교의 협정으로 1977년 설립된 해양·대기 공동 연구소로, 2021년 협력연구소 CIMAR로 대체되었다.",
@@ -5475,6 +6417,9 @@
   {
    "@id": "https://ror.org/02772kk97",
    "nmsc:nmscLabel": [
+    {
+     "@value": "JMA"
+    },
     {
      "@value": "일본 기상청",
      "@language": "ko"
@@ -5497,6 +6442,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e02564af-22b6-49dd-8912-876d701b831d",
    "nmsc:nmscLabel": [
     {
+     "@value": "JODC"
+    },
+    {
      "@value": "일본해양자료센터",
      "@language": "ko"
     }
@@ -5516,6 +6464,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7443bb2d-1dbb-44d1-bd29-0241d30fbc57",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "JPEG"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "정지 영상 압축 표준을 제정한 전문가 그룹 또는 그 압축 형식",
@@ -5532,6 +6485,9 @@
   {
    "@id": "https://ror.org/027k65916",
    "nmsc:nmscLabel": [
+    {
+     "@value": "JPL"
+    },
     {
      "@value": "제트추진연구소",
      "@language": "ko"
@@ -5568,6 +6524,9 @@
   {
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/UQUQA46H/",
    "nmsc:nmscLabel": [
+    {
+     "@value": "KI"
+    },
     {
      "@value": "K 지수",
      "@language": "ko"
@@ -5628,6 +6587,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/40386eea-beb0-4b83-906b-75c6bfa24b73",
    "nmsc:nmscLabel": [
+    {
+     "@value": "Kp"
+    },
     {
      "@value": "행성 K 지수",
      "@language": "ko"
@@ -5690,6 +6652,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/lageos",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "LAGEOS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "레이저 거리측정으로 지구 형상과 지각 운동 연구에 활용되는 미국 NASA의 수동형 측지 위성",
@@ -5706,6 +6673,9 @@
   {
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0601/",
    "nmsc:nmscLabel": [
+    {
+     "@value": "LAI"
+    },
     {
      "@value": "엽면적지수",
      "@language": "ko"
@@ -5726,6 +6696,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/77d92504-8160-4f72-90b9-a7c9640f4361",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "Landsat"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NASA와 지질조사국(USGS)이 공동으로 운용하는 지구관측위성 시리즈. 1972년 Landsat-1부터 지표 영상을 연속 획득해 도시계획·기후변화 감시·에너지·수문관리 등에 쓰인다. ETM+를 실은 Landsat-7은 2025년 6월 운용을 마쳤고, Landsat-8(2013년 발사)과 Landsat-9(2021년 9월 발사)이 함께 관측한다",
@@ -5764,6 +6739,9 @@
    "@id": "https://ror.org/01e41cf67",
    "nmsc:nmscLabel": [
     {
+     "@value": "LANL"
+    },
+    {
      "@value": "로스 알라모스 국립 연구소",
      "@language": "ko"
     }
@@ -5783,6 +6761,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/95a821fb-8e08-476c-8ad2-5cc9e7b8fc3e",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "LBA"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "아마존 지역 생물권과 대기 간 상호작용을 연구하는 국제 공동 연구 사업",
@@ -5799,6 +6782,9 @@
   {
    "@id": "https://ror.org/02e2tgs60",
    "nmsc:nmscLabel": [
+    {
+     "@value": "LDEO"
+    },
     {
      "@value": "라몬트-도허티 지구관측소",
      "@language": "ko"
@@ -5821,6 +6807,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/769",
    "nmsc:nmscLabel": [
     {
+     "@value": "LEO"
+    },
+    {
      "@value": "저궤도",
      "@language": "ko"
     }
@@ -5841,6 +6830,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/770",
    "nmsc:nmscLabel": [
+    {
+     "@value": "LEOP"
+    },
     {
      "@value": "위성발사 및 초기 궤도진입 운영단계",
      "@language": "ko"
@@ -5863,6 +6855,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/4JOK2RDN/",
    "nmsc:nmscLabel": [
     {
+     "@value": "LFC"
+    },
+    {
      "@value": "자유대류고도",
      "@language": "ko"
     }
@@ -5883,6 +6878,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/758",
    "nmsc:nmscLabel": [
+    {
+     "@value": "LHCP"
+    },
     {
      "@value": "좌선회 원편파",
      "@language": "ko"
@@ -5905,6 +6903,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f07365c3-a36e-4a28-8364-be3941fae000",
    "nmsc:nmscLabel": [
     {
+     "@value": "LI"
+    },
+    {
      "@value": "상승지수",
      "@language": "ko"
     }
@@ -5926,6 +6927,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7166c458-f935-4bd9-a322-d92830cf0c33",
    "nmsc:nmscLabel": [
     {
+     "@value": "LIDAR"
+    },
+    {
      "@value": "라이다",
      "@language": "ko"
     }
@@ -5945,6 +6949,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/lis",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "LIS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NASA가 TRMM 위성에 탑재한 광학 번개 관측기로, 열대 지역의 번개를 탐지해 발생 시각·복사 에너지·위치를 기록한다. 1997년 발사되었고 같은 계열 기기가 국제우주정거장에도 실렸다.",
@@ -5964,6 +6973,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/780",
    "nmsc:nmscLabel": [
+    {
+     "@value": "LNA"
+    },
     {
      "@value": "저잡음 증폭기",
      "@language": "ko"
@@ -5986,6 +6998,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/781",
    "nmsc:nmscLabel": [
     {
+     "@value": "LO"
+    },
+    {
      "@value": "국부 발진기",
      "@language": "ko"
     }
@@ -6005,6 +7020,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/62f09666-8e9d-46d2-8674-63f504134b9b",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "LOICZ"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "연안에서의 육지 해양간의 상호 작용",
@@ -6020,6 +7040,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/25053e97-8f30-44f7-b022-a237a321bd35",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "LPRM"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "NASA와 네덜란드 VU 대학이 공동으로 개발한 토양수분 산출 알고리즘",
@@ -6057,6 +7082,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/789",
    "nmsc:nmscLabel": [
+    {
+     "@value": "LSB"
+    },
     {
      "@value": "최하위 Bit",
      "@language": "ko"
@@ -6115,6 +7143,9 @@
    "@id": "https://space.oscar.wmo.int/instruments/view/tm",
    "nmsc:nmscLabel": [
     {
+     "@value": "LTM"
+    },
+    {
      "@value": "Landsat 주제도 작성기",
      "@language": "ko"
     }
@@ -6134,6 +7165,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4b4b35aa-94b9-47ba-86f9-e7a1b2b78d1f",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "LUCC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "토지이용 및 토지피복 변화의 원인과 영향을 연구하는 국제 공동 연구 프로젝트",
@@ -6166,6 +7202,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/810",
    "nmsc:nmscLabel": [
     {
+     "@value": "M_PDU"
+    },
+    {
      "@value": "다중화 프로토콜 데이터 단위",
      "@language": "ko"
     }
@@ -6186,6 +7225,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ff25845a-5d94-43c1-abc4-419a108b0f1f",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MAB"
+    },
     {
      "@value": "인간과 생물권 계획",
      "@language": "ko"
@@ -6227,6 +7269,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/bc9a1191-24df-4d8c-afa7-da5948f79d20",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MAPS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NASA가 우주왕복선에 실어 1981·1984·1994년에 운용한 기체필터 복사계로, 대류권 일산화탄소(CO) 분포를 관측했다.",
@@ -6246,6 +7293,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eb1259ba-307f-48f1-9f1b-1eeb4d50a1f3",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MARPOLMON"
+    },
     {
      "@value": "해양오염 감시 체계",
      "@language": "ko"
@@ -6271,6 +7321,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/839",
    "nmsc:nmscLabel": [
     {
+     "@value": "MCC"
+    },
+    {
      "@value": "임무통제센터",
      "@language": "ko"
     }
@@ -6290,6 +7343,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/sem_meped",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MEPED"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "NOAA 극궤도위성에 탑재되어 중에너지 양성자와 전자를 측정하는 입자 검출기",
@@ -6305,6 +7363,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/meris",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MERIS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "ESA Envisat 위성에 탑재되어 해색·육상·대기를 관측하는 중분해능 영상분광계",
@@ -6320,6 +7383,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/messr",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MESSR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "일본 MOS 해양관측위성에 탑재된 가시·근적외 다중분광 복사계",
@@ -6356,6 +7424,17 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/metop_b",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "Metop-B"
+    },
+    {
+     "@value": "METOP"
+    },
+    {
+     "@value": "MetOp-1"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "유럽 EUMETSAT의 Metop 시리즈 극궤도 현업 기상위성 Metop-B로, MetOp-1은 Metop-B의 발사 전 이름이다. 유럽 ESA와 함께 개발했다. 같은 약어의 다른 풀이(Meteorological Operational Polar Satellite, Metop-A)와는 다른 위성이다",
@@ -6371,6 +7450,17 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/metop_a",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "Metop-A"
+    },
+    {
+     "@value": "METOP"
+    },
+    {
+     "@value": "MetOp-2"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "유럽 EUMETSAT의 Metop 시리즈 극궤도 현업 기상위성 Metop-A로, MetOp-2는 Metop-A의 발사 전 이름이다. 유럽 ESA와 함께 개발했다. 같은 약어의 다른 풀이(Meteorological Operational Weather Satellite, Metop-B)와는 다른 위성이다 (소속: EUMETSAT)",
@@ -6386,6 +7476,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/09bc6a40-b0eb-476a-b750-7aa8af59e0f0",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MetOp-A(B)/ATOVS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "MetOp(Meteorological Operational satellite program) A와 B위성에 탑재된 Advanced TIROS Operational Vertical Sounder",
@@ -6401,6 +7496,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/gras",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MetOp-C/GRAS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "MetOp(Meteorological Operational satellite program) C위성에 탑재된 GNSS Receiver for Atmospheric Sounding",
@@ -6417,6 +7517,9 @@
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/meteosat_1st_generation",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MFG"
+    },
     {
      "@value": "메테오샛 1세대",
      "@language": "ko"
@@ -6438,6 +7541,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/858",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MHz"
+    },
     {
      "@value": "메가헤르츠",
      "@language": "ko"
@@ -6479,6 +7585,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/mipas",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MIPAS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Envisat 위성에 탑재되어 대기 미량기체의 연직 분포를 관측하는 적외 림 탐측 간섭계",
@@ -6494,6 +7605,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/miras",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MIRAS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "SMOS 위성에 탑재되어 토양수분과 해수염분을 관측하는 개구합성 마이크로파 복사계",
@@ -6509,6 +7625,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/misr",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MISR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Terra 위성에 탑재되어 여러 시야각으로 지구를 관측하는 영상분광복사계",
@@ -6525,6 +7646,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/867",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MJD"
+    },
     {
      "@value": "수정 율리우스일",
      "@language": "ko"
@@ -6545,6 +7669,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2b326777-12dc-4765-ab6f-2f7306d3519f",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MLS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "대기 가장자리에서 방출되는 마이크로파를 관측해 미량기체 연직 분포를 산출하는 탐측기",
@@ -6560,6 +7689,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/modis",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MODIS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "가시영역부터 열 적외 영역까지 총 36개 채널을 보유한 영상분광복사계로 지표, 대기, 해양 등 지구환경을 광범위하게 관측하고 있으며 NASA의 지구관측위성인 Aqua, Terra 위성에 탑재되어 있는 영상기",
@@ -6575,6 +7709,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/mopitt",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MOPITT"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Terra 위성에 탑재되어 대류권 일산화탄소를 관측하는 센서",
@@ -6590,6 +7729,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/mos",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MOS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "일본 우주개발사업단(NASDA)이 개발한 해양 관측 목적의 지구관측위성",
@@ -6606,6 +7750,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/971933a3-b116-4fdc-91c6-3067eaeedc8c",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MP"
+    },
     {
      "@value": "자기권계면",
      "@language": "ko"
@@ -6627,6 +7774,9 @@
   {
    "@id": "https://ror.org/02we51e93",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MSC"
+    },
     {
      "@value": "기상위성센터",
      "@language": "ko"
@@ -6652,6 +7802,9 @@
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/meteosat_2nd_generation",
    "nmsc:nmscLabel": [
     {
+     "@value": "MSG"
+    },
+    {
      "@value": "메테오샛 2세대",
      "@language": "ko"
     }
@@ -6671,6 +7824,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/msr",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MSR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "일본 우주항공연구개발기구(JAXA)가 해양관측위성 MOS-1·MOS-1B에 실은 23.8·31.4 GHz 2채널 수동 마이크로파 복사계로, 해상의 대기 가강수량을 관측했다.",
@@ -6689,6 +7847,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/msu",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MSU"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "마이크로파를 사용한 대기 연직구조 파악용 센서",
@@ -6705,6 +7868,9 @@
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/meteosat_3rd_generation",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MTG"
+    },
     {
      "@value": "메테오샛 3세대",
      "@language": "ko"
@@ -6725,6 +7891,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/himawari_2nd_generation_mtsat",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MTSAT"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "일본 기상청(JMA)과 국토교통성 항공국이 함께 쓰는 다목적 위성으로, 일본 정지기상위성인 GMS5의 후속위성으로서 관측센서는 가시역 1채널, 적외역 4채널이며 야간에도 안개와 하층구름의 분포를 식별할수 있다. GMS5까지는 Analogue 방식이었으나 MTSAT부터는 Digital방식으로 바뀌게 된다",
@@ -6741,6 +7912,12 @@
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/himawari_6_mtsat_1r",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MTSAT-1R"
+    },
+    {
+     "@value": "Himawari-6"
+    },
     {
      "@value": "히마와리 6호",
      "@language": "ko"
@@ -6762,6 +7939,12 @@
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/himawari_7_mtsat_2",
    "nmsc:nmscLabel": [
+    {
+     "@value": "MTSAT-2"
+    },
+    {
+     "@value": "Himawari-7"
+    },
     {
      "@value": "히마와리 7호",
      "@language": "ko"
@@ -6803,6 +7986,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/mwri_1",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "MWRI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "중국 FY-3 위성에 탑재되어 지표·대기의 마이크로파 복사를 관측하는 영상기",
@@ -6819,6 +8007,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/924",
    "nmsc:nmscLabel": [
+    {
+     "@value": "N/A"
+    },
     {
      "@value": "해당 없음",
      "@language": "ko"
@@ -6841,6 +8032,9 @@
    "@id": "https://ror.org/027ka1x80",
    "nmsc:nmscLabel": [
     {
+     "@value": "NASA"
+    },
+    {
      "@value": "미국 항공우주국",
      "@language": "ko"
     }
@@ -6861,6 +8055,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/933",
    "nmsc:nmscLabel": [
+    {
+     "@value": "NASDA"
+    },
     {
      "@value": "일본 우주 개발 사업단",
      "@language": "ko"
@@ -6883,6 +8080,9 @@
    "@id": "https://ror.org/05cvfcr44",
    "nmsc:nmscLabel": [
     {
+     "@value": "NCAR"
+    },
+    {
      "@value": "국립대기과학연구센터",
      "@language": "ko"
     }
@@ -6903,6 +8103,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/02598fdd-7ff8-4d38-a2ac-f29d71523f18",
    "nmsc:nmscLabel": [
+    {
+     "@value": "NCDC"
+    },
     {
      "@value": "국립기후자료센터",
      "@language": "ko"
@@ -6925,6 +8128,9 @@
    "@id": "https://ror.org/04r0wrp59",
    "nmsc:nmscLabel": [
     {
+     "@value": "NCEI"
+    },
+    {
      "@value": "국립환경정보센터",
      "@language": "ko"
     }
@@ -6945,6 +8151,9 @@
   {
    "@id": "https://ror.org/00ndyev54",
    "nmsc:nmscLabel": [
+    {
+     "@value": "NCEP"
+    },
     {
      "@value": "미국립 환경예보센터",
      "@language": "ko"
@@ -6988,6 +8197,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/13354468-9b4c-4a42-9d21-447b34723283",
    "nmsc:nmscLabel": [
     {
+     "@value": "NDSI"
+    },
+    {
      "@value": "정규화 적설지수",
      "@language": "ko"
     }
@@ -7009,6 +8221,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0775/",
    "nmsc:nmscLabel": [
     {
+     "@value": "NDVI"
+    },
+    {
      "@value": "정규식생지수",
      "@language": "ko"
     }
@@ -7029,6 +8244,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2426eba5-3817-466a-9be1-879be097227b",
    "nmsc:nmscLabel": [
+    {
+     "@value": "NDWI"
+    },
     {
      "@value": "정규수분지수",
      "@language": "ko"
@@ -7064,6 +8282,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f7fd0224-feaa-4a30-b5c1-0af088017f76",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "NetCDF"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "UCAR에서 개발한 자료 저장을 위한 형식 및 해당 형식의 자료를 생성, 접근, 수정하기위한 라이브러리. 확장자는 .nc",
@@ -7080,6 +8303,9 @@
   {
    "@id": "https://ror.org/0235zh559",
    "nmsc:nmscLabel": [
+    {
+     "@value": "NIC"
+    },
     {
      "@value": "미국 국립빙상센터",
      "@language": "ko"
@@ -7101,6 +8327,9 @@
   {
    "@id": "https://ror.org/05xpvk416",
    "nmsc:nmscLabel": [
+    {
+     "@value": "NIST"
+    },
     {
      "@value": "미국 국립표준기술연구소",
      "@language": "ko"
@@ -7153,6 +8382,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/954",
    "nmsc:nmscLabel": [
     {
+     "@value": "NORAD"
+    },
+    {
      "@value": "북미항공우주방위사령부",
      "@language": "ko"
     }
@@ -7172,6 +8404,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/45ec5189-ffc5-452d-b365-f6989f1433f1",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "NPOESS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NOAA·국방부·NASA가 군·민 극궤도 기상위성을 통합하는 국가 극궤도 현업 환경위성 사업 (소속: USA)",
@@ -7187,6 +8424,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/atms",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "NPP/ATMS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 Suomi National Polar-orbiting Partnership 위성에 탑재된 Advanced Technology Microwave Sounder",
@@ -7203,6 +8445,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/957",
    "nmsc:nmscLabel": [
+    {
+     "@value": "NRZ-L"
+    },
     {
      "@value": "레벨 비제로복귀",
      "@language": "ko"
@@ -7223,6 +8468,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/nscat",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "NSCAT"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "해상풍의 풍속과 풍향을 측정하는 NASA의 위성 탑재 산란계",
@@ -7239,6 +8489,9 @@
   {
    "@id": "https://ror.org/00bxr0z07",
    "nmsc:nmscLabel": [
+    {
+     "@value": "NSIDC"
+    },
     {
      "@value": "미국 국립설빙자료센터",
      "@language": "ko"
@@ -7261,6 +8514,9 @@
    "@id": "https://sanaregistry.org/r/terms/records/583",
    "nmsc:nmscLabel": [
     {
+     "@value": "NTP"
+    },
+    {
      "@value": "네트워크 시간 프로토콜",
      "@language": "ko"
     }
@@ -7282,6 +8538,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/988",
    "nmsc:nmscLabel": [
     {
+     "@value": "OD"
+    },
+    {
      "@value": "궤도결정",
      "@language": "ko"
     }
@@ -7301,6 +8560,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/oli",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "OLI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "가시/근적외/단파적외 영역에 걸쳐 총 9개의 채널을 보유하고 있으며, 지표관측 공간해상도 30m로 비교적 상세한 관측영상을 얻을 수 있음. 식생분류, 화산 및 화재 탐지, 피복분류 등 다양한 육상 정보를 산출하는데 활용됨",
@@ -7337,6 +8601,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/omi",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "OMI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Aura 위성에 탑재되어 오존 등 대기 미량기체를 관측하는 자외·가시 분광계",
@@ -7352,6 +8621,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/6af7a52e-094d-4ba7-9174-ed967260939c",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "OMPS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "오존 전량과 연직 분포를 관측하는 위성 탑재 센서 묶음",
@@ -7367,6 +8641,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/0551ab0d-c04b-4c51-bd96-fac192c5a5a1",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "OPeNDAP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "웹상에서 netCDF 등의 자료에 접근할 수 있도록 해주는 프로토콜 및 이를 위한 프로젝트. NASA에서 해당 프로토콜을 이용하여 데이터를 제공중에 있음.(GES DISC, PODAAC등)",
@@ -7383,6 +8662,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1017",
    "nmsc:nmscLabel": [
+    {
+     "@value": "OS"
+    },
     {
      "@value": "운영체제",
      "@language": "ko"
@@ -7403,6 +8685,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/oscat",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "OSCAT"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "OceanSat 및 ScatSat-1에 탑재된 해상풍 관측 센서",
@@ -7419,6 +8706,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1019",
    "nmsc:nmscLabel": [
+    {
+     "@value": "OSI"
+    },
     {
      "@value": "개방형 시스템 상호연결",
      "@language": "ko"
@@ -7439,6 +8729,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/cddf386e-516e-4331-9cd0-5d92108c1c64",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "OSI SAF"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Météo-France가 주관하고 KNMI·노르웨이·덴마크 기상청 등이 참여하는 EUMETSAT 위성응용시설로, 해상풍·해수면 및 해빙 표면온도·복사플럭스·해빙 농도·경계·유형·이동 등 해양-대기 경계 산출물을 준실시간 생산·배포한다",
@@ -7457,6 +8752,11 @@
   },
   {
    "@id": "https://ror.org/00cg22c97",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "OSPO"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "NOAA NESDIS에서 위성 운영과 산출물 생산·배포를 담당하는 부서",
@@ -7495,6 +8795,9 @@
    "@id": "https://space.oscar.wmo.int/instruments/view/otd",
    "nmsc:nmscLabel": [
     {
+     "@value": "OTD"
+    },
+    {
      "@value": "광학 과도현상 검출기",
      "@language": "ko"
     }
@@ -7531,7 +8834,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Outgoing longwave radiation",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Outgoing longwave radiation",
      "@language": "ko"
     },
     {
@@ -7545,6 +8848,9 @@
   {
    "@id": "https://ror.org/028cjvx63",
    "nmsc:nmscLabel": [
+    {
+     "@value": "PAGASA"
+    },
     {
      "@value": "필리핀 대기지구물리천문청",
      "@language": "ko"
@@ -7567,6 +8873,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1055",
    "nmsc:nmscLabel": [
     {
+     "@value": "PDF"
+    },
+    {
      "@value": "확률밀도함수",
      "@language": "ko"
     }
@@ -7588,6 +8897,9 @@
    "@id": "https://ror.org/0205jhq31",
    "nmsc:nmscLabel": [
     {
+     "@value": "PICES"
+    },
+    {
      "@value": "북태평양해양과학기구",
      "@language": "ko"
     }
@@ -7607,6 +8919,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/02927af0-918f-4980-9e47-69950323ab6e",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "PIRATA"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "열대 대서양의 해양·대기 관측을 위한 계류 부이 관측망",
@@ -7623,6 +8940,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/659",
    "nmsc:nmscLabel": [
+    {
+     "@value": "PLD"
+    },
     {
      "@value": "탑재체",
      "@language": "ko"
@@ -7645,6 +8965,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1090",
    "nmsc:nmscLabel": [
     {
+     "@value": "PM"
+    },
+    {
      "@value": "위상변조",
      "@language": "ko"
     }
@@ -7666,6 +8989,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1093",
    "nmsc:nmscLabel": [
     {
+     "@value": "PN"
+    },
+    {
      "@value": "의사 잡음",
      "@language": "ko"
     }
@@ -7685,6 +9011,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/131c1f06-d827-4b0f-b2cf-d0585f221be1",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "PNG"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "이미지 자료를 저장하기 위한 형식의 하나. 비손실 압축 포맷. 이미지 형태의 위성자료의 제공 형식중 하나",
@@ -7700,6 +9031,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a2620edb-fa1b-4e76-99db-581a1766f22a",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "POES"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NOAA의 극궤도 현업 환경위성 계열",
@@ -7715,6 +9051,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/polder",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "POLDER"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지구 반사광의 편광과 방향성을 관측하는 프랑스 CNES의 위성 탑재 복사계",
@@ -7750,6 +9091,9 @@
    "@id": "https://space.oscar.wmo.int/instruments/view/pr",
    "nmsc:nmscLabel": [
     {
+     "@value": "PR"
+    },
+    {
      "@value": "강수 레이더",
      "@language": "ko"
     }
@@ -7769,6 +9113,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/prare",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "PRARE"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "위성과 지상국 간 거리와 거리변화율을 정밀 측정하는 궤도 결정 장비",
@@ -7784,6 +9133,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/proba_v",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "PROBA-V"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "식생 관측을 위한 유럽 ESA의 소형 지구관측위성(벨기에 주도)",
@@ -7800,6 +9154,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1116",
    "nmsc:nmscLabel": [
+    {
+     "@value": "PSD"
+    },
     {
      "@value": "전력 스펙트럼 밀도",
      "@language": "ko"
@@ -7822,6 +9179,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1122",
    "nmsc:nmscLabel": [
     {
+     "@value": "PSK"
+    },
+    {
      "@value": "위상편이변조",
      "@language": "ko"
     }
@@ -7842,6 +9202,9 @@
   {
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/BBAH2146/",
    "nmsc:nmscLabel": [
+    {
+     "@value": "PWV"
+    },
     {
      "@value": "가강수량",
      "@language": "ko"
@@ -7864,6 +9227,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ea64fa04-2822-4cc5-9014-f18ce1a1ef23",
    "nmsc:nmscLabel": [
     {
+     "@value": "QBO"
+    },
+    {
      "@value": "준 2년 주기의 진동",
      "@language": "ko"
     }
@@ -7884,6 +9250,9 @@
   {
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/Q9ZYSAOC/",
    "nmsc:nmscLabel": [
+    {
+     "@value": "QFF"
+    },
     {
      "@value": "해면기압",
      "@language": "ko"
@@ -7906,6 +9275,9 @@
    "@id": "http://codes.wmo.int/common/quantity-kind/altimeterSettingQnh",
    "nmsc:nmscLabel": [
     {
+     "@value": "QNH"
+    },
+    {
      "@value": "고도수정치",
      "@language": "ko"
     }
@@ -7927,6 +9299,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1146",
    "nmsc:nmscLabel": [
     {
+     "@value": "QPSK"
+    },
+    {
      "@value": "4위상 편이 변조",
      "@language": "ko"
     }
@@ -7947,6 +9322,9 @@
   {
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CPCLLNAV/",
    "nmsc:nmscLabel": [
+    {
+     "@value": "RAA"
+    },
     {
      "@value": "상대 방위각",
      "@language": "ko"
@@ -8005,6 +9383,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1194",
    "nmsc:nmscLabel": [
     {
+     "@value": "RFI"
+    },
+    {
      "@value": "무선주파수 간섭",
      "@language": "ko"
     }
@@ -8026,6 +9407,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1176",
    "nmsc:nmscLabel": [
     {
+     "@value": "RHCP"
+    },
+    {
      "@value": "우선회편파",
      "@language": "ko"
     }
@@ -8045,6 +9429,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/ris",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "RIS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "지상국에서 쏜 레이저 빛을 되돌려 보내는 단일 큐브코너 반사기로, 돌아온 빛의 흡수를 분석해 대기 미량기체를 측정한다. 일본 ADEOS 위성(1996~1997)에 실렸다",
@@ -8064,6 +9453,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1214",
    "nmsc:nmscLabel": [
+    {
+     "@value": "RMS"
+    },
     {
      "@value": "실효값",
      "@language": "ko"
@@ -8123,6 +9515,11 @@
   },
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1231",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "RSA"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "큰 수를 소인수분해하기 어렵다는 점을 이용한 공개키 암호 알고리즘",
@@ -8161,6 +9558,9 @@
    "@id": "https://sanaregistry.org/r/terms/records/957",
    "nmsc:nmscLabel": [
     {
+     "@value": "S/C"
+    },
+    {
      "@value": "위성체(우주비행체)",
      "@language": "ko"
     }
@@ -8181,6 +9581,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1258",
    "nmsc:nmscLabel": [
+    {
+     "@value": "S/W"
+    },
     {
      "@value": "소프트웨어",
      "@language": "ko"
@@ -8226,6 +9629,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/saphir",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SAPHIR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Megha-Tropiques 위성에 탑재되어 열대 대기의 습도 연직분포를 관측하는 마이크로파 탐측기",
@@ -8242,6 +9650,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a37282d4-322c-4dd0-8edc-36099b9b586c",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SAR"
+    },
     {
      "@value": "합성개구레이더",
      "@language": "ko"
@@ -8287,6 +9698,9 @@
    "@id": "https://ror.org/012xv3367",
    "nmsc:nmscLabel": [
     {
+     "@value": "SCAR"
+    },
+    {
      "@value": "남극연구과학위원회",
      "@language": "ko"
     }
@@ -8306,6 +9720,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/scarab",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SCARAB"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "복사수지 관측을 위한 스캐너",
@@ -8338,6 +9757,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0251/",
    "nmsc:nmscLabel": [
     {
+     "@value": "SCF"
+    },
+    {
      "@value": "단위면적당 눈의 비율",
      "@language": "ko"
     }
@@ -8357,6 +9779,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/782ba9cb-0707-4680-a446-9b7f0ff6477d",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SCIAMACHY"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Envisat 위성에 탑재되어 대기 미량기체를 관측한 영상 흡수 분광계",
@@ -8373,6 +9800,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/1405",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SCID"
+    },
     {
      "@value": "위성체 식별자",
      "@language": "ko"
@@ -8410,6 +9840,9 @@
    "@id": "https://space.oscar.wmo.int/satellites/view/sdo",
    "nmsc:nmscLabel": [
     {
+     "@value": "SDO"
+    },
+    {
      "@value": "태양활동관측위성",
      "@language": "ko"
     }
@@ -8429,6 +9862,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/seawifs",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SeaWiFS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "SeaStar 위성에 탑재되어 해색과 엽록소 농도를 관측한 NASA 센서",
@@ -8444,6 +9882,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/seviri",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SEVIRI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "MSG 정지궤도기상위성에 탑재된 다중채널 가시·적외 영상기",
@@ -8460,6 +9903,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1326",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SFCG"
+    },
     {
      "@value": "우주주파수조정그룹",
      "@language": "ko"
@@ -8480,6 +9926,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/slstr",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SLSTR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Sentinel-3 위성에 탑재되어 해수면 및 지표면 온도를 관측하는 복사계",
@@ -8495,6 +9946,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/smap",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SMAP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "토양수분을 능동·수동 마이크로파로 관측하는 미국 NASA의 위성",
@@ -8511,6 +9967,9 @@
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/smmr",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SMMR"
+    },
     {
      "@value": "주사 다중채널 마이크로파 복사계",
      "@language": "ko"
@@ -8538,6 +9997,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/smos",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SMOS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "유럽 ESA가 토양수분과 해양염분을 관측하기 위해 운용하는 지구관측위성 임무",
@@ -8554,6 +10018,12 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/1457",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SNR"
+    },
+    {
+     "@value": "S/N"
+    },
     {
      "@value": "신호 대 잡음 비",
      "@language": "ko"
@@ -8606,6 +10076,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/soho",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SOHO"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "유럽 ESA와 미국 NASA가 공동으로 운용하는 태양 관측 위성",
@@ -8622,6 +10097,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eaa0bc43-e283-4bf1-ba20-ca32850a66ef",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SOI"
+    },
     {
      "@value": "남방진동지수",
      "@language": "ko"
@@ -8682,6 +10160,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/25224e7a-c3e9-4545-a26a-0c22e87ea5f2",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SPARC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "WCRP 산하에서 성층권 과정과 그 기후 영향을 연구하는 핵심 프로젝트 (소속: WCRP)",
@@ -8697,6 +10180,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/spot",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SPOT"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "프랑스 국립우주연구센터(CNES)가 주관하여 개발한 인공위성 시리즈로서 지구관측용 고해상도 영상을 촬영한다.1986년 처음으로 SPOT1이 발사된 이후 후속 개발이 진행되고 있음",
@@ -8712,6 +10200,11 @@
   },
   {
    "@id": "https://ror.org/0244ywv94",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SPREP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "남태평양 지역의 환경 보호와 지속가능한 발전을 위한 정부간 기구",
@@ -8750,6 +10243,11 @@
   },
   {
    "@id": "https://ror.org/001p3qb93",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SSEC"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 위스콘신대학교 매디슨 캠퍼스의 위성기상·우주과학 연구센터",
@@ -8765,6 +10263,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/ssm_i",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SSM/I"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "DMSP 위성에 탑재되어 강수, 해빙 등을 관측하는 수동 마이크로파 영상기",
@@ -8781,6 +10284,12 @@
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/ssmis",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SSMIS"
+    },
+    {
+     "@value": "DMSP/SSMIS"
+    },
     {
      "@value": "Defense Meteorological Satellite Program / Special Sensor Microwave Imager/Sounder",
      "@language": "en"
@@ -8806,6 +10315,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1429",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SSPA"
+    },
     {
      "@value": "고체 전력 증폭기",
      "@language": "ko"
@@ -8846,6 +10358,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/ssu",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SSU"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "NOAA 극궤도위성 TOVS를 구성하여 성층권 온도를 관측한 탐측기",
@@ -8861,6 +10378,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/stereo",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "STEREO"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "태양과 행성간 공간을 입체 관측하는 미국 NASA의 쌍둥이 위성",
@@ -8876,6 +10398,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/d5456efc-ae6c-4c68-8b5e-66e40226d897",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "SUFRAD"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NOAA가 지표 복사수지를 장기 관측하는 지상 관측망",
@@ -8891,6 +10418,20 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/snpp",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "Suomi NPP"
+    },
+    {
+     "@value": "Suomi-NPP"
+    },
+    {
+     "@value": "NPP"
+    },
+    {
+     "@value": "S-NPP"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "2011년 10월 8일 발사된 지구환경관측위성으로, 미국 NASA·NOAA·국방부(DoD)가 공동으로 개발했다. 고도 약 824km의 태양동기궤도를 돌며, 다방면의 지구환경 관측을 위한 VIIRS(가시·적외 복사계)와 CrIS(적외탐측기), ATMS(마이크로파탐측기), OMPS(오존관측기), CERES(지구복사에너지측정기) 관측기들이 탑재됨",
@@ -8907,6 +10448,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/5d290bd8-049b-4002-86c8-8acba563d0e1",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SW"
+    },
     {
      "@value": "태양풍",
      "@language": "ko"
@@ -8929,6 +10473,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0572/",
    "nmsc:nmscLabel": [
     {
+     "@value": "SWE"
+    },
+    {
      "@value": "적설수량",
      "@language": "ko"
     }
@@ -8949,6 +10496,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1445",
    "nmsc:nmscLabel": [
+    {
+     "@value": "SWIR"
+    },
     {
      "@value": "단파적외",
      "@language": "ko"
@@ -8971,6 +10521,9 @@
    "@id": "https://ror.org/01j6j9107",
    "nmsc:nmscLabel": [
     {
+     "@value": "SWPC"
+    },
+    {
      "@value": "우주기상예보센터",
      "@language": "ko"
     }
@@ -8992,6 +10545,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0360/",
    "nmsc:nmscLabel": [
     {
+     "@value": "SZA"
+    },
+    {
      "@value": "태양천정각",
      "@language": "ko"
     }
@@ -9011,6 +10567,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/c9cb3b35-570d-4aa4-a8e1-2a21aacc67c4",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "TAO"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "열대 태평양 계류 부이를 이용하여 해양과 기상을 자동 관측하는 관측망",
@@ -9027,6 +10588,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1469",
    "nmsc:nmscLabel": [
+    {
+     "@value": "TBC"
+    },
     {
      "@value": "추후 확인",
      "@language": "ko"
@@ -9049,6 +10613,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1470",
    "nmsc:nmscLabel": [
     {
+     "@value": "TBD"
+    },
+    {
      "@value": "추후 정의(결정)",
      "@language": "ko"
     }
@@ -9069,6 +10636,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1497",
    "nmsc:nmscLabel": [
+    {
+     "@value": "TDMA"
+    },
     {
      "@value": "시분할 다원접속",
      "@language": "ko"
@@ -9091,6 +10661,9 @@
    "@id": "https://space.oscar.wmo.int/variables/view/ionospheric_total_electron_content_tec",
    "nmsc:nmscLabel": [
     {
+     "@value": "TEC"
+    },
+    {
      "@value": "총전자량",
      "@language": "ko"
     }
@@ -9111,6 +10684,9 @@
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/sem_ted",
    "nmsc:nmscLabel": [
+    {
+     "@value": "TED"
+    },
     {
      "@value": "총에너지 검출기",
      "@language": "ko"
@@ -9179,6 +10755,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/32797345-48a2-4d00-a444-a3cd2e9e4f29",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "THORPEX"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "고영향 기상의 예측성 향상을 위한 WMO 세계날씨연구프로그램의 국제 연구 계획 (소속: WMO/AREP)",
@@ -9194,6 +10775,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/tiros",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "TIROS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 NASA가 개발한 초기 기상관측 위성 계열",
@@ -9209,6 +10795,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/tiros_n",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "TIROS-N"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "1978년 10월 13일 발사된 미국의 극궤도 기상위성으로, 이후 NOAA 극궤도위성(POES) 계열 위성의 원형이 되었다.",
@@ -9228,6 +10819,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f831ec03-4d23-4322-a789-f9404187aa33",
    "nmsc:nmscLabel": [
+    {
+     "@value": "TLE"
+    },
     {
      "@value": "2행 궤도요소",
      "@language": "ko"
@@ -9249,6 +10843,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/1027",
    "nmsc:nmscLabel": [
+    {
+     "@value": "TM"
+    },
     {
      "@value": "원격측정자료",
      "@language": "ko"
@@ -9277,6 +10874,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/tmi",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "TMI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "TRMM 위성에 탑재되어 강수 등을 관측한 마이크로파 영상기",
@@ -9292,6 +10894,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4d569982-00c1-4e7f-b357-0bf0b624998d",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "TOGA"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "열대 해양과 전지구 대기의 상호작용을 연구한 WCRP 국제 프로그램",
@@ -9308,6 +10915,9 @@
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/toms",
    "nmsc:nmscLabel": [
+    {
+     "@value": "TOMS"
+    },
     {
      "@value": "오존총량분광계",
      "@language": "ko"
@@ -9328,6 +10938,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/satellites/view/topex_poseidon",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "TOPEX"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "위성 고도계로 해수면 높이를 관측한 미국 NASA·프랑스 CNES 공동 해양위성 임무",
@@ -9343,6 +10958,11 @@
   },
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/9541cd1b-aac3-4cdd-8ad9-613d9f832e02",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "TOVS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "대기연직구조 탐측계로서 NOAA시리즈위성에 탑재되어 있음",
@@ -9390,6 +11010,9 @@
    "@id": "https://space.oscar.wmo.int/satellites/view/trmm",
    "nmsc:nmscLabel": [
     {
+     "@value": "TRMM"
+    },
+    {
      "@value": "열대강우측정 위성",
      "@language": "ko"
     }
@@ -9409,6 +11032,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/tropomi",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "TROPOMI"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "Sentinel-5P 위성에 탑재되어 대기 미량기체를 관측하는 분광계",
@@ -9425,6 +11053,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1556",
    "nmsc:nmscLabel": [
+    {
+     "@value": "TTC"
+    },
     {
      "@value": "원격측정·추적·명령",
      "@language": "ko"
@@ -9447,6 +11078,9 @@
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/8SQ433V8/",
    "nmsc:nmscLabel": [
     {
+     "@value": "TTI"
+    },
+    {
      "@value": "토털토털스 지수",
      "@language": "ko"
     }
@@ -9468,6 +11102,9 @@
    "@id": "https://space.oscar.wmo.int/satellites/view/uars",
    "nmsc:nmscLabel": [
     {
+     "@value": "UARS"
+    },
+    {
      "@value": "고층대기연구위성",
      "@language": "ko"
     }
@@ -9487,6 +11124,11 @@
   },
   {
    "@id": "https://ror.org/04zhhyn23",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "UCAR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "미국 대학들이 대기과학 연구 지원을 위해 구성한 비영리 컨소시엄 (소속: USA)",
@@ -9503,6 +11145,9 @@
   {
    "@id": "https://ror.org/02t274463",
    "nmsc:nmscLabel": [
+    {
+     "@value": "UCSB"
+    },
     {
      "@value": "캘리포니아대학교 샌타바버라",
      "@language": "ko"
@@ -9524,6 +11169,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1573",
    "nmsc:nmscLabel": [
+    {
+     "@value": "UHF"
+    },
     {
      "@value": "극초단파",
      "@language": "ko"
@@ -9582,6 +11230,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/d9adb8d7-d64b-46ba-b8a2-4f4b46305e6f",
    "nmsc:nmscLabel": [
     {
+     "@value": "ULS"
+    },
+    {
      "@value": "상향음파탐지기",
      "@language": "ko"
     }
@@ -9602,6 +11253,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/1ee7757f-8097-432c-b473-b2a2a1266f30",
    "nmsc:nmscLabel": [
+    {
+     "@value": "UM"
+    },
     {
      "@value": "통합모델",
      "@language": "ko"
@@ -9624,6 +11278,9 @@
    "@id": "https://ror.org/015z29x25",
    "nmsc:nmscLabel": [
     {
+     "@value": "UNEP"
+    },
+    {
      "@value": "유엔환경계획",
      "@language": "ko"
     }
@@ -9645,6 +11302,9 @@
    "@id": "https://ror.org/04h4z8k05",
    "nmsc:nmscLabel": [
     {
+     "@value": "UNESCO"
+    },
+    {
      "@value": "유네스코",
      "@language": "ko"
     }
@@ -9665,6 +11325,12 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/67f93e65-5991-4ffa-85ec-a26bd324181e",
    "nmsc:nmscLabel": [
+    {
+     "@value": "UNFCCC"
+    },
+    {
+     "@value": "FCCC"
+    },
     {
      "@value": "유엔기후변화협약",
      "@language": "ko"
@@ -9699,6 +11365,9 @@
    "@id": "https://ror.org/04qsamf92",
    "nmsc:nmscLabel": [
     {
+     "@value": "UNOOSA"
+    },
+    {
      "@value": "유엔 우주업무사무국",
      "@language": "ko"
     }
@@ -9719,6 +11388,9 @@
   {
    "@id": "https://ror.org/006gmme17",
    "nmsc:nmscLabel": [
+    {
+     "@value": "USAF"
+    },
     {
      "@value": "미공군",
      "@language": "ko"
@@ -9741,6 +11413,9 @@
    "@id": "https://ror.org/01n6e6j62",
    "nmsc:nmscLabel": [
     {
+     "@value": "USAID"
+    },
+    {
      "@value": "미국 국제개발처",
      "@language": "ko"
     }
@@ -9762,6 +11437,9 @@
    "@id": "https://ror.org/035a68863",
    "nmsc:nmscLabel": [
     {
+     "@value": "USGS"
+    },
+    {
      "@value": "미지질조사국",
      "@language": "ko"
     }
@@ -9782,6 +11460,9 @@
   {
    "@id": "https://sanaregistry.org/r/terms/records/267",
    "nmsc:nmscLabel": [
+    {
+     "@value": "UTC"
+    },
     {
      "@value": "협정 세계시",
      "@language": "ko"
@@ -9882,6 +11563,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/vas",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "VAS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "GOES 위성의 VISSR에 대기 연직 탐측 기능을 더한 관측기",
@@ -9898,6 +11584,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1624",
    "nmsc:nmscLabel": [
+    {
+     "@value": "VCDU"
+    },
     {
      "@value": "가상 채널 데이터 단위",
      "@language": "ko"
@@ -9920,6 +11609,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1626",
    "nmsc:nmscLabel": [
     {
+     "@value": "VCID"
+    },
+    {
      "@value": "가상 채널 식별자",
      "@language": "ko"
     }
@@ -9939,6 +11631,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/viirs",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "VIIRS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "가시영역에서 적외영역까지 총22개의 채널을 보유한 센서로 5개 채널은 375m의 공간해상도를, 16개 채널 및 주/야간 밴드(Day-Night Band)는 750m의 공간해상도를 가짐",
@@ -9954,6 +11651,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/virs",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "VIRS"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "TRMM 위성에 탑재된 가시·적외 주사계",
@@ -9970,6 +11672,9 @@
   {
    "@id": "https://sanaregistry.org/r/abbreviations/records/1643",
    "nmsc:nmscLabel": [
+    {
+     "@value": "VNIR"
+    },
     {
      "@value": "가시·근적외",
      "@language": "ko"
@@ -9992,6 +11697,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1645",
    "nmsc:nmscLabel": [
     {
+     "@value": "VoIP"
+    },
+    {
      "@value": "인터넷 프로토콜 음성 전송",
      "@language": "ko"
     }
@@ -10011,6 +11719,11 @@
   },
   {
    "@id": "https://space.oscar.wmo.int/instruments/view/vtir",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "VTIR"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "1987년 발사된 일본 해양관측위성 MOS-1(및 MOS-1b)에 탑재된 가시 1채널·열적외 3채널 복사계로 해수면온도 등을 관측했다.",
@@ -10030,6 +11743,9 @@
   {
    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/L0VDN0EO/",
    "nmsc:nmscLabel": [
+    {
+     "@value": "VZA"
+    },
     {
      "@value": "위성천정각",
      "@language": "ko"
@@ -10052,6 +11768,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/485e86f3-7cd1-43c0-bb02-a929b7d96e43",
    "nmsc:nmscLabel": [
     {
+     "@value": "WCRP"
+    },
+    {
      "@value": "세계기후연구프로그램",
      "@language": "ko"
     }
@@ -10072,6 +11791,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/386eb378-1d17-4fdb-b0de-7aec4db7be59",
    "nmsc:nmscLabel": [
+    {
+     "@value": "WDCGG"
+    },
     {
      "@value": "온실가스 세계자료센터",
      "@language": "ko"
@@ -10094,6 +11816,9 @@
    "@id": "https://sanaregistry.org/r/abbreviations/records/1660",
    "nmsc:nmscLabel": [
     {
+     "@value": "WG"
+    },
+    {
      "@value": "실무그룹",
      "@language": "ko"
     }
@@ -10114,6 +11839,9 @@
   {
    "@id": "https://ror.org/01jtrvx49",
    "nmsc:nmscLabel": [
+    {
+     "@value": "WGMS"
+    },
     {
      "@value": "세계빙하감시서비스",
      "@language": "ko"
@@ -10136,6 +11864,9 @@
    "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/WHYCOS",
    "nmsc:nmscLabel": [
     {
+     "@value": "WHYCOS"
+    },
+    {
      "@value": "세계수문순환관측시스템",
      "@language": "ko"
     }
@@ -10156,6 +11887,9 @@
   {
    "@id": "https://ror.org/04anve402",
    "nmsc:nmscLabel": [
+    {
+     "@value": "WIPO"
+    },
     {
      "@value": "세계지적재산권기구",
      "@language": "ko"
@@ -10193,6 +11927,9 @@
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eab3419f-a0c2-4d55-9500-87ee00600291",
    "nmsc:nmscLabel": [
     {
+     "@value": "WOCE"
+    },
+    {
      "@value": "세계해양순환실험",
      "@language": "ko"
     }
@@ -10212,6 +11949,11 @@
   },
   {
    "@id": "https://ror.org/04bs5yc70",
+   "nmsc:nmscLabel": [
+    {
+     "@value": "WSL"
+    }
+   ],
    "nmsc:nmscNote": [
     {
      "@value": "스위스의 산림, 눈, 경관 분야 연방 연구기관",
@@ -10228,6 +11970,9 @@
   {
    "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eee5e87c-1e05-48c4-8091-c15e031f94b7",
    "nmsc:nmscLabel": [
+    {
+     "@value": "XRS"
+    },
     {
      "@value": "X선 센서",
      "@language": "ko"
@@ -10249,6 +11994,9 @@
   {
    "@id": "http://codes.wmo.int/wmdr/ObservedVariableAtmosphere/12303",
    "nmsc:nmscLabel": [
+    {
+     "@value": "ZTD"
+    },
     {
      "@value": "총지연량",
      "@language": "ko"

@@ -30,11 +30,11 @@
    ],
    "dct:description": [
     {
-     "@value": "국가기상위성센터(NMSC) 기상위성 업무 용어집의 공개분이다. 기관 승인 전 초안이다. 판은 SatSem 어휘 판과 따로 매기는 용어집 판이다 — owl:versionInfo 는 고정판의 번호(X.Y.Z — 연도 이름은 별칭)이고, 그 판 이후 변경이 있으면 + 마지막 변경일을 붙인다. 기준판 1.0.0(별칭 2026) 이후 바뀐 항목에는 dct:modified(마지막 변경일)와 변경마다 skos:changeNote 를 단다. 각 뜻의 정체(IRI)는 SatSem 어휘 개념이나 확인된 외부 레지스트리 IRI 에 두고 NMSC 사용 노트만 덧붙인다(nmsc-usage.ttl). 외부 권위인데 해석되는 외부 IRI 가 없는 뜻에만 용어집 항목 glossary/gNNNN 을 발급한다(glossary.ttl). 분야 소속은 분야 Collection glossary/field/(분야 코드) 에 둔다(glossary-fields.ttl). 검토 전(임시) 뜻은 싣지 않는다. 항목의 원본 행 출처(dct:source 의 \"NMSC 약어 용어표 d1.2 (2019-05-01)\")는 NMSC 내부 자료로 공개되지 않았다. 출처 기록으로 남길 뿐 그 자료를 함께 배포하지 않는다.",
+     "@value": "국가기상위성센터(NMSC) 기상위성 업무 용어집의 공개분이다. 기관 승인 전 초안이다. 판은 NMSC 위성 어휘 판과 따로 매기는 용어집 판이다 — owl:versionInfo 는 고정판의 번호(X.Y.Z — 연도 이름은 별칭)이고, 그 판 이후 변경이 있으면 + 마지막 변경일을 붙인다. 기준판 1.0.0(별칭 2026) 이후 바뀐 항목에는 dct:modified(마지막 변경일)와 변경마다 skos:changeNote 를 단다. 각 뜻의 정체(IRI)는 NMSC 위성 어휘 개념이나 확인된 외부 레지스트리 IRI 에 두고 NMSC 사용 노트만 덧붙인다(nmsc-usage.ttl). 외부 권위인데 해석되는 외부 IRI 가 없는 뜻에만 용어집 항목 glossary/gNNNN 을 발급한다(glossary.ttl). 분야 소속은 분야 Collection glossary/field/(분야 코드) 에 둔다(glossary-fields.ttl). 검토 전(임시) 뜻은 싣지 않는다. 항목의 원본 행 출처(dct:source 의 \"NMSC 약어 용어표 d1.2 (2019-05-01)\")는 NMSC 내부 자료로 공개되지 않았다. 출처 기록으로 남길 뿐 그 자료를 함께 배포하지 않는다.",
      "@language": "ko"
     },
     {
-     "@value": "Public part of the NMSC meteorological satellite glossary. Draft, not yet approved by the agency. The glossary has its own editions, separate from the SatSem vocabulary version: owl:versionInfo is the number of the fixed edition (X.Y.Z; year names are aliases), followed by + and the date of the last change when the glossary has changed since that edition. Entries changed since the baseline edition 1.0.0 (alias 2026) carry dct:modified (date of the last change) and one skos:changeNote per change. Each sense is identified by a SatSem vocabulary concept or a verified external registry IRI with NMSC usage notes attached (nmsc-usage.ttl); glossary entries glossary/gNNNN are minted only for externally defined senses without a resolvable external IRI (glossary.ttl); field membership is given by the collections glossary/field/(field code) (glossary-fields.ttl). Provisional (unreviewed) senses are not included. The source rows cited in dct:source (\"NMSC 약어 용어표 d1.2 (2019-05-01)\") are an internal NMSC document that has not been published; they are recorded for provenance only and are not distributed.",
+     "@value": "Public part of the NMSC meteorological satellite glossary. Draft, not yet approved by the agency. The glossary has its own editions, separate from the NMSC satellite vocabulary version: owl:versionInfo is the number of the fixed edition (X.Y.Z; year names are aliases), followed by + and the date of the last change when the glossary has changed since that edition. Entries changed since the baseline edition 1.0.0 (alias 2026) carry dct:modified (date of the last change) and one skos:changeNote per change. Each sense is identified by an NMSC satellite vocabulary concept or a verified external registry IRI with NMSC usage notes attached (nmsc-usage.ttl); glossary entries glossary/gNNNN are minted only for externally defined senses without a resolvable external IRI (glossary.ttl); field membership is given by the collections glossary/field/(field code) (glossary-fields.ttl). Provisional (unreviewed) senses are not included. The source rows cited in dct:source (\"NMSC 약어 용어표 d1.2 (2019-05-01)\") are an internal NMSC document that has not been published; they are recorded for provenance only and are not distributed.",
      "@language": "en"
     }
    ],
@@ -50,7 +50,7 @@
    ],
    "dct:rights": [
     {
-     "@value": "공공누리 제1유형(출처표시). 출처: 국가기상위성센터(NMSC), SatSem",
+     "@value": "공공누리 제1유형(출처표시). 출처: 국가기상위성센터(NMSC) 위성 어휘",
      "@language": "ko"
     }
    ],
@@ -73,7 +73,7 @@
    ],
    "rdfs:comment": [
     {
-     "@value": "이 파일은 외부 자원을 정의하지 않는다. 정본은 주어 IRI 의 원본(SatSem 어휘 개념 또는 외부 레지스트리)이며, 여기 있는 것은 국가기상위성센터가 그 대상을 부르는 이름과 사용 맥락(nmsc:nmscLabel·nmsc:nmscNote)뿐이다.",
+     "@value": "이 파일은 외부 자원을 정의하지 않는다. 정본은 주어 IRI 의 원본(NMSC 위성 어휘 개념 또는 외부 레지스트리)이며, 여기 있는 것은 국가기상위성센터가 그 대상을 부르는 이름과 사용 맥락(nmsc:nmscLabel·nmsc:nmscNote)뿐이다.",
      "@language": "ko"
     }
    ]
@@ -4067,7 +4067,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '우주기반 관측 활동' → '위성 관측 활동' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '우주기반 관측 활동' → '위성 관측 활동' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -12906,7 +12906,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): 'GCW 구축의 기반이 되었다' → 'GCW를 구축할 때 그 틀로 쓰였다' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): 'GCW 구축의 기반이 되었다' → 'GCW를 구축할 때 그 틀로 쓰였다' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -13834,7 +13834,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '웹 기반 시스템' → '웹 시스템' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '웹 기반 시스템' → '웹 시스템' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -15280,7 +15280,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '갈륨비소 기반 고효율 태양전지' → '갈륨비소를 재료로 한 고효율 태양전지' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '갈륨비소 기반 고효율 태양전지' → '갈륨비소를 재료로 한 고효율 태양전지' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -15376,7 +15376,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 용어표 정정(2026-11-13 사용자 결정, src/glossary_corrections.tsv) — NMSC 약어 용어표 d1.2 (2019-05-01) 원본 행 512 의 표제어 GEMS 에 원본에 없던 뜻을 더함 — 뜻 GEMS#1",
+     "@value": "용어표 정정(2026-11-13 사용자 결정, src/glossary_corrections.tsv) — NMSC 약어 용어표 d1.2 (2019-05-01) 원본 행 512 의 표제어 GEMS 에 원본에 없던 뜻을 더함 — 뜻 GEMS#1",
      "@language": "ko"
     }
    ]
@@ -16517,7 +16517,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '실리콘 기반 태양전지' → '실리콘 태양전지' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '실리콘 기반 태양전지' → '실리콘 태양전지' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -19595,7 +19595,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '생태계 기반 관측 설계' → '생태계 전체를 대상으로 하는 관측 설계' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '생태계 기반 관측 설계' → '생태계 전체를 대상으로 하는 관측 설계' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -23100,7 +23100,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '위성 기반 전지구 강수 관측 프로그램' → '위성으로 전지구 강수를 관측하는 프로그램' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '위성 기반 전지구 강수 관측 프로그램' → '위성으로 전지구 강수를 관측하는 프로그램' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -23922,7 +23922,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): 'MSG 위성자료 수신·활용 기반을 마련하기 위한' → 'MSG 위성자료를 수신·활용할 수 있는 여건을 마련하기 위한' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): 'MSG 위성자료 수신·활용 기반을 마련하기 위한' → 'MSG 위성자료를 수신·활용할 수 있는 여건을 마련하기 위한' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -28255,7 +28255,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '위성 기반 필수기후변수(ECV) 기후자료기록' → '위성으로 관측한 필수기후변수(ECV) 기후자료기록' — 사유: 명명 규칙 1 — SatSem(Claude)이 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
+     "@value": "2026-11-16 수정(update): 설명 문구 정리(뜻 그대로): '위성 기반 필수기후변수(ECV) 기후자료기록' → '위성으로 관측한 필수기후변수(ECV) 기후자료기록' — 사유: 명명 규칙 1 — NMSC 위성 어휘(Claude)가 쓴 설명 문장에서 '기반'을 쓰지 않고 뜻(방법·입력·재료 등)을 바로 쓴다(docs/naming-rules.md 2절). 근거: status 115; 사용자 결정 \"'기반' 관련 용어집 보충 설명 처리 진행\"(2026-11-16)",
      "@language": "ko"
     }
    ]
@@ -28827,7 +28827,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Cloud phase",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Cloud phase",
      "@language": "ko"
     },
     {
@@ -28842,7 +28842,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-15 생성(create): SatSem 추가 뜻 운상 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 SatSem 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
+     "@value": "2026-11-15 생성(create): NMSC 위성 어휘의 추가 뜻 운상 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 NMSC 위성 어휘의 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
      "@language": "ko"
     }
    ]
@@ -28885,7 +28885,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/); 동음이의어 분리 2026-11-15 사용자 판정(status 96), src/glossary_additions.tsv — 뜻 Dry intrusion",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/); 동음이의어 분리 2026-11-15 사용자 판정(status 96), src/glossary_additions.tsv — 뜻 Dry intrusion",
      "@language": "ko"
     },
     {
@@ -28900,7 +28900,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-15 생성(create): SatSem 추가 뜻 건조역 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(임시(medium)) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 SatSem 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
+     "@value": "2026-11-15 생성(create): NMSC 위성 어휘의 추가 뜻 건조역 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(임시(medium)) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 NMSC 위성 어휘의 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
      "@language": "ko"
     },
     {
@@ -28952,7 +28952,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Ocean heat content",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Ocean heat content",
      "@language": "ko"
     },
     {
@@ -28973,7 +28973,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-15 생성(create): SatSem 추가 뜻 해양열용량 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 SatSem 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
+     "@value": "2026-11-15 생성(create): NMSC 위성 어휘의 추가 뜻 해양열용량 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 NMSC 위성 어휘의 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
      "@language": "ko"
     }
    ]
@@ -29022,7 +29022,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Tropopause folding",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Tropopause folding",
      "@language": "ko"
     },
     {
@@ -29037,7 +29037,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-15 생성(create): SatSem 추가 뜻 대류권계면 접힘 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 SatSem 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
+     "@value": "2026-11-15 생성(create): NMSC 위성 어휘의 추가 뜻 대류권계면 접힘 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 NMSC 위성 어휘의 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
      "@language": "ko"
     }
    ]
@@ -29080,7 +29080,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Upwelling",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Upwelling",
      "@language": "ko"
     },
     {
@@ -29098,7 +29098,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-15 생성(create): SatSem 추가 뜻 용승 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 SatSem 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
+     "@value": "2026-11-15 생성(create): NMSC 위성 어휘의 추가 뜻 용승 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 NMSC 위성 어휘의 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
      "@language": "ko"
     }
    ]
@@ -29141,7 +29141,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Volcanic ash",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Volcanic ash",
      "@language": "ko"
     },
     {
@@ -29159,7 +29159,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-15 생성(create): SatSem 추가 뜻 화산재 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 SatSem 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
+     "@value": "2026-11-15 생성(create): NMSC 위성 어휘의 추가 뜻 화산재 — 인정 레지스트리(L1)에 같은 대상이 없어 발급(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 NMSC 위성 어휘의 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
      "@language": "ko"
     }
    ]
@@ -29208,7 +29208,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Optical thickness",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Optical thickness",
      "@language": "ko"
     },
     {
@@ -29226,7 +29226,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-15 생성(create): SatSem 추가 뜻 광학두께 — 자리 판정 대기(GCMD OPTICAL DEPTH/THICKNESS 와 같은 대상인지 애매) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 SatSem 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
+     "@value": "2026-11-15 생성(create): NMSC 위성 어휘의 추가 뜻 광학두께 — 자리 판정 대기(GCMD OPTICAL DEPTH/THICKNESS 와 같은 대상인지 애매) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 NMSC 위성 어휘의 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
      "@language": "ko"
     },
     {
@@ -29351,7 +29351,7 @@
    ],
    "dct:source": [
     {
-     "@value": "SatSem 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Reanalysis",
+     "@value": "NMSC 위성 어휘 추가(2019 약어 용어표에 없음) — 사용자 지시 2026-11-15 — WMO-No.182(1992) 표제어 없음(docs/research/wmo182/), src/glossary_additions.tsv — 뜻 Reanalysis",
      "@language": "ko"
     },
     {
@@ -29365,7 +29365,7 @@
    ],
    "skos:editorialNote": [
     {
-     "@value": "관련 개념: 이 항목은 SatSem 어휘 개념 trel:reanalysis(재분석)보다 좁은 뜻이다 — 2026-11-15 사용자 판정 — 일반 용어 재분석은 수치예보 모델·자료동화 체계로 하는 재분석이고, trel:reanalysis(과거 시각을 다시 계산한 분석)는 모델·자료동화 없이도 성립한다",
+     "@value": "관련 개념: 이 항목은 NMSC 위성 어휘 개념 trel:reanalysis(재분석)보다 좁은 뜻이다 — 2026-11-15 사용자 판정 — 일반 용어 재분석은 수치예보 모델·자료동화 체계로 하는 재분석이고, trel:reanalysis(과거 시각을 다시 계산한 분석)는 모델·자료동화 없이도 성립한다",
      "@language": "ko"
     }
    ],
@@ -29377,7 +29377,7 @@
    ],
    "skos:changeNote": [
     {
-     "@value": "2026-11-15 생성(create): SatSem 추가 뜻 재분석 — 자리 ① trel:reanalysis(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 SatSem 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
+     "@value": "2026-11-15 생성(create): NMSC 위성 어휘의 추가 뜻 재분석 — 자리 ① trel:reanalysis(공식) — 사유: 2019 표와 WMO-No.182(1992) 표제어에 없는 일반 기상·해양 용어를 NMSC 위성 어휘의 추가 뜻으로. 근거: status 94; 사용자 지시(2026-11-15) \"1992판 표제어에 없는 … 신규 추가\"",
      "@language": "ko"
     },
     {

@@ -4,7 +4,7 @@ PREFIX dct:   <http://purl.org/dc/terms/>
 
 # ── Q33. 용어집 분야 → 그 분야에 속한 용어 (status 88, 용어집 계획 B6 — docs/glossary-plan.md L3·L5, C9-24)
 #    분야는 glossary/field/<code> 의 skos:Collection 이고, 소속은 Collection 쪽 skos:member 다(vocab/glossary/glossary-fields.ttl).
-#    대상은 세 종류 — 용어집 항목(nmsc:GlossaryEntry, glossary/gNNNN), SatSem 어휘 개념, 외부 IRI(NMSC 사용 노트의 주어).
+#    대상은 세 종류 — 용어집 항목(nmsc:GlossaryEntry, glossary/gNNNN), NMSC 위성 어휘 개념, 외부 IRI(NMSC 사용 노트의 주어).
 #    한 대상이 여러 분야에 나올 수 있다(주 분야 + 부 분야). 기타(other)는 공개 분야가 아니라 나오지 않는다.
 #    ?이름 은 항목·개념의 한국어 대표 이름. 외부 IRI 는 정의가 원본에 있어 여기서는 비어 있다(NMSC 사용 이름은 Q32 처럼 nmsc:nmscLabel).
 #    임시(검토 전) 소속은 공개 파일에 없으므로 나오지 않는다.

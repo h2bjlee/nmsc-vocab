@@ -1,0 +1,30 @@
+# q24. SOSA 관점: 플랫폼(위성)이 싣는 센서(탑재체)와 그 센서가 관측할 수 있는 성질의 수
+#
+# 데이터: vocab/gk-vocab.ttl + vocab/gk-sosa-alignment.ttl (정렬 파일이 없으면 결과 0행)
+# 추론기 없이 돌도록 하위 속성은 경로(rdfs:subPropertyOf*)로 따라가고,
+# sosa:observes 의 속성 사슬(정렬 파일)은 관측 능력 노드를 직접 거쳐 같은 결과를 낸다.
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX nmsc: <https://w3id.org/nmsc/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?플랫폼 ?센서 (COUNT(DISTINCT ?성질) AS ?관측가능성질수)
+WHERE {
+  ?hostProp rdfs:subPropertyOf* sosa:hosts .
+  ?platform ?hostProp ?sensor .
+  ?platform a sosa:Platform .
+  ?sensor a sosa:Sensor .
+  # 한국어 대표 라벨이 없는 탑재체(KSEM2 4기)는 영어 라벨로
+  OPTIONAL { ?platform skos:prefLabel ?pko FILTER (lang(?pko) = "ko") }
+  OPTIONAL { ?platform skos:prefLabel ?pen FILTER (lang(?pen) = "en") }
+  OPTIONAL { ?sensor skos:prefLabel ?sko FILTER (lang(?sko) = "ko") }
+  OPTIONAL { ?sensor skos:prefLabel ?sen FILTER (lang(?sen) = "en") }
+  BIND (COALESCE(?pko, ?pen) AS ?플랫폼)
+  BIND (COALESCE(?sko, ?sen) AS ?센서)
+  OPTIONAL {
+    ?cap nmsc:capabilityOf ?sensor ; nmsc:observesVariable ?성질 .
+    ?성질 a sosa:ObservableProperty .
+  }
+}
+GROUP BY ?플랫폼 ?센서
+ORDER BY ?플랫폼 ?센서

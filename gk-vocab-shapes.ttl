@@ -632,7 +632,7 @@ nmsc:ProductFormerNameShape a sh:NodeShape ;
         sh:message "라벨 노드는 언어 태그가 있는 글자 꼴(skosxl:literalForm) 정확히 하나를 가진다 (SKOS-XL S52)" ] ;
     sh:property [
         sh:path nmsc:labelSourceKind ; sh:minCount 1 ; sh:maxCount 1 ;
-        sh:in ( "nmsc-list" "atbd" "algorithm-code" "file-attribute" "glossary-2019" "service-page" "internal-doc" "satsem-draft" "satsem-pref-label" ) ;
+        sh:in ( "nmsc-list" "atbd" "algorithm-code" "file-attribute" "glossary-2019" "service-page" "internal-doc" "vocab-draft" "vocab-pref-label" ) ;
         sh:message "라벨 노드의 출처 종류(nmsc:labelSourceKind)는 정해진 값 하나다 (src/former_names.py KINDS)" ] ;
     sh:property [
         sh:path dct:source ; sh:minCount 1 ;
@@ -882,14 +882,14 @@ nmsc:ProductResolutionShape a sh:NodeShape ;
 #   근거·질문 Q1~Q15 와 회신: docs/class-shapes-draft.md (MyGiver 메일 2026-11-18 02:55, 스레드 78e58269).
 #   심각도: 필수·금지 = sh:Violation(기본), 권고 = sh:Warning. 값 제약은 값이 있을 때만 본다.
 #   검증 대상(MyGiver 쪽): KG RDF 내보내기 — 이행 단계 3(개체 IRI 하나)·5(용어 IRI w3id) 전에는 대상이 0 이다.
-#   SatSem 은 이 클래스의 인스턴스를 만들지 않는다(예외: 실행 기록의 nmsc:DataObject — 기록 셰이프가 따로 본다).
+#   NMSC 위성 어휘는 이 클래스의 인스턴스를 만들지 않는다(예외: 실행 기록의 nmsc:DataObject — 기록 셰이프가 따로 본다).
 #   sh:targetClass 는 데이터 그래프의 rdfs:subClassOf* 를 따르므로 gk-vocab.ttl 을 데이터로 함께 읽는다.
 #   주의: **추론 없이 돌린다.** MyGiver 온톨로지(nmsc-ontology.ttl)를 함께 읽고 OWL/RDFS 추론을 켜면
 #         그 파일의 owl:equivalentProperty(has_site 와 org:hasSite)와 org:hasSite 의 rdfs:domain org:Organization 때문에
 #         has_site 를 가진 지상국이 org:Organization 이 되어 GroundStationShape 의 sh:not 에 걸린다.
 #   보류(사용자 결정 대기, docs/pending-decisions.md): 사건 날짜·기간 속성(Q7 — 날짜 제약 없음),
 #         산출 기록물 → 산출물 개념 속성(Q10).
-#   퍼닝 금지(Q11)는 사용자 확정 2026-11-18 — 탑재체·위성 개별자는 SatSem 개념 IRI(ins:·sat:)를 쓰지 않는다.
+#   퍼닝 금지(Q11)는 사용자 확정 2026-11-18 — 탑재체·위성 개별자는 NMSC 위성 어휘의 개념 IRI(ins:·sat:)를 쓰지 않는다.
 # ============================================================================
 
 @prefix org:   <http://www.w3.org/ns/org#> .
@@ -1010,12 +1010,12 @@ nmsc:ArtifactShape a sh:NodeShape ;
         sh:path nmsc:isAbout ; sh:nodeKind sh:IRI ;
         sh:or ( [ sh:class sosa:ObservableProperty ]
                 [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/variable> ] ] ) ;
-        sh:message "nmsc:isAbout 대상은 관측 변수 — sosa:ObservableProperty 개체 또는 SatSem 변수 스킴 개념이어야 한다 (status 141)" ] .
+        sh:message "nmsc:isAbout 대상은 관측 변수 — sosa:ObservableProperty 개체 또는 NMSC 위성 어휘의 변수 스킴 개념이어야 한다 (status 141)" ] .
 
 nmsc:ArtifactNotConceptShape a sh:NodeShape ;
     sh:targetClass nmsc:Artifact ;
     sh:not [ sh:class skos:Concept ] ;
-    sh:message "산출 기록물은 SatSem 개념(skos:Concept, 산출물 prod:… 등)과 같은 IRI 를 쓰지 않는다 (status 141)" .
+    sh:message "산출 기록물은 NMSC 위성 어휘의 개념(skos:Concept, 산출물 prod:… 등)과 같은 IRI 를 쓰지 않는다 (status 141)" .
 
 # Q10 사용자 결정 2026-11-18: 개별자 → 산출물 개념 대응 — 같으면 dct:type <prod:…>, 가까우면 nmsc:approximatesProduct.
 #   정의역이 없는 속성이라 주어 클래스를 묻지 않고 쓰인 곳 모두를 본다.
@@ -1034,11 +1034,11 @@ nmsc:ApproximatesProductShape a sh:NodeShape ;
 
 # ---- Payload ----
 # 퍼닝 금지(sh:not skos:Concept): nmsc:Payload 정의, 사용자 확정 2026-11-18(Q11). 탑재체 개별자는 자기 IRI 를 쓰고
-# SatSem 개념에는 연결 속성으로 잇는다(지금은 dct:type — 스킴별 개수 제약으로 유형 스킴 값과 충돌하지 않게).
+# NMSC 위성 어휘의 개념에는 연결 속성으로 잇는다(지금은 dct:type — 스킴별 개수 제약으로 유형 스킴 값과 충돌하지 않게).
 nmsc:PayloadShape a sh:NodeShape ;
     sh:targetClass nmsc:Payload ;
     sh:not [ sh:class skos:Concept ] ;
-    sh:message "탑재체 개체는 SatSem 탑재체 개념(ins:…, skos:Concept)과 같은 IRI 를 쓰지 않는다 — 퍼닝 금지, nmsc:Payload 정의 (status 141, Q11 사용자 확정 2026-11-18)" ;
+    sh:message "탑재체 개체는 NMSC 위성 어휘의 탑재체 개념(ins:…, skos:Concept)과 같은 IRI 를 쓰지 않는다 — 퍼닝 금지, nmsc:Payload 정의 (status 141, Q11 사용자 확정 2026-11-18)" ;
     sh:property [
         sh:path dct:type ;
         sh:qualifiedValueShape [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/instrument-type> ] ] ;
@@ -1080,7 +1080,7 @@ nmsc:ObservingPayloadShape a sh:NodeShape ;
         sh:path sosa:observes ; sh:nodeKind sh:IRI ;
         sh:or ( [ sh:class sosa:ObservableProperty ]
                 [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/variable> ] ] ) ;
-        sh:message "관측 대상(sosa:observes)은 관측 변수 — sosa:ObservableProperty 개체 또는 SatSem 변수 스킴 개념이어야 한다 (status 141)" ] .
+        sh:message "관측 대상(sosa:observes)은 관측 변수 — sosa:ObservableProperty 개체 또는 NMSC 위성 어휘의 변수 스킴 개념이어야 한다 (status 141)" ] .
 
 nmsc:ObservingPayloadKindShape a sh:NodeShape ;
     sh:targetClass nmsc:ObservingPayload ;

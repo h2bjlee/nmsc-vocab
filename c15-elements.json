@@ -1,11 +1,11 @@
 {
  "format": "satsem-c15-elements",
- "version": "0.26.0",
+ "version": "0.27.0",
  "date": "2026-11-15",
  "base_iri": "https://w3id.org/nmsc/",
  "design": "docs/c15-stage2-design.md §6·§7",
  "sources": {
-  "src/c15_elements.tsv": "77ea10cb9df25d079ccf7acee4bbc84f77c7d302d67d2c7b14bf437ecaaca38e",
+  "src/c15_elements.tsv": "43cb6bedf8bd1663babc535a66559c6fe06adf7275ec9d63d1d31d1e624cdf50",
   "src/c15_rules.tsv": "85e74bc2dd8986835591be985e3f41e192ebc9faba28d3ba38ca06fb088454ff"
  },
  "levels": {
@@ -101,7 +101,7 @@
    "values": [],
    "min": 1,
    "max": 1,
-   "satwright_field": "(등록부 SatSem IRI)",
+   "satwright_field": "(등록부 NMSC 위성 어휘 IRI)",
    "label_ko": "산출물 유형",
    "label_en": "Product",
    "definition_ko": "자료 객체가 어느 산출물(유형)의 자료인가. 공개(이용 조건 public)·비예시 자료 객체이면 필수, 그 밖에는 선택.",
@@ -651,7 +651,7 @@
    "satwright_field": null,
    "label_ko": "관측 변수",
    "label_en": "Represents variable",
-   "definition_ko": "자료 변수가 나타내는 SatSem 관측 변수(OSCAR).",
+   "definition_ko": "자료 변수가 나타내는 NMSC 위성 어휘의 관측 변수(OSCAR).",
    "source": "설계 §7.3 첫 행",
    "decision": [
     "S2-12"

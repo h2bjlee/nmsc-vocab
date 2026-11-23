@@ -61,7 +61,7 @@ nmsc:carriedBy rdfs:subPropertyOf sosa:isHostedBy .
 <https://w3id.org/nmsc/instrument/ksem2-heems> a sosa:Sensor .
 <https://w3id.org/nmsc/instrument/ksem> a sosa:Sensor .
 
-# scheme/variable type sosa:ObservableProperty — "An observable quality (property, characteristic) of a FeatureOfInterest." 변수 117개(도메인 최상위 개념 13개는 묶음이라 제외; SatSem 소유 47개 포함 — status 99 의 5개, status 130 의 30개, status 131 의 12개)
+# scheme/variable type sosa:ObservableProperty — "An observable quality (property, characteristic) of a FeatureOfInterest." 변수 117개(도메인 최상위 개념 13개는 묶음이라 제외; NMSC 위성 어휘가 정의한 47개 포함 — status 99 의 5개, status 130 의 30개, status 131 의 12개)
 <https://w3id.org/nmsc/variable/absolute_vorticity> a sosa:ObservableProperty .
 <https://w3id.org/nmsc/variable/accumulated_precipitation> a sosa:ObservableProperty .
 <https://w3id.org/nmsc/variable/aerosol_angstrom_exponent> a sosa:ObservableProperty .
