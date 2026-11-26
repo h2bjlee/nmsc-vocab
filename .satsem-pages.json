@@ -2,11 +2,12 @@
  "producer": "nmsc-vocab source repository, src/publish_pages.py",
  "decision": "0007 (stage 1)",
  "site": "https://h2bjlee.github.io/nmsc-vocab/",
- "version": "0.27.0",
- "label": "0.27.0-g1.1.0+2026-11-17",
- "tag": "v0.27.0",
- "commit": "954747d575f8e58f77b56e1d3fd1cb8c27d7a999",
+ "version": "0.28.0",
+ "label": "0.28.0-g1.1.0+2026-11-17",
+ "tag": "v0.28.0",
+ "commit": "416e43229f08c4b9b07b62896409b196b96a0e6d",
  "archives": [
+  "0.27.0",
   "0.26.0",
   "0.25.0",
   "0.24.0"

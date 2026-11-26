@@ -9,18 +9,18 @@
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
 # ============================================================================
-# NMSC 위성 어휘 C15 단계 2 기록 셰이프 — 생성물(src/gen_c15_shapes.py). 손으로 고치지 말 것.
-# 원천: src/c15_elements.tsv (요소 74개), src/c15_rules.tsv (규칙 22행). 설계 docs/c15-stage2-design.md §6·§7.
+# NMSC 위성 어휘 C15 단계 2 기록 셰이프 — 생성물. 손으로 고치지 말 것.
+# 원천: 요소 표 (요소 74개), 규칙 표 (규칙 22행).
 # 대상: 실행 기록(인스턴스) — 처리 실행·자료 객체·자료 변수·입력 사용·불확도 성분·검증 기록. 본 어휘(gk-vocab.ttl)에는 이 클래스의
 #       인스턴스가 없다. 개념 값의 스킴 검사(SR18)는 본 어휘를 함께 올려야 한다.
 # 수준: M = sh:Violation, R = sh:Warning, C = 조건이 참이면 Violation(거짓이면 then_level), O = 값 모양만. SHACL Core 만(sh:sparql 없음).
-# satwright 는 이 셰이프가 아니라 같은 원천의 표(c15-elements.json, docs/c15-elements.tsv)를 읽는다.
+# 국가기상위성센터 자료처리 모델러는 이 셰이프가 아니라 같은 원천의 표(c15-elements.json)를 읽는다.
 # 실행: shacl validate --shapes gk-record-shapes.ttl --data gk-vocab.ttl --data <기록>.ttl
 # ============================================================================
 
 nmsc:RecordDataObjectShape a sh:NodeShape ;
     sh:targetClass nmsc:DataObject ;
-    rdfs:label "자료 객체 요소(값 모양·개수 — src/c15_elements.tsv)"@ko ;
+    rdfs:label "자료 객체 요소(값 모양·개수)"@ko ;
     sh:property [ sh:path dct:identifier ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "do.identifier (식별자): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
     sh:property [ sh:path dct:identifier ; sh:maxCount 1 ; sh:message "do.identifier (식별자): 최대 1개"@ko ] ;
     sh:property [ sh:path dct:identifier ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "do.identifier (식별자): 필수 — 최소 1개"@ko ] ;
@@ -52,7 +52,7 @@ nmsc:RecordDataObjectShape a sh:NodeShape ;
 
 nmsc:RecordVariableShape a sh:NodeShape ;
     sh:targetClass nmsc:DataVariable ;
-    rdfs:label "자료 변수 요소(값 모양·개수 — src/c15_elements.tsv)"@ko ;
+    rdfs:label "자료 변수 요소(값 모양·개수)"@ko ;
     sh:property [ sh:path nmsc:variableName ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "var.name (변수 이름): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
     sh:property [ sh:path nmsc:variableName ; sh:maxCount 1 ; sh:message "var.name (변수 이름): 최대 1개"@ko ] ;
     sh:property [ sh:path nmsc:variableName ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "var.name (변수 이름): 필수 — 최소 1개"@ko ] ;
@@ -83,7 +83,7 @@ nmsc:RecordVariableShape a sh:NodeShape ;
 
 nmsc:RecordRunShape a sh:NodeShape ;
     sh:targetClass nmsc:ProcessingRun ;
-    rdfs:label "처리 실행 요소(값 모양·개수 — src/c15_elements.tsv)"@ko ;
+    rdfs:label "처리 실행 요소(값 모양·개수)"@ko ;
     sh:property [ sh:path ( prov:qualifiedAssociation prov:hadPlan dct:type ) ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/algorithm> ] ] ; sh:message "run.plan.algorithm (알고리즘): 값은 scheme/algorithm 의 개념이어야 한다(SR18)"@ko ] ;
     sh:property [ sh:path ( prov:qualifiedAssociation prov:hadPlan dct:type ) ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "run.plan.algorithm (알고리즘): 필수 — 최소 1개"@ko ] ;
     sh:property [ sh:path ( prov:qualifiedAssociation prov:hadPlan dcat:version ) ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "run.plan.version (알고리즘 판): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
@@ -106,7 +106,7 @@ nmsc:RecordRunShape a sh:NodeShape ;
 
 nmsc:RecordUsageShape a sh:NodeShape ;
     sh:targetClass prov:Usage ;
-    rdfs:label "입력 사용 요소(값 모양·개수 — src/c15_elements.tsv)"@ko ;
+    rdfs:label "입력 사용 요소(값 모양·개수)"@ko ;
     sh:property [ sh:path prov:entity ; sh:nodeKind sh:BlankNodeOrIRI ; sh:message "usage.entity (입력 자료): 값은 노드 여야 한다"@ko ] ;
     sh:property [ sh:path prov:entity ; sh:maxCount 1 ; sh:message "usage.entity (입력 자료): 최대 1개"@ko ] ;
     sh:property [ sh:path prov:entity ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "usage.entity (입력 자료): 필수 — 최소 1개"@ko ] ;
@@ -116,7 +116,7 @@ nmsc:RecordUsageShape a sh:NodeShape ;
 
 nmsc:RecordComponentShape a sh:NodeShape ;
     sh:targetClass nmsc:UncertaintyComponent ;
-    rdfs:label "불확도 성분 요소(값 모양·개수 — src/c15_elements.tsv)"@ko ;
+    rdfs:label "불확도 성분 요소(값 모양·개수)"@ko ;
     sh:property [ sh:path nmsc:componentOf ; sh:nodeKind sh:BlankNodeOrIRI ; sh:class nmsc:DataVariable ; sh:message "comp.of (출력 변수): 값은 노드 (nmsc:DataVariable) 여야 한다"@ko ] ;
     sh:property [ sh:path nmsc:componentOf ; sh:maxCount 1 ; sh:message "comp.of (출력 변수): 최대 1개"@ko ] ;
     sh:property [ sh:path nmsc:componentOf ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "comp.of (출력 변수): 필수 — 최소 1개"@ko ] ;
@@ -155,7 +155,7 @@ nmsc:RecordComponentShape a sh:NodeShape ;
 
 nmsc:RecordValidationShape a sh:NodeShape ;
     sh:targetClass nmsc:ValidationRecord ;
-    rdfs:label "검증 기록 요소(값 모양·개수 — src/c15_elements.tsv)"@ko ;
+    rdfs:label "검증 기록 요소(값 모양·개수)"@ko ;
     sh:property [ sh:path nmsc:validationKind ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/validation-kind> ] ] ; sh:message "val.kind (검증 종류): 값은 scheme/validation-kind 의 개념이어야 한다(SR18)"@ko ] ;
     sh:property [ sh:path nmsc:validationKind ; sh:maxCount 1 ; sh:message "val.kind (검증 종류): 최대 1개"@ko ] ;
     sh:property [ sh:path nmsc:validationKind ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "val.kind (검증 종류): 필수 — 최소 1개"@ko ] ;

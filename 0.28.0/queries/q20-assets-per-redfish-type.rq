@@ -1,0 +1,28 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q20. 수집기 점검 — Redfish 자원 유형별로 그래프에 들어온 자산 수
+#    0건인 유형은 수집기가 그 자원을 긁어오지 않고 있다는 뜻이다.
+SELECT ?유형 ?redfish (COUNT(?a) AS ?자산수)
+WHERE {
+  ?t skos:inScheme <https://w3id.org/nmsc/scheme/it-asset-type> ;
+     nmsc:redfishResourceType ?redfish ;
+     skos:prefLabel ?유형 . FILTER(lang(?유형) = "ko")
+  OPTIONAL { ?a nmsc:itAssetType ?t }
+}
+GROUP BY ?유형 ?redfish
+ORDER BY ?자산수 ?유형

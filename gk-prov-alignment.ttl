@@ -9,8 +9,8 @@
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
 # ============================================================================
-# GK 어휘 → W3C PROV-O 정렬 — 생성물(src/gen_align.py). 손으로 고치지 말 것.
-# 판정표 src/prov_alignment.tsv 의 "확실" 행만 싣는다. 후보·안함과 그 이유는 판정표에 있다.
+# GK 어휘 → W3C PROV-O 정렬 — 생성물. 손으로 고치지 말 것.
+# 판정표 의 "확실" 행만 싣는다. 후보·안함과 그 이유는 판정표에 있다.
 # 본 어휘를 바꾸지 않는다. PROV-O 를 쓰지 않는 쪽은 이 파일을 올리지 않으면 된다.
 # ============================================================================
 
@@ -20,7 +20,7 @@
     dct:source <http://www.w3.org/ns/prov#> ;
     dct:license <https://www.kogl.or.kr/info/licenseType1.do> ;
     owl:imports <https://w3id.org/nmsc/> , <http://www.w3.org/ns/prov-o#> ;
-    rdfs:comment "PROV-O 용어는 2026-11-13 w3.org/ns/prov 에서 받은 원본과 대조했다(src/prov_terms_2013.txt). 계보 기록 자체는 인스턴스 수준(SatWright 실행 기록, MyGiver 그래프)이고, 이 파일은 그 기록이 가리킬 NMSC 위성 어휘 용어의 자리를 정한다."@ko , "The PROV-O terms were checked against the original retrieved from w3.org/ns/prov on 2026-11-13 (src/prov_terms_2013.txt). The lineage records themselves are at instance level (SatWright run records, the MyGiver graph); this file sets the places of the NMSC satellite vocabulary terms those records point to."@en .
+    rdfs:comment "PROV-O 용어는 2026-11-13 w3.org/ns/prov 에서 받은 원본과 대조했다. 계보 기록 자체는 인스턴스 수준(국가기상위성센터 자료처리 모델러 실행 기록, 국가기상위성센터 업무 지식저장소 그래프)이고, 이 파일은 그 기록이 가리킬 NMSC 위성 어휘 용어의 자리를 정한다."@ko , "The PROV-O terms were checked against the original retrieved from w3.org/ns/prov on 2026-11-13. The lineage records themselves are at instance level (NMSC Data Processing Modeler run records, the NMSC operations knowledge repository graph); this file sets the places of the NMSC satellite vocabulary terms those records point to."@en .
 
 # scheme/agency type prov:Organization — prov:Organization "An organization is a social or legal institution such as a company, society, etc." 기관 스킴의 개념은 실제 기관 하나씩이다(ROR 연결). v0.14 개발 참여 기관 9개, v0.15 에 협력 기관 7개를 더해 16개 — 협력 기관도 기관이므로 같은 판정을 그대로 적용한다. 위성 스킴을 sosa:Platform 으로 둔 것과 같은 방식
 <https://w3id.org/nmsc/agency/kma> a prov:Organization .
@@ -43,10 +43,10 @@
 # nmsc:Artifact subClassOf prov:Entity — prov:Entity "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects". C10 에서 본 어휘에 이미 선언했다 — 정렬 파일에도 같은 공리를 둔다(본 어휘 없이 이 파일만 읽는 쪽을 위해)
 nmsc:Artifact rdfs:subClassOf prov:Entity .
 
-# nmsc:ProcessingRun subClassOf prov:Activity — prov:Activity "something that occurs over a period of time and acts upon or with entities". 처리 실행은 운영 알고리즘 한 판을 한 번 돌린 것 — 입력 자료를 쓰고(prov:used·qualifiedUsage) 출력 자료를 만든다(prov:wasGeneratedBy). C15 단계 2(2026-11-15, 설계 docs/c15-stage2-design.md §3) 본 어휘에도 같은 공리를 선언했다
+# nmsc:ProcessingRun subClassOf prov:Activity — prov:Activity "something that occurs over a period of time and acts upon or with entities". 처리 실행은 운영 알고리즘 한 판을 한 번 돌린 것 — 입력 자료를 쓰고(prov:used·qualifiedUsage) 출력 자료를 만든다(prov:wasGeneratedBy). C15 단계 2(2026-11-15, 설계) 본 어휘에도 같은 공리를 선언했다
 nmsc:ProcessingRun rdfs:subClassOf prov:Activity .
 
-# nmsc:ValidationRecord subClassOf prov:Entity — prov:Entity "a physical, digital, conceptual, or other kind of thing with some fixed aspects". 검증 기록은 결과를 고정해 남긴 기록물이다. W3C DQV 문서 3절도 품질 기록을 PROV 관계로 잇는다(docs/c15-stage2-external.md 3.2). C15 단계 2 본 어휘에도 선언
+# nmsc:ValidationRecord subClassOf prov:Entity — prov:Entity "a physical, digital, conceptual, or other kind of thing with some fixed aspects". 검증 기록은 결과를 고정해 남긴 기록물이다. W3C DQV 문서 3절도 품질 기록을 PROV 관계로 잇는다. C15 단계 2 본 어휘에도 선언
 nmsc:ValidationRecord rdfs:subClassOf prov:Entity .
 
 # scheme/input-role type prov:Role — prov:Role "A role is the function of an entity or agent with respect to an activity, in the context of a usage, generation, invalidation, association, start, and end". 입력 역할 개념은 prov:Usage 의 prov:hadRole 값으로만 쓴다(설계 §3.2) — prov:hadRole 의 치역이 prov:Role 이라 추론 결과와 같다. 기관 스킴을 prov:Organization 으로 둔 것과 같은 방식(결정 S2-17)

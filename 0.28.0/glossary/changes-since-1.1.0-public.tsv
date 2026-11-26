@@ -1,0 +1,16 @@
+# 국가기상위성센터 기상위성 용어집 (초안) — 용어집 1.1.0(별칭 2026.1) 판(고정 2026-11-17) 이후 바뀐 용어, 공개 변경 피드(공식 뜻 줄만). 기계 판독 표.
+# 생성물 — 손으로 고치지 말 것. 임시(검토 전) 뜻의 줄과 공개 파일에 자리가 없는 뜻의 줄은 뺐다.
+# 공식 항목(gl:gNNNN)의 변경은 glossary.ttl 의 dct:modified·skos:changeNote 에도 실린다. 사용 노트 주어(어휘 개념·외부 IRI)의 변경은 이 피드에만 있다.
+# 용어집 판 표시 1.1.0+2026-11-17. 열: date edition id sense_id action fields replaced_by status_now anchor_now summary reason basis. status_now·anchor_now 는 생성 시점의 상태·자리(gl:gNNNN 은 https://w3id.org/nmsc/glossary/gNNNN).
+# ----------------------------------------------------------------------------
+# NMSC Meteorological Satellite Glossary (draft) - public change feed: changes since glossary edition 1.1.0 (alias 2026.1) (fixed 2026-11-17), official senses only.
+# Generated from the change log; do not edit by hand. Rows for provisional (unreviewed) senses are omitted.
+# Changes to glossary entries gl:gNNNN also appear in glossary.ttl as dct:modified and skos:changeNote; changes to usage-note subjects
+#   (NMSC satellite vocabulary concepts, external IRIs) appear only in this feed. Text columns summary, reason and basis are in Korean.
+# Glossary edition 1.1.0+2026-11-17. Columns: date edition id sense_id action fields replaced_by status_now anchor_now summary reason basis. status_now and anchor_now are the state and anchor at generation time (gl:gNNNN = https://w3id.org/nmsc/glossary/gNNNN).
+date	edition	id	sense_id	action	fields	replaced_by	status_now	anchor_now	summary	reason	basis
+2026-11-17	1.1.0	Active sensor	Active sensor	update	anchor		official	https://gcmd.earthdata.nasa.gov/kms/concept/c8fe757b-b530-4d67-a553-e4903f4430a5	자리 판정 대기 → ② GCMD Instruments Active Remote Sensing	규칙 (가) — GCMD 기기 분류 범주를 일반 유형 용어의 정본으로 인정, 정의가 용어집 능동센서와 같다	사용자 결정 6 "권장진행"(2026-11-17)
+2026-11-17	1.1.0	EDAC	EDAC	update	anchor		official	https://sanaregistry.org/r/abbreviations/records/417	자리 판정 대기 → ② SANA Abbreviations EDAC(417)	규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(풀이 끝 Code)를 같은 대상으로	사용자 결정 6 "권장진행"(2026-11-17)
+2026-11-17	1.1.0	FDIR	FDIR	update	anchor		official	https://sanaregistry.org/r/abbreviations/records/490	자리 판정 대기 → ② SANA Abbreviations FDIR(490)	규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(Failure/Fault)를 같은 대상으로	사용자 결정 6 "권장진행"(2026-11-17)
+2026-11-17	1.1.0	G/T	G/T	update	anchor		official	https://sanaregistry.org/r/abbreviations/records/547	자리 판정 대기 → ② SANA Abbreviations G/T(547)	규칙 (나) — SANA 풀이(Antenna gain to system noise temperature ratio)와 낱말 차이만 있는 같은 성능지수	사용자 결정 6 "권장진행"(2026-11-17)
+2026-11-17	1.1.0	MJD	MJD	update	anchor		official	https://sanaregistry.org/r/abbreviations/records/867	자리 판정 대기 → ② SANA Abbreviations MJD(867)	규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(Day/Date)를 같은 대상으로	사용자 결정 6 "권장진행"(2026-11-17)

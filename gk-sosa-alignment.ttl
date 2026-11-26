@@ -11,8 +11,8 @@
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
 # ============================================================================
-# GK 어휘 → W3C SOSA/SSN 정렬 — 생성물(src/gen_align.py). 손으로 고치지 말 것.
-# 판정표 src/sosa_alignment.tsv 의 "확실" 행만 싣는다. 후보·안함과 그 이유는 판정표에 있다.
+# GK 어휘 → W3C SOSA/SSN 정렬 — 생성물. 손으로 고치지 말 것.
+# 판정표 의 "확실" 행만 싣는다. 후보·안함과 그 이유는 판정표에 있다.
 # 본 어휘를 바꾸지 않는다. SOSA 를 쓰지 않는 쪽은 이 파일을 올리지 않으면 된다.
 # ============================================================================
 
@@ -22,7 +22,7 @@
     dct:source <http://www.w3.org/ns/sosa/> , <http://www.w3.org/ns/ssn/> , <http://www.w3.org/ns/ssn/systems/> ;
     dct:license <https://www.kogl.or.kr/info/licenseType1.do> ;
     owl:imports <https://w3id.org/nmsc/> , <http://www.w3.org/ns/ssn/> ;
-    rdfs:comment "SOSA·SSN 용어는 2026-11-11 w3.org/ns 에서 받은 원본과 대조했다(src/sosa_terms_2017.txt). 관련도·관측 한계·운용 기간·개발 분담은 SOSA/SSN 에 같은 뜻의 용어가 없어 본 어휘의 것을 그대로 쓴다."@ko , "The SOSA and SSN terms were checked against the originals retrieved from w3.org/ns on 2026-11-11 (src/sosa_terms_2017.txt). Relevance, observing limitations, operation periods and development responsibilities have no terms with the same meaning in SOSA/SSN, so this vocabulary's own terms are used as they are."@en .
+    rdfs:comment "SOSA·SSN 용어는 2026-11-11 w3.org/ns 에서 받은 원본과 대조했다. 관련도·관측 한계·운용 기간·개발 분담은 SOSA/SSN 에 같은 뜻의 용어가 없어 본 어휘의 것을 그대로 쓴다."@ko , "The SOSA and SSN terms were checked against the originals retrieved from w3.org/ns on 2026-11-11. Relevance, observing limitations, operation periods and development responsibilities have no terms with the same meaning in SOSA/SSN, so this vocabulary's own terms are used as they are."@en .
 
 # nmsc:Deployment subClassOf ssn:Deployment — ssn:Deployment "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform." 우리 운용 노드는 위성 1기에 탑재체 1기를 실은 경우라 그 특수한 경우다. 기간·상태는 SSN 에 대응 속성이 없어 우리 속성으로 남긴다
 nmsc:Deployment rdfs:subClassOf ssn:Deployment .
@@ -33,7 +33,7 @@ nmsc:deploymentPlatform rdfs:subPropertyOf ssn:deployedOnPlatform .
 # nmsc:deployedSystem subPropertyOf ssn:deployedSystem — "Relation between a Deployment and a deployed System." 정의가 같다
 nmsc:deployedSystem rdfs:subPropertyOf ssn:deployedSystem .
 
-# nmsc:carries subPropertyOf sosa:hosts — "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it." 위성→탑재체. gen.py 의 온톨로지 주석이 3단계 대체 대상으로 적어 둔 것
+# nmsc:carries subPropertyOf sosa:hosts — "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it." 위성→탑재체. 온톨로지 주석이 3단계 대체 대상으로 적어 둔 것
 nmsc:carries rdfs:subPropertyOf sosa:hosts .
 
 # nmsc:carriedBy subPropertyOf sosa:isHostedBy — sosa:hosts 의 역. 탑재체→위성
@@ -61,7 +61,7 @@ nmsc:carriedBy rdfs:subPropertyOf sosa:isHostedBy .
 <https://w3id.org/nmsc/instrument/ksem2-heems> a sosa:Sensor .
 <https://w3id.org/nmsc/instrument/ksem> a sosa:Sensor .
 
-# scheme/variable type sosa:ObservableProperty — "An observable quality (property, characteristic) of a FeatureOfInterest." 변수 117개(도메인 최상위 개념 13개는 묶음이라 제외; NMSC 위성 어휘가 정의한 47개 포함 — status 99 의 5개, status 130 의 30개, status 131 의 12개)
+# scheme/variable type sosa:ObservableProperty — "An observable quality (property, characteristic) of a FeatureOfInterest." 변수 117개(도메인 최상위 개념 13개는 묶음이라 제외; NMSC 위성 어휘가 정의한 47개 포함 — 5개, 30개, 12개)
 <https://w3id.org/nmsc/variable/absolute_vorticity> a sosa:ObservableProperty .
 <https://w3id.org/nmsc/variable/accumulated_precipitation> a sosa:ObservableProperty .
 <https://w3id.org/nmsc/variable/aerosol_angstrom_exponent> a sosa:ObservableProperty .
