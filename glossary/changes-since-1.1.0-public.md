@@ -20,8 +20,8 @@
 
 | 식별자 | 뜻 | 동작 | 바뀐 칸 | 대상 | 지금 | 요약 | 사유 | 근거 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `Active sensor` | Active sensor | update | anchor |  | 공식 · https://gcmd.earthdata.nasa.gov/kms/concept/c8fe757b-b530-4d67-a553-e4903f4430a5 | 자리 판정 대기 → ② GCMD Instruments Active Remote Sensing | 규칙 (가) — GCMD 기기 분류 범주를 일반 유형 용어의 정본으로 인정, 정의가 용어집 능동센서와 같다 | 사용자 결정 6 "권장진행"(2026-11-17) |
-| `EDAC` | EDAC | update | anchor |  | 공식 · https://sanaregistry.org/r/abbreviations/records/417 | 자리 판정 대기 → ② SANA Abbreviations EDAC(417) | 규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(풀이 끝 Code)를 같은 대상으로 | 사용자 결정 6 "권장진행"(2026-11-17) |
-| `FDIR` | FDIR | update | anchor |  | 공식 · https://sanaregistry.org/r/abbreviations/records/490 | 자리 판정 대기 → ② SANA Abbreviations FDIR(490) | 규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(Failure/Fault)를 같은 대상으로 | 사용자 결정 6 "권장진행"(2026-11-17) |
-| `G/T` | G/T | update | anchor |  | 공식 · https://sanaregistry.org/r/abbreviations/records/547 | 자리 판정 대기 → ② SANA Abbreviations G/T(547) | 규칙 (나) — SANA 풀이(Antenna gain to system noise temperature ratio)와 낱말 차이만 있는 같은 성능지수 | 사용자 결정 6 "권장진행"(2026-11-17) |
-| `MJD` | MJD | update | anchor |  | 공식 · https://sanaregistry.org/r/abbreviations/records/867 | 자리 판정 대기 → ② SANA Abbreviations MJD(867) | 규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(Day/Date)를 같은 대상으로 | 사용자 결정 6 "권장진행"(2026-11-17) |
+| `Active sensor` | Active sensor | update | anchor |  | 공식 · https://gcmd.earthdata.nasa.gov/kms/concept/c8fe757b-b530-4d67-a553-e4903f4430a5 | 자리 판정 대기 → ② GCMD Instruments Active Remote Sensing | 규칙 (가) — GCMD 기기 분류 범주를 일반 유형 용어의 정본으로 인정, 정의가 용어집 능동센서와 같다 | 어휘 관리자 결정(2026-11-17) |
+| `EDAC` | EDAC | update | anchor |  | 공식 · https://sanaregistry.org/r/abbreviations/records/417 | 자리 판정 대기 → ② SANA Abbreviations EDAC(417) | 규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(풀이 끝 Code)를 같은 대상으로 | 어휘 관리자 결정(2026-11-17) |
+| `FDIR` | FDIR | update | anchor |  | 공식 · https://sanaregistry.org/r/abbreviations/records/490 | 자리 판정 대기 → ② SANA Abbreviations FDIR(490) | 규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(Failure/Fault)를 같은 대상으로 | 어휘 관리자 결정(2026-11-17) |
+| `G/T` | G/T | update | anchor |  | 공식 · https://sanaregistry.org/r/abbreviations/records/547 | 자리 판정 대기 → ② SANA Abbreviations G/T(547) | 규칙 (나) — SANA 풀이(Antenna gain to system noise temperature ratio)와 낱말 차이만 있는 같은 성능지수 | 어휘 관리자 결정(2026-11-17) |
+| `MJD` | MJD | update | anchor |  | 공식 · https://sanaregistry.org/r/abbreviations/records/867 | 자리 판정 대기 → ② SANA Abbreviations MJD(867) | 규칙 (나) — SANA 풀이와 낱말 하나 다른 표기(Day/Date)를 같은 대상으로 | 어휘 관리자 결정(2026-11-17) |

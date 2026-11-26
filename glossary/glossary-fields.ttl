@@ -16,11 +16,11 @@
 
 # ============================================================================
 # 국가기상위성센터 기상위성 용어집 (초안) — 분야 skos:Collection glossary/field/<code> (공식)
-# 생성물 (NMSC 위성 어휘 0.28.0, 용어집 판 1.1.0+2026-11-17). 손으로 고치지 말 것.
+# 생성물 (NMSC 위성 어휘 0.29.0, 용어집 판 1.1.0+2026-11-17). 손으로 고치지 말 것.
 # 공개 — 공식(official) 뜻만. 발행 국가기상위성센터(agcy:nmsc), 용어집 판 1.1.0+2026-11-17(1.1.0판(별칭 2026.1) 이후 변경 반영 — NMSC 위성 어휘 판과 따로). 항목의 원본 행 출처(dct:source 의 "NMSC 약어 용어표 d1.2 (2019-05-01)")는 NMSC 내부 자료(비공개)다. 출처 기록으로 남길 뿐 그 자료를 함께 배포하지 않는다.
 # 분야 10개(코드 other 는 공개 분야로 내지 않는다 — 그 뜻은 소속 없음). 소속 skos:member 1183 — 대상은 용어집 항목(gl:gNNNN)·
-#   어휘 개념·외부 IRI(사용 노트의 주어). 주어는 언제나 Collection 이다 — 외부 IRI 에 문장을 달지 않는다(C9-24, L5).
-# 분류 근거·정정 기록은 싣지 않는다(C9-7). 분야 이름·범위는 고칠 수 있지만 코드(IRI)는 바꾸지 않는다(R-3).
+#   어휘 개념·외부 IRI(사용 노트의 주어). 주어는 언제나 Collection 이다 — 외부 IRI 에 문장을 달지 않는다.
+# 분류 근거·정정 기록은 싣지 않는다. 분야 이름·범위는 고칠 수 있지만 코드(IRI)는 바꾸지 않는다.
 #
 # ----------------------------------------------------------------------------
 # NMSC Meteorological Satellite Glossary (draft) - field collections skos:Collection glossary/field/<code> (official)
@@ -30,10 +30,10 @@
 # The source rows cited in dct:source ("NMSC 약어 용어표 d1.2 (2019-05-01)") are NMSC internal material (not public); they are recorded for provenance only and are not distributed.
 # 10 fields (code other is not published as a field; its senses have no field membership). 1183 skos:member links;
 #   members are glossary entries (gl:gNNNN), NMSC satellite vocabulary concepts and external IRIs (the subjects of the usage notes).
-# The subject is always the Collection: no statement is made about an external IRI (C9-24, L5).
-# Classification rationale and correction records are not included (C9-7). Field names and scope notes may change;
+# The subject is always the Collection: no statement is made about an external IRI.
+# Classification rationale and correction records are not included. Field names and scope notes may change;
 #   field codes (IRIs) do not (R-3).
-# Generated (NMSC satellite vocabulary 0.28.0, glossary edition 1.1.0+2026-11-17). Do not edit by hand.
+# Generated (NMSC satellite vocabulary 0.29.0, glossary edition 1.1.0+2026-11-17). Do not edit by hand.
 # ============================================================================
 
 <https://w3id.org/nmsc/glossary> a dcat:Dataset ;
@@ -54,8 +54,8 @@ gfield:mission a skos:Collection ;
     skos:prefLabel "위성(위성 프로그램)"@ko ;
     skos:prefLabel "Satellite missions and programmes"@en ;
     skos:scopeNote "넣는 것: 위성·위성 시리즈·프로그램·임무 이름, 위성 항법 체계, 궤도 종류·임무 차원의 궤도 개념"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0183 ;
     skos:member gl:g0365 ;
     skos:member gl:g0440 ;
@@ -134,8 +134,8 @@ gfield:bus a skos:Collection ;
     skos:prefLabel "위성체"@ko ;
     skos:prefLabel "Spacecraft bus"@en ;
     skos:scopeNote "넣는 것: 위성 본체와 서브시스템(자세·궤도 제어, 추진, 전력, 열, 구조, 중계기·RF 부품, 비행 소프트웨어), 운용 모드·발사 단계, 위성체 개발 시험·모델"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0137 ;
     skos:member gl:g0160 ;
     skos:member gl:g0165 ;
@@ -220,8 +220,8 @@ gfield:payload a skos:Collection ;
     skos:prefLabel "탑재체"@ko ;
     skos:prefLabel "Payloads and instruments"@en ;
     skos:scopeNote "넣는 것: 관측기기·센서, 탑재체 내부 부품(보정 타겟·주사 거울·검출기·냉각기·탑재체 전자부), 시야·샘플링 거리 등 기기 성능 개념"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0136 ;
     skos:member gl:g0179 ;
     skos:member gl:g0196 ;
@@ -334,8 +334,8 @@ gfield:orbit a skos:Collection ;
     skos:prefLabel "위성 일반(궤도·좌표·시각)"@ko ;
     skos:prefLabel "Satellite fundamentals (orbit, coordinates, time)"@en ;
     skos:scopeNote "넣는 것: 궤도 종류·궤도 요소·궤도 기하(직하점·베타각·승교점), 위성 방식, 좌표계·측지계·천구, 시각 체계"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0197 ;
     skos:member gl:g0273 ;
     skos:member gl:g0287 ;
@@ -363,8 +363,8 @@ gfield:ground a skos:Collection ;
     skos:prefLabel "지상국(L0~L1)"@ko ;
     skos:prefLabel "Ground segment (L0-L1)"@en ;
     skos:scopeNote "넣는 것: 안테나·RF, 수신, L0~L1 처리, 복사·기하 보정(영상위치보정), 자료 전송 규약·배포 방송"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0020 ;
     skos:member gl:g0039 ;
     skos:member gl:g0040 ;
@@ -489,8 +489,8 @@ gfield:control a skos:Collection ;
     skos:prefLabel "위성관제"@ko ;
     skos:prefLabel "Satellite operations and control"@en ;
     skos:scopeNote "넣는 것: 원격측정·명령·추적(TT&C), 궤도결정·비행역학·위치유지, 임무 계획·일정, 관제센터·관제 시스템, 위성 시뮬레이터, 발사·초기 운용(LEOP)"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0167 ;
     skos:member gl:g0184 ;
     skos:member gl:g0224 ;
@@ -519,8 +519,8 @@ gfield:analysis a skos:Collection ;
     skos:prefLabel "위성자료 분석(L2~)"@ko ;
     skos:prefLabel "Satellite data analysis (L2 and above)"@en ;
     skos:scopeNote "넣는 것: 기상·해양·환경·우주기상 산출물, 산출 알고리즘, 대기과학·물리량, 모델·자료동화, 검증, 국제 공동연구 사업·실험"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0019 ;
     skos:member gl:g0021 ;
     skos:member gl:g0025 ;
@@ -833,8 +833,8 @@ gfield:org a skos:Collection ;
     skos:prefLabel "조직·기관"@ko ;
     skos:prefLabel "Organizations"@en ;
     skos:scopeNote "넣는 것: 기관·기구·부서·위원회·전문가팀, 국제 협력 프로그램·체계"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0022 ;
     skos:member gl:g0023 ;
     skos:member gl:g0024 ;
@@ -1167,8 +1167,8 @@ gfield:it a skos:Collection ;
     skos:prefLabel "정보시스템·정보기술"@ko ;
     skos:prefLabel "Information systems and technology"@en ;
     skos:scopeNote "넣는 것: 컴퓨터·네트워크·보안, 소프트웨어·DB, 자료 형식, 정보시스템"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0020 ;
     skos:member gl:g0039 ;
     skos:member gl:g0040 ;
@@ -1247,8 +1247,8 @@ gfield:project a skos:Collection ;
     skos:prefLabel "사업관리"@ko ;
     skos:prefLabel "Project management"@en ;
     skos:scopeNote "넣는 것: 개발 사업의 계약·품질보증·형상·부품 관리, 시험 계획, 검토 회의, 사업 문서, 사업 조직·역할"@ko ;
-    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14, 담당자 검토 전)."@ko ;
-    dct:source "용어집 분야 구분 — 2026-11-12 사용자 제안(분야별 검토 묶음), 2026-11-13 위성관제 분리, 2026-11-14 부 분야 허용·분야 Collection 공개 결정(C9-24). 분야 소속은 담당자 검토 전 분류다"@ko ;
+    skos:editorialNote "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전."@ko ;
+    dct:source "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다"@ko ;
     skos:member gl:g0135 ;
     skos:member gl:g0186 ;
     skos:member gl:g0187 ;

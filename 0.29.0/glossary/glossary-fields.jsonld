@@ -1,0 +1,4045 @@
+{
+ "@context": {
+  "gl": "https://w3id.org/nmsc/glossary/",
+  "gfield": "https://w3id.org/nmsc/glossary/field/",
+  "agcy": "https://w3id.org/nmsc/agency/",
+  "dism": "https://w3id.org/nmsc/dissemination-method/",
+  "ins": "https://w3id.org/nmsc/instrument/",
+  "plev": "https://w3id.org/nmsc/processing-level/",
+  "prod": "https://w3id.org/nmsc/product/",
+  "sat": "https://w3id.org/nmsc/satellite/",
+  "var": "https://w3id.org/nmsc/variable/",
+  "skos": "http://www.w3.org/2004/02/skos/core#",
+  "dct": "http://purl.org/dc/terms/",
+  "dcat": "http://www.w3.org/ns/dcat#",
+  "owl": "http://www.w3.org/2002/07/owl#",
+  "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+  "xsd": "http://www.w3.org/2001/XMLSchema#"
+ },
+ "@graph": [
+  {
+   "@id": "https://w3id.org/nmsc/glossary",
+   "@type": [
+    "dcat:Dataset"
+   ],
+   "dct:title": [
+    {
+     "@value": "국가기상위성센터 기상위성 용어집 (초안)",
+     "@language": "ko"
+    },
+    {
+     "@value": "NMSC Meteorological Satellite Glossary (draft)",
+     "@language": "en"
+    }
+   ],
+   "dct:description": [
+    {
+     "@value": "국가기상위성센터(NMSC) 기상위성 업무 용어집의 공개분이다. 기관 승인 전 초안이다. 판은 NMSC 위성 어휘 판과 따로 매기는 용어집 판이다 — owl:versionInfo 는 고정판의 번호(X.Y.Z — 연도 이름은 별칭)이고, 그 판 이후 변경이 있으면 + 마지막 변경일을 붙인다. 기준판 1.0.0(별칭 2026) 이후 바뀐 항목에는 dct:modified(마지막 변경일)와 변경마다 skos:changeNote 를 단다. 각 뜻의 정체(IRI)는 NMSC 위성 어휘 개념이나 확인된 외부 레지스트리 IRI 에 두고 NMSC 사용 노트만 덧붙인다(nmsc-usage.ttl). 외부 권위인데 해석되는 외부 IRI 가 없는 뜻에만 용어집 항목 glossary/gNNNN 을 발급한다(glossary.ttl). 분야 소속은 분야 Collection glossary/field/(분야 코드) 에 둔다(glossary-fields.ttl). 검토 전(임시) 뜻은 싣지 않는다. 항목의 원본 행 출처(dct:source 의 \"NMSC 약어 용어표 d1.2 (2019-05-01)\")는 NMSC 내부 자료(비공개)다. 출처 기록으로 남길 뿐 그 자료를 함께 배포하지 않는다.",
+     "@language": "ko"
+    },
+    {
+     "@value": "Public part of the NMSC meteorological satellite glossary. Draft, not yet approved by the agency. The glossary has its own editions, separate from the NMSC satellite vocabulary version: owl:versionInfo is the number of the fixed edition (X.Y.Z; year names are aliases), followed by + and the date of the last change when the glossary has changed since that edition. Entries changed since the baseline edition 1.0.0 (alias 2026) carry dct:modified (date of the last change) and one skos:changeNote per change. Each sense is identified by an NMSC satellite vocabulary concept or a verified external registry IRI with NMSC usage notes attached (nmsc-usage.ttl); glossary entries glossary/gNNNN are minted only for externally defined senses without a resolvable external IRI (glossary.ttl); field membership is given by the collections glossary/field/(field code) (glossary-fields.ttl). Provisional (unreviewed) senses are not included. The source rows cited in dct:source (\"NMSC 약어 용어표 d1.2 (2019-05-01)\") are NMSC internal material (not public); they are recorded for provenance only and are not distributed.",
+     "@language": "en"
+    }
+   ],
+   "dct:publisher": [
+    {
+     "@id": "agcy:nmsc"
+    }
+   ],
+   "dct:license": [
+    {
+     "@id": "https://www.kogl.or.kr/info/licenseType1.do"
+    }
+   ],
+   "dct:rights": [
+    {
+     "@value": "공공누리 제1유형(출처표시). 출처: 국가기상위성센터(NMSC) 위성 어휘",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "NMSC 약어 용어표 d1.2 (2019-05-01)",
+     "@language": "ko"
+    }
+   ],
+   "owl:versionInfo": [
+    {
+     "@value": "1.1.0+2026-11-17"
+    }
+   ],
+   "dct:modified": [
+    {
+     "@value": "2026-11-17",
+     "@type": "xsd:date"
+    }
+   ],
+   "rdfs:comment": [
+    {
+     "@value": "이 파일은 외부 자원을 정의하지 않는다. 정본은 주어 IRI 의 원본(NMSC 위성 어휘 개념 또는 외부 레지스트리)이며, 여기 있는 것은 국가기상위성센터가 그 대상을 부르는 이름과 사용 맥락(nmsc:nmscLabel·nmsc:nmscNote)뿐이다.",
+     "@language": "ko"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:mission",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "위성(위성 프로그램)",
+     "@language": "ko"
+    },
+    {
+     "@value": "Satellite missions and programmes",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 위성·위성 시리즈·프로그램·임무 이름, 위성 항법 체계, 궤도 종류·임무 차원의 궤도 개념",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0183"
+    },
+    {
+     "@id": "gl:g0365"
+    },
+    {
+     "@id": "gl:g0440"
+    },
+    {
+     "@id": "gl:g0682"
+    },
+    {
+     "@id": "gl:g0733"
+    },
+    {
+     "@id": "gl:g0757"
+    },
+    {
+     "@id": "gl:g1023"
+    },
+    {
+     "@id": "sat:coms"
+    },
+    {
+     "@id": "sat:gk-2a"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/00274700-26c1-4c44-88a4-10a7ec6214de"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2e7aa2e6-9d25-4c6e-aef3-6e86d3773bac"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/38fc7b53-48bf-4019-980c-87303420bb18"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/3d1847aa-4eba-4c78-b4fc-f4223ca16539"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/45ec5189-ffc5-452d-b365-f6989f1433f1"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/64dfed70-dca2-4656-83d9-63e74c1b0740"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/6b9ee582-1641-4f3b-8ce2-22ad3aae93fa"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/77d92504-8160-4f72-90b9-a7c9640f4361"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a2620edb-fa1b-4e76-99db-581a1766f22a"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/d33aa3d2-23eb-426d-8a50-d3f3294ccb34"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e66a90c4-3a5c-4e52-b039-bc93857642bf"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/cosmic"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/eps"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/ers"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/galileo"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/goes_3rd_generation"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/gpm"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/himawari_1st_generation_gms"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/himawari_2nd_generation_mtsat"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/iss"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/lageos"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/meteosat_1st_generation"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/meteosat_2nd_generation"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/meteosat_3rd_generation"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/mos"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/spot"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/stereo"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satelliteprogrammes/view/tiros"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/ace"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/aeolus"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/alos"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/bird"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/calipso"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/dscovr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/electro_goms"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/envisat"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/erbs"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/fy_1c"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/fy_2a"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/fy_2e"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/fy_3c"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/gcom_w"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/goes_13"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/himawari_6_mtsat_1r"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/himawari_7_mtsat_2"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/himawari_8"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/jers"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/landsat_8"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/meteosat_8"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/metop_a"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/metop_b"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/proba_v"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/scatsat_1"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/sdo"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/smap"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/smos"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/snpp"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/soho"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/terra"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/tiros_n"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/topex_poseidon"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/trmm"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/satellites/view/uars"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:bus",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "위성체",
+     "@language": "ko"
+    },
+    {
+     "@value": "Spacecraft bus",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 위성 본체와 서브시스템(자세·궤도 제어, 추진, 전력, 열, 구조, 중계기·RF 부품, 비행 소프트웨어), 운용 모드·발사 단계, 위성체 개발 시험·모델",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0137"
+    },
+    {
+     "@id": "gl:g0160"
+    },
+    {
+     "@id": "gl:g0165"
+    },
+    {
+     "@id": "gl:g0177"
+    },
+    {
+     "@id": "gl:g0184"
+    },
+    {
+     "@id": "gl:g0248"
+    },
+    {
+     "@id": "gl:g0250"
+    },
+    {
+     "@id": "gl:g0255"
+    },
+    {
+     "@id": "gl:g0267"
+    },
+    {
+     "@id": "gl:g0268"
+    },
+    {
+     "@id": "gl:g0269"
+    },
+    {
+     "@id": "gl:g0282"
+    },
+    {
+     "@id": "gl:g0288"
+    },
+    {
+     "@id": "gl:g0311"
+    },
+    {
+     "@id": "gl:g0313"
+    },
+    {
+     "@id": "gl:g0320"
+    },
+    {
+     "@id": "gl:g0354"
+    },
+    {
+     "@id": "gl:g0400"
+    },
+    {
+     "@id": "gl:g0408"
+    },
+    {
+     "@id": "gl:g0414"
+    },
+    {
+     "@id": "gl:g0418"
+    },
+    {
+     "@id": "gl:g0420"
+    },
+    {
+     "@id": "gl:g0427"
+    },
+    {
+     "@id": "gl:g0443"
+    },
+    {
+     "@id": "gl:g0444"
+    },
+    {
+     "@id": "gl:g0471"
+    },
+    {
+     "@id": "gl:g0484"
+    },
+    {
+     "@id": "gl:g0485"
+    },
+    {
+     "@id": "gl:g0487"
+    },
+    {
+     "@id": "gl:g0494"
+    },
+    {
+     "@id": "gl:g0497"
+    },
+    {
+     "@id": "gl:g0536"
+    },
+    {
+     "@id": "gl:g0542"
+    },
+    {
+     "@id": "gl:g0561"
+    },
+    {
+     "@id": "gl:g0572"
+    },
+    {
+     "@id": "gl:g0604"
+    },
+    {
+     "@id": "gl:g0607"
+    },
+    {
+     "@id": "gl:g0623"
+    },
+    {
+     "@id": "gl:g0628"
+    },
+    {
+     "@id": "gl:g0638"
+    },
+    {
+     "@id": "gl:g0646"
+    },
+    {
+     "@id": "gl:g0649"
+    },
+    {
+     "@id": "gl:g0650"
+    },
+    {
+     "@id": "gl:g0652"
+    },
+    {
+     "@id": "gl:g0654"
+    },
+    {
+     "@id": "gl:g0660"
+    },
+    {
+     "@id": "gl:g0662"
+    },
+    {
+     "@id": "gl:g0672"
+    },
+    {
+     "@id": "gl:g0709"
+    },
+    {
+     "@id": "gl:g0710"
+    },
+    {
+     "@id": "gl:g0713"
+    },
+    {
+     "@id": "gl:g0734"
+    },
+    {
+     "@id": "gl:g0755"
+    },
+    {
+     "@id": "gl:g0764"
+    },
+    {
+     "@id": "gl:g0767"
+    },
+    {
+     "@id": "gl:g0780"
+    },
+    {
+     "@id": "gl:g0801"
+    },
+    {
+     "@id": "gl:g0817"
+    },
+    {
+     "@id": "gl:g0822"
+    },
+    {
+     "@id": "gl:g0824"
+    },
+    {
+     "@id": "gl:g0839"
+    },
+    {
+     "@id": "gl:g0844"
+    },
+    {
+     "@id": "gl:g0853"
+    },
+    {
+     "@id": "gl:g0856"
+    },
+    {
+     "@id": "gl:g0869"
+    },
+    {
+     "@id": "gl:g0896"
+    },
+    {
+     "@id": "gl:g0914"
+    },
+    {
+     "@id": "gl:g0927"
+    },
+    {
+     "@id": "gl:g0941"
+    },
+    {
+     "@id": "gl:g0942"
+    },
+    {
+     "@id": "gl:g0975"
+    },
+    {
+     "@id": "gl:g0985"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/16268fa7-9efd-403d-9bcb-fc622d535ff6"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/38"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/439"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/490"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/356"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/957"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:payload",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "탑재체",
+     "@language": "ko"
+    },
+    {
+     "@value": "Payloads and instruments",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 관측기기·센서, 탑재체 내부 부품(보정 타겟·주사 거울·검출기·냉각기·탑재체 전자부), 시야·샘플링 거리 등 기기 성능 개념",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0136"
+    },
+    {
+     "@id": "gl:g0179"
+    },
+    {
+     "@id": "gl:g0196"
+    },
+    {
+     "@id": "gl:g0221"
+    },
+    {
+     "@id": "gl:g0227"
+    },
+    {
+     "@id": "gl:g0236"
+    },
+    {
+     "@id": "gl:g0308"
+    },
+    {
+     "@id": "gl:g0346"
+    },
+    {
+     "@id": "gl:g0354"
+    },
+    {
+     "@id": "gl:g0451"
+    },
+    {
+     "@id": "gl:g0467"
+    },
+    {
+     "@id": "gl:g0501"
+    },
+    {
+     "@id": "gl:g0512"
+    },
+    {
+     "@id": "gl:g0522"
+    },
+    {
+     "@id": "gl:g0603"
+    },
+    {
+     "@id": "gl:g0699"
+    },
+    {
+     "@id": "gl:g0774"
+    },
+    {
+     "@id": "gl:g0921"
+    },
+    {
+     "@id": "gl:g0996"
+    },
+    {
+     "@id": "gl:g1010"
+    },
+    {
+     "@id": "gl:g1015"
+    },
+    {
+     "@id": "gl:g1025"
+    },
+    {
+     "@id": "ins:ami"
+    },
+    {
+     "@id": "ins:gems"
+    },
+    {
+     "@id": "ins:goci"
+    },
+    {
+     "@id": "ins:ksem"
+    },
+    {
+     "@id": "ins:ksem-cm"
+    },
+    {
+     "@id": "ins:ksem-mg"
+    },
+    {
+     "@id": "ins:mi"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/09bc6a40-b0eb-476a-b750-7aa8af59e0f0"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2b326777-12dc-4765-ab6f-2f7306d3519f"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/6af7a52e-094d-4ba7-9174-ed967260939c"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7166c458-f935-4bd9-a322-d92830cf0c33"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/782ba9cb-0707-4680-a446-9b7f0ff6477d"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/9541cd1b-aac3-4cdd-8ad9-613d9f832e02"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a37282d4-322c-4dd0-8edc-36099b9b586c"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/bc9a1191-24df-4d8c-afa7-da5948f79d20"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/c8fe757b-b530-4d67-a553-e4903f4430a5"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e64e83bd-02b3-4a47-830d-00e1aa4b04d3"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ee79f1d4-3a73-408f-beea-945b869b3abf"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eee5e87c-1e05-48c4-8091-c15e031f94b7"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/659"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/aatsr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/abi"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/ahi"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/airs"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/amsr2"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/amsr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/amsu_b"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/ascat"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/aster"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/atms"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/ceres"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/cris"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/dpr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/gerb"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/gmi_core"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/gome"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/gomos"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/gras"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/iasi"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/ilas_i"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/img"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/lis"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/meris"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/messr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/mhs"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/mipas"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/miras"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/misr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/modis"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/mopitt"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/msr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/msu"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/mwri_1"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/nscat"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/oli"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/omi"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/oscat"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/otd"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/polder"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/pr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/prare"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/rapidscat"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/ris"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/saphir"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/scarab"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/seawifs"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/sem_eps"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/sem_hepad"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/sem_meped"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/sem_ted"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/seviri"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/slstr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/smmr"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/ssm_i"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/ssmis"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/ssu"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/tm"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/tmi"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/toms"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/tropomi"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/vas"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/viirs"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/virs"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/instruments/view/vtir"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:orbit",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "위성 일반(궤도·좌표·시각)",
+     "@language": "ko"
+    },
+    {
+     "@value": "Satellite fundamentals (orbit, coordinates, time)",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 궤도 종류·궤도 요소·궤도 기하(직하점·베타각·승교점), 위성 방식, 좌표계·측지계·천구, 시각 체계",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0197"
+    },
+    {
+     "@id": "gl:g0273"
+    },
+    {
+     "@id": "gl:g0287"
+    },
+    {
+     "@id": "gl:g0305"
+    },
+    {
+     "@id": "gl:g0306"
+    },
+    {
+     "@id": "gl:g0359"
+    },
+    {
+     "@id": "gl:g0385"
+    },
+    {
+     "@id": "gl:g0477"
+    },
+    {
+     "@id": "gl:g0627"
+    },
+    {
+     "@id": "gl:g0749"
+    },
+    {
+     "@id": "gl:g0761"
+    },
+    {
+     "@id": "gl:g0889"
+    },
+    {
+     "@id": "gl:g0891"
+    },
+    {
+     "@id": "gl:g0895"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f831ec03-4d23-4322-a789-f9404187aa33"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/413"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/463"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/769"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/867"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/267"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/429"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:ground",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "지상국(L0~L1)",
+     "@language": "ko"
+    },
+    {
+     "@value": "Ground segment (L0-L1)",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 안테나·RF, 수신, L0~L1 처리, 복사·기하 보정(영상위치보정), 자료 전송 규약·배포 방송",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0020"
+    },
+    {
+     "@id": "gl:g0039"
+    },
+    {
+     "@id": "gl:g0040"
+    },
+    {
+     "@id": "gl:g0060"
+    },
+    {
+     "@id": "gl:g0092"
+    },
+    {
+     "@id": "gl:g0134"
+    },
+    {
+     "@id": "gl:g0138"
+    },
+    {
+     "@id": "gl:g0148"
+    },
+    {
+     "@id": "gl:g0151"
+    },
+    {
+     "@id": "gl:g0161"
+    },
+    {
+     "@id": "gl:g0164"
+    },
+    {
+     "@id": "gl:g0171"
+    },
+    {
+     "@id": "gl:g0174"
+    },
+    {
+     "@id": "gl:g0180"
+    },
+    {
+     "@id": "gl:g0182"
+    },
+    {
+     "@id": "gl:g0190"
+    },
+    {
+     "@id": "gl:g0191"
+    },
+    {
+     "@id": "gl:g0220"
+    },
+    {
+     "@id": "gl:g0227"
+    },
+    {
+     "@id": "gl:g0229"
+    },
+    {
+     "@id": "gl:g0238"
+    },
+    {
+     "@id": "gl:g0249"
+    },
+    {
+     "@id": "gl:g0270"
+    },
+    {
+     "@id": "gl:g0271"
+    },
+    {
+     "@id": "gl:g0275"
+    },
+    {
+     "@id": "gl:g0277"
+    },
+    {
+     "@id": "gl:g0280"
+    },
+    {
+     "@id": "gl:g0284"
+    },
+    {
+     "@id": "gl:g0290"
+    },
+    {
+     "@id": "gl:g0295"
+    },
+    {
+     "@id": "gl:g0304"
+    },
+    {
+     "@id": "gl:g0367"
+    },
+    {
+     "@id": "gl:g0373"
+    },
+    {
+     "@id": "gl:g0411"
+    },
+    {
+     "@id": "gl:g0445"
+    },
+    {
+     "@id": "gl:g0488"
+    },
+    {
+     "@id": "gl:g0490"
+    },
+    {
+     "@id": "gl:g0492"
+    },
+    {
+     "@id": "gl:g0508"
+    },
+    {
+     "@id": "gl:g0530"
+    },
+    {
+     "@id": "gl:g0531"
+    },
+    {
+     "@id": "gl:g0532"
+    },
+    {
+     "@id": "gl:g0534"
+    },
+    {
+     "@id": "gl:g0537"
+    },
+    {
+     "@id": "gl:g0553"
+    },
+    {
+     "@id": "gl:g0557"
+    },
+    {
+     "@id": "gl:g0629"
+    },
+    {
+     "@id": "gl:g0635"
+    },
+    {
+     "@id": "gl:g0641"
+    },
+    {
+     "@id": "gl:g0643"
+    },
+    {
+     "@id": "gl:g0684"
+    },
+    {
+     "@id": "gl:g0691"
+    },
+    {
+     "@id": "gl:g0692"
+    },
+    {
+     "@id": "gl:g0693"
+    },
+    {
+     "@id": "gl:g0721"
+    },
+    {
+     "@id": "gl:g0751"
+    },
+    {
+     "@id": "gl:g0760"
+    },
+    {
+     "@id": "gl:g0768"
+    },
+    {
+     "@id": "gl:g0795"
+    },
+    {
+     "@id": "gl:g0800"
+    },
+    {
+     "@id": "gl:g0804"
+    },
+    {
+     "@id": "gl:g0814"
+    },
+    {
+     "@id": "gl:g0825"
+    },
+    {
+     "@id": "gl:g0848"
+    },
+    {
+     "@id": "gl:g0851"
+    },
+    {
+     "@id": "gl:g0857"
+    },
+    {
+     "@id": "gl:g0902"
+    },
+    {
+     "@id": "gl:g0905"
+    },
+    {
+     "@id": "gl:g0917"
+    },
+    {
+     "@id": "gl:g0923"
+    },
+    {
+     "@id": "gl:g0925"
+    },
+    {
+     "@id": "gl:g0949"
+    },
+    {
+     "@id": "gl:g0950"
+    },
+    {
+     "@id": "gl:g0976"
+    },
+    {
+     "@id": "gl:g0989"
+    },
+    {
+     "@id": "gl:g0991"
+    },
+    {
+     "@id": "gl:g0998"
+    },
+    {
+     "@id": "gl:g0999"
+    },
+    {
+     "@id": "gl:g1021"
+    },
+    {
+     "@id": "gl:g1027"
+    },
+    {
+     "@id": "dism:hrit"
+    },
+    {
+     "@id": "dism:lrit"
+    },
+    {
+     "@id": "dism:uhrit"
+    },
+    {
+     "@id": "plev:l1b"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CPCLLNAV/"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1090"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1093"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/110"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1116"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1122"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/112"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1146"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1176"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1194"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1429"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1497"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1556"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1573"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1624"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1626"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/31"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/430"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/498"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/547"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/56"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/583"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/64"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/654"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/758"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/780"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/781"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/810"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/811"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/83"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/957"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/1405"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/141"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/1457"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:control",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "위성관제",
+     "@language": "ko"
+    },
+    {
+     "@value": "Satellite operations and control",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 원격측정·명령·추적(TT&C), 궤도결정·비행역학·위치유지, 임무 계획·일정, 관제센터·관제 시스템, 위성 시뮬레이터, 발사·초기 운용(LEOP)",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0167"
+    },
+    {
+     "@id": "gl:g0184"
+    },
+    {
+     "@id": "gl:g0224"
+    },
+    {
+     "@id": "gl:g0229"
+    },
+    {
+     "@id": "gl:g0255"
+    },
+    {
+     "@id": "gl:g0276"
+    },
+    {
+     "@id": "gl:g0350"
+    },
+    {
+     "@id": "gl:g0379"
+    },
+    {
+     "@id": "gl:g0452"
+    },
+    {
+     "@id": "gl:g0454"
+    },
+    {
+     "@id": "gl:g0837"
+    },
+    {
+     "@id": "gl:g0864"
+    },
+    {
+     "@id": "gl:g0872"
+    },
+    {
+     "@id": "gl:g1021"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1556"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/474"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/490"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/583"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/770"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/839"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/988"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/1027"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:analysis",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "위성자료 분석(L2~)",
+     "@language": "ko"
+    },
+    {
+     "@value": "Satellite data analysis (L2 and above)",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 기상·해양·환경·우주기상 산출물, 산출 알고리즘, 대기과학·물리량, 모델·자료동화, 검증, 국제 공동연구 사업·실험",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0019"
+    },
+    {
+     "@id": "gl:g0021"
+    },
+    {
+     "@id": "gl:g0025"
+    },
+    {
+     "@id": "gl:g0028"
+    },
+    {
+     "@id": "gl:g0033"
+    },
+    {
+     "@id": "gl:g0036"
+    },
+    {
+     "@id": "gl:g0041"
+    },
+    {
+     "@id": "gl:g0044"
+    },
+    {
+     "@id": "gl:g0046"
+    },
+    {
+     "@id": "gl:g0049"
+    },
+    {
+     "@id": "gl:g0052"
+    },
+    {
+     "@id": "gl:g0055"
+    },
+    {
+     "@id": "gl:g0057"
+    },
+    {
+     "@id": "gl:g0058"
+    },
+    {
+     "@id": "gl:g0061"
+    },
+    {
+     "@id": "gl:g0062"
+    },
+    {
+     "@id": "gl:g0064"
+    },
+    {
+     "@id": "gl:g0067"
+    },
+    {
+     "@id": "gl:g0070"
+    },
+    {
+     "@id": "gl:g0072"
+    },
+    {
+     "@id": "gl:g0074"
+    },
+    {
+     "@id": "gl:g0075"
+    },
+    {
+     "@id": "gl:g0077"
+    },
+    {
+     "@id": "gl:g0079"
+    },
+    {
+     "@id": "gl:g0081"
+    },
+    {
+     "@id": "gl:g0082"
+    },
+    {
+     "@id": "gl:g0083"
+    },
+    {
+     "@id": "gl:g0086"
+    },
+    {
+     "@id": "gl:g0087"
+    },
+    {
+     "@id": "gl:g0089"
+    },
+    {
+     "@id": "gl:g0090"
+    },
+    {
+     "@id": "gl:g0094"
+    },
+    {
+     "@id": "gl:g0101"
+    },
+    {
+     "@id": "gl:g0104"
+    },
+    {
+     "@id": "gl:g0106"
+    },
+    {
+     "@id": "gl:g0107"
+    },
+    {
+     "@id": "gl:g0108"
+    },
+    {
+     "@id": "gl:g0109"
+    },
+    {
+     "@id": "gl:g0110"
+    },
+    {
+     "@id": "gl:g0111"
+    },
+    {
+     "@id": "gl:g0114"
+    },
+    {
+     "@id": "gl:g0115"
+    },
+    {
+     "@id": "gl:g0118"
+    },
+    {
+     "@id": "gl:g0130"
+    },
+    {
+     "@id": "gl:g0131"
+    },
+    {
+     "@id": "gl:g0140"
+    },
+    {
+     "@id": "gl:g0141"
+    },
+    {
+     "@id": "gl:g0143"
+    },
+    {
+     "@id": "gl:g0148"
+    },
+    {
+     "@id": "gl:g0149"
+    },
+    {
+     "@id": "gl:g0152"
+    },
+    {
+     "@id": "gl:g0157"
+    },
+    {
+     "@id": "gl:g0158"
+    },
+    {
+     "@id": "gl:g0162"
+    },
+    {
+     "@id": "gl:g0168"
+    },
+    {
+     "@id": "gl:g0170"
+    },
+    {
+     "@id": "gl:g0172"
+    },
+    {
+     "@id": "gl:g0193"
+    },
+    {
+     "@id": "gl:g0198"
+    },
+    {
+     "@id": "gl:g0205"
+    },
+    {
+     "@id": "gl:g0206"
+    },
+    {
+     "@id": "gl:g0211"
+    },
+    {
+     "@id": "gl:g0212"
+    },
+    {
+     "@id": "gl:g0213"
+    },
+    {
+     "@id": "gl:g0214"
+    },
+    {
+     "@id": "gl:g0215"
+    },
+    {
+     "@id": "gl:g0217"
+    },
+    {
+     "@id": "gl:g0219"
+    },
+    {
+     "@id": "gl:g0230"
+    },
+    {
+     "@id": "gl:g0234"
+    },
+    {
+     "@id": "gl:g0236"
+    },
+    {
+     "@id": "gl:g0239"
+    },
+    {
+     "@id": "gl:g0241"
+    },
+    {
+     "@id": "gl:g0243"
+    },
+    {
+     "@id": "gl:g0245"
+    },
+    {
+     "@id": "gl:g0246"
+    },
+    {
+     "@id": "gl:g0261"
+    },
+    {
+     "@id": "gl:g0265"
+    },
+    {
+     "@id": "gl:g0272"
+    },
+    {
+     "@id": "gl:g0274"
+    },
+    {
+     "@id": "gl:g0279"
+    },
+    {
+     "@id": "gl:g0281"
+    },
+    {
+     "@id": "gl:g0294"
+    },
+    {
+     "@id": "gl:g0295"
+    },
+    {
+     "@id": "gl:g0301"
+    },
+    {
+     "@id": "gl:g0302"
+    },
+    {
+     "@id": "gl:g0303"
+    },
+    {
+     "@id": "gl:g0309"
+    },
+    {
+     "@id": "gl:g0321"
+    },
+    {
+     "@id": "gl:g0322"
+    },
+    {
+     "@id": "gl:g0324"
+    },
+    {
+     "@id": "gl:g0325"
+    },
+    {
+     "@id": "gl:g0326"
+    },
+    {
+     "@id": "gl:g0328"
+    },
+    {
+     "@id": "gl:g0330"
+    },
+    {
+     "@id": "gl:g0336"
+    },
+    {
+     "@id": "gl:g0344"
+    },
+    {
+     "@id": "gl:g0353"
+    },
+    {
+     "@id": "gl:g0371"
+    },
+    {
+     "@id": "gl:g0372"
+    },
+    {
+     "@id": "gl:g0381"
+    },
+    {
+     "@id": "gl:g0389"
+    },
+    {
+     "@id": "gl:g0394"
+    },
+    {
+     "@id": "gl:g0398"
+    },
+    {
+     "@id": "gl:g0417"
+    },
+    {
+     "@id": "gl:g0437"
+    },
+    {
+     "@id": "gl:g0439"
+    },
+    {
+     "@id": "gl:g0472"
+    },
+    {
+     "@id": "gl:g0495"
+    },
+    {
+     "@id": "gl:g0499"
+    },
+    {
+     "@id": "gl:g0570"
+    },
+    {
+     "@id": "gl:g0583"
+    },
+    {
+     "@id": "gl:g0616"
+    },
+    {
+     "@id": "gl:g0644"
+    },
+    {
+     "@id": "gl:g0648"
+    },
+    {
+     "@id": "gl:g0666"
+    },
+    {
+     "@id": "gl:g0685"
+    },
+    {
+     "@id": "gl:g0686"
+    },
+    {
+     "@id": "gl:g0694"
+    },
+    {
+     "@id": "gl:g0698"
+    },
+    {
+     "@id": "gl:g0705"
+    },
+    {
+     "@id": "gl:g0706"
+    },
+    {
+     "@id": "gl:g0736"
+    },
+    {
+     "@id": "gl:g0738"
+    },
+    {
+     "@id": "gl:g0744"
+    },
+    {
+     "@id": "gl:g0746"
+    },
+    {
+     "@id": "gl:g0750"
+    },
+    {
+     "@id": "gl:g0753"
+    },
+    {
+     "@id": "gl:g0771"
+    },
+    {
+     "@id": "gl:g0772"
+    },
+    {
+     "@id": "gl:g0781"
+    },
+    {
+     "@id": "gl:g0786"
+    },
+    {
+     "@id": "gl:g0809"
+    },
+    {
+     "@id": "gl:g0810"
+    },
+    {
+     "@id": "gl:g0884"
+    },
+    {
+     "@id": "gl:g0894"
+    },
+    {
+     "@id": "gl:g0897"
+    },
+    {
+     "@id": "gl:g0899"
+    },
+    {
+     "@id": "gl:g0945"
+    },
+    {
+     "@id": "gl:g0953"
+    },
+    {
+     "@id": "gl:g0969"
+    },
+    {
+     "@id": "gl:g0972"
+    },
+    {
+     "@id": "gl:g0977"
+    },
+    {
+     "@id": "gl:g0978"
+    },
+    {
+     "@id": "gl:g0979"
+    },
+    {
+     "@id": "gl:g0980"
+    },
+    {
+     "@id": "gl:g0981"
+    },
+    {
+     "@id": "gl:g0982"
+    },
+    {
+     "@id": "gl:g0983"
+    },
+    {
+     "@id": "gl:g0986"
+    },
+    {
+     "@id": "gl:g0987"
+    },
+    {
+     "@id": "gl:g0988"
+    },
+    {
+     "@id": "gl:g0992"
+    },
+    {
+     "@id": "gl:g0993"
+    },
+    {
+     "@id": "gl:g0995"
+    },
+    {
+     "@id": "gl:g1000"
+    },
+    {
+     "@id": "gl:g1001"
+    },
+    {
+     "@id": "gl:g1002"
+    },
+    {
+     "@id": "gl:g1003"
+    },
+    {
+     "@id": "gl:g1005"
+    },
+    {
+     "@id": "gl:g1008"
+    },
+    {
+     "@id": "gl:g1013"
+    },
+    {
+     "@id": "gl:g1014"
+    },
+    {
+     "@id": "gl:g1016"
+    },
+    {
+     "@id": "gl:g1017"
+    },
+    {
+     "@id": "gl:g1018"
+    },
+    {
+     "@id": "gl:g1020"
+    },
+    {
+     "@id": "prod:absorbed-shortwave-radiation"
+    },
+    {
+     "@id": "prod:aerosol-detection"
+    },
+    {
+     "@id": "prod:aerosol-optical-depth"
+    },
+    {
+     "@id": "prod:aerosol-visibility"
+    },
+    {
+     "@id": "prod:atmospheric-instability"
+    },
+    {
+     "@id": "prod:atmospheric-motion-vector"
+    },
+    {
+     "@id": "prod:cloud-detection"
+    },
+    {
+     "@id": "prod:cloud-effective-radius"
+    },
+    {
+     "@id": "prod:cloud-layer-height"
+    },
+    {
+     "@id": "prod:cloud-optical-thickness"
+    },
+    {
+     "@id": "prod:cloud-phase"
+    },
+    {
+     "@id": "prod:cloud-top-height"
+    },
+    {
+     "@id": "prod:cloud-top-pressure"
+    },
+    {
+     "@id": "prod:cloud-top-temperature"
+    },
+    {
+     "@id": "prod:cloud-type"
+    },
+    {
+     "@id": "prod:downward-longwave-radiation"
+    },
+    {
+     "@id": "prod:downward-shortwave-radiation"
+    },
+    {
+     "@id": "prod:dust-optical-depth"
+    },
+    {
+     "@id": "prod:fire-detection"
+    },
+    {
+     "@id": "prod:fog-detection"
+    },
+    {
+     "@id": "prod:fractional-vegetation-cover"
+    },
+    {
+     "@id": "prod:ice-water-path"
+    },
+    {
+     "@id": "prod:land-surface-emissivity"
+    },
+    {
+     "@id": "prod:land-surface-temperature"
+    },
+    {
+     "@id": "prod:liquid-water-path"
+    },
+    {
+     "@id": "prod:nighttime-cloud-optical-thickness"
+    },
+    {
+     "@id": "prod:outgoing-longwave-radiation"
+    },
+    {
+     "@id": "prod:overshooting-top"
+    },
+    {
+     "@id": "prod:probabilistic-convective-initiation"
+    },
+    {
+     "@id": "prod:probability-of-rainfall"
+    },
+    {
+     "@id": "prod:radiance"
+    },
+    {
+     "@id": "prod:rainfall-potential"
+    },
+    {
+     "@id": "prod:rainfall-rate"
+    },
+    {
+     "@id": "prod:reflected-shortwave-radiation"
+    },
+    {
+     "@id": "prod:satellite-cloud-fraction"
+    },
+    {
+     "@id": "prod:sea-surface-current"
+    },
+    {
+     "@id": "prod:snow-cover"
+    },
+    {
+     "@id": "prod:snow-depth"
+    },
+    {
+     "@id": "prod:sulfur-dioxide"
+    },
+    {
+     "@id": "prod:surface-albedo"
+    },
+    {
+     "@id": "prod:surface-cloud-amount"
+    },
+    {
+     "@id": "prod:temperature-humidity-profile"
+    },
+    {
+     "@id": "prod:total-ozone"
+    },
+    {
+     "@id": "prod:total-precipitable-water"
+    },
+    {
+     "@id": "prod:tropopause-folding-turbulence"
+    },
+    {
+     "@id": "prod:upward-longwave-radiation"
+    },
+    {
+     "@id": "prod:volcanic-ash"
+    },
+    {
+     "@id": "prod:volcanic-ash-detection"
+    },
+    {
+     "@id": "prod:volcanic-ash-height"
+    },
+    {
+     "@id": "prod:volcanic-ash-mass"
+    },
+    {
+     "@id": "var:sea_surface_temperature"
+    },
+    {
+     "@id": "var:upward_long_wave_irradiance_at_toa"
+    },
+    {
+     "@id": "http://codes.wmo.int/common/quantity-kind/altimeterSettingQnh"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ObservedVariableAtmosphere/12303"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/AMDAR"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/BSRN"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/4JOK2RDN/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/5D73T768/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/7K2ILV7Y/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/8O6N4MAH/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/8SQ433V8/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/BBAH2146/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CF12S1/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0251/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0360/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0479/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0572/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0601/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0736/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0775/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/L0VDN0EO/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/Q9ZYSAOC/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P07/current/UQUQA46H/"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/1055ce89-a2b3-4014-90e3-9e1c3ed0cc64"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/13354468-9b4c-4a42-9d21-447b34723283"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/16db3055-847d-4f06-a3aa-9e27e02170a5"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/1810678e-9c36-4260-b9a2-eb69eda1ffe4"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/1ee7757f-8097-432c-b473-b2a2a1266f30"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/1ef327e1-6139-49ff-87c3-f959ea75a511"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2426eba5-3817-466a-9be1-879be097227b"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/25053e97-8f30-44f7-b022-a237a321bd35"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/25cffb7e-087b-49aa-ae2a-8ce62acaefaa"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/29f04f16-3652-4210-bd9e-1578718aac70"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2ead8ea2-0357-4c95-9483-da8149855fd4"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/2fc6cda0-bc5f-4614-95f2-0abadee5d476"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/31f77d6b-72f7-45e6-93be-8ac5fd5dc373"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/32797345-48a2-4d00-a444-a3cd2e9e4f29"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/3442f95a-69d0-4b47-ad4f-dc8005e961a3"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/395372ad-2883-4b6a-a481-6383a310ca47"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/40386eea-beb0-4b83-906b-75c6bfa24b73"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/44c9591c-3633-4ecf-8c11-9df8c28557bc"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/453a6807-abfa-481b-95b3-60bacf2cbb73"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/481cc0cb-3e52-45e4-bf6e-3bb0c43e3392"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4b4b35aa-94b9-47ba-86f9-e7a1b2b78d1f"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4bec3ae6-a05f-4d01-9f57-418626103c40"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/502ea6bd-45e9-45af-9092-a4cbe6ba2e7e"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/5d290bd8-049b-4002-86c8-8acba563d0e1"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/62bc69a0-d55f-4bd1-9d20-ef1442eec981"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/64d4ff80-59bb-4565-8759-e5223939abfd"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/664e984c-b02d-4516-95b5-2afe0b56d7f7"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/6d486f25-7477-4da9-96ae-0091596ed4d2"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/70ea1650-902a-4022-8103-3c7a1fb3bc44"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7166c458-f935-4bd9-a322-d92830cf0c33"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7b52f7f5-4102-4829-8ea3-c0dcdd36bdca"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8787e040-fc89-4516-bc1d-f4010cb0419c"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8c1b6882-7ed8-409c-9768-399a048a4eb4"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8d7e5d36-4d81-469d-9318-bf20ba3bae5c"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8f7827a1-1417-4492-9250-c977348597c2"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/924de2fe-ae64-4217-b3ef-f7c774d9e7d4"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/95a821fb-8e08-476c-8ad2-5cc9e7b8fc3e"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/971933a3-b116-4fdc-91c6-3067eaeedc8c"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/99102bce-fac6-4e92-bd08-02e162b3d5f2"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/9924922a-6884-4a9c-9024-f4ed5e638567"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a1110586-42f8-45cf-b4df-eb2ca5fd6a43"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b1bf6d41-36da-49fb-a315-41492f050441"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b971f45d-3a45-4ef2-99df-d6b88bbc7cc3"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/c11402e0-af16-4e20-a8b6-a4fef05d2b2f"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/c9cb3b35-570d-4aa4-a8e1-2a21aacc67c4"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ca8de50f-b795-42b7-9301-8baffe2de0f3"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/cbcdf37a-0921-4a20-8f4a-00cb40b43098"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/cdb4b514-75c4-4a1f-a4ad-1855fbd396ab"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/d5456efc-ae6c-4c68-8b5e-66e40226d897"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/d9adb8d7-d64b-46ba-b8a2-4f4b46305e6f"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ddbadcdd-36dd-4db8-98c6-c603bec96c76"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/df9471ff-cb9a-45db-9a9b-9eac5d869e48"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e453077b-b6f3-44f0-9f3d-4408bf9a69e5"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ea64fa04-2822-4cc5-9014-f18ce1a1ef23"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eaa0bc43-e283-4bf1-ba20-ca32850a66ef"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eab3419f-a0c2-4d55-9500-87ee00600291"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eb9f47f2-1e1a-4c6c-bcf0-29316a11c686"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f07365c3-a36e-4a28-8364-be3941fae000"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f87c4748-eb6d-4124-b8eb-8a16c622ae09"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/fa9f54b2-a101-4faf-b1dc-b6dff141c08c"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1055"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1445"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1643"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/variables/view/cloud_liquid_water_clw"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/variables/view/interplanetary_magnetic_field"
+    },
+    {
+     "@id": "https://space.oscar.wmo.int/variables/view/ionospheric_total_electron_content_tec"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:org",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "조직·기관",
+     "@language": "ko"
+    },
+    {
+     "@value": "Organizations",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 기관·기구·부서·위원회·전문가팀, 국제 협력 프로그램·체계",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0022"
+    },
+    {
+     "@id": "gl:g0023"
+    },
+    {
+     "@id": "gl:g0024"
+    },
+    {
+     "@id": "gl:g0026"
+    },
+    {
+     "@id": "gl:g0027"
+    },
+    {
+     "@id": "gl:g0029"
+    },
+    {
+     "@id": "gl:g0030"
+    },
+    {
+     "@id": "gl:g0031"
+    },
+    {
+     "@id": "gl:g0032"
+    },
+    {
+     "@id": "gl:g0034"
+    },
+    {
+     "@id": "gl:g0035"
+    },
+    {
+     "@id": "gl:g0037"
+    },
+    {
+     "@id": "gl:g0038"
+    },
+    {
+     "@id": "gl:g0042"
+    },
+    {
+     "@id": "gl:g0043"
+    },
+    {
+     "@id": "gl:g0045"
+    },
+    {
+     "@id": "gl:g0047"
+    },
+    {
+     "@id": "gl:g0048"
+    },
+    {
+     "@id": "gl:g0050"
+    },
+    {
+     "@id": "gl:g0051"
+    },
+    {
+     "@id": "gl:g0054"
+    },
+    {
+     "@id": "gl:g0056"
+    },
+    {
+     "@id": "gl:g0059"
+    },
+    {
+     "@id": "gl:g0060"
+    },
+    {
+     "@id": "gl:g0063"
+    },
+    {
+     "@id": "gl:g0065"
+    },
+    {
+     "@id": "gl:g0066"
+    },
+    {
+     "@id": "gl:g0068"
+    },
+    {
+     "@id": "gl:g0069"
+    },
+    {
+     "@id": "gl:g0071"
+    },
+    {
+     "@id": "gl:g0073"
+    },
+    {
+     "@id": "gl:g0076"
+    },
+    {
+     "@id": "gl:g0078"
+    },
+    {
+     "@id": "gl:g0080"
+    },
+    {
+     "@id": "gl:g0084"
+    },
+    {
+     "@id": "gl:g0085"
+    },
+    {
+     "@id": "gl:g0091"
+    },
+    {
+     "@id": "gl:g0093"
+    },
+    {
+     "@id": "gl:g0095"
+    },
+    {
+     "@id": "gl:g0096"
+    },
+    {
+     "@id": "gl:g0098"
+    },
+    {
+     "@id": "gl:g0099"
+    },
+    {
+     "@id": "gl:g0100"
+    },
+    {
+     "@id": "gl:g0102"
+    },
+    {
+     "@id": "gl:g0103"
+    },
+    {
+     "@id": "gl:g0105"
+    },
+    {
+     "@id": "gl:g0112"
+    },
+    {
+     "@id": "gl:g0113"
+    },
+    {
+     "@id": "gl:g0116"
+    },
+    {
+     "@id": "gl:g0117"
+    },
+    {
+     "@id": "gl:g0119"
+    },
+    {
+     "@id": "gl:g0120"
+    },
+    {
+     "@id": "gl:g0121"
+    },
+    {
+     "@id": "gl:g0122"
+    },
+    {
+     "@id": "gl:g0123"
+    },
+    {
+     "@id": "gl:g0124"
+    },
+    {
+     "@id": "gl:g0125"
+    },
+    {
+     "@id": "gl:g0126"
+    },
+    {
+     "@id": "gl:g0127"
+    },
+    {
+     "@id": "gl:g0129"
+    },
+    {
+     "@id": "gl:g0132"
+    },
+    {
+     "@id": "gl:g0133"
+    },
+    {
+     "@id": "gl:g0147"
+    },
+    {
+     "@id": "gl:g0155"
+    },
+    {
+     "@id": "gl:g0181"
+    },
+    {
+     "@id": "gl:g0185"
+    },
+    {
+     "@id": "gl:g0201"
+    },
+    {
+     "@id": "gl:g0204"
+    },
+    {
+     "@id": "gl:g0222"
+    },
+    {
+     "@id": "gl:g0247"
+    },
+    {
+     "@id": "gl:g0254"
+    },
+    {
+     "@id": "gl:g0262"
+    },
+    {
+     "@id": "gl:g0307"
+    },
+    {
+     "@id": "gl:g0317"
+    },
+    {
+     "@id": "gl:g0331"
+    },
+    {
+     "@id": "gl:g0333"
+    },
+    {
+     "@id": "gl:g0334"
+    },
+    {
+     "@id": "gl:g0335"
+    },
+    {
+     "@id": "gl:g0337"
+    },
+    {
+     "@id": "gl:g0339"
+    },
+    {
+     "@id": "gl:g0347"
+    },
+    {
+     "@id": "gl:g0349"
+    },
+    {
+     "@id": "gl:g0355"
+    },
+    {
+     "@id": "gl:g0358"
+    },
+    {
+     "@id": "gl:g0370"
+    },
+    {
+     "@id": "gl:g0382"
+    },
+    {
+     "@id": "gl:g0384"
+    },
+    {
+     "@id": "gl:g0406"
+    },
+    {
+     "@id": "gl:g0407"
+    },
+    {
+     "@id": "gl:g0409"
+    },
+    {
+     "@id": "gl:g0410"
+    },
+    {
+     "@id": "gl:g0448"
+    },
+    {
+     "@id": "gl:g0459"
+    },
+    {
+     "@id": "gl:g0462"
+    },
+    {
+     "@id": "gl:g0463"
+    },
+    {
+     "@id": "gl:g0466"
+    },
+    {
+     "@id": "gl:g0473"
+    },
+    {
+     "@id": "gl:g0474"
+    },
+    {
+     "@id": "gl:g0475"
+    },
+    {
+     "@id": "gl:g0481"
+    },
+    {
+     "@id": "gl:g0498"
+    },
+    {
+     "@id": "gl:g0504"
+    },
+    {
+     "@id": "gl:g0506"
+    },
+    {
+     "@id": "gl:g0507"
+    },
+    {
+     "@id": "gl:g0509"
+    },
+    {
+     "@id": "gl:g0510"
+    },
+    {
+     "@id": "gl:g0513"
+    },
+    {
+     "@id": "gl:g0514"
+    },
+    {
+     "@id": "gl:g0517"
+    },
+    {
+     "@id": "gl:g0519"
+    },
+    {
+     "@id": "gl:g0521"
+    },
+    {
+     "@id": "gl:g0523"
+    },
+    {
+     "@id": "gl:g0529"
+    },
+    {
+     "@id": "gl:g0538"
+    },
+    {
+     "@id": "gl:g0539"
+    },
+    {
+     "@id": "gl:g0540"
+    },
+    {
+     "@id": "gl:g0541"
+    },
+    {
+     "@id": "gl:g0544"
+    },
+    {
+     "@id": "gl:g0551"
+    },
+    {
+     "@id": "gl:g0559"
+    },
+    {
+     "@id": "gl:g0565"
+    },
+    {
+     "@id": "gl:g0569"
+    },
+    {
+     "@id": "gl:g0577"
+    },
+    {
+     "@id": "gl:g0582"
+    },
+    {
+     "@id": "gl:g0584"
+    },
+    {
+     "@id": "gl:g0585"
+    },
+    {
+     "@id": "gl:g0586"
+    },
+    {
+     "@id": "gl:g0587"
+    },
+    {
+     "@id": "gl:g0591"
+    },
+    {
+     "@id": "gl:g0595"
+    },
+    {
+     "@id": "gl:g0601"
+    },
+    {
+     "@id": "gl:g0617"
+    },
+    {
+     "@id": "gl:g0645"
+    },
+    {
+     "@id": "gl:g0665"
+    },
+    {
+     "@id": "gl:g0668"
+    },
+    {
+     "@id": "gl:g0687"
+    },
+    {
+     "@id": "gl:g0697"
+    },
+    {
+     "@id": "gl:g0702"
+    },
+    {
+     "@id": "gl:g0723"
+    },
+    {
+     "@id": "gl:g0724"
+    },
+    {
+     "@id": "gl:g0739"
+    },
+    {
+     "@id": "gl:g0758"
+    },
+    {
+     "@id": "gl:g0766"
+    },
+    {
+     "@id": "gl:g0776"
+    },
+    {
+     "@id": "gl:g0806"
+    },
+    {
+     "@id": "gl:g0807"
+    },
+    {
+     "@id": "gl:g0812"
+    },
+    {
+     "@id": "gl:g0826"
+    },
+    {
+     "@id": "gl:g0834"
+    },
+    {
+     "@id": "gl:g0840"
+    },
+    {
+     "@id": "gl:g0852"
+    },
+    {
+     "@id": "gl:g0859"
+    },
+    {
+     "@id": "gl:g0861"
+    },
+    {
+     "@id": "gl:g0873"
+    },
+    {
+     "@id": "gl:g0874"
+    },
+    {
+     "@id": "gl:g0875"
+    },
+    {
+     "@id": "gl:g0890"
+    },
+    {
+     "@id": "gl:g0900"
+    },
+    {
+     "@id": "gl:g0911"
+    },
+    {
+     "@id": "gl:g0920"
+    },
+    {
+     "@id": "gl:g0929"
+    },
+    {
+     "@id": "gl:g0932"
+    },
+    {
+     "@id": "gl:g0933"
+    },
+    {
+     "@id": "gl:g0946"
+    },
+    {
+     "@id": "gl:g0956"
+    },
+    {
+     "@id": "gl:g0958"
+    },
+    {
+     "@id": "gl:g0959"
+    },
+    {
+     "@id": "gl:g0960"
+    },
+    {
+     "@id": "gl:g0962"
+    },
+    {
+     "@id": "gl:g0966"
+    },
+    {
+     "@id": "gl:g0967"
+    },
+    {
+     "@id": "gl:g0968"
+    },
+    {
+     "@id": "gl:g0970"
+    },
+    {
+     "@id": "gl:g0997"
+    },
+    {
+     "@id": "gl:g1006"
+    },
+    {
+     "@id": "gl:g1012"
+    },
+    {
+     "@id": "gl:g1026"
+    },
+    {
+     "@id": "agcy:esa"
+    },
+    {
+     "@id": "agcy:etri"
+    },
+    {
+     "@id": "agcy:eumetsat"
+    },
+    {
+     "@id": "agcy:kari"
+    },
+    {
+     "@id": "agcy:kiost"
+    },
+    {
+     "@id": "agcy:kma"
+    },
+    {
+     "@id": "agcy:nesdis"
+    },
+    {
+     "@id": "agcy:nmsc"
+    },
+    {
+     "@id": "agcy:noaa"
+    },
+    {
+     "@id": "agcy:wmo"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/CryoNet"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/EMEP"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/GRUAN"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/GSN"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/GUAN"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/ProgramAffiliation/WHYCOS"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/02598fdd-7ff8-4d38-a2ac-f29d71523f18"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/02927af0-918f-4980-9e47-69950323ab6e"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/043a64bb-624a-43ac-aa02-5ea590e65529"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/0ba701fc-2209-4e88-a1c2-e031c57392d9"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/25224e7a-c3e9-4545-a26a-0c22e87ea5f2"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/3224853f-95f5-428a-8ff1-b1e16a2d52f3"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/35f2e18a-5c59-4713-861f-1fd41876f73f"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/36b98c25-719b-4893-9624-f5454d77eeb1"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/3812ca76-937b-4ed2-8e2a-30e4858b710a"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/386eb378-1d17-4fdb-b0de-7aec4db7be59"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/485e86f3-7cd1-43c0-bb02-a929b7d96e43"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4bc01333-646f-404c-9c17-58217ee99eaa"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4c7bae8a-3697-4a18-adba-f69878321dc3"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4d569982-00c1-4e7f-b357-0bf0b624998d"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4d8e9d2a-f39a-466a-ae36-cab50cf87c74"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/500f22d6-4d84-455d-99c7-ea56b4d64d65"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/52925fd4-efdd-4d36-bfc6-519a1d4bf239"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/5bca44fe-beff-4d39-bb19-726ddb57ca30"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/5c70d6af-b73d-418e-a793-47481302eeb5"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/62f09666-8e9d-46d2-8674-63f504134b9b"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/67f93e65-5991-4ffa-85ec-a26bd324181e"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/781b41ef-7ebe-44a9-875f-835bc57da720"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7b7149b9-f5f9-4dfa-8c63-7c4944b16be1"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7bd3f4c4-17e7-43a1-bd64-fb0371f741ba"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7e9895b9-496e-4e49-8f46-383a9a34e82e"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8749607f-8e12-4493-907c-6ca94f232ade"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/89f6194b-58aa-4a9c-926c-e0b1d65ab3a5"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8ce2449d-52ab-46d1-8773-008cd56d28f6"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/8de2a7c3-1e66-4946-a8b3-9a2f79a3086c"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/9dd1e61e-88c2-49d8-8056-eec3c0c47592"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a2cd5a8a-fb88-47a1-8dfa-91c519403f24"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b4ee0e0e-56b3-4833-842d-ac04a4d78984"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b54d8a1e-6151-4790-a29a-49336daae918"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/b7e5f516-af29-4917-8049-4f797c21e4bd"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/bafb713a-bf03-486f-879d-4dd11a6728ad"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/cddf386e-516e-4331-9cd0-5d92108c1c64"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/d4827c6a-7578-402d-90ef-79e68b588e49"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e02564af-22b6-49dd-8912-876d701b831d"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/e44e6bb9-dcf6-4c22-a524-05b6c3437d35"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/eb1259ba-307f-48f1-9f1b-1eeb4d50a1f3"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f2eb5a5f-6892-4927-bc97-3a530be4ee39"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f60f7c8f-4c03-48d9-a673-6c839e5f1522"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/ff25845a-5d94-43c1-abc4-419a108b0f1f"
+    },
+    {
+     "@id": "https://ror.org/00147y550"
+    },
+    {
+     "@id": "https://ror.org/0016std27"
+    },
+    {
+     "@id": "https://ror.org/001p3qb93"
+    },
+    {
+     "@id": "https://ror.org/002pjp005"
+    },
+    {
+     "@id": "https://ror.org/004s85t07"
+    },
+    {
+     "@id": "https://ror.org/0056n6234"
+    },
+    {
+     "@id": "https://ror.org/005vs4q67"
+    },
+    {
+     "@id": "https://ror.org/006gmme17"
+    },
+    {
+     "@id": "https://ror.org/006xm7s91"
+    },
+    {
+     "@id": "https://ror.org/00bx3rb98"
+    },
+    {
+     "@id": "https://ror.org/00bxr0z07"
+    },
+    {
+     "@id": "https://ror.org/00cg22c97"
+    },
+    {
+     "@id": "https://ror.org/00cwrns71"
+    },
+    {
+     "@id": "https://ror.org/00k4n6c32"
+    },
+    {
+     "@id": "https://ror.org/00ndyev54"
+    },
+    {
+     "@id": "https://ror.org/00p0g8998"
+    },
+    {
+     "@id": "https://ror.org/012xv3367"
+    },
+    {
+     "@id": "https://ror.org/013ym9476"
+    },
+    {
+     "@id": "https://ror.org/014w0fd65"
+    },
+    {
+     "@id": "https://ror.org/015z29x25"
+    },
+    {
+     "@id": "https://ror.org/0171mag52"
+    },
+    {
+     "@id": "https://ror.org/01a89tf43"
+    },
+    {
+     "@id": "https://ror.org/01bstzn19"
+    },
+    {
+     "@id": "https://ror.org/01dy3j343"
+    },
+    {
+     "@id": "https://ror.org/01e41cf67"
+    },
+    {
+     "@id": "https://ror.org/01e8py533"
+    },
+    {
+     "@id": "https://ror.org/01j6j9107"
+    },
+    {
+     "@id": "https://ror.org/01jachm79"
+    },
+    {
+     "@id": "https://ror.org/01jtrvx49"
+    },
+    {
+     "@id": "https://ror.org/01k3ptk15"
+    },
+    {
+     "@id": "https://ror.org/01kzswj76"
+    },
+    {
+     "@id": "https://ror.org/01n6e6j62"
+    },
+    {
+     "@id": "https://ror.org/01qk7v094"
+    },
+    {
+     "@id": "https://ror.org/01trb8031"
+    },
+    {
+     "@id": "https://ror.org/01vkp3w06"
+    },
+    {
+     "@id": "https://ror.org/0205jhq31"
+    },
+    {
+     "@id": "https://ror.org/022qvpy75"
+    },
+    {
+     "@id": "https://ror.org/0235zh559"
+    },
+    {
+     "@id": "https://ror.org/0244ywv94"
+    },
+    {
+     "@id": "https://ror.org/02772kk97"
+    },
+    {
+     "@id": "https://ror.org/027k65916"
+    },
+    {
+     "@id": "https://ror.org/027ka1x80"
+    },
+    {
+     "@id": "https://ror.org/028cjvx63"
+    },
+    {
+     "@id": "https://ror.org/02e2tgs60"
+    },
+    {
+     "@id": "https://ror.org/02gae5p70"
+    },
+    {
+     "@id": "https://ror.org/02jk0wm04"
+    },
+    {
+     "@id": "https://ror.org/02k4b9v70"
+    },
+    {
+     "@id": "https://ror.org/02t274463"
+    },
+    {
+     "@id": "https://ror.org/02we51e93"
+    },
+    {
+     "@id": "https://ror.org/02wfhk785"
+    },
+    {
+     "@id": "https://ror.org/02wp9c512"
+    },
+    {
+     "@id": "https://ror.org/02x228738"
+    },
+    {
+     "@id": "https://ror.org/02zt1gg83"
+    },
+    {
+     "@id": "https://ror.org/035a68863"
+    },
+    {
+     "@id": "https://ror.org/036v7n159"
+    },
+    {
+     "@id": "https://ror.org/03777v328"
+    },
+    {
+     "@id": "https://ror.org/037wny167"
+    },
+    {
+     "@id": "https://ror.org/03h3jqn23"
+    },
+    {
+     "@id": "https://ror.org/03hg53255"
+    },
+    {
+     "@id": "https://ror.org/03ja7dr12"
+    },
+    {
+     "@id": "https://ror.org/03tm2mq64"
+    },
+    {
+     "@id": "https://ror.org/03wjvv117"
+    },
+    {
+     "@id": "https://ror.org/03x0jax93"
+    },
+    {
+     "@id": "https://ror.org/048wcpa23"
+    },
+    {
+     "@id": "https://ror.org/04anve402"
+    },
+    {
+     "@id": "https://ror.org/04bs5yc70"
+    },
+    {
+     "@id": "https://ror.org/04c4bm785"
+    },
+    {
+     "@id": "https://ror.org/04chq2495"
+    },
+    {
+     "@id": "https://ror.org/04dkp1p98"
+    },
+    {
+     "@id": "https://ror.org/04h1h0y33"
+    },
+    {
+     "@id": "https://ror.org/04h4z8k05"
+    },
+    {
+     "@id": "https://ror.org/04jebr251"
+    },
+    {
+     "@id": "https://ror.org/04qsamf92"
+    },
+    {
+     "@id": "https://ror.org/04r0wrp59"
+    },
+    {
+     "@id": "https://ror.org/04xfre028"
+    },
+    {
+     "@id": "https://ror.org/04zhhyn23"
+    },
+    {
+     "@id": "https://ror.org/059qg2m13"
+    },
+    {
+     "@id": "https://ror.org/059yhyy33"
+    },
+    {
+     "@id": "https://ror.org/05cvfcr44"
+    },
+    {
+     "@id": "https://ror.org/05dsxms80"
+    },
+    {
+     "@id": "https://ror.org/05hppb561"
+    },
+    {
+     "@id": "https://ror.org/05vt9rv16"
+    },
+    {
+     "@id": "https://ror.org/05xpvk416"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1326"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1660"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/182"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/198"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/656"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/933"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/954"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:it",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "정보시스템·정보기술",
+     "@language": "ko"
+    },
+    {
+     "@value": "Information systems and technology",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 컴퓨터·네트워크·보안, 소프트웨어·DB, 자료 형식, 정보시스템",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0020"
+    },
+    {
+     "@id": "gl:g0039"
+    },
+    {
+     "@id": "gl:g0040"
+    },
+    {
+     "@id": "gl:g0042"
+    },
+    {
+     "@id": "gl:g0052"
+    },
+    {
+     "@id": "gl:g0053"
+    },
+    {
+     "@id": "gl:g0056"
+    },
+    {
+     "@id": "gl:g0088"
+    },
+    {
+     "@id": "gl:g0097"
+    },
+    {
+     "@id": "gl:g0100"
+    },
+    {
+     "@id": "gl:g0128"
+    },
+    {
+     "@id": "gl:g0175"
+    },
+    {
+     "@id": "gl:g0200"
+    },
+    {
+     "@id": "gl:g0207"
+    },
+    {
+     "@id": "gl:g0226"
+    },
+    {
+     "@id": "gl:g0256"
+    },
+    {
+     "@id": "gl:g0286"
+    },
+    {
+     "@id": "gl:g0300"
+    },
+    {
+     "@id": "gl:g0323"
+    },
+    {
+     "@id": "gl:g0362"
+    },
+    {
+     "@id": "gl:g0368"
+    },
+    {
+     "@id": "gl:g0416"
+    },
+    {
+     "@id": "gl:g0479"
+    },
+    {
+     "@id": "gl:g0491"
+    },
+    {
+     "@id": "gl:g0563"
+    },
+    {
+     "@id": "gl:g0614"
+    },
+    {
+     "@id": "gl:g0634"
+    },
+    {
+     "@id": "gl:g0708"
+    },
+    {
+     "@id": "gl:g0773"
+    },
+    {
+     "@id": "gl:g0808"
+    },
+    {
+     "@id": "gl:g0880"
+    },
+    {
+     "@id": "gl:g0881"
+    },
+    {
+     "@id": "gl:g0916"
+    },
+    {
+     "@id": "gl:g0922"
+    },
+    {
+     "@id": "gl:g0923"
+    },
+    {
+     "@id": "gl:g0924"
+    },
+    {
+     "@id": "gl:g0925"
+    },
+    {
+     "@id": "gl:g0971"
+    },
+    {
+     "@id": "gl:g0990"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/DataFormat/FM-92-grib"
+    },
+    {
+     "@id": "http://codes.wmo.int/wmdr/DataFormat/FM-94-bufr"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/0551ab0d-c04b-4c51-bd96-fac192c5a5a1"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/131c1f06-d827-4b0f-b2cf-d0585f221be1"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/32872297-8eba-46c2-8edd-f733a41ef561"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/4dac8541-0c69-4cd5-ae70-eb8819f39715"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/687d4231-8da8-4236-9cc4-26d7ff198578"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7443bb2d-1dbb-44d1-bd29-0241d30fbc57"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/7bd3e828-b70a-44cd-a222-222285cb862c"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/892c2d24-ccfd-479b-8d6e-51b9a09a52ac"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/9a20aea4-abaf-4a94-a667-8fee0bec1b15"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a63c35d7-bf69-4f64-a6a9-e87cde0ce801"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/a96b270e-a905-48b9-afb2-8f72475e9d3b"
+    },
+    {
+     "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/f7fd0224-feaa-4a30-b5c1-0af088017f76"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1017"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1019"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/110"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1231"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1258"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1645"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/251"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/287"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/293"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/417"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/542"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/622"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/698"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/711"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/789"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/1162"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/1257"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/1414"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/terms/records/583"
+    }
+   ]
+  },
+  {
+   "@id": "gfield:project",
+   "@type": [
+    "skos:Collection"
+   ],
+   "dct:isPartOf": [
+    {
+     "@id": "https://w3id.org/nmsc/glossary"
+    }
+   ],
+   "skos:prefLabel": [
+    {
+     "@value": "사업관리",
+     "@language": "ko"
+    },
+    {
+     "@value": "Project management",
+     "@language": "en"
+    }
+   ],
+   "skos:scopeNote": [
+    {
+     "@value": "넣는 것: 개발 사업의 계약·품질보증·형상·부품 관리, 시험 계획, 검토 회의, 사업 문서, 사업 조직·역할",
+     "@language": "ko"
+    }
+   ],
+   "skos:editorialNote": [
+    {
+     "@value": "영문 이름은 원본에 없어 NMSC 위성 어휘가 한국어 분야 이름을 옮긴 것이다(2026-11-14) — 번역 검토 전.",
+     "@language": "ko"
+    }
+   ],
+   "dct:source": [
+    {
+     "@value": "용어집 분야 구분 — 분야별 검토 묶음으로 시작(2026-11-12), 위성관제 분리(2026-11-13), 부 분야 허용·분야 Collection 공개(어휘 관리자 결정(2026-11-14)). 분야 소속은 검토 전 초안 분류다",
+     "@language": "ko"
+    }
+   ],
+   "skos:member": [
+    {
+     "@id": "gl:g0135"
+    },
+    {
+     "@id": "gl:g0186"
+    },
+    {
+     "@id": "gl:g0187"
+    },
+    {
+     "@id": "gl:g0194"
+    },
+    {
+     "@id": "gl:g0208"
+    },
+    {
+     "@id": "gl:g0216"
+    },
+    {
+     "@id": "gl:g0225"
+    },
+    {
+     "@id": "gl:g0226"
+    },
+    {
+     "@id": "gl:g0233"
+    },
+    {
+     "@id": "gl:g0237"
+    },
+    {
+     "@id": "gl:g0283"
+    },
+    {
+     "@id": "gl:g0310"
+    },
+    {
+     "@id": "gl:g0318"
+    },
+    {
+     "@id": "gl:g0332"
+    },
+    {
+     "@id": "gl:g0374"
+    },
+    {
+     "@id": "gl:g0383"
+    },
+    {
+     "@id": "gl:g0393"
+    },
+    {
+     "@id": "gl:g0426"
+    },
+    {
+     "@id": "gl:g0432"
+    },
+    {
+     "@id": "gl:g0435"
+    },
+    {
+     "@id": "gl:g0528"
+    },
+    {
+     "@id": "gl:g0548"
+    },
+    {
+     "@id": "gl:g0599"
+    },
+    {
+     "@id": "gl:g0606"
+    },
+    {
+     "@id": "gl:g0620"
+    },
+    {
+     "@id": "gl:g0656"
+    },
+    {
+     "@id": "gl:g0657"
+    },
+    {
+     "@id": "gl:g0659"
+    },
+    {
+     "@id": "gl:g0674"
+    },
+    {
+     "@id": "gl:g0675"
+    },
+    {
+     "@id": "gl:g0681"
+    },
+    {
+     "@id": "gl:g0683"
+    },
+    {
+     "@id": "gl:g0689"
+    },
+    {
+     "@id": "gl:g0703"
+    },
+    {
+     "@id": "gl:g0704"
+    },
+    {
+     "@id": "gl:g0715"
+    },
+    {
+     "@id": "gl:g0743"
+    },
+    {
+     "@id": "gl:g0747"
+    },
+    {
+     "@id": "gl:g0759"
+    },
+    {
+     "@id": "gl:g0762"
+    },
+    {
+     "@id": "gl:g0763"
+    },
+    {
+     "@id": "gl:g0769"
+    },
+    {
+     "@id": "gl:g0770"
+    },
+    {
+     "@id": "gl:g0777"
+    },
+    {
+     "@id": "gl:g0785"
+    },
+    {
+     "@id": "gl:g0794"
+    },
+    {
+     "@id": "gl:g0805"
+    },
+    {
+     "@id": "gl:g0822"
+    },
+    {
+     "@id": "gl:g0850"
+    },
+    {
+     "@id": "gl:g0858"
+    },
+    {
+     "@id": "gl:g0867"
+    },
+    {
+     "@id": "gl:g0872"
+    },
+    {
+     "@id": "gl:g0880"
+    },
+    {
+     "@id": "gl:g0881"
+    },
+    {
+     "@id": "gl:g0906"
+    },
+    {
+     "@id": "gl:g0909"
+    },
+    {
+     "@id": "gl:g0934"
+    },
+    {
+     "@id": "gl:g0947"
+    },
+    {
+     "@id": "gl:g0955"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1469"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/1470"
+    },
+    {
+     "@id": "https://sanaregistry.org/r/abbreviations/records/634"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+
+# ── Q34. C15 통제 어휘(자료 객체·계보·불확도·검증, 확정 V1~V14 + 단계 2 변수 종류 V15)의 값과 satwright 철자 (status 90·91·95)
+#    satwright 가 대응표로 쓴다: 스킴 + skos:notation(satwright 철자) → NMSC 위성 어휘의 개념 IRI. notation 은 스킴 안에서만 유일하다
+#    (V3 는 보정 단계·형식 상태 두 스킴. failed 는 계산·품질 상태에, unknown 은 불확도 상태·SI 소급 등급·불확도 분포에 있다) — 대응은 반드시 스킴과 함께 짓는다.
+#    상위가 있으면(표본 성분의 세부 둘) 상위의 notation 을 보인다. 사람이 읽는 판은 docs/c15-vocab-map.tsv.
+SELECT ?결정 ?스킴 ?notation ?개념 ?라벨 ?상위
+WHERE {
+  VALUES (?스킴 ?결정) {
+    (<https://w3id.org/nmsc/scheme/generation-method> "V1")
+    (<https://w3id.org/nmsc/scheme/temporal-relation> "V2")
+    (<https://w3id.org/nmsc/scheme/calibration-stage> "V3")
+    (<https://w3id.org/nmsc/scheme/encoding-status> "V3")
+    (<https://w3id.org/nmsc/scheme/use-condition> "V4")
+    (<https://w3id.org/nmsc/scheme/compute-status> "V5")
+    (<https://w3id.org/nmsc/scheme/quality-status> "V5")
+    (<https://w3id.org/nmsc/scheme/publication-status> "V5")
+    (<https://w3id.org/nmsc/scheme/uncertainty-status> "V6")
+    (<https://w3id.org/nmsc/scheme/traceability-level> "V7")
+    (<https://w3id.org/nmsc/scheme/uncertainty-source> "V8")
+    (<https://w3id.org/nmsc/scheme/algorithm-error-category> "V9")
+    (<https://w3id.org/nmsc/scheme/error-correlation> "V10")
+    (<https://w3id.org/nmsc/scheme/uncertainty-method> "V11")
+    (<https://w3id.org/nmsc/scheme/input-role> "V12")
+    (<https://w3id.org/nmsc/scheme/validation-kind> "V13")
+    (<https://w3id.org/nmsc/scheme/validation-status> "V13")
+    (<https://w3id.org/nmsc/scheme/uncertainty-distribution> "V14")
+    (<https://w3id.org/nmsc/scheme/variable-kind> "V15")
+  }
+  ?개념 skos:inScheme ?스킴 ;
+        skos:notation ?notation ;
+        skos:prefLabel ?라벨 . FILTER(lang(?라벨) = "ko")
+  OPTIONAL { ?개념 skos:broader ?b . ?b skos:notation ?상위 }
+}
+ORDER BY ?스킴 ?notation

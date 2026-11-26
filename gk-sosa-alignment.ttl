@@ -45,7 +45,7 @@ nmsc:carriedBy rdfs:subPropertyOf sosa:isHostedBy .
 <https://w3id.org/nmsc/satellite/gk-2b> a sosa:Platform .
 <https://w3id.org/nmsc/satellite/gk-5> a sosa:Platform .
 
-# scheme/instrument type sosa:Sensor — "Device … involved in, or implementing, a Procedure." 탑재체 13기 모두 OSCAR 관측 기기(영상기·분광계·자력계·입자검출기 등)이고 통신 탑재체는 스킴에 없다(2026-11-11 확인). v0.10 에서 묶음 KSEM(GK-2A 우주기상탑재체)이 더해져 14개 — NMSC GK2A Fact Sheets 가 "a suite of space weather monitoring instruments"라 하는 관측 장치 묶음이므로 같은 유형을 준다(2026-11-13)
+# scheme/instrument type sosa:Sensor — "Device … involved in, or implementing, a Procedure." 탑재체 13기 모두 OSCAR 관측 기기(영상기·분광계·자력계·입자검출기 등)이고 통신 탑재체는 스킴에 없다(2026-11-11 확인). 묶음 KSEM(GK-2A 우주기상탑재체)이 더해져 14개 — NMSC GK2A Fact Sheets 가 "a suite of space weather monitoring instruments"라 하는 관측 장치 묶음이므로 같은 유형을 준다(2026-11-13)
 <https://w3id.org/nmsc/instrument/mi> a sosa:Sensor .
 <https://w3id.org/nmsc/instrument/goci> a sosa:Sensor .
 <https://w3id.org/nmsc/instrument/ami> a sosa:Sensor .
