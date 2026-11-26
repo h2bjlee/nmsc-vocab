@@ -1,0 +1,15 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+
+# ── Q36. 운영 알고리즘 → 산출물 수와 다른 표기
+#    scheme/algorithm 의 개념마다 그 알고리즘이 만드는 산출물 수(nmsc:producedByAlgorithm 역방향)와 skos:hiddenLabel(철자 변형) 수.
+#    산출물이 0 인 알고리즘이 있으면 알고리즘 목록과 산출물 대응이 어긋난 것이다.
+SELECT ?notation ?알고리즘 (COUNT(DISTINCT ?산출물) AS ?산출물수) (COUNT(DISTINCT ?다른표기) AS ?다른표기수)
+WHERE {
+  ?알고리즘 skos:inScheme <https://w3id.org/nmsc/scheme/algorithm> ;
+           skos:notation ?notation .
+  OPTIONAL { ?산출물 nmsc:producedByAlgorithm ?알고리즘 }
+  OPTIONAL { ?알고리즘 skos:hiddenLabel ?다른표기 }
+}
+GROUP BY ?notation ?알고리즘
+ORDER BY ?notation

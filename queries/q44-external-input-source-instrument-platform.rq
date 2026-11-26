@@ -1,9 +1,9 @@
 PREFIX nmsc: <https://w3id.org/nmsc/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-# ── Q44. 외부 입력의 원천 기기·위성 — "이 산출물이 쓰는 다른 위성 자료는 어느 기기·위성에서 오는가" (status 100 — 원천 src/external_input_links.tsv)
+# ── Q44. 외부 입력의 원천 기기·위성 — "이 산출물이 쓰는 다른 위성 자료는 어느 기기·위성에서 오는가"
 #    외부 입력 개념(scheme/external-input)의 nmsc:sourceInstrument·nmsc:sourcePlatform(SKOS 대응이 아닌 전용 속성).
-#    값은 확인 기록 docs/external-input-iri-check.tsv 에 있는 OSCAR·GCMD IRI, 또는 NMSC 위성 어휘의 탑재체·위성(ins:·sat:).
+#    값은 원본을 열어 확인한 OSCAR·GCMD IRI, 또는 NMSC 위성 어휘의 탑재체·위성(ins:·sat:).
 #    입력노드 = 그 외부 입력을 입력원으로 쓰는 알고리즘 입력 노드(nmsc:AlgorithmInput) 수.
 SELECT ?외부입력 ?라벨 ?종류 ?레지스트리 ?대상 ?입력노드
 WHERE {

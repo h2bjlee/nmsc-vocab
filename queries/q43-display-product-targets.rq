@@ -2,7 +2,7 @@ PREFIX nmsc: <https://w3id.org/nmsc/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX dct:  <http://purl.org/dc/terms/>
 
-# ── Q43. 표출물과 표출 대상 — "이 그림은 어떤 산출물·채널을 보여 주는가" (K6 보완·J13, status 128 — 원천 src/display_products.tsv)
+# ── Q43. 표출물과 표출 대상 — "이 그림은 어떤 산출물·채널을 보여 주는가"
 #    표출물(scheme/display-product)마다 표출 대상(nmsc:displayTarget — 산출물 또는 L1B 채널)과, 채널이면 그 탑재체.
 #    표출 대상이 없는 표출물도 한 줄(대상 칸 비움). 옛 산출물 IRI(폐기, dct:isReplacedBy 로 이 표출물을 가리킴)도 보인다.
 SELECT ?표출물 ?라벨 ?대상종류 ?대상 ?대상라벨 ?탑재체 ?옛산출물

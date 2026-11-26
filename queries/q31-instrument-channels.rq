@@ -3,7 +3,7 @@ PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 PREFIX qudt:  <http://qudt.org/schema/qudt/>
 PREFIX unit:  <http://qudt.org/vocab/unit/>
 
-# ── Q31. GK 탑재체마다 어떤 관측 채널이 있고 각 채널의 중심파장·대역폭·해상도는 얼마인가? (Q25 를 모든 기기로 넓힘, v0.16)
+# ── Q31. GK 탑재체마다 어떤 관측 채널이 있고 각 채널의 중심파장·대역폭·해상도는 얼마인가? (q25-ami-channels.rq 를 모든 기기로 넓힘)
 #    번호·표기·대역폭·해상도는 원본에 없으면 비어 있다(MI 번호·대역폭·해상도, GOCI·GKMI 표기, GOCI 해상도, GKMI 대역폭 — 사유는 채널의 nmsc:coverageNote).
 #    단위가 nm·μm 으로 섞여 있어 정렬만 μm 로 맞춘다(값은 원본 단위 그대로 보인다).
 SELECT ?기기 ?번호 ?표기 ?채널 ?중심파장 ?단위 ?대역폭 ?대역폭단위 ?해상도 ?해상도단위

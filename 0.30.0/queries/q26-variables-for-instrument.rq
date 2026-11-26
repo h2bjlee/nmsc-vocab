@@ -1,0 +1,16 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+
+# ── Q26. 이 탑재체는 어떤 물리량을 관측하는가? (관련도 순) — q9-instruments-for-variable.rq 의 역방향
+#    예: GK-2A AMI. 제약(주간만·맑은 하늘만 등)이 여럿이면 행이 나뉜다.
+SELECT ?변수 ?등급 ?제약
+WHERE {
+  ?c nmsc:capabilityOf ins:ami ;
+     nmsc:observesVariable ?v ;
+     nmsc:hasRelevancy ?r .
+  ?r nmsc:relevancyRank ?순위 ; skos:prefLabel ?등급 . FILTER(lang(?등급) = "ko")
+  ?v skos:prefLabel ?변수 . FILTER(lang(?변수) = "en")
+  OPTIONAL { ?c nmsc:hasLimitation ?l . ?l skos:prefLabel ?제약 . FILTER(lang(?제약) = "ko") }
+}
+ORDER BY ?순위 ?변수 ?제약

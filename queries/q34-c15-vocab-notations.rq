@@ -1,10 +1,10 @@
 PREFIX nmsc:  <https://w3id.org/nmsc/>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 
-# ── Q34. C15 통제 어휘(자료 객체·계보·불확도·검증, 확정 V1~V14 + 단계 2 변수 종류 V15)의 값과 satwright 철자 (status 90·91·95)
-#    satwright 가 대응표로 쓴다: 스킴 + skos:notation(satwright 철자) → NMSC 위성 어휘의 개념 IRI. notation 은 스킴 안에서만 유일하다
-#    (V3 는 보정 단계·형식 상태 두 스킴. failed 는 계산·품질 상태에, unknown 은 불확도 상태·SI 소급 등급·불확도 분포에 있다) — 대응은 반드시 스킴과 함께 짓는다.
-#    상위가 있으면(표본 성분의 세부 둘) 상위의 notation 을 보인다. 사람이 읽는 판은 docs/c15-vocab-map.tsv.
+# ── Q34. 실행 계보 통제 어휘(자료 객체·계보·불확도·검증·자료 변수 종류)의 값과 자료처리 모델러 철자
+#    국가기상위성센터 자료처리 모델러가 대응표로 쓴다: 스킴 + skos:notation(위성자료처리 모델러 철자) → NMSC 위성 어휘의 개념 IRI. notation 은 스킴 안에서만 유일하다
+#    (보정 상태는 보정 단계·형식 상태 두 스킴. failed 는 계산·품질 상태에, unknown 은 불확도 상태·SI 소급 등급·불확도 분포에 있다) — 대응은 반드시 스킴과 함께 짓는다.
+#    상위가 있으면(표본 성분의 세부 둘) 상위의 notation 을 보인다.
 SELECT ?결정 ?스킴 ?notation ?개념 ?라벨 ?상위
 WHERE {
   VALUES (?스킴 ?결정) {

@@ -2,15 +2,15 @@ PREFIX nmsc:  <https://w3id.org/nmsc/>
 PREFIX sat:   <https://w3id.org/nmsc/satellite/>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 
-# ── Q28. 이 위성이 생산하는 산출물은? 어느 탑재체 자료에서 나오나? (docs/questions.md Q-043·Q-050, MyGiver CQ-7·CQ-P4, v0.11)
-#    산출물 → 탑재체(nmsc:derivedFromInstrument)는 확실한 것만 실려 있다(src/product_instruments.tsv).
+# ── Q28. 이 위성이 생산하는 산출물은? 어느 탑재체 자료에서 나오나?
+#    산출물 → 탑재체(nmsc:derivedFromInstrument)는 확실한 것만 실려 있다.
 #    위성은 탑재체의 nmsc:carriedBy 로 따라간다 — 산출물 → 위성 속성은 따로 두지 않는다.
 #    "유도 계통에 그 탑재체 자료가 들어간다"는 뜻이며 다른 위성·수치모델 자료를 함께 쓰는 산출물도 있다.
 #    처리 수준이 있으면 함께 보인다(여럿이면 행이 나뉜다).
 SELECT ?위성 ?탑재체 ?산출물 ?수준
 WHERE {
   ?p nmsc:derivedFromInstrument ?i ;
-     skos:prefLabel ?산출물 . FILTER(lang(?산출물) = "ko")   # 산출물 영문 대표 이름(status 117)이 생겨 한국어만
+     skos:prefLabel ?산출물 . FILTER(lang(?산출물) = "ko")   # 산출물에 영문 대표 이름도 있어 한국어만
   ?i nmsc:carriedBy sat:gk-2a ;
      skos:prefLabel ?탑재체 . FILTER(lang(?탑재체) = "en")
   sat:gk-2a skos:prefLabel ?위성 . FILTER(lang(?위성) = "en")

@@ -1,0 +1,24 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+
+# ── Q38. 생성 방법이 다른 알고리즘 출력이 섞인 산출물
+#    알고리즘 × 산출물 노드(nmsc:AlgorithmOutput)의 생성 방법이 한 산출물 안에서 둘 이상이면 그 산출물과 노드를 늘어놓는다.
+#    산출물 정체성 = 물리량 × 방식 — 여기 나온 산출물은 개념을 나눌 후보다(검증기 경고 "방식이 다른 산출물이 한 개념에 섞임"과 같은 목록).
+#    섞인 산출물은 나누기로 했으므로(어휘 관리자 결정(2026-11-15)) 결과는 0행이어야 한다 — 대기안정도·가강수량의 GK2A_ANN 출력은 AI 기반 산출물로 나눴다.
+#    섞인 산출물에는 생성기가 nmsc:generationMethod 를 붙이지 않는다.
+SELECT ?산출물 ?알고리즘 ?생성방법
+WHERE {
+  {
+    SELECT ?산출물 WHERE {
+      ?n a nmsc:AlgorithmOutput ; nmsc:outputProduct ?산출물 ; nmsc:generationMethod ?g .
+    }
+    GROUP BY ?산출물
+    HAVING (COUNT(DISTINCT ?g) > 1)
+  }
+  ?node a nmsc:AlgorithmOutput ;
+        nmsc:outputProduct ?산출물 ;
+        nmsc:outputOfAlgorithm ?a .
+  ?a skos:notation ?알고리즘 .
+  OPTIONAL { ?node nmsc:generationMethod ?gm . ?gm skos:notation ?생성방법 }
+}
+ORDER BY ?산출물 ?생성방법 ?알고리즘

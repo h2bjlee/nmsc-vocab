@@ -2,9 +2,9 @@ PREFIX nmsc:   <https://w3id.org/nmsc/>
 PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
 PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
 
-# ── Q41. 이전 대표 이름 — 안착 기간 화면 표시 '(이전: …)' 의 대상 (status 125 — 원천 src/product_renames.tsv)
+# ── Q41. 이전 대표 이름 — 안착 기간 화면 표시 '(이전: …)' 의 대상
 #    이름을 바꾼 산출물의 옛 대표 이름. 이전 대표 이름 표지(nmsc:formerPrefLabel true)가 있는 SKOS-XL 라벨 노드만 고른다 —
-#    출처 종류(nmsc-list·glossary-2019 등)로 고르면 출처마다 이름이 다를 뿐인 개념(지상운량·적설)이 잘못 잡힌다(docs/naming-rules.md 5절).
+#    출처 종류(nmsc-list·glossary-2019 등)로 고르면 출처마다 이름이 다를 뿐인 개념(지상운량·적설)이 잘못 잡힌다.
 #    같은 옛 이름이 여러 출처의 라벨 노드로 있어도 한 줄이다. 기간의 끝은 반입 묶음 manifest 의 former_name_display.
 SELECT DISTINCT ?산출물 ?대표라벨 ?이전대표이름 ?언어 ?바뀐판
 WHERE {

@@ -3,8 +3,8 @@ PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 PREFIX prov:  <http://www.w3.org/ns/prov#>
 PREFIX dct:   <http://purl.org/dc/terms/>
 
-# ── Q37. 불확도 전파가 끊긴 지점 — 상태 unknown 성분의 출력 변수·자료·출처 (C15 단계 2, status 95)
-#    조사 04 §5-6(전파 끊긴 지점 드러내기)의 참고 질의. 실제 판정은 satwright 가 실행 기록에서 한다(설계 §6.1).
+# ── Q37. 불확도 전파가 끊긴 지점 — 상태 unknown 성분의 출력 변수·자료·출처
+#    전파가 끊긴 지점을 드러내는 참고 질의다. 실제 판정은 국가기상위성센터 자료처리 모델러가 실행 기록에서 한다.
 #    본 어휘에는 기록이 없다 — 예시(vocab/examples/gk-lineage-example.ttl)를 함께 올리면 예시 성분이 나온다.
 SELECT ?자료 ?변수이름 ?효과 ?분류 ?이어받음 ?원래상태 ?출처실행 ?출처알고리즘
 WHERE {

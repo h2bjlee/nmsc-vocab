@@ -1,0 +1,18 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+
+# ── Q25. AMI 는 어떤 관측 채널로 구성되고 각 채널의 중심파장은 얼마인가?
+#    중심파장·해상도는 NMSC GK2A Fact Sheets 표 3-1(정본, 중심파장 모두 μm), 대역폭은 OSCAR(nm·μm 섞임)라 단위를 함께 보인다.
+SELECT ?번호 ?채널 ?중심파장 ?단위 ?대역폭 ?대역폭단위 ?해상도 ?해상도단위
+WHERE {
+  ?ch nmsc:channelOf ins:ami ;
+      nmsc:channelNumber ?번호 ;
+      skos:notation ?채널 ;
+      nmsc:centralWavelength ?w .
+  ?w qudt:value ?중심파장 ; qudt:hasUnit ?단위 .
+  OPTIONAL { ?ch nmsc:bandwidth ?b . ?b qudt:value ?대역폭 ; qudt:hasUnit ?대역폭단위 . }
+  OPTIONAL { ?ch nmsc:spatialResolution ?r . ?r qudt:value ?해상도 ; qudt:hasUnit ?해상도단위 . }
+}
+ORDER BY ?번호

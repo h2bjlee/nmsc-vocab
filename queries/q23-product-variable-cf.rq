@@ -3,12 +3,12 @@ PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 
 # ── Q23. GK-2A 산출물 → 관측 변수 → CF 표준명 / GCMD 키워드
 #    "운정고도 파일의 변수는 국제적으로 무엇이라 부르나?" 류의 질문에 답한다.
-#    산출물 → 변수 연결은 확실한 것만 실려 있다(src/product_variables.tsv).
+#    산출물 → 변수 연결은 확실한 것만 실려 있다.
 #    CF·GCMD 연결은 closeMatch / broadMatch / narrowMatch / relatedMatch 이며 관계 종류를 함께 보여 준다.
 SELECT ?산출물 ?변수 ?CF관계 ?CF ?GCMD관계 ?GCMD
 WHERE {
   ?p nmsc:estimatesVariable ?v ;
-     skos:prefLabel ?산출물 . FILTER(lang(?산출물) = "ko")   # 산출물 영문 대표 이름(status 117)이 생겨 한국어만
+     skos:prefLabel ?산출물 . FILTER(lang(?산출물) = "ko")   # 산출물에 영문 대표 이름도 있어 한국어만
   ?v skos:prefLabel ?변수 . FILTER(lang(?변수) = "en")
   OPTIONAL {
     ?v ?cr ?CF .

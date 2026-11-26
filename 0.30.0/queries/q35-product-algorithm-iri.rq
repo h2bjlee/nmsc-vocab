@@ -1,0 +1,15 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+
+# ── Q35. 산출물 → 운영 알고리즘(IRI)
+#    nmsc:producedByAlgorithm(문자열 nmsc:operationalAlgorithm 과 병행하다 문자열 쪽은 폐기 표시)과
+#    알고리즘의 운영 이름(skos:notation). 같은 행의 문자열 값과 notation 이 같아야 한다(?같음).
+#    생성 방법은 알고리즘 × 산출물 노드(nmsc:AlgorithmOutput)에 있다 — 이 질의는 보이지 않는다.
+SELECT ?산출물 ?산출물라벨 ?알고리즘 ?notation ?같음
+WHERE {
+  ?산출물 nmsc:producedByAlgorithm ?알고리즘 ;
+          skos:prefLabel ?산출물라벨 . FILTER(lang(?산출물라벨) = "ko")
+  ?알고리즘 skos:notation ?notation .
+  BIND(EXISTS { ?산출물 nmsc:operationalAlgorithm ?notation } AS ?같음)
+}
+ORDER BY ?산출물 ?notation

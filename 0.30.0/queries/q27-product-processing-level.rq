@@ -1,0 +1,18 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+
+# ── Q27. 이 산출물의 처리 수준은? 근거와 국제 대응(GCMD Product Level Id)과 함께
+#    수준은 NMSC 표기(L1B·L2·L3·L4)다. 산출물 → 수준 연결은 확실한 것만 실려 있다.
+#    GCMD 는 closeMatch 로만 잇는다 — NMSC 수준이 NASA 수준과 같다는 주장이 아니다.
+#    한 산출물에 수준이 여럿이면(예: 적설 L2·L3) 행이 나뉜다. 근거는 그 수준의 근거만 보인다.
+SELECT ?산출물 ?수준 ?GCMD ?근거
+WHERE {
+  ?p nmsc:processingLevel ?l ;
+     skos:prefLabel ?산출물 ;
+     nmsc:processingLevelEvidence ?근거 .
+  ?l skos:prefLabel ?수준 . FILTER(lang(?수준) = "ko") FILTER(lang(?산출물) = "ko")   # 산출물에 영문 대표 이름도 있어 한국어만
+  FILTER(STRSTARTS(STR(?근거), CONCAT(STR(?수준), " ←")))
+  OPTIONAL { ?l skos:closeMatch ?GCMD
+             FILTER(STRSTARTS(STR(?GCMD), "https://gcmd.earthdata.nasa.gov/kms/concept/")) }
+}
+ORDER BY ?수준 ?산출물

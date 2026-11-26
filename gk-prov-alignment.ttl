@@ -20,7 +20,7 @@
     dct:source <http://www.w3.org/ns/prov#> ;
     dct:license <https://www.kogl.or.kr/info/licenseType1.do> ;
     owl:imports <https://w3id.org/nmsc/> , <http://www.w3.org/ns/prov-o#> ;
-    rdfs:comment "PROV-O 용어는 2026-11-13 w3.org/ns/prov 에서 받은 원본과 대조했다. 계보 기록 자체는 인스턴스 수준(국가기상위성센터 자료처리 모델러 실행 기록, 국가기상위성센터 업무 지식저장소 그래프)이고, 이 파일은 그 기록이 가리킬 NMSC 위성 어휘 용어의 자리를 정한다."@ko , "The PROV-O terms were checked against the original retrieved from w3.org/ns/prov on 2026-11-13. The lineage records themselves are at instance level (NMSC Data Processing Modeler run records, the NMSC operations knowledge repository graph); this file sets the places of the NMSC satellite vocabulary terms those records point to."@en .
+    rdfs:comment "PROV-O 용어는 2026-11-13 w3.org/ns/prov 에서 받은 원본과 대조했다. 계보 기록 자체는 인스턴스 수준(국가기상위성센터 자료처리 모델러 실행 기록, 국가기상위성센터 업무 지식저장소 그래프)이고, 이 파일은 그 기록이 가리킬 NMSC 위성 어휘 용어의 자리를 정한다."@ko , "The PROV-O terms were checked against the original retrieved from w3.org/ns/prov on 2026-11-13. The lineage records themselves are at instance level (run records of the NMSC Data Processing Modeler, the graph of the NMSC operations knowledge repository); this file sets the places of the NMSC satellite vocabulary terms those records point to."@en .
 
 # scheme/agency type prov:Organization — prov:Organization "An organization is a social or legal institution such as a company, society, etc." 기관 스킴의 개념은 실제 기관 하나씩이다(ROR 연결). 개발 참여 기관 9개에 협력 기관 7개를 더해 16개 — 협력 기관도 기관이므로 같은 판정을 그대로 적용한다. 위성 스킴을 sosa:Platform 으로 둔 것과 같은 방식
 <https://w3id.org/nmsc/agency/kma> a prov:Organization .
@@ -49,7 +49,7 @@ nmsc:ProcessingRun rdfs:subClassOf prov:Activity .
 # nmsc:ValidationRecord subClassOf prov:Entity — prov:Entity "a physical, digital, conceptual, or other kind of thing with some fixed aspects". 검증 기록은 결과를 고정해 남긴 기록물이다. W3C DQV 문서 3절도 품질 기록을 PROV 관계로 잇는다. 실행 계보 모델 본 어휘에도 선언
 nmsc:ValidationRecord rdfs:subClassOf prov:Entity .
 
-# scheme/input-role type prov:Role — prov:Role "A role is the function of an entity or agent with respect to an activity, in the context of a usage, generation, invalidation, association, start, and end". 입력 역할 개념은 prov:Usage 의 prov:hadRole 값으로만 쓴다(설계 §3.2) — prov:hadRole 의 치역이 prov:Role 이라 추론 결과와 같다. 기관 스킴을 prov:Organization 으로 둔 것과 같은 방식
+# scheme/input-role type prov:Role — prov:Role "A role is the function of an entity or agent with respect to an activity, in the context of a usage, generation, invalidation, association, start, and end". 입력 역할 개념은 prov:Usage 의 prov:hadRole 값으로만 쓴다 — NMSC 위성 어휘 실행 계보 모델 설계(비공개, 2026-11-15 판) — prov:hadRole 의 치역이 prov:Role 이라 추론 결과와 같다. 기관 스킴을 prov:Organization 으로 둔 것과 같은 방식
 <https://w3id.org/nmsc/input-role/primary> a prov:Role .
 <https://w3id.org/nmsc/input-role/intermediate> a prov:Role .
 <https://w3id.org/nmsc/input-role/ancillary> a prov:Role .

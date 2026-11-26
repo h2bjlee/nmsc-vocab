@@ -1,0 +1,19 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+
+# ── Q29. 배포 방식별로 어떤 산출물이 나가나? 근거와 함께
+#    배포 방식은 유형이다(scheme/dissemination-method). 실제 서비스(예: GK-2A HRIT 서비스)와 주파수·전송률은 이 어휘가 아니라 국가기상위성센터 업무 지식저장소가 맡는다.
+#    산출물 → 배포 방식은 산출물 단위 근거가 있는 확실한 것만 실려 있다 — 지금은 2021 Fact sheet 7 표 7-1 의 UHRIT 행.
+#    결과에 없는 방식(HRIT·LRIT 는 L1B 영상만, 웹·DCPC·Open-API 는 수준 단위 서술뿐)은 "보내지 않는다"는 뜻이 아니다.
+#    묶음(xRIT)이 있으면 함께 보인다. 근거는 그 방식의 근거만 보인다(근거 문자열이 방식의 한국어 대표 라벨로 시작한다).
+SELECT ?묶음 ?배포방식 ?약어 ?산출물 ?근거
+WHERE {
+  ?p nmsc:disseminatedVia ?m ;
+     skos:prefLabel ?산출물 ;
+     nmsc:disseminationEvidence ?근거 .
+  ?m skos:prefLabel ?배포방식 . FILTER(lang(?배포방식) = "ko")
+  FILTER(STRSTARTS(STR(?근거), CONCAT(STR(?배포방식), " ←")))
+  OPTIONAL { ?m skos:altLabel ?약어 . FILTER(lang(?약어) = "en" && !CONTAINS(STR(?약어), " ")) }
+  OPTIONAL { ?m skos:broader ?g . ?g skos:prefLabel ?묶음 . FILTER(lang(?묶음) = "ko") }
+}
+ORDER BY ?묶음 ?배포방식 ?산출물

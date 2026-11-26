@@ -1,0 +1,28 @@
+PREFIX nmsc: <https://w3id.org/nmsc/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+
+# ── Q43. 표출물과 표출 대상 — "이 그림은 어떤 산출물·채널을 보여 주는가"
+#    표출물(scheme/display-product)마다 표출 대상(nmsc:displayTarget — 산출물 또는 L1B 채널)과, 채널이면 그 탑재체.
+#    표출 대상이 없는 표출물도 한 줄(대상 칸 비움). 옛 산출물 IRI(폐기, dct:isReplacedBy 로 이 표출물을 가리킴)도 보인다.
+SELECT ?표출물 ?라벨 ?대상종류 ?대상 ?대상라벨 ?탑재체 ?옛산출물
+WHERE {
+  ?d skos:inScheme <https://w3id.org/nmsc/scheme/display-product> ;
+     skos:prefLabel ?dl .
+  FILTER(LANG(?dl) = "ko")
+  OPTIONAL {
+    ?d nmsc:displayTarget ?t .
+    OPTIONAL { ?t skos:prefLabel ?tl0 . FILTER(LANG(?tl0) = "ko") }
+    OPTIONAL { ?t skos:prefLabel ?tl1 . FILTER(LANG(?tl1) = "en") }
+    OPTIONAL { ?t nmsc:channelOf ?i }
+    BIND(IF(EXISTS { ?t skos:inScheme <https://w3id.org/nmsc/scheme/channel> }, "채널", "산출물") AS ?대상종류)
+  }
+  OPTIONAL { ?old dct:isReplacedBy ?d ; skos:inScheme <https://w3id.org/nmsc/scheme/product> }
+  BIND(REPLACE(STR(?d), "^.*/", "") AS ?표출물)
+  BIND(STR(?dl) AS ?라벨)
+  BIND(REPLACE(STR(?t), "^.*/", "") AS ?대상)
+  BIND(STR(COALESCE(?tl0, ?tl1)) AS ?대상라벨)
+  BIND(REPLACE(STR(?i), "^.*/", "") AS ?탑재체)
+  BIND(REPLACE(STR(?old), "^.*/", "") AS ?옛산출물)
+}
+ORDER BY ?표출물 ?대상

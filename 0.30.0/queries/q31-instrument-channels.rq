@@ -1,0 +1,23 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX unit:  <http://qudt.org/vocab/unit/>
+
+# ── Q31. GK 탑재체마다 어떤 관측 채널이 있고 각 채널의 중심파장·대역폭·해상도는 얼마인가? (q25-ami-channels.rq 를 모든 기기로 넓힘)
+#    번호·표기·대역폭·해상도는 원본에 없으면 비어 있다(MI 번호·대역폭·해상도, GOCI·GKMI 표기, GOCI 해상도, GKMI 대역폭 — 사유는 채널의 nmsc:coverageNote).
+#    단위가 nm·μm 으로 섞여 있어 정렬만 μm 로 맞춘다(값은 원본 단위 그대로 보인다).
+SELECT ?기기 ?번호 ?표기 ?채널 ?중심파장 ?단위 ?대역폭 ?대역폭단위 ?해상도 ?해상도단위
+WHERE {
+  ?ch nmsc:channelOf ?ins ;
+      skos:prefLabel ?채널 ;
+      nmsc:centralWavelength ?w .
+  ?ins skos:prefLabel ?기기 .
+  FILTER (lang(?기기) = "en")
+  ?w qudt:value ?중심파장 ; qudt:hasUnit ?단위 .
+  BIND (IF(?단위 = unit:NanoM, ?중심파장 / 1000, ?중심파장) AS ?um)
+  OPTIONAL { ?ch nmsc:channelNumber ?번호 . }
+  OPTIONAL { ?ch skos:notation ?표기 . }
+  OPTIONAL { ?ch nmsc:bandwidth ?b . ?b qudt:value ?대역폭 ; qudt:hasUnit ?대역폭단위 . }
+  OPTIONAL { ?ch nmsc:spatialResolution ?r . ?r qudt:value ?해상도 ; qudt:hasUnit ?해상도단위 . }
+}
+ORDER BY ?기기 ?um ?번호

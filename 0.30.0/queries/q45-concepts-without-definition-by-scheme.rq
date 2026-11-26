@@ -1,0 +1,27 @@
+PREFIX nmsc: <https://w3id.org/nmsc/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+# ── Q45. 정의 없는 사용 중 개념 — 스킴별
+#    사용 중 = owl:deprecated true 가 아닌 개념(예시 데이터 제외). 정의 = skos:definition(언어 상관없이 하나라도), 영어 정의 = @en 정의.
+#    외부 정의는 복사하지 않으므로 OSCAR 변수 일부는 일부러 비어 있다.
+#    마지막 줄 '(합계)' 는 개념 하나를 한 번만 센다. 정의가 늘면 이 스냅숏이 바뀐다(의도한 변화인지 본다).
+SELECT ?스킴 (COUNT(?c) AS ?사용중) (SUM(?nd) AS ?정의없음) (SUM(?ne) AS ?영어정의없음)
+WHERE {
+  {
+    SELECT DISTINCT ?c ?스킴 ?nd ?ne
+    WHERE {
+      ?c a skos:Concept ;
+         skos:inScheme ?s .
+      FILTER(STRSTARTS(STR(?s), "https://w3id.org/nmsc/scheme/"))
+      FILTER NOT EXISTS { ?c owl:deprecated true }
+      FILTER NOT EXISTS { ?c nmsc:exampleData true }
+      BIND(IF(EXISTS { ?c skos:definition ?d0 }, 0, 1) AS ?nd)
+      BIND(IF(EXISTS { ?c skos:definition ?d1 . FILTER(LANG(?d1) = "en") }, 0, 1) AS ?ne)
+      VALUES ?all { false true }
+      BIND(IF(?all, "(합계)", STRAFTER(STR(?s), "https://w3id.org/nmsc/scheme/")) AS ?스킴)
+    }
+  }
+}
+GROUP BY ?스킴
+ORDER BY (?스킴 = "(합계)") DESC(?정의없음) ?스킴

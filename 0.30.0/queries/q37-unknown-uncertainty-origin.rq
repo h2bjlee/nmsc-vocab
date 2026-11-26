@@ -1,0 +1,24 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX prov:  <http://www.w3.org/ns/prov#>
+PREFIX dct:   <http://purl.org/dc/terms/>
+
+# ── Q37. 불확도 전파가 끊긴 지점 — 상태 unknown 성분의 출력 변수·자료·출처
+#    전파가 끊긴 지점을 드러내는 참고 질의다. 실제 판정은 국가기상위성센터 자료처리 모델러가 실행 기록에서 한다.
+#    본 어휘에는 기록이 없다 — 예시(vocab/examples/gk-lineage-example.ttl)를 함께 올리면 예시 성분이 나온다.
+SELECT ?자료 ?변수이름 ?효과 ?분류 ?이어받음 ?원래상태 ?출처실행 ?출처알고리즘
+WHERE {
+  ?성분 a nmsc:UncertaintyComponent ;
+        nmsc:uncertaintyStatus <https://w3id.org/nmsc/uncertainty-status/unknown> ;
+        nmsc:componentOf ?변수 ;
+        nmsc:effectId ?효과 ;
+        nmsc:uncertaintySource ?분류c .
+  ?분류c skos:notation ?분류 .
+  ?변수 nmsc:variableName ?변수이름 .
+  ?자료o nmsc:hasDataVariable ?변수 ; dct:identifier ?자료 .
+  OPTIONAL { ?성분 nmsc:carriedFromUpstream ?이어받음 }
+  OPTIONAL { ?성분 nmsc:upstreamStatus/skos:notation ?원래상태 }
+  OPTIONAL { ?성분 nmsc:effectOriginRun ?출처실행 }
+  OPTIONAL { ?성분 nmsc:effectOriginAlgorithm/skos:notation ?출처알고리즘 }
+}
+ORDER BY ?자료 ?효과

@@ -1,0 +1,406 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix nmsc:  <https://w3id.org/nmsc/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================================================
+# NMSC 위성 어휘 실행 계보 기록 셰이프 — 생성물. 손으로 고치지 말 것.
+# 원천: 요소 표 (요소 74개), 규칙 표 (규칙 22행).
+# 대상: 실행 기록(인스턴스) — 처리 실행·자료 객체·자료 변수·입력 사용·불확도 성분·검증 기록. 본 어휘(gk-vocab.ttl)에는 이 클래스의
+#       인스턴스가 없다. 개념 값의 스킴 검사(SR18)는 본 어휘를 함께 올려야 한다.
+# 수준: M = sh:Violation, R = sh:Warning, C = 조건이 참이면 Violation(거짓이면 then_level), O = 값 모양만. SHACL Core 만(sh:sparql 없음).
+# 국가기상위성센터 자료처리 모델러는 이 셰이프가 아니라 같은 원천의 표(c15-elements.json)를 읽는다.
+# 실행: shacl validate --shapes gk-record-shapes.ttl --data gk-vocab.ttl --data <기록>.ttl
+# ============================================================================
+
+nmsc:RecordDataObjectShape a sh:NodeShape ;
+    sh:targetClass nmsc:DataObject ;
+    rdfs:label "자료 객체 요소(값 모양·개수)"@ko ;
+    sh:property [ sh:path dct:identifier ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "do.identifier (식별자): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path dct:identifier ; sh:maxCount 1 ; sh:message "do.identifier (식별자): 최대 1개"@ko ] ;
+    sh:property [ sh:path dct:identifier ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "do.identifier (식별자): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:ofProduct ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ] ] ; sh:message "do.product (산출물 유형): 값은 scheme/product 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:ofProduct ; sh:maxCount 1 ; sh:message "do.product (산출물 유형): 최대 1개"@ko ] ;
+    sh:property [ sh:path ( nmsc:ofProduct nmsc:processingLevel ) ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/processing-level> ] ] ; sh:message "do.processing-level (처리 수준): 값은 scheme/processing-level 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:exampleData ; sh:datatype xsd:boolean ; sh:message "do.example-data (예시 자료 여부): 값은 xsd:boolean 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:exampleData ; sh:maxCount 1 ; sh:message "do.example-data (예시 자료 여부): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:exampleData ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "do.example-data (예시 자료 여부): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:useCondition ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/use-condition> ] ] ; sh:message "do.use-condition (이용 조건 범주): 값은 scheme/use-condition 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:useCondition ; sh:maxCount 1 ; sh:message "do.use-condition (이용 조건 범주): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:useCondition ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "do.use-condition (이용 조건 범주): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path dct:license ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "do.license (라이선스): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path dct:format ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "do.format (형식): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path prov:wasGeneratedBy ; sh:nodeKind sh:BlankNodeOrIRI ; sh:message "do.generated-by (생성 실행): 값은 노드 여야 한다"@ko ] ;
+    sh:property [ sh:path prov:wasDerivedFrom ; sh:nodeKind sh:BlankNodeOrIRI ; sh:message "do.derived-from (원천 자료): 값은 노드 여야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:validTime ; sh:datatype xsd:dateTime ; sh:message "do.valid-time (유효 시각): 값은 xsd:dateTime 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:validTime ; sh:maxCount 1 ; sh:message "do.valid-time (유효 시각): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:validTime ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "do.valid-time (유효 시각): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:referenceTime ; sh:datatype xsd:dateTime ; sh:message "do.reference-time (발표 시각): 값은 xsd:dateTime 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:referenceTime ; sh:maxCount 1 ; sh:message "do.reference-time (발표 시각): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:leadTime ; sh:datatype xsd:duration ; sh:message "do.lead-time (선행 시간): 값은 xsd:duration 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:leadTime ; sh:maxCount 1 ; sh:message "do.lead-time (선행 시간): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:generationMethod ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/generation-method> ] ] ; sh:message "do.generation-method (생성 방법(기본값)): 값은 scheme/generation-method 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:generationMethod ; sh:maxCount 1 ; sh:message "do.generation-method (생성 방법(기본값)): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:temporalRelation ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/temporal-relation> ] ] ; sh:message "do.temporal-relation (시간 관계(기본값)): 값은 scheme/temporal-relation 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:temporalRelation ; sh:maxCount 1 ; sh:message "do.temporal-relation (시간 관계(기본값)): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:hasDataVariable ; sh:nodeKind sh:BlankNodeOrIRI ; sh:class nmsc:DataVariable ; sh:message "do.variable (자료 변수): 값은 노드 (nmsc:DataVariable) 여야 한다"@ko ] .
+
+nmsc:RecordVariableShape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "자료 변수 요소(값 모양·개수)"@ko ;
+    sh:property [ sh:path nmsc:variableName ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "var.name (변수 이름): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:variableName ; sh:maxCount 1 ; sh:message "var.name (변수 이름): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:variableName ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "var.name (변수 이름): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:unitSymbol ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "var.unit (단위): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:unitSymbol ; sh:maxCount 1 ; sh:message "var.unit (단위): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:unitSymbol ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "var.unit (단위): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:quantityName ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "var.quantity (물리량): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:quantityName ; sh:maxCount 1 ; sh:message "var.quantity (물리량): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:quantityName ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "var.quantity (물리량): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:variableKind ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/variable-kind> ] ] ; sh:message "var.kind (변수 종류): 값은 scheme/variable-kind 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:variableKind ; sh:maxCount 1 ; sh:message "var.kind (변수 종류): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:variableKind ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "var.kind (변수 종류): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:calibrationStage ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/calibration-stage> ] ] ; sh:message "var.calibration-stage (보정 단계): 값은 scheme/calibration-stage 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:calibrationStage ; sh:maxCount 1 ; sh:message "var.calibration-stage (보정 단계): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:encodingStatus ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/encoding-status> ] ] ; sh:message "var.encoding-status (형식 상태): 값은 scheme/encoding-status 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:encodingStatus ; sh:maxCount 1 ; sh:message "var.encoding-status (형식 상태): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:encodingStatus ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "var.encoding-status (형식 상태): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path [ sh:alternativePath ( nmsc:generationMethod ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:generationMethod ) ) ] ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/generation-method> ] ] ; sh:message "var.generation-method (생성 방법): 값은 scheme/generation-method 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path [ sh:alternativePath ( nmsc:generationMethod ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:generationMethod ) ) ] ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "var.generation-method (생성 방법): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path [ sh:alternativePath ( nmsc:temporalRelation ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:temporalRelation ) ) ] ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/temporal-relation> ] ] ; sh:message "var.temporal-relation (시간 관계): 값은 scheme/temporal-relation 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path [ sh:alternativePath ( nmsc:temporalRelation ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:temporalRelation ) ) ] ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "var.temporal-relation (시간 관계): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:representsVariable ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/variable> ] ] ; sh:message "var.represents (관측 변수): 값은 scheme/variable 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:representsVariable ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "var.represents (관측 변수): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:traceabilityLevel ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/traceability-level> ] ] ; sh:message "var.traceability (SI 소급 등급): 값은 scheme/traceability-level 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:traceabilityLevel ; sh:maxCount 1 ; sh:message "var.traceability (SI 소급 등급): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:combinedStandardUncertainty ; sh:datatype xsd:decimal ; sh:message "var.combined-uncertainty (합성 표준 불확도): 값은 xsd:decimal 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:combinedStandardUncertainty ; sh:maxCount 1 ; sh:message "var.combined-uncertainty (합성 표준 불확도): 최대 1개"@ko ] .
+
+nmsc:RecordRunShape a sh:NodeShape ;
+    sh:targetClass nmsc:ProcessingRun ;
+    rdfs:label "처리 실행 요소(값 모양·개수)"@ko ;
+    sh:property [ sh:path ( prov:qualifiedAssociation prov:hadPlan dct:type ) ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/algorithm> ] ] ; sh:message "run.plan.algorithm (알고리즘): 값은 scheme/algorithm 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path ( prov:qualifiedAssociation prov:hadPlan dct:type ) ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "run.plan.algorithm (알고리즘): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path ( prov:qualifiedAssociation prov:hadPlan dcat:version ) ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "run.plan.version (알고리즘 판): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path ( prov:qualifiedAssociation prov:hadPlan dcat:version ) ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "run.plan.version (알고리즘 판): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:computeStatus ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/compute-status> ] ] ; sh:message "run.compute (계산 상태): 값은 scheme/compute-status 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:computeStatus ; sh:maxCount 1 ; sh:message "run.compute (계산 상태): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:computeStatus ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "run.compute (계산 상태): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:qualityStatus ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/quality-status> ] ] ; sh:message "run.quality (품질 상태): 값은 scheme/quality-status 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:qualityStatus ; sh:maxCount 1 ; sh:message "run.quality (품질 상태): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:qualityStatus ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "run.quality (품질 상태): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:publicationStatus ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/publication-status> ] ] ; sh:message "run.publication (공개 상태): 값은 scheme/publication-status 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:publicationStatus ; sh:maxCount 1 ; sh:message "run.publication (공개 상태): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:publicationStatus ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "run.publication (공개 상태): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path prov:startedAtTime ; sh:datatype xsd:dateTime ; sh:message "run.started (시작 시각): 값은 xsd:dateTime 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path prov:startedAtTime ; sh:maxCount 1 ; sh:message "run.started (시작 시각): 최대 1개"@ko ] ;
+    sh:property [ sh:path prov:startedAtTime ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "run.started (시작 시각): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path prov:endedAtTime ; sh:datatype xsd:dateTime ; sh:message "run.ended (종료 시각): 값은 xsd:dateTime 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path prov:endedAtTime ; sh:maxCount 1 ; sh:message "run.ended (종료 시각): 최대 1개"@ko ] ;
+    sh:property [ sh:path prov:qualifiedUsage ; sh:nodeKind sh:BlankNodeOrIRI ; sh:class prov:Usage ; sh:message "run.usage (입력 사용): 값은 노드 (prov:Usage) 여야 한다"@ko ] .
+
+nmsc:RecordUsageShape a sh:NodeShape ;
+    sh:targetClass prov:Usage ;
+    rdfs:label "입력 사용 요소(값 모양·개수)"@ko ;
+    sh:property [ sh:path prov:entity ; sh:nodeKind sh:BlankNodeOrIRI ; sh:message "usage.entity (입력 자료): 값은 노드 여야 한다"@ko ] ;
+    sh:property [ sh:path prov:entity ; sh:maxCount 1 ; sh:message "usage.entity (입력 자료): 최대 1개"@ko ] ;
+    sh:property [ sh:path prov:entity ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "usage.entity (입력 자료): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path prov:hadRole ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/input-role> ] ] ; sh:message "usage.role (입력 역할): 값은 scheme/input-role 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path prov:hadRole ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "usage.role (입력 역할): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path ( prov:entity dcat:version ) ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "usage.entity.version (입력 자료 판): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] .
+
+nmsc:RecordComponentShape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "불확도 성분 요소(값 모양·개수)"@ko ;
+    sh:property [ sh:path nmsc:componentOf ; sh:nodeKind sh:BlankNodeOrIRI ; sh:class nmsc:DataVariable ; sh:message "comp.of (출력 변수): 값은 노드 (nmsc:DataVariable) 여야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:componentOf ; sh:maxCount 1 ; sh:message "comp.of (출력 변수): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:componentOf ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "comp.of (출력 변수): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:effectId ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "comp.effect-id (효과 id): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:effectId ; sh:maxCount 1 ; sh:message "comp.effect-id (효과 id): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:effectId ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "comp.effect-id (효과 id): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:effectOriginRun ; sh:nodeKind sh:BlankNodeOrIRI ; sh:class nmsc:ProcessingRun ; sh:message "comp.origin-run (출처 실행): 값은 노드 (nmsc:ProcessingRun) 여야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:effectOriginRun ; sh:maxCount 1 ; sh:message "comp.origin-run (출처 실행): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:effectOriginAlgorithm ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/algorithm> ] ] ; sh:message "comp.origin-algorithm (출처 알고리즘): 값은 scheme/algorithm 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:effectOriginAlgorithm ; sh:maxCount 1 ; sh:message "comp.origin-algorithm (출처 알고리즘): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:effectOriginAlgorithm ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "comp.origin-algorithm (출처 알고리즘): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintySource ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/uncertainty-source> ] ] ; sh:message "comp.source (성분 분류): 값은 scheme/uncertainty-source 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintySource ; sh:maxCount 1 ; sh:message "comp.source (성분 분류): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintySource ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "comp.source (성분 분류): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintyStatus ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/uncertainty-status> ] ] ; sh:message "comp.status (불확도 상태): 값은 scheme/uncertainty-status 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintyStatus ; sh:maxCount 1 ; sh:message "comp.status (불확도 상태): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintyStatus ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "comp.status (불확도 상태): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:algorithmErrorCategory ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/algorithm-error-category> ] ] ; sh:message "comp.algorithm-category (알고리즘 오차 세부 분류): 값은 scheme/algorithm-error-category 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:algorithmErrorCategory ; sh:maxCount 1 ; sh:message "comp.algorithm-category (알고리즘 오차 세부 분류): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:errorCorrelation ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/error-correlation> ] ] ; sh:message "comp.correlation (상관 형태): 값은 scheme/error-correlation 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:errorCorrelation ; sh:maxCount 1 ; sh:message "comp.correlation (상관 형태): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:errorCorrelation ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "comp.correlation (상관 형태): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintyDistribution ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/uncertainty-distribution> ] ] ; sh:message "comp.distribution (분포): 값은 scheme/uncertainty-distribution 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintyDistribution ; sh:maxCount 1 ; sh:message "comp.distribution (분포): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintyMethod ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/uncertainty-method> ] ] ; sh:message "comp.method (평가 방법): 값은 scheme/uncertainty-method 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:uncertaintyMethod ; sh:maxCount 1 ; sh:message "comp.method (평가 방법): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:standardUncertainty ; sh:datatype xsd:decimal ; sh:message "comp.standard-uncertainty (표준 불확도): 값은 xsd:decimal 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:standardUncertainty ; sh:maxCount 1 ; sh:message "comp.standard-uncertainty (표준 불확도): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:applicability ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "comp.applicability (적용 조건): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:carriedFromUpstream ; sh:datatype xsd:boolean ; sh:message "comp.carried (이어받음): 값은 xsd:boolean 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:carriedFromUpstream ; sh:maxCount 1 ; sh:message "comp.carried (이어받음): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:upstreamStatus ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/uncertainty-status> ] ] ; sh:message "comp.upstream-status (원래 상태): 값은 scheme/uncertainty-status 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:upstreamStatus ; sh:maxCount 1 ; sh:message "comp.upstream-status (원래 상태): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:basedOnValidation ; sh:nodeKind sh:BlankNodeOrIRI ; sh:class nmsc:ValidationRecord ; sh:message "comp.based-on-validation (근거 검증 기록): 값은 노드 (nmsc:ValidationRecord) 여야 한다"@ko ] ;
+    sh:property [ sh:path dct:source ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "comp.reference (근거): 필수 — 최소 1개"@ko ] .
+
+nmsc:RecordValidationShape a sh:NodeShape ;
+    sh:targetClass nmsc:ValidationRecord ;
+    rdfs:label "검증 기록 요소(값 모양·개수)"@ko ;
+    sh:property [ sh:path nmsc:validationKind ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/validation-kind> ] ] ; sh:message "val.kind (검증 종류): 값은 scheme/validation-kind 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:validationKind ; sh:maxCount 1 ; sh:message "val.kind (검증 종류): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:validationKind ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "val.kind (검증 종류): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:validationStatus ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/validation-status> ] ] ; sh:message "val.status (검증 상태): 값은 scheme/validation-status 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:validationStatus ; sh:maxCount 1 ; sh:message "val.status (검증 상태): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:validationStatus ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "val.status (검증 상태): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:validatedPlan ; sh:nodeKind sh:BlankNodeOrIRI ; sh:class prov:Plan ; sh:message "val.plan (대상 알고리즘 판): 값은 노드 (prov:Plan) 여야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:validatedPlan ; sh:maxCount 1 ; sh:message "val.plan (대상 알고리즘 판): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:validatedPlan ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "val.plan (대상 알고리즘 판): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path ( nmsc:validatedPlan dct:type ) ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/algorithm> ] ] ; sh:message "val.plan.algorithm (대상 알고리즘): 값은 scheme/algorithm 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path ( nmsc:validatedPlan dct:type ) ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "val.plan.algorithm (대상 알고리즘): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path ( nmsc:validatedPlan dcat:version ) ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "val.plan.version (대상 알고리즘 판): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path ( nmsc:validatedPlan dcat:version ) ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "val.plan.version (대상 알고리즘 판): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:validatedProduct ; sh:node [ sh:property [ sh:path skos:inScheme ; sh:hasValue <https://w3id.org/nmsc/scheme/product> ] ] ; sh:message "val.product (대상 산출물): 값은 scheme/product 의 개념이어야 한다(SR18)"@ko ] ;
+    sh:property [ sh:path nmsc:validatedProduct ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "val.product (대상 산출물): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:testRun ; sh:nodeKind sh:BlankNodeOrIRI ; sh:class nmsc:ProcessingRun ; sh:message "val.test-run (시험 실행): 값은 노드 (nmsc:ProcessingRun) 여야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:testRun ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "val.test-run (시험 실행): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:referenceData ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "val.reference-data (참조 자료): 필수 — 최소 1개"@ko ] ;
+    sh:property [ sh:path dct:temporal ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "val.period (기간): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:sampleSize ; sh:datatype xsd:nonNegativeInteger ; sh:message "val.sample-size (표본 수): 값은 xsd:nonNegativeInteger 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:sampleSize ; sh:maxCount 1 ; sh:message "val.sample-size (표본 수): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:sampleSize ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "val.sample-size (표본 수): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:applicability ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "val.applicability (조건): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:applicability ; sh:maxCount 1 ; sh:message "val.applicability (조건): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:applicability ; sh:minCount 1 ; sh:severity sh:Warning ; sh:message "val.applicability (조건): 권장 — 최소 1개"@ko ] ;
+    sh:property [ sh:path nmsc:bias ; sh:datatype xsd:decimal ; sh:message "val.bias (편향): 값은 xsd:decimal 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:bias ; sh:maxCount 1 ; sh:message "val.bias (편향): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:standardDeviation ; sh:datatype xsd:decimal ; sh:message "val.standard-deviation (표준편차): 값은 xsd:decimal 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:standardDeviation ; sh:maxCount 1 ; sh:message "val.standard-deviation (표준편차): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:rmsd ; sh:datatype xsd:decimal ; sh:message "val.rmsd (RMSD): 값은 xsd:decimal 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:rmsd ; sh:maxCount 1 ; sh:message "val.rmsd (RMSD): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:unitSymbol ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "val.unit (통계 단위): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:unitSymbol ; sh:maxCount 1 ; sh:message "val.unit (통계 단위): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:dataSplitMethod ; sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ; sh:message "val.split-method (자료 분할 방법): 값은 문자열 리터럴(xsd:string 또는 언어 태그)이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:dataSplitMethod ; sh:maxCount 1 ; sh:message "val.split-method (자료 분할 방법): 최대 1개"@ko ] ;
+    sh:property [ sh:path nmsc:splitOverlapChecked ; sh:datatype xsd:boolean ; sh:message "val.split-overlap-checked (분할 겹침 확인): 값은 xsd:boolean 리터럴이어야 한다"@ko ] ;
+    sh:property [ sh:path nmsc:splitOverlapChecked ; sh:maxCount 1 ; sh:message "val.split-overlap-checked (분할 겹침 확인): 최대 1개"@ko ] ;
+    sh:property [ sh:path dct:source ; sh:minCount 1 ; sh:severity sh:Violation ; sh:message "val.source (출처): 필수 — 최소 1개"@ko ] .
+
+nmsc:RecordDoProductShape a sh:NodeShape ;
+    sh:targetClass nmsc:DataObject ;
+    rdfs:label "do.product — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:and ( [ sh:property [ sh:path nmsc:exampleData ; sh:hasValue false ] ] [ sh:property [ sh:path nmsc:useCondition ; sh:hasValue <https://w3id.org/nmsc/use-condition/public> ] ] ) ] ] [ sh:property [ sh:path nmsc:ofProduct ; sh:minCount 1 ] ] ) ;
+    sh:message "do.product (산출물 유형): 조건 [do.example-data eq false and do.use-condition eq public] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordDoReferenceTimeShape a sh:NodeShape ;
+    sh:targetClass nmsc:DataObject ;
+    rdfs:label "do.reference-time — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:temporalRelation ; sh:hasValue <https://w3id.org/nmsc/temporal-relation/forecast> ] ] ] [ sh:property [ sh:path nmsc:referenceTime ; sh:minCount 1 ] ] ) ;
+    sh:message "do.reference-time (발표 시각): 조건 [do.temporal-relation eq forecast] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordDoLeadTimeShape a sh:NodeShape ;
+    sh:targetClass nmsc:DataObject ;
+    rdfs:label "do.lead-time — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:temporalRelation ; sh:hasValue <https://w3id.org/nmsc/temporal-relation/forecast> ] ] ] [ sh:property [ sh:path nmsc:leadTime ; sh:minCount 1 ] ] ) ;
+    sh:message "do.lead-time (선행 시간): 조건 [do.temporal-relation eq forecast] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordVarCalibrationStageShape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "var.calibration-stage — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:ofProduct nmsc:processingLevel ) ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/processing-level/l1b> ) ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:property [ sh:path nmsc:calibrationStage ; sh:minCount 1 ] ] ) ;
+    sh:message "var.calibration-stage (보정 단계): 조건 [do.processing-level in [l1b]] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordVarCalibrationStageOtherwiseShape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "var.calibration-stage — 조건이 거짓이면 권장(R)"@ko ;
+    sh:severity sh:Warning ;
+    sh:or ( [ sh:property [ sh:path ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:ofProduct nmsc:processingLevel ) ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/processing-level/l1b> ) ] ; sh:qualifiedMinCount 1 ] ] [ sh:property [ sh:path nmsc:calibrationStage ; sh:minCount 1 ] ] ) ;
+    sh:message "var.calibration-stage (보정 단계): 조건 [do.processing-level in [l1b]] 이 거짓이면 권장(R) — 최소 1개"@ko .
+
+nmsc:RecordRunEndedShape a sh:NodeShape ;
+    sh:targetClass nmsc:ProcessingRun ;
+    rdfs:label "run.ended — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:computeStatus ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/compute-status/succeeded> <https://w3id.org/nmsc/compute-status/failed> <https://w3id.org/nmsc/compute-status/cancelled> ) ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:property [ sh:path prov:endedAtTime ; sh:minCount 1 ] ] ) ;
+    sh:message "run.ended (종료 시각): 조건 [run.compute in [succeeded failed cancelled]] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordUsageEntityVersionShape a sh:NodeShape ;
+    sh:targetClass prov:Usage ;
+    rdfs:label "usage.entity.version — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path prov:hadRole ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/input-role/calibration> <https://w3id.org/nmsc/input-role/static> ) ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:property [ sh:path ( prov:entity dcat:version ) ; sh:minCount 1 ] ] ) ;
+    sh:message "usage.entity.version (입력 자료 판): 조건 [usage.role in [calibration static]] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordCompMethodShape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "comp.method — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:not [ sh:property [ sh:path nmsc:uncertaintyStatus ; sh:hasValue <https://w3id.org/nmsc/uncertainty-status/unknown> ] ] ] ] [ sh:property [ sh:path nmsc:uncertaintyMethod ; sh:minCount 1 ] ] ) ;
+    sh:message "comp.method (평가 방법): 조건 [not comp.status eq unknown] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordCompUpstreamStatusShape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "comp.upstream-status — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:carriedFromUpstream ; sh:hasValue true ] ] ] [ sh:property [ sh:path nmsc:upstreamStatus ; sh:minCount 1 ] ] ) ;
+    sh:message "comp.upstream-status (원래 상태): 조건 [comp.carried eq true] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordCompBasedOnValidationShape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "comp.based-on-validation — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:uncertaintyMethod ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/uncertainty-method/validation> <https://w3id.org/nmsc/uncertainty-method/validation-residual> ) ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:property [ sh:path nmsc:basedOnValidation ; sh:minCount 1 ] ] ) ;
+    sh:message "comp.based-on-validation (근거 검증 기록): 조건 [comp.method in [validation validation_residual]] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordValBiasShape a sh:NodeShape ;
+    sh:targetClass nmsc:ValidationRecord ;
+    rdfs:label "val.bias — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:and ( [ sh:not [ sh:property [ sh:path nmsc:standardDeviation ; sh:minCount 1 ] ] ] [ sh:not [ sh:property [ sh:path nmsc:rmsd ; sh:minCount 1 ] ] ] ) ] ] [ sh:property [ sh:path nmsc:bias ; sh:minCount 1 ] ] ) ;
+    sh:message "val.bias (편향): 조건 [not val.standard-deviation exists and not val.rmsd exists] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordValStandardDeviationShape a sh:NodeShape ;
+    sh:targetClass nmsc:ValidationRecord ;
+    rdfs:label "val.standard-deviation — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:and ( [ sh:not [ sh:property [ sh:path nmsc:bias ; sh:minCount 1 ] ] ] [ sh:not [ sh:property [ sh:path nmsc:rmsd ; sh:minCount 1 ] ] ] ) ] ] [ sh:property [ sh:path nmsc:standardDeviation ; sh:minCount 1 ] ] ) ;
+    sh:message "val.standard-deviation (표준편차): 조건 [not val.bias exists and not val.rmsd exists] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordValRmsdShape a sh:NodeShape ;
+    sh:targetClass nmsc:ValidationRecord ;
+    rdfs:label "val.rmsd — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:and ( [ sh:not [ sh:property [ sh:path nmsc:bias ; sh:minCount 1 ] ] ] [ sh:not [ sh:property [ sh:path nmsc:standardDeviation ; sh:minCount 1 ] ] ] ) ] ] [ sh:property [ sh:path nmsc:rmsd ; sh:minCount 1 ] ] ) ;
+    sh:message "val.rmsd (RMSD): 조건 [not val.bias exists and not val.standard-deviation exists] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordValUnitShape a sh:NodeShape ;
+    sh:targetClass nmsc:ValidationRecord ;
+    rdfs:label "val.unit — 조건부 필수(C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:or ( [ sh:property [ sh:path nmsc:bias ; sh:minCount 1 ] ] [ sh:property [ sh:path nmsc:standardDeviation ; sh:minCount 1 ] ] [ sh:property [ sh:path nmsc:rmsd ; sh:minCount 1 ] ] ) ] ] [ sh:property [ sh:path nmsc:unitSymbol ; sh:minCount 1 ] ] ) ;
+    sh:message "val.unit (통계 단위): 조건 [val.bias exists or val.standard-deviation exists or val.rmsd exists] 이 참이면 필수(C) — 최소 1개"@ko .
+
+nmsc:RecordSR1Shape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "SR1 — 성분 중 상태 propagated 가 있으면 분류 input·상태 unknown 인 성분이 없어야 한다"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path [ sh:inversePath nmsc:componentOf ] ; sh:qualifiedValueShape [ sh:property [ sh:path nmsc:uncertaintyStatus ; sh:hasValue <https://w3id.org/nmsc/uncertainty-status/propagated> ] ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:not [ sh:property [ sh:path [ sh:inversePath nmsc:componentOf ] ; sh:qualifiedValueShape [ sh:and ( [ sh:property [ sh:path nmsc:uncertaintySource ; sh:hasValue <https://w3id.org/nmsc/uncertainty-source/input> ] ] [ sh:property [ sh:path nmsc:uncertaintyStatus ; sh:hasValue <https://w3id.org/nmsc/uncertainty-status/unknown> ] ] ) ] ; sh:qualifiedMinCount 1 ] ] ] ) ;
+    sh:message "SR1: 성분 중 상태 propagated 가 있으면 분류 input·상태 unknown 인 성분이 없어야 한다"@ko .
+
+nmsc:RecordSR2Shape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "SR2 — 상태 unknown 성분이 하나라도 있으면 합성 표준 불확도가 없어야 한다"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path [ sh:inversePath nmsc:componentOf ] ; sh:qualifiedValueShape [ sh:property [ sh:path nmsc:uncertaintyStatus ; sh:hasValue <https://w3id.org/nmsc/uncertainty-status/unknown> ] ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:not [ sh:property [ sh:path nmsc:combinedStandardUncertainty ; sh:minCount 1 ] ] ] ) ;
+    sh:message "SR2: 상태 unknown 성분이 하나라도 있으면 합성 표준 불확도가 없어야 한다"@ko .
+
+nmsc:RecordSR3Shape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "SR3 — 상관 structured 성분이 있으면 합성 표준 불확도가 없어야 한다"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path [ sh:inversePath nmsc:componentOf ] ; sh:qualifiedValueShape [ sh:property [ sh:path nmsc:errorCorrelation ; sh:hasValue <https://w3id.org/nmsc/error-correlation/structured> ] ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:not [ sh:property [ sh:path nmsc:combinedStandardUncertainty ; sh:minCount 1 ] ] ] ) ;
+    sh:message "SR3: 상관 structured 성분이 있으면 합성 표준 불확도가 없어야 한다"@ko .
+
+nmsc:RecordSR4Shape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "SR4 — 변수 종류가 범주형·비트마스크면 성분의 표준 불확도와 변수의 합성 표준 불확도가 없어야 한다"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:variableKind ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/variable-kind/categorical> <https://w3id.org/nmsc/variable-kind/bitmask> ) ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:and ( [ sh:not [ sh:property [ sh:path nmsc:combinedStandardUncertainty ; sh:minCount 1 ] ] ] [ sh:not [ sh:property [ sh:path [ sh:inversePath nmsc:componentOf ] ; sh:qualifiedValueShape [ sh:property [ sh:path nmsc:standardUncertainty ; sh:minCount 1 ] ] ; sh:qualifiedMinCount 1 ] ] ] ) ] ) ;
+    sh:message "SR4: 변수 종류가 범주형·비트마스크면 성분의 표준 불확도와 변수의 합성 표준 불확도가 없어야 한다"@ko .
+
+nmsc:RecordSR6Shape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "SR6 — 상태 unknown 이면 표준 불확도가 없어야 한다"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:uncertaintyStatus ; sh:hasValue <https://w3id.org/nmsc/uncertainty-status/unknown> ] ] ] [ sh:not [ sh:property [ sh:path nmsc:standardUncertainty ; sh:minCount 1 ] ] ] ) ;
+    sh:message "SR6: 상태 unknown 이면 표준 불확도가 없어야 한다"@ko .
+
+nmsc:RecordSR7Shape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "SR7 — 알고리즘 오차 세부 분류는 분류가 algorithm 일 때만"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:algorithmErrorCategory ; sh:minCount 1 ] ] ] [ sh:property [ sh:path nmsc:uncertaintySource ; sh:hasValue <https://w3id.org/nmsc/uncertainty-source/algorithm> ] ] ) ;
+    sh:message "SR7: 알고리즘 오차 세부 분류는 분류가 algorithm 일 때만"@ko .
+
+nmsc:RecordSR8Shape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "SR8 — 이어받은 성분(carriedFromUpstream true)은 원래 상태 하나와 출처 실행 또는 출처 알고리즘이 있어야 한다(원래 상태는 요소 comp.upstream-status 의 C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:carriedFromUpstream ; sh:hasValue true ] ] ] [ sh:or ( [ sh:property [ sh:path nmsc:effectOriginRun ; sh:minCount 1 ] ] [ sh:property [ sh:path nmsc:effectOriginAlgorithm ; sh:minCount 1 ] ] ) ] ) ;
+    sh:message "SR8: 이어받은 성분(carriedFromUpstream true)은 원래 상태 하나와 출처 실행 또는 출처 알고리즘이 있어야 한다(원래 상태는 요소 comp.upstream-status 의 C)"@ko .
+
+nmsc:RecordSR9Shape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "SR9 — 효과 id 는 하나이고 패턴 ^[a-z0-9_.:-]+$ 에 맞아야 한다(개수는 요소 comp.effect-id)"@ko ;
+    sh:severity sh:Violation ;
+    sh:and ( [ sh:property [ sh:path nmsc:effectId ; sh:pattern "^[a-z0-9_.:-]+$" ] ] ) ;
+    sh:message "SR9: 효과 id 는 하나이고 패턴 ^[a-z0-9_.:-]+$ 에 맞아야 한다(개수는 요소 comp.effect-id)"@ko .
+
+nmsc:RecordSR10Shape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "SR10 — 검증 통계(잔차 아님)로 낸 algorithm 성분과 input 성분을 함께 두면 이중 계산일 수 있다"@ko ;
+    sh:severity sh:Warning ;
+    sh:or ( [ sh:not [ sh:property [ sh:path [ sh:inversePath nmsc:componentOf ] ; sh:qualifiedValueShape [ sh:and ( [ sh:property [ sh:path nmsc:uncertaintySource ; sh:hasValue <https://w3id.org/nmsc/uncertainty-source/algorithm> ] ] [ sh:property [ sh:path nmsc:uncertaintyMethod ; sh:hasValue <https://w3id.org/nmsc/uncertainty-method/validation> ] ] ) ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:not [ sh:property [ sh:path [ sh:inversePath nmsc:componentOf ] ; sh:qualifiedValueShape [ sh:property [ sh:path nmsc:uncertaintySource ; sh:hasValue <https://w3id.org/nmsc/uncertainty-source/input> ] ] ; sh:qualifiedMinCount 1 ] ] ] ) ;
+    sh:message "SR10: 검증 통계(잔차 아님)로 낸 algorithm 성분과 input 성분을 함께 두면 이중 계산일 수 있다"@ko .
+
+nmsc:RecordSR11Shape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "SR11 — L3·L4 산출물 변수에 표본(sampling) 성분이 없다 — 산출물에 수준이 여럿이면 과할 수 있다"@ko ;
+    sh:severity sh:Warning ;
+    sh:or ( [ sh:not [ sh:property [ sh:path ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:ofProduct nmsc:processingLevel ) ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/processing-level/l3> <https://w3id.org/nmsc/processing-level/l4> ) ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:property [ sh:path [ sh:inversePath nmsc:componentOf ] ; sh:qualifiedValueShape [ sh:property [ sh:path nmsc:uncertaintySource ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/uncertainty-source/sampling> <https://w3id.org/nmsc/uncertainty-source/random-subsampling> <https://w3id.org/nmsc/uncertainty-source/sampling-bias> ) ] ; sh:qualifiedMinCount 1 ] ] ; sh:qualifiedMinCount 1 ] ] ) ;
+    sh:message "SR11: L3·L4 산출물 변수에 표본(sampling) 성분이 없다 — 산출물에 수준이 여럿이면 과할 수 있다"@ko .
+
+nmsc:RecordSR12Shape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "SR12 — 방법 gum 인데 분포가 정규가 아니다 — Monte Carlo 확인 안 됨"@ko ;
+    sh:severity sh:Warning ;
+    sh:and ( [ sh:not [ sh:and ( [ sh:property [ sh:path nmsc:uncertaintyMethod ; sh:hasValue <https://w3id.org/nmsc/uncertainty-method/gum> ] ] [ sh:property [ sh:path nmsc:uncertaintyDistribution ; sh:minCount 1 ] ] [ sh:not [ sh:property [ sh:path nmsc:uncertaintyDistribution ; sh:hasValue <https://w3id.org/nmsc/uncertainty-distribution/normal> ] ] ] ) ] ] ) ;
+    sh:message "SR12: 방법 gum 인데 분포가 정규가 아니다 — Monte Carlo 확인 안 됨"@ko .
+
+nmsc:RecordSR13Shape a sh:NodeShape ;
+    sh:targetClass nmsc:ValidationRecord ;
+    rdfs:label "SR13 — 개발 시험 검증 기록은 조정·시험 자료 겹침을 확인했어야 한다(splitOverlapChecked true)"@ko ;
+    sh:severity sh:Warning ;
+    sh:or ( [ sh:not [ sh:property [ sh:path nmsc:validationKind ; sh:hasValue <https://w3id.org/nmsc/validation-kind/development> ] ] ] [ sh:property [ sh:path nmsc:splitOverlapChecked ; sh:hasValue true ] ] ) ;
+    sh:message "SR13: 개발 시험 검증 기록은 조정·시험 자료 겹침을 확인했어야 한다(splitOverlapChecked true)"@ko .
+
+nmsc:RecordSR15Shape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "SR15 — 시간 관계 forecast(변수 값, 없으면 객체 값)면 선행 시간이 있어야 한다(자료 객체 쪽은 요소 do.lead-time 의 C)"@ko ;
+    sh:severity sh:Violation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path [ sh:alternativePath ( nmsc:temporalRelation ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:temporalRelation ) ) ] ; sh:hasValue <https://w3id.org/nmsc/temporal-relation/forecast> ] ] ] [ sh:property [ sh:path ( [ sh:inversePath nmsc:hasDataVariable ] nmsc:leadTime ) ; sh:minCount 1 ] ] ) ;
+    sh:message "SR15: 시간 관계 forecast(변수 값, 없으면 객체 값)면 선행 시간이 있어야 한다(자료 객체 쪽은 요소 do.lead-time 의 C)"@ko .
+
+nmsc:RecordSR16ComponentShape a sh:NodeShape ;
+    sh:targetClass nmsc:UncertaintyComponent ;
+    rdfs:label "SR16 — 표준 불확도는 음이 아니다"@ko ;
+    sh:severity sh:Violation ;
+    sh:and ( [ sh:property [ sh:path nmsc:standardUncertainty ; sh:minInclusive 0 ] ] ) ;
+    sh:message "SR16: 표준 불확도는 음이 아니다"@ko .
+
+nmsc:RecordSR16VariableShape a sh:NodeShape ;
+    sh:targetClass nmsc:DataVariable ;
+    rdfs:label "SR16 — 합성 표준 불확도는 음이 아니다"@ko ;
+    sh:severity sh:Violation ;
+    sh:and ( [ sh:property [ sh:path nmsc:combinedStandardUncertainty ; sh:minInclusive 0 ] ] ) ;
+    sh:message "SR16: 합성 표준 불확도는 음이 아니다"@ko .
+
+nmsc:RecordSR21Shape a sh:NodeShape ;
+    sh:targetClass prov:Usage ;
+    rdfs:label "SR21 — 입력 역할이 calibration·static 인 사용에는 입력 자료의 유효 기간(dct:valid)을 두는 것이 좋다"@ko ;
+    sh:severity sh:Warning ;
+    sh:or ( [ sh:not [ sh:property [ sh:path prov:hadRole ; sh:qualifiedValueShape [ sh:in ( <https://w3id.org/nmsc/input-role/calibration> <https://w3id.org/nmsc/input-role/static> ) ] ; sh:qualifiedMinCount 1 ] ] ] [ sh:property [ sh:path ( prov:entity dct:valid ) ; sh:minCount 1 ] ] ) ;
+    sh:message "SR21: 입력 역할이 calibration·static 인 사용에는 입력 자료의 유효 기간(dct:valid)을 두는 것이 좋다"@ko .

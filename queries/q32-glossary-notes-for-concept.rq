@@ -1,13 +1,13 @@
 PREFIX nmsc:  <https://w3id.org/nmsc/>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 
-# ── Q32. 어휘 개념 → NMSC 용어집 사용 노트 (v0.18, 로드맵 C9 — docs/glossary-scheme.md 4.2절)
+# ── Q32. 어휘 개념 → NMSC 용어집 사용 노트
 #    "이 개념을 NMSC 용어집은 어떻게 부르고 설명하나". 용어집 노트는 본 어휘가 아니라 vocab/glossary/nmsc-usage.ttl 에 있다
 #    (주어 = 어휘 개념, 전용 속성 nmsc:nmscLabel·nmsc:nmscNote). 본 어휘와 그 파일을 함께 읽어야 결과가 나온다.
 #    정본 정의는 개념의 skos:definition 이나 외부 원본이다 — nmscNote 는 정의가 아니라 NMSC 의 설명·사용 맥락이다.
 #    한 행에 값 하나 — ?종류 가 "노트"(nmsc:nmscNote)이거나 "이름"(nmsc:nmscLabel). 한 개념에 용어집 뜻이 여럿이면
 #    노트·이름이 여러 행이다(한 뜻도 노트·이름이 여럿일 수 있다)(GROUP_CONCAT 은 순서가 정해지지 않아 쓰지 않는다).
-#    임시(검토 전) 노트는 공개 파일에 없으므로 여기 나오지 않는다.
+#    임시 노트(검토 전 초안)는 공개 파일에 없으므로 여기 나오지 않는다.
 # data: glossary
 SELECT ?개념 ?대표명 ?종류 ?값
 WHERE {

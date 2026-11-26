@@ -1,8 +1,8 @@
 PREFIX nmsc:  <https://w3id.org/nmsc/>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 
-# ── Q39. 알고리즘 출력 노드마다 입력을 역할별로 (status 98 — nmsc:AlgorithmInput)
-#    2026-11-15 결정 '모듈에 입력되는 모든 것이 보여야 한다': 운영 알고리즘 × 산출물 노드(nmsc:AlgorithmOutput)가 받는 입력을
+# ── Q39. 알고리즘 출력 노드마다 입력을 역할별로 (nmsc:AlgorithmInput)
+#    모듈에 들어가는 입력을 모두 보인다(어휘 관리자 결정(2026-11-15)): 운영 알고리즘 × 산출물 노드(nmsc:AlgorithmOutput)가 받는 입력을
 #    역할(primary·intermediate·ancillary·calibration·static) 순으로 한 줄에 입력 하나씩 보인다. 입력원은 product/<id>(산출물), instrument/<id>(그 탑재체의 L1B),
 #    external-input/<id>(수치모델·다른 위성·현장 관측·외부 분석·내부 중간자료·처리 자원)로 적는다 — 기준 IRI 를 뗀 경로라 NMSC_BASE 와 무관하다.
 #    산출물의 nmsc:operationalInput·operationalL1BInput 은 이 가운데 primary·intermediate(자기 자신·외부 입력 제외)를 뽑은 단축 경로다.

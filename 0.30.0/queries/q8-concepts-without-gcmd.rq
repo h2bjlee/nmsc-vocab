@@ -1,0 +1,32 @@
+PREFIX nmsc:  <https://w3id.org/nmsc/>
+PREFIX sat:   <https://w3id.org/nmsc/satellite/>
+PREFIX agcy:  <https://w3id.org/nmsc/agency/>
+PREFIX drole: <https://w3id.org/nmsc/development-role/>
+PREFIX var:   <https://w3id.org/nmsc/variable/>
+PREFIX rel:   <https://w3id.org/nmsc/relevancy/>
+PREFIX lim:   <https://w3id.org/nmsc/observing-limitation/>
+PREFIX cap:   <https://w3id.org/nmsc/capability/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ins:   <https://w3id.org/nmsc/instrument/>
+PREFIX asset: <https://w3id.org/nmsc/it-asset-type/>
+PREFIX spdxc: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX spdxs: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:  <http://qudt.org/schema/qudt/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# ── Q8. 데이터 품질 점검 — 외부 레지스트리 연계가 없는 개념
+#    GCMD 등재 신청 후보를 뽑는 데 쓴다.
+SELECT ?개념 ?라벨 ?비고
+WHERE {
+  ?개념 a skos:Concept ; skos:prefLabel ?라벨 .
+  FILTER(lang(?라벨) = "en")
+  FILTER NOT EXISTS { ?개념 skos:exactMatch ?m
+                      FILTER(STRSTARTS(STR(?m), "https://gcmd.earthdata.nasa.gov/")) }
+  OPTIONAL { ?개념 nmsc:coverageNote ?비고 }
+}
+
+# ════════════════════════════════════════════════════════════════════
+#  관측 변수·관측 능력 축으로 가능해진 질의
+#  (필요한 PREFIX 는 파일 맨 위 공통 블록에 모두 선언되어 있다)
+# ════════════════════════════════════════════════════════════════════

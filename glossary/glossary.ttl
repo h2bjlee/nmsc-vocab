@@ -12,7 +12,7 @@
 
 # ============================================================================
 # 국가기상위성센터 기상위성 용어집 (초안) — 용어집 항목 nmsc:GlossaryEntry (공식)
-# 생성물 (NMSC 위성 어휘 0.29.0, 용어집 판 1.1.0+2026-11-17). 손으로 고치지 말 것.
+# 생성물 (NMSC 위성 어휘 0.30.0, 용어집 판 1.1.0+2026-11-17). 손으로 고치지 말 것.
 # 공개 — 공식(official) 뜻만. 발행 국가기상위성센터(agcy:nmsc), 용어집 판 1.1.0+2026-11-17(1.1.0판(별칭 2026.1) 이후 변경 반영 — NMSC 위성 어휘 판과 따로). 항목의 원본 행 출처(dct:source 의 "NMSC 약어 용어표 d1.2 (2019-05-01)")는 NMSC 내부 자료(비공개)다. 출처 기록으로 남길 뿐 그 자료를 함께 배포하지 않는다.
 # 외부 권위 + 해석되는 외부 IRI 없음(anchor=mint)인 뜻의 정의 기록. 번호는 발급 대장을 따른다. 항목 641개.
 #
@@ -24,7 +24,7 @@
 # The source rows cited in dct:source ("NMSC 약어 용어표 d1.2 (2019-05-01)") are NMSC internal material (not public); they are recorded for provenance only and are not distributed.
 # Definition records for senses defined by an external authority that has no resolvable external IRI (anchor=mint).
 # Numbers are issued from the register and never reused. 641 entries.
-# Generated (NMSC satellite vocabulary 0.29.0, glossary edition 1.1.0+2026-11-17). Do not edit by hand.
+# Generated (NMSC satellite vocabulary 0.30.0, glossary edition 1.1.0+2026-11-17). Do not edit by hand.
 # ============================================================================
 
 <https://w3id.org/nmsc/glossary> a dcat:Dataset ;
